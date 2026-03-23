@@ -1,6 +1,6 @@
 # ServiceNow Tenant & Copilot Connector Setup Guide
 
-> **Referenced from**: [HR-Onboarding-Agent>3.Runbook>Phase 1: ServiceNow Knowledge Base Setup>Step 1-1. Create ServiceNow Tenant & Configure Copilot Connector]  
+> **Referenced from**: [HR-Onboarding-Agent>3.Runbook>Phase 1: ServiceNow Knowledge Base Setup>Step 1-1. Create ServiceNow Tenant & Configure Copilot Connector](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/3.Runbook.md#step-1-1-create-servicenow-tenant--configure-copilot-connector)  
 > **Purpose**: Set up a free ServiceNow Developer Instance and configure the
 > ServiceNow Knowledge Copilot Connector in M365 Admin Center  
 > **Target Readers**: CSA / Vendor / PM  
@@ -41,12 +41,12 @@ This guide walks through two main tasks:
 
 1. Open your browser and go to https://developer.servicenow.com
 
-> ![ServiceNow Developer Program home page](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/52a470f75780d5d882fd425f938cf9996bd6f563/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/009.png)
+> ![ServiceNow Developer Program home page](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/009.png)
 
 2. Click **"Sign In"** in the top right corner
 3. Click **"New user? Get a ServiceNow ID"**
 
-> ![Get a ServiceNow ID button](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/52a470f75780d5d882fd425f938cf9996bd6f563/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/010.png)
+> ![Get a ServiceNow ID button](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/010.png)
 
 4. Fill out the registration form with the following details:
    - Email
@@ -60,7 +60,8 @@ This guide walks through two main tasks:
      
 5. Click **Sign Up**
 
-> ![ServiceNow ID registration](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/9c4298365c1d1b538c8407ba977f7573aefbf51d/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/011.png)
+> ![ServiceNow ID registration](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/011.png)
+>
 
 ---
 
@@ -69,12 +70,13 @@ This guide walks through two main tasks:
 1. Check your inbox for a verification email from `signon@service-now.com`
 2. Click **"Verify Email"** in the email
 
-> ![Verification email](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/ddda252ff491028ccc3670f813e71050623b1199/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/012.png)
+> ![Verification email](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/012.png)
 
 3. After verification, log in to your ServiceNow account
 4. On first login, MFA setup will appear on the next screen.
 
-> ![MFA setup screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/722fae4d3ef904edf54b72383a23d56828f1e457/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/013.png)
+> ![MFA setup screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/013.png)
+>
 
    > 💡 **Note**: For simplicity, click **"Skip"** to proceed without MFA.
 
@@ -84,11 +86,13 @@ This guide walks through two main tasks:
 
 1. In the **"Getting Started"** dialog, click **"No"** (I need a guided experience)
 
-> ![Getting Started screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/b757d3b1ba51ffe6ff13d7714023b3a042fdefa8/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/014.png)
+> ![Getting Started screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/014.png)
+>
 
 2. In the next window, select your preferred options, check the **Terms of Use** checkbox, and click **"Finish Setup"**
 
-> ![Set-up screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/d62e4d37dcf49f101746c13292243e03849d08ca/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/015.png)
+> ![Set-up screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/015.png)
+>
 
 
 ---
@@ -98,11 +102,13 @@ This guide walks through two main tasks:
 1. You should now be in your **ServiceNow Developer Dashboard**
 2. Click **"Request Instance"** in the top right corner
 
-> ![Request Instance screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/961e4f04d6bef72b39f72708451ee6502a4ce8a5/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/016.png)
+> ![Request Instance screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/016.png)
+>
 
 3. Choose **"Zurich release"** and click **"Request"**  
  
-> ![Request an Instance screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/2a4415de5e7c222a860db1b92ba33bff3e80389e/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/017.png)
+> ![Request an Instance screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/017.png)
+>
 
    > 💡 This process typically takes less than a minute.
 
@@ -111,7 +117,8 @@ This guide walks through two main tasks:
    - **Username**: `admin`
    - **Current password**: *(auto-generated)*
 
-> ![Manage my instance screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/ecc3f2f3a2c049868c0f027ee8cb124683827f44/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/018.png)
+> ![Manage my instance screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/018.png)
+>
 
    > 💡 You are expected to have the 'Admin' user role assigned. 
 
@@ -121,18 +128,18 @@ This guide walks through two main tasks:
 
 1. Click **"Actions"** in the top right corner and **"Change User Role"** from the dropdown.
 
-> ![Change user role screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/2c81dbed4d267fb065e63ccec6cef94ae210706b/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/019.png)
+> ![Change user role screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/019.png)
 
 2. In the **"Change User Role"** dialog, select **"Admin"**
 
->![Change user role - admin selection screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/2c81dbed4d267fb065e63ccec6cef94ae210706b/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/020.png)
+>![Change user role - admin selection screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/020.png)
 
    > ⚠️ **Important**: Admin access is required to configure the ServiceNow instance for the Copilot Connector.
 
 3. Click **"Change"** to confirm
 4. Click **"Done"** once the change is confirmed
 
->![Role change screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/9603a9bd13cbb2507c6af84a7acadfd4b163ebb8/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/021.png)
+>![Role change screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/021.png)
  
 5. Click **"Cancel"** to exit the dialog
 
@@ -142,7 +149,7 @@ This guide walks through two main tasks:
 
 1. On the **"Manage my instance"** page, note down the following credentials — you will need them in Part 2:
 
->![Manage my instance page](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/84f5b3ce88bf8df7262eb8eab71ca563fc61805b/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/022.png)
+>![Manage my instance page](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/022.png)
 
    - **Instance URL**: `https://dev[XXXXXX].service-now.com`
    - **Username**: `admin`
@@ -166,7 +173,7 @@ This guide walks through two main tasks:
    - **Username**: `admin`
    - **Password**: *(from Step 1-1-6)*
 
-> ![ServiceNow instance login page](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/f2ded5aaaf28a05b4b0e0ec3e52645d80c4799b0/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/023.png)
+> ![ServiceNow instance login page](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/023.png)
 
 ---
 
@@ -176,7 +183,7 @@ This guide walks through two main tasks:
 2. Type **"knowledge bases"** in the search field
 3. Select **"Knowledge Bases"** under **Knowledge > Administration**
 
-> ![Knowledge Bases selection screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/3bb12036b2fa6f084dfe1b70e96331db958ece69/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/024.png)
+> ![Knowledge Bases selection screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/024.png)
 
 4. Confirm the following four default Knowledge Bases are listed:
 
@@ -187,7 +194,7 @@ This guide walks through two main tasks:
    | IT | The ACME North America IT Service Desk Knowledge Base |
    | Knowledge | Knowledge Base for general Knowledge users |
 
-> ![Knowledge Bases list](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/31599524b749949b1104f2b9a942ea9c5dce9af7/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/025.png)
+> ![Knowledge Bases list](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/025.png)
 
    > 💡 These four knowledge bases will be imported and indexed into M365 using the ServiceNow Copilot Connector.
 
@@ -203,12 +210,12 @@ This guide walks through two main tasks:
 2. Navigate to **Copilot** → **Connectors** → **Your Connections**
 3. Click **"+ Add Connection"**
 
-> ![M365 Admin Center - Copilot Connectors page](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/5158294c79753480ed8fb9416cea09a034571aa6/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/026.png)
+> ![M365 Admin Center - Copilot Connectors page](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/026.png)
 
 4. In the connector list, select **"Add"** of **"ServiceNow Knowledge"**
 5. Click **"Next"**
 
-> ![ServiceNow Knowledge - Add screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/4f124bd22f959053cf9273d5f1d715c8a0e69b29/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/027.png)
+> ![ServiceNow Knowledge - Add screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/027.png)
 
 ---
 
@@ -216,8 +223,7 @@ This guide walks through two main tasks:
 
 1. Click **"Custom setup"** in the upper right of the screen
 
-> ![Custom setup screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/86190d439676ddbaaf63b432948f36b8fe760cfa/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/028.png)
-
+> ![Custom setup screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/028.png)
 
 2. Fill in the following fields in the **Setup** tab:
 
@@ -233,7 +239,7 @@ This guide walks through two main tasks:
    > ⚠️ **Security Note**: `Basic` authentication is used for **demo/dev purposes only**.  
    > For **customer deployments**, always use **ServiceNow OAuth** or **Azure AD OIDC**.
 
-> ![Custom setup screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/67304ea649cdc5abd5b74f0a8b1612cb23efc715/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/029.png)
+> ![Custom setup screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/029.png)
 
 ---
 
@@ -241,11 +247,12 @@ This guide walks through two main tasks:
 
 1. Click **"Authorize"** and wait for authentication to complete
 
-> ![Authentication screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/e872a01f96827a6f96f48ddb0dbd594cfbe41b18/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/030.png)
+> ![Authentication screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/030.png)
 
 2. After successful authentication, confirm that **green check marks** appear next to the username and password fields
 
-> ![Green Check Marks](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/2334e2f365537e2abae314d52be990af6354f6bb/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/031.png)
+> ![Green Check Marks](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/031.png)
+
 
 ---
 
@@ -255,7 +262,7 @@ This guide walks through two main tasks:
 
 2. Under **"Access Permissions"**, select **"Everyone"**
 
-> ![Users - Access Permissions screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/d71ea34cecb913d50f6b7340d403dd7bde01ece5/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/032.png)
+> ![Users - Access Permissions screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/032.png)
 
    > ⚠️ **Security Note**: **"Everyone"** is selected for demo/dev convenience only.  
    > For **customer deployments**, always select **"Only people with access to this data source"**  
@@ -269,7 +276,8 @@ This guide walks through two main tasks:
 2. Check all the required values are populated
 3. Click **"Create"**
 
-> ![Connection creation screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/907d05be869488bfdc980226269accb690a273c8/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/033.png)
+> ![Connection creation screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/033.png)
+>
 
 4. The button will display **"Creating connection"** while the process runs
 
@@ -280,11 +288,11 @@ This guide walks through two main tasks:
 1. Once the connection is created, a success screen will appear:  
    **"Created connection — ServiceNow (ServiceNowKB[X])"**
 
-> ![Created connection screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/c7304e0bb17157221cc8cf01b80730150878021a/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/034.png)
+> ![Created connection screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/034.png)
 
 2. Click **"Auto suggestion"** to have Copilot generate a description automatically
 
-> ![Auto suggestion screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/b6580dacc08b05535370e290959cf9a56c2af60a/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/035.png)
+> ![Auto suggestion screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/035.png)
 
    > 💡 **If "Auto suggestion" does not work**, you can add the description later:  
    > - Wait until the connection status shows **"Ready"**  
@@ -305,7 +313,7 @@ This guide walks through two main tasks:
    > ⚠️ **Important**: The **first sync can take up to 2 hours** to complete.  
    > Wait for the sync to finish before proceeding to the next step.
 
-> ![Save and Done screen](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/016c6bd29167b06f90b4b0779f0a81945ee3f662/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/036.png)
+> ![Save and Done screen](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/036.png)
 
 ---
 
@@ -316,12 +324,12 @@ This guide walks through two main tasks:
 1. Navigate to https://microsoft365.com and log in as a user in your tenant
 2. After clicking **`Search*`** on the navigation, type **`KB0*`** in the search, and press **Enter**
 
-> ![Microsoft 365 search results showing KB articles from ServiceNow](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/87b5b13af13f294d3d280f91b96c20cfd2462b1f/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/037.png)
+> ![Microsoft 365 search results showing KB articles from ServiceNow](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/037.png)
 
 3. Click **"All Sources"** filter → Select your ServiceNow connector (e.g., `ServiceNow-KB`)
 4. Confirm that KB articles from ServiceNow are listed in the results
 
->![Search results filtered by ServiceNow-KB showing knowledge articles](https://github.com/Seungjin-Ryu/Cloud-Accelerate-Factory-for-Agents-Runbooks/blob/87b5b13af13f294d3d280f91b96c20cfd2462b1f/02-scenarios/HR-Onboarding-Agent/0.%20Resources/Images/038.png)
+>![Search results filtered by ServiceNow-KB showing knowledge articles](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/0.Resources/Images/038.png)
 
 ---
 
@@ -380,8 +388,8 @@ For additional troubleshooting, refer to:
 
 ## Related Resources
 
-- Step-by-Step Deployment Guide → [`3.Step-by-Step-Guide.md`](./3.Step-by-Step-Guide.md)
-- Phase 1 — Add HR Documents to ServiceNow KB → [`3.Step-by-Step-Guide.md#step-1-2`](./3.Step-by-Step-Guide.md#step-1-2-add-hr-documents-to-servicenow-knowledge-base)
+- Step-by-Step deployment guide → [`3.Runbook.md`](01-scenarios/HR-Onboarding-Agent/3.Runbook.md)
+- Phase 1 — Add HR Documents to ServiceNow KB → [`3.Runbook.md#step-1-1`](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/3.Runbook.md#step-1-1-create-servicenow-tenant--configure-copilot-connector)
 - https://developer.servicenow.com
 - https://admin.microsoft.com
 - https://learn.microsoft.com/en-us/microsoftsearch/troubleshoot-servicenow-knowledge-connector
