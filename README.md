@@ -42,11 +42,11 @@ Cloud Accelerate Factory (CAF) for Agents is a Microsoft delivery program that p
 
 ## Key Features
 
-✨ **Pre-built Scenarios** – Ready-to-deploy AI Agent use cases
-🔍 **Best Practices** – Industry-validated technical patterns
-📖 **Comprehensive Guidance** – Step-by-step implementation guides
-🤖 **Copilot Integration** – Native Microsoft Copilot support
-⚡ **Sprint-Based Delivery** – Accelerated implementation methodology
+✨ **Pre-built Scenarios** – Ready-to-deploy AI Agent use cases  
+🔍 **Best Practices** – Industry-validated technical patterns  
+📖 **Comprehensive Guidance** – Step-by-step implementation guides  
+🤖 **Copilot Integration** – Native Microsoft Copilot support  
+⚡ **Sprint-Based Delivery** – Accelerated implementation methodology  
 
 ## Resources by Role
 
