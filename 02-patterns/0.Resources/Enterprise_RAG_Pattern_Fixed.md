@@ -3,7 +3,7 @@
 
 ---
 
-## 1. Enterprise RAG (Multi‑Source, Governed)
+## Enterprise RAG (Multi‑Source, Governed)
 
 > **Most widely deployed pattern.** Grounds every LLM response in real organizational
 > data with document-level access control and full citation trails.
@@ -15,7 +15,7 @@
 | **Industries** | Insurance, Healthcare, Public Sector, Finance, Legal, HR, IT, Sales |
 | **Data sources** | SharePoint, OneDrive, Dataverse, Azure SQL, Microsoft Fabric, Dynamics CRM |
 | **Task types** | Q&A, summarization, policy interpretation, compliance checks, knowledge access |
-| **Key benefit** | 36% better response relevance vs. traditional RAG (with Foundry IQ) |
+
 
 ---
 
