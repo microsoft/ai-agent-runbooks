@@ -8,7 +8,7 @@
 > **Most widely deployed pattern.** Grounds every LLM response in real organizational
 > data with document-level access control and full citation trails.
 
-### 🏆 Why It's Pattern #1
+### 🏆 Why 
 
 | Signal | Evidence |
 |--------|----------|
