@@ -145,16 +145,6 @@ Aim for groundedness ≥ 4.0 / 5.0 before going to production.
 
 ---
 
-### 🔗 Related Labs & Accelerators
-
-| Resource | Path |
-|----------|------|
-| Lab 1.4 — Azure AI Search in Copilot Studio | `/labs/lab-1.4` |
-| Lab 2.1 — Advanced Azure AI Search | `/labs/lab-2.1` |
-| Lab 2.3 — SharePoint AI Search Indexer | `/labs/lab-2.3` |
-| Lab 2.4 — Foundry IQ Agentic Retrieval | `/labs/lab-2.4` |
-| Content Flow Accelerator | `/accelerators/content-flow` |
-| SharePoint Connector Accelerator | `/accelerators/sharepoint-connector` |
 
 ---
 
