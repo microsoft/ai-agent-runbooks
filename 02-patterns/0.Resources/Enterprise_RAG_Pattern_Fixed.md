@@ -1,18 +1,5 @@
 # Enterprise RAG (Multi-Source, Governed) Pattern
 
-> **How to View Diagrams in This Document:**
-> 
-> The architecture diagrams in this document use Mermaid syntax. To view them properly:
-> 
-> **Option 1 - GitHub/GitLab**: Upload this file to GitHub or GitLab - they natively render Mermaid diagrams
-> 
-> **Option 2 - VS Code**: Install the "Markdown Preview Mermaid Support" extension
-> 
-> **Option 3 - Online Viewers**: 
-> - Copy the diagram code and paste into: https://mermaid.live/
-> - Or use: https://mermaid-js.github.io/mermaid-live-editor/
-> 
-> **Option 4 - Markdown Editors**: Use Typora, Obsidian, or any editor with Mermaid support
 
 ---
 
