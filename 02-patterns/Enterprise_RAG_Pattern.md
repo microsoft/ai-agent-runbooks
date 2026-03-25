@@ -406,7 +406,7 @@ flowchart TD
 
 | Resource | Path |
 |----------|------|
-| Lab 1.4 — Azure AI Search in Copilot Studio | `/labs/lab-1.4` |
+| Lab 1.4 — Azure AI Search in Copilot Studio | `/labs/lab-1.4` |https://github.com/Azure/Copilot-Studio-and-Azure/blob/main/labs/1.4-ai-search/1.4-ai-search.md
 | Lab 2.1 — Advanced Azure AI Search | `/labs/lab-2.1` |
 | Lab 2.3 — SharePoint AI Search Indexer | `/labs/lab-2.3` |
 | Lab 2.4 — Foundry IQ Agentic Retrieval | `/labs/lab-2.4` |
