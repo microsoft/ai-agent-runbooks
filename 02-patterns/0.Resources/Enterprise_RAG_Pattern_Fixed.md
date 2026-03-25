@@ -37,7 +37,7 @@ flowchart TD
     AIS --> OD[☁️ OneDrive]
     AIS --> BLOB[🗂️ Blob Storage / ADLS]
 
-    FIQ -->|grounded prompt + context| AOAI[🧠 Azure OpenAI GPT-4o]
+    FIQ -->|grounded prompt + context| AOAI[🧠 Azure Foundry LLM]
 
     AOAI -->|cited, grounded response| CS
     CS -->|answer + source links| U
