@@ -826,7 +826,7 @@ Enterprise deployment (10,000 documents, 1,000 queries/day):
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 1.0 | 2024 | Technical Documentation Team | Initial runbook creation |
+| 1.0 | 2026 | Technical Documentation Team | Initial runbook creation |
 
 ---
 
