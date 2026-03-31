@@ -1,59 +1,57 @@
-# 🚀 Cloud Accelerate Factory (CAF) for Agents
+# 🤖 AI Agent Runbooks
 
-Welcome to the Cloud Accelerate Factory for Agents! This is your comprehensive hub for building and deploying production-ready Copilot and AI Agent solutions with Microsoft's proven delivery methodology.
+Welcome to **AI Agent Runbooks** — your go-to hub for building and deploying production-ready AI Agent solutions on Microsoft platforms. This repository provides structured runbooks, proven technical patterns, and real-world scenarios to accelerate your AI Agent delivery with confidence.
 
-## What is Cloud Accelerate Factory (CAF) for Agents?
+## What is AI Agent Runbooks?
 
-Cloud Accelerate Factory (CAF) for Agents is a Microsoft delivery program that provides hands-on, sprint-based support to help customers build and deploy production-ready Copilot and AI Agent solutions. The program leverages proven templates, validated technical and business scenarios, and Microsoft expertise to accelerate successful agent adoption.
+**AI Agent Runbooks** is an open, community-driven repository that provides hands-on implementation guides, validated technical patterns, and ready-to-use scenario blueprints for building enterprise-grade AI Agents using Microsoft technologies — including **Copilot Studio**, **Azure AI Foundry**, and **Microsoft 365 Copilot**.
 
-## Who is this for?
+Whether you're building your first agent or scaling across multiple business domains, this repository gives you the structure and guidance to deliver faster and smarter.
 
-- ☁️ Cloud Solution Architects (CSA)
-- 🔧 Technical Specialists
-- 🤝 Partner delivery teams
-- 🏢 Enterprise customers adopting AI Agents
 
 ## Repository Structure
 
 ```
-📦 cloud-accelerate-factory
-├── 📂 00-program-overview/     → Understand CAF objectives, benefits, and program structure
-├── 📂 01-scenarios/             → Explore pre-built AI Agent use cases and implementations
-├── 📂 02-patterns/              → Learn technical patterns and industry best practices
-└── 📂 03-references/            → Access additional resources and reference materials
+📦 ai-agent-runbooks
+├── 📂 00-overview/          → Understand the repository objectives, structure, and how to get started
+├── 📂 01-scenarios/         → Explore pre-built AI Agent use cases and end-to-end implementations
+├── 📂 02-patterns/          → Learn technical patterns and industry best practices
+└── 📂 03-references/        → Access additional resources, templates, and reference materials
 ```
 
 ## How to use this repository
 
 | Purpose | Description | Starting Path |
 |---------|-------------|----------------|
-| 📋 Program Overview | Understand CAF for Agents objectives, benefits, and structure | [`00-program-overview/`](00-program-overview) |
-| 🎯 Supported Scenarios | Explore pre-built AI Agent use cases and deployment patterns | [`01-scenarios/`](01-scenarios) |
-| 🏗️ Technical Patterns | Learn implementation patterns and industry best practices | [`02-patterns/`](02-patterns) |
-| 📚 References | Access templates, guides, and additional resources | [`03-references/`](03-references) |
+| 📋 Overview | Understand the repository objectives, agent taxonomy, and navigation guide | [`00-overview/`](00-overview) |
+| 🎯 Agent Scenarios | Explore pre-built use cases such as HR Onboarding Agent, Helpdesk Agent, and more | [`01-scenarios/`](01-scenarios) |
+| 🏗️ Technical Patterns | Learn implementation patterns for Copilot Studio, Azure AI, and multi-agent orchestration | [`02-patterns/`](02-patterns) |
+| 📚 References | Access templates, guides, architecture references, and additional resources | [`03-references/`](03-references) |
 
 ## 🚀 Quick Start
 
-**New here?** Start with [00-program-overview/](00-program-overview) to understand the program structure.
+**New here?** Start with [`00-overview/`](00-overview) to understand the structure and agent taxonomy.
 
-**Ready to build?** Jump to [01-scenarios/](01-scenarios) and explore the [How-to-use-scenarios guide](01-scenarios/0.Resources/1.How-to-use-scenarios.md).
+**Ready to build?** Jump to [`01-scenarios/`](01-scenarios) and explore real-world agent implementations like:
+- 🧑‍💼 [HR Onboarding Agent](01-scenarios/hr-onboarding-agent)
 
-**Need implementation patterns?** Check out [02-patterns/](02-patterns) for proven technical approaches.
+**Need implementation patterns?** Check out [`02-patterns/`](02-patterns) for proven technical approaches including Copilot Studio orchestration, RAG patterns, and multi-agent design.
 
 ## Key Features
 
-✨ **Pre-built Scenarios** – Ready-to-deploy AI Agent use cases  
-🔍 **Best Practices** – Industry-validated technical patterns  
-📖 **Comprehensive Guidance** – Step-by-step implementation guides  
-🤖 **Copilot Integration** – Native Microsoft Copilot support  
-⚡ **Sprint-Based Delivery** – Accelerated implementation methodology  
+🤖 **Agent Runbooks** – Step-by-step implementation guides for real-world AI Agent scenarios  
+🎯 **Pre-built Scenarios** – Ready-to-deploy use cases across HR, IT, Customer Service, and more  
+🏗️ **Technical Patterns** – Validated design patterns for Copilot Studio and Azure AI Foundry  
+🔗 **Copilot Studio Native** – First-class support for Microsoft Copilot Studio agent development  
+⚡ **Accelerated Delivery** – Structured runbooks to reduce time-to-production  
+📖 **Comprehensive Guidance** – End-to-end documentation from design to deployment  
 
 ## Support & Documentation
 
-- 📖 Full documentation available in each section
-- 💡 Scenario guides with step-by-step instructions
-- 🔧 Technical patterns with implementation details
-- 🎓 Learning resources and best practices
+- 📖 Full documentation available in each section's README
+- 💡 Scenario runbooks with step-by-step implementation instructions
+- 🔧 Technical patterns with architecture diagrams and code samples
+- 🎓 Best practices and lessons learned from real-world deployments
 
 ## Contributing
 
@@ -75,4 +73,4 @@ Any use of third-party trademarks or logos is subject to the policies of those t
 
 ---
 
-**Get Started Today** 🎯 Begin with the [00-program-overview/](00-program-overview) directory to unlock the full potential of Cloud Accelerate Factory for Agents!
+**Get Started Today** 🎯 Dive into [`01-scenarios/`](01-scenarios) and start building production-ready AI Agents with proven runbooks!
