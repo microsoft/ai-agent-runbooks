@@ -23,19 +23,19 @@ Whether you're building your first agent or scaling across multiple business dom
 
 | Purpose | Description | Starting Path |
 |---------|-------------|----------------|
-| 📋 Overview | Understand the repository objectives, agent taxonomy, and navigation guide | [`00-overview/`](00-overview) |
-| 🎯 Agent Scenarios | Explore pre-built use cases such as HR Onboarding Agent, Helpdesk Agent, and more | [`01-scenarios/`](01-scenarios) |
-| 🏗️ Technical Patterns | Learn implementation patterns for Copilot Studio, Azure AI, and multi-agent orchestration | [`02-patterns/`](02-patterns) |
-| 📚 References | Access templates, guides, architecture references, and additional resources | [`03-references/`](03-references) |
+| 📋 Overview | Understand the repository objectives, agent taxonomy, and navigation guide | [`00-overview/`](https://github.com/microsoft/ai-agent-runbooks/tree/9802b146c4b4ede874e473d7e57bc78293edd3f7/00-overview) |
+| 🎯 Agent Scenarios | Explore pre-built use cases such as HR Onboarding Agent, Helpdesk Agent, and more | [`01-scenarios/`](https://github.com/microsoft/ai-agent-runbooks/tree/9802b146c4b4ede874e473d7e57bc78293edd3f7/01-scenarios) |
+| 🏗️ Technical Patterns | Learn implementation patterns for Copilot Studio, Azure AI, and multi-agent orchestration | [`02-patterns/`](https://github.com/microsoft/ai-agent-runbooks/tree/9802b146c4b4ede874e473d7e57bc78293edd3f7/02-patterns) |
+| 📚 References | Access templates, guides, architecture references, and additional resources | [`03-references/`](https://github.com/microsoft/ai-agent-runbooks/tree/9802b146c4b4ede874e473d7e57bc78293edd3f7/03-references) |
 
 ## 🚀 Quick Start
 
-**New here?** Start with [`00-overview/`](00-overview) to understand the structure and agent taxonomy.
+**New here?** Start with [`00-overview/`](https://github.com/microsoft/ai-agent-runbooks/tree/9802b146c4b4ede874e473d7e57bc78293edd3f7/00-overview) to understand the structure and agent taxonomy.
 
-**Ready to build?** Jump to [`01-scenarios/`](01-scenarios) and explore real-world agent implementations like:
-- 🧑‍💼 [HR Onboarding Agent](01-scenarios/hr-onboarding-agent)
+**Ready to build?** Jump to [`01-scenarios/`](https://github.com/microsoft/ai-agent-runbooks/tree/9802b146c4b4ede874e473d7e57bc78293edd3f7/01-scenarios) and explore real-world agent implementations like:
+- 🧑‍💼 [HR Onboarding Agent](https://github.com/microsoft/ai-agent-runbooks/tree/9802b146c4b4ede874e473d7e57bc78293edd3f7/01-scenarios/HR-Onboarding-Agent)
 
-**Need implementation patterns?** Check out [`02-patterns/`](02-patterns) for proven technical approaches including Copilot Studio orchestration, RAG patterns, and multi-agent design.
+**Need implementation patterns?** Check out [`02-patterns/`](https://github.com/microsoft/ai-agent-runbooks/tree/9802b146c4b4ede874e473d7e57bc78293edd3f7/02-patterns) for proven technical approaches including Copilot Studio orchestration, RAG patterns, and multi-agent design.
 
 ## Key Features
 
