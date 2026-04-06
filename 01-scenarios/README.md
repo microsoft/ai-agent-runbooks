@@ -13,7 +13,7 @@ standardized structure so that any CSA or vendor team can pick it up and deliver
 consistently — regardless of region or prior experience with the scenario.
 
 ```
-02-scenarios/
+01-scenarios/
 ├── HR-Onboarding-Agent/        ← ✅ Available
 │   ├── 1.Overview.md
 │   ├── 2.Architecture.md
@@ -98,9 +98,9 @@ across the repository:
 
 ---
 
-> 🏠 **Back to README:** [../../README.md](../../README.md)
+> 🏠 **Back to README:** [../../README.md](https://github.com/microsoft/ai-agent-runbooks/blob/af8f66e6052d2a6373ba44e11614930a0fcf5af1/README.md)
 >
-> 🔧 **Technical Patterns:** [../../03-patterns/](../../03-patterns/)
+> 🔧 **Technical Patterns:** [../../02-patterns/](https://github.com/microsoft/ai-agent-runbooks/tree/af8f66e6052d2a6373ba44e11614930a0fcf5af1/02-patterns)
 >
 > 📋 **Contribution Guide:** [../../CONTRIBUTING.md](../../CONTRIBUTING.md)
 
