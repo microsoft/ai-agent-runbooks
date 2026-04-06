@@ -406,12 +406,12 @@ flowchart TD
 
 | Resource | Path |
 |----------|------|
-| Lab 1.4 — Azure AI Search in Copilot Studio | `Use Azure AI Search in Copilot Studio`(https://github.com/Azure/Copilot-Studio-and-Azure/blob/main/labs/1.4-ai-search/1.4-ai-search.md)|
-| Lab 2.1 — Advanced Azure AI Search | `Use advance Azure AI Search`(https://github.com/Azure/Copilot-Studio-and-Azure/blob/main/labs/2.1-ai-search-advanced/2.1-ai-search-advanced.md) |
-| Lab 2.3 — SharePoint AI Search Indexer | `AI search SharePoint Indexer`(https://github.com/Azure/Copilot-Studio-and-Azure/blob/main/labs/2.3-ai-search-sharepoint-indexer/2.3-ai-search-sharepoint-indexer.md) |
-| Lab 2.4 — Foundry IQ Agentic Retrieval | `Microsoft Foundry Agentic Retrieval with Foundry IQ`(https://github.com/Azure/Copilot-Studio-and-Azure/blob/main/labs/2.4-microsoft-foundry-agentic-retrieval/README.md) |
-| Content Flow Accelerator | `Content Flow`(https://github.com/Azure/contentflow) |
-| SharePoint Connector Accelerator | `SharePoint Connector Accelerator`(https://github.com/Azure/Copilot-Studio-and-Azure/blob/main/accelerators/sharepoint-connector) |
+| Lab 1.4 — Azure AI Search in Copilot Studio | [`Use Azure AI Search in Copilot Studio`](https://github.com/Azure/Copilot-Studio-and-Azure/blob/main/labs/1.4-ai-search/1.4-ai-search.md)|
+| Lab 2.1 — Advanced Azure AI Search | [`Use advance Azure AI Search`](https://github.com/Azure/Copilot-Studio-and-Azure/blob/main/labs/2.1-ai-search-advanced/2.1-ai-search-advanced.md) |
+| Lab 2.3 — SharePoint AI Search Indexer | [`AI search SharePoint Indexer`](https://github.com/Azure/Copilot-Studio-and-Azure/blob/main/labs/2.3-ai-search-sharepoint-indexer/2.3-ai-search-sharepoint-indexer.md) |
+| Lab 2.4 — Foundry IQ Agentic Retrieval | [`Microsoft Foundry Agentic Retrieval with Foundry IQ`](https://github.com/Azure/Copilot-Studio-and-Azure/blob/main/labs/2.4-microsoft-foundry-agentic-retrieval/README.md) |
+| Content Flow Accelerator | [`Content Flow`](https://github.com/Azure/contentflow) |
+| SharePoint Connector Accelerator | [`SharePoint Connector Accelerator`](https://github.com/Azure/Copilot-Studio-and-Azure/blob/main/accelerators/sharepoint-connector) |
 
 ---
 ---
