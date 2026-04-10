@@ -32,7 +32,7 @@
 flowchart TD
     U([👤 User Goal]) -->|high-level intent| CS[🤖 Copilot Studio\nOrchestrator Agent]
 
-    CS --> PLAN[🧠 LLM Planner\nDecompose into steps]
+    CS --> PLAN[📋 Plan & Decompose\ninto Steps]
 
     PLAN --> T1[🔍 Tool: Search\nKnowledge Base]
     PLAN --> T2[🌐 Tool: Call\nREST API]
@@ -48,7 +48,7 @@ flowchart TD
 
     AGG --> EVAL{✅ Goal\nAchieved?}
     EVAL -->|No — replan| PLAN
-    EVAL -->|Yes| SYNTH[🧠 Azure OpenAI\nResponse Synthesis]
+    EVAL -->|Yes| SYNTH[📝 Synthesise\nFinal Response]
 
     SYNTH -->|final answer + action summary| U
 
@@ -341,12 +341,12 @@ flowchart TD
     DEV([👨‍💻 Dev Lead]) -->|"Triage critical bugs\nthis sprint"| ORC[🤖 Copilot Studio\nOrchestrator]
 
     ORC --> J1[🐛 Jira Connector\nFetch Critical Bugs\nin Active Sprint]
-    J1 --> J2[📊 Azure OpenAI\nRank by Impact &\nReproducibility Score]
+    J1 --> J2[📊 Rank Bugs\nby Impact & Severity]
 
     J2 --> J3[🔍 Azure AI Search\nSearch similar\npast bugs & fixes]
     J2 --> J4[📂 Azure DevOps\nCheck related\ncode commits]
 
-    J3 --> SYNTH1[🧠 LLM Synthesizer\nGenerate fix approach\nper bug]
+    J3 --> SYNTH1[🛠️ Generate Fix\nApproach per Bug]
     J4 --> SYNTH1
 
     SYNTH1 --> ADO1[🔀 Azure DevOps\nCreate fix branch\nper bug]
@@ -367,10 +367,10 @@ flowchart TD
 | Step | Action | Connector |
 |------|--------|-----------|
 | 1 | Fetch all `Critical` bugs in the active sprint | **Jira** — `GET /rest/agile/1.0/sprint/{id}/issue` |
-| 2 | Score each bug by impact × reproducibility using LLM | Azure OpenAI |
+| 2 | Score each bug by impact × reproducibility | AI Analysis |
 | 3 | Search for similar resolved bugs and past fixes | Azure AI Search (code knowledge base) |
 | 4 | Pull related commits and blame history | **Azure DevOps** — Repos API |
-| 5 | Generate a fix approach summary per top-3 bug | Azure OpenAI |
+| 5 | Generate a fix approach summary per top-3 bug | AI Analysis |
 | 6 | Create feature branch `fix/BUG-{id}` per ticket | **Azure DevOps** — Repos connector |
 | 7 | Update Jira ticket: assign, add fix notes, link branch | **Jira** — `PUT /rest/api/2/issue/{id}` |
 | 8 | Post ranked triage card to dev Teams channel | **Microsoft Teams** connector |
@@ -392,7 +392,7 @@ flowchart TD
     ORC --> SN1[🔍 ServiceNow\nCheck CMDB for\naffected CIs]
     ORC --> CAL[📅 Outlook Calendar\nCheck maintenance\nwindow availability]
 
-    SN1 --> RISK[🧠 Azure OpenAI\nAssess risk score\nbased on CI criticality]
+    SN1 --> RISK[⚖️ Assess Change Risk\nbased on CI Criticality]
     CAL --> RISK
 
     RISK --> SN2[📋 ServiceNow\nDraft Change Request\nwith risk assessment]
@@ -422,7 +422,7 @@ flowchart TD
 |------|--------|-----------|
 | 1 | Look up all CIs impacted by the DB migration in CMDB | **ServiceNow** — CMDB API |
 | 2 | Check if a valid maintenance window exists tonight | **Outlook Calendar** connector |
-| 3 | Score risk: CI criticality × change complexity × window overlap | Azure OpenAI |
+| 3 | Score risk: CI criticality × change complexity × window overlap | AI Analysis |
 | 4 | Draft Change Request record with pre-filled risk fields | **ServiceNow** — Change Management API |
 | 5 | Low/Medium risk → auto-submit; High risk → Teams approval card | **Teams** Adaptive Card |
 | 6 | On approval: submit CR and trigger SNow notification workflow | **ServiceNow** connector |
@@ -443,7 +443,7 @@ flowchart TD
     HR([👩‍💼 HR Coordinator]) -->|"Onboard Priya Sharma\njoining Monday"| ORC[🤖 Copilot Studio\nOrchestrator]
 
     ORC --> WD[👥 Workday\nFetch employee record\nrole, dept, location]
-    WD --> PLAN[🧠 LLM Planner\nBuild onboarding\ntask checklist]
+    WD --> PLAN[📋 Build Onboarding\nTask Checklist]
 
     PLAN --> AAD[🔐 Microsoft Entra ID\nCreate user account\n& assign licenses]
     PLAN --> SN_HR[📋 ServiceNow HR\nCreate onboarding\ntask bundle]
@@ -471,7 +471,7 @@ flowchart TD
 | Step | Action | Connector |
 |------|--------|-----------|
 | 1 | Fetch employee profile: role, department, cost centre | **Workday** connector |
-| 2 | LLM builds a role-specific onboarding checklist | Azure OpenAI |
+| 2 | Build a role-specific onboarding checklist | AI Analysis |
 | 3 | Create M365 account, assign licenses, set MFA | **Microsoft Entra ID** (Graph API) |
 | 4 | Create onboarding task bundle (IT, equipment, training) | **ServiceNow HR** connector |
 | 5 | Provision SharePoint team site with folder templates | **SharePoint** connector |
@@ -497,13 +497,13 @@ flowchart TD
     ORC --> CRM[📊 Dynamics 365\nFetch customer profile\n& case history]
     ORC --> BILL[💳 Billing System\nREST API — Fetch\ninvoices & disputes]
 
-    CRM --> ANALYSIS[🧠 Azure OpenAI\nAnalyse dispute root\ncause & NPS risk]
+    CRM --> ANALYSIS[🔎 Analyse Dispute\nRoot Cause & NPS Risk]
     BILL --> ANALYSIS
 
     ANALYSIS --> POL[🔍 AI Search\nSearch refund &\ncompensation policy]
     ANALYSIS --> SENT{Customer\nSentiment?}
 
-    POL --> DRAFT[✍️ Azure OpenAI\nDraft resolution\n& recovery offer]
+    POL --> DRAFT[✍️ Draft Resolution\n& Recovery Offer]
     SENT -->|High Risk / Churning| ESCALATE[🙋 HITL Escalation\nSupervisor approval\nfor offer > $200]
     SENT -->|Standard| DRAFT
 
@@ -529,10 +529,10 @@ flowchart TD
 |------|--------|-----------|
 | 1 | Pull full customer profile, open cases, and NPS history | **Dynamics 365** connector |
 | 2 | Retrieve disputed invoices and billing transaction log | **Billing REST API** (custom connector) |
-| 3 | Analyse dispute root cause, classify severity and churn risk | Azure OpenAI |
+| 3 | Analyse dispute root cause, classify severity and churn risk | AI Analysis |
 | 4 | Search refund policy and compensation tiers | **Azure AI Search** |
 | 5 | High churn risk → supervisor approval via Teams card | **Teams** Adaptive Card |
-| 6 | Draft personalised resolution letter + recovery offer | Azure OpenAI |
+| 6 | Draft personalised resolution letter + recovery offer | AI Analysis |
 | 7 | Update Dynamics 365 case with resolution notes | **Dynamics 365** connector |
 | 8 | Send recovery email with offer details | **Outlook** connector |
 | 9 | Close any linked ServiceNow IT tickets | **ServiceNow** connector |
@@ -555,7 +555,7 @@ flowchart TD
     ORC --> SIGN[🔐 Entra ID\nGet sign-in logs\nlast 24 hours]
     ORC --> DEF[🦠 Defender XDR\nCheck device health\n& risk score]
 
-    SEN --> CORR[🧠 Azure OpenAI\nCorrelate signals\nThreat Intelligence]
+    SEN --> CORR[🔎 Correlate Threat\nSignals & Intel]
     SIGN --> CORR
     DEF --> CORR
 
@@ -592,7 +592,7 @@ flowchart TD
 | 1 | Fetch alert details and correlated incidents | **Microsoft Sentinel** connector |
 | 2 | Pull sign-in logs with location, device, and risk signals | **Entra ID** (Graph API) |
 | 3 | Check device risk score and active threats | **Microsoft Defender XDR** connector |
-| 4 | Correlate signals using threat intelligence | Azure OpenAI + **MDTI** |
+| 4 | Correlate signals using threat intelligence | AI Analysis + **MDTI** |
 | 5 | High confidence: revoke sessions, block account | **Entra ID** connector |
 | 6 | Isolate device from network | **Defender XDR** connector |
 | 7 | Create Sentinel incident with IOCs and timeline | **Microsoft Sentinel** connector |
@@ -678,4 +678,3 @@ flowchart TD
 | Connector Security Hardening Guide | `/accelerators/connector-security` |
 
 ---
-
