@@ -36,7 +36,7 @@ flowchart TD
 
     PLAN --> T1[🔍 Tool: Search\nKnowledge Base]
     PLAN --> T2[🌐 Tool: Call\nREST API]
-    PLAN --> T3[⚡ Tool: Run\nPower Automate Flow]
+    PLAN --> T3[⚡ Tool: Run\nAgent Flow]
     PLAN --> T4[📊 Tool: Query\nDatabase / Fabric]
     PLAN --> T5[🤖 Sub-Agent:\nSpecialist Agent]
 
@@ -63,8 +63,14 @@ flowchart TD
 ## 🔌 Connector Ecosystem
 
 > All connectors below are **verified Power Platform connectors** — certified third-party or
-> Microsoft first-party — available in Power Automate cloud flows. The **Integration** layer
-> enables Graph API calls and custom REST endpoints for systems without a certified connector.
+> Microsoft first-party — available as **agent flows** (recommended for Copilot Studio) or
+> Power Automate cloud flows. The **Integration** layer enables Graph API calls and custom
+> REST endpoints for systems without a certified connector.
+>
+> **Note:** *Agent flows* are the recommended way to build tools in Copilot Studio (GA mid-2025).
+> They run on the same Power Automate engine as cloud flows but are created natively within
+> Copilot Studio and include exclusive AI capabilities. Existing Power Automate cloud flows
+> can also be registered as tools.
 
 ```mermaid
 mindmap
@@ -266,7 +272,7 @@ one Copilot Studio *Tool* or *Agent Flow* action (search, API call, data write, 
 **Step 2 — Build tools in Copilot Studio**
 For each sub-task, configure a **Tool** in Copilot Studio:
 - Knowledge-base queries → AI Search tool
-- External system actions → Power Automate cloud flow tool
+- External system actions → Agent flow tool (or existing Power Automate cloud flow)
 - Structured data reads → Power Platform connector tool
 
 **Step 3 — Enable autonomous planning**
@@ -318,7 +324,7 @@ the agent replans correctly when one tool returns no results.
 > CFO assistant says: *"Run the month-end close checklist for March."*
 
 1. Agent iterates through a checklist of 12 steps stored in Dataverse
-2. For each step: executes Power Automate flow, verifies completion, logs result
+2. For each step: executes agent flow, verifies completion, logs result
 3. Flags any step that fails or returns an exception to the human reviewer
 4. Produces a completion summary report at the end
 
@@ -669,11 +675,10 @@ flowchart TD
 
 | Resource | Path |
 |----------|------|
-| Lab 1.2 — Tools in Copilot Studio | [`/labs/lab-1.2`](https://github.com/Azure/Copilot-Studio-and-Azure/blob/main/labs/1.2-tools/1.2-tools.md) |
-| Lab 1.3 — MCP Integration | [`/labs/lab-1.3`](https://github.com/Azure/Copilot-Studio-and-Azure/blob/main/labs/1.3-MCP/1.3-MCP.md) |
+| Lab 1.2 — Tools in Copilot Studio | `/labs/lab-1.2` |
+| Lab 1.3 — MCP Integration | `/labs/lab-1.3` |
 | Lab 2.1 — ServiceNow ITSM Integration | `/labs/lab-2.1` |
 | Lab 2.2 — Jira DevOps Agent | `/labs/lab-2.2` |
 | Lab 2.3 — HR Onboarding Orchestration | `/labs/lab-2.3` |
 | Functional Scoping Accelerator | `/accelerators/functional-scoping` |
 | Connector Security Hardening Guide | `/accelerators/connector-security` |
-
