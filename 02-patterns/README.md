@@ -112,7 +112,7 @@ Step 6. Cross-reference 01-scenarios/ → apply the pattern within the scenario 
 | Pattern | Description | Key Technologies | Status |
 |---------|-------------|------------------|--------|
 | [Enterprise RAG Pattern](./Enterprise-RAG-Pattern/Enterprise-RAG-Pattern.md) | Multi-source, governed retrieval-augmented generation. Grounds LLM responses in organizational data with access control and citation trails. | Copilot Studio, Azure AI Search, Azure OpenAI, Foundry IQ | ✅ Available |
-| [Agentic Workflow Orchestration](./Agentic-Workflow-Orchestration/Agentic-Workflow-Orchestration.md) | Multi-agent workflow orchestration pattern for coordinating complex, multi-step tasks across multiple specialized agents. | Copilot Studio, Azure AI Foundry, Agent Framework | 🚧 In Progress |
+| [Agentic Workflow Orchestration](./Agentic-Workflow-Orchestration/Agentic-Workflow-Orchestration.md) | Multi-agent workflow orchestration pattern for coordinating complex, multi-step tasks across multiple specialized agents. | Copilot Studio, Azure AI Foundry, Agent Framework | 🔨 In Progress |
 | Pattern03 (TBD) | TBD | TBD | 🚧 Coming Soon |
 | Pattern04 (TBD) | TBD | TBD | 🚧 Coming Soon |
 
