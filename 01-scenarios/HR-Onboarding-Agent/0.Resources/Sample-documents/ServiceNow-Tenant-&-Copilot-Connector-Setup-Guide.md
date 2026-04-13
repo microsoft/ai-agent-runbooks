@@ -3,8 +3,8 @@
 > **Referenced from**: [HR-Onboarding-Agent>3.Runbook>Phase 1: ServiceNow Knowledge Base Setup>Step 1-1. Create ServiceNow Tenant & Configure Copilot Connector](https://github.com/microsoft/cloud-accelerate-factory/blob/a6ff27ebddf3ec4b4e7197bac66c273007e3f1a0/01-scenarios/HR-Onboarding-Agent/3.Runbook.md#step-1-1-create-servicenow-tenant--configure-copilot-connector)  
 > **Purpose**: Set up a free ServiceNow Developer Instance and configure the
 > ServiceNow Knowledge Copilot Connector in M365 Admin Center  
-> **Target Readers**: CSA / Vendor / PM  
-> **Last Updated**: March 19, 2026
+> **Target Readers**: Delivery engineer  
+> **Last Updated**: April 13, 2026
 
 ---
 
