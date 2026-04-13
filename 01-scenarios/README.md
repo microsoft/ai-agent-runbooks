@@ -9,7 +9,7 @@
 
 The `01-scenarios/` folder contains **scenario-specific runbooks** for each supported 
 agent delivery scenario. Each scenario folder is self-contained and follows a
-standardized structure so that any CSA or vendor team can pick it up and deliver
+standardized structure so that any engineer can pick it up and deliver
 consistently — regardless of region or prior experience with the scenario.
 
 ```
