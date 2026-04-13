@@ -78,5 +78,5 @@ Below is the standard structure, using **HR Onboarding Agent** as the reference 
 - [📂 Overview](../00-overview/)
 - [📂 Patterns](../02-patterns/)
 - [📂 References](../03-references/)
-- [📂 Contribution Guide](../CONTRIBUTING.md)
+- [📂 Contribution Guide](../../CONTRIBUTING.md)
 
