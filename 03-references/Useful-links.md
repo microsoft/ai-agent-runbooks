@@ -9,3 +9,4 @@
 | [Azure AI Search Documentation](https://learn.microsoft.com/en-us/azure/search/) | Official Azure AI Search documentation (for Advanced Extension) |
 | [Azure Functions Documentation](https://learn.microsoft.com/en-us/azure/azure-functions/) | Azure Functions documentation for hosting the MCP Server |
 | [MCP Server on Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/) | Azure Functions documentation for hosting the MCP Server |
+| Application Insights Documentation | [Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) |
