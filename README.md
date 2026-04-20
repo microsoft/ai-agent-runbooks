@@ -36,7 +36,7 @@ Whether you're building your first agent or scaling across multiple business dom
 
 - 🧑‍💼 [HR Onboarding Agent](./01-scenarios/HR-Onboarding-Agent/) — Autonomous agent that helps new hires find HR-related information using a ServiceNow Knowledge Base
 - 🔧 [Dynamics 365 Monitoring Agent](./01-scenarios/Dynamics-365-Monitoring-Agent/) — AI-powered monitoring and diagnostics agent for D365 Finance & Supply Chain using Application Insights telemetry
-- 🏢 [Workplace Agent](./01-scenario/Workplace-Agent/) — Declarative agent that handles internal FAQ inquiries and application request workflows using SharePoint, Dataverse, and Power Automate  
+- 🏢 [Workplace Agent](./01-scenarios/Workplace-Agent/) — Declarative agent that handles internal FAQ inquiries and application request workflows using SharePoint, Dataverse, and Power Automate  
 
 **Need implementation patterns?** Check out [02-patterns/](./02-patterns/) for proven technical approaches including Copilot Studio orchestration, RAG patterns, and multi-agent design.
 
