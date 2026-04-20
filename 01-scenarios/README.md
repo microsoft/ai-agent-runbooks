@@ -26,13 +26,19 @@ consistently — regardless of region or prior experience with the scenario.
 │   ├── 2.Architecture.md
 │   ├── 3.Runbook.md
 │   └── 4.Sample-prompts.md
-├── Workplace-Agent/                          ← 🔨 In progress
+├── 📂 Workplace-Agent/                      ← ✅ Available
 │   ├── 📂 0.Resources/
 │   ├── 1.Overview.md
 │   ├── 2.Architecture.md
 │   ├── 3.Runbook.md
 │   └── 4.Sample-Prompts.md
-├── Scenario03(TBD)/                          ← 🚧 Coming Soon
+├── F&O-User-Onboarding-Agent/               ← 🔨 In progress
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   ├── 4.Sample-prompts.md
+│   └── 5.UAT-Test-Guide.md
 ├── Scenario04(TBD)/                          ← 🚧 Coming Soon
 ├── Scenario05(TBD)/                          ← 🚧 Coming Soon
 └── README.md
@@ -66,7 +72,8 @@ Below is the standard structure, using **HR Onboarding Agent** as the reference 
 |----------|------|-------------|----------|--------|
 | [HR-Onboarding-Agent](./HR-Onboarding-Agent/) | Employee Self-Service (HR) | Autonomous agent that helps new hires find HR-related information such as onboarding processes, policies, and employee benefits by leveraging a ServiceNow Knowledge Base. | Microsoft Copilot Studio, ServiceNow Copilot Connector, Power Platform | ✅ Available |
 | [Dynamics-365-Monitoring-Agent](./Dynamics-365-Monitoring-Agent/) | System Administration (D365 F&O) | AI-powered monitoring and diagnostics agent for Dynamics 365 Finance & Supply Chain that combines Application Insights telemetry with Copilot Studio to surface anomalies, answer natural-language queries on telemetry data, and guide or automate remediations. | Microsoft Copilot Studio, Dynamics 365 F&O, Azure Application Insights | ✅ Available |
-| Scenario03(TBD) | TBD | TBD | TBD |  🚧 Coming Soon |
+| [Workplace-Agent](./Workplace-Agent/) | Workforce Productivity / Internal Operations | Declarative agent that handles internal FAQ inquiries and application request workflows. It searches a SharePoint FAQ knowledge base using AI-powered semantic search, creates inquiry tickets in Dataverse when no match is found, and automates application approval workflows via Power Automate. | Microsoft Copilot Studio, SharePoint, Dataverse, Power Automate | ✅ Available |
+| F&O-User-Onboarding-Agent | User Onboarding (D365 F&O) | Agent that automates Dynamics 365 Finance & Operations user onboarding processes including user provisioning, security role assignment, and environment access configuration. | TBD | 🔨 In Progress |
 | Scenario04(TBD) | TBD | TBD | TBD | 🚧 Coming Soon |
 | Scenario05(TBD) | TBD | TBD | TBD | 🚧 Coming Soon |
 
