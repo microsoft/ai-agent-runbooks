@@ -95,5 +95,3 @@ The following resources are available for download:
 | ✅ Evaluation Test Plan | Evaluation prompts and expected results | [My Company Policy Agent — Evaluation Test Plan.pdf](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/My%20Company%20Policy/My%20Company%20Policy%20Agent%20-%20Evaluation%20Test%20Plan.pdf) |
 
 > 💡 **Explore more**: Browse the full [M365 Agent Templates repository](https://microsoft.github.io/m365-agent-templates/) for additional scenarios and resources.
-
----
