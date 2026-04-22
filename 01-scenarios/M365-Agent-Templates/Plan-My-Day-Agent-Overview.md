@@ -102,5 +102,3 @@ The following resources are available for download from the [M365 Agent Template
 | ✅ Evaluation Test Plan | Evaluation prompts and expected results for testing | [Plan My Day Agent — Evaluation Test Plan.pdf](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Plan%20My%20Day/Plan%20My%20Day%20Agent%20-%20Evaluation%20Test%20Plan.pdf) |
 
 > 💡 **Explore more**: Browse the full [M365 Agent Templates](https://microsoft.github.io/m365-agent-templates/) repository to discover all available agent templates and resources.
-
----
