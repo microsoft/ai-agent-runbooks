@@ -17,6 +17,13 @@ Each scenario folder is self-contained and follows a standardized structure so t
 │   ├── 2.Architecture.md
 │   ├── 3.Runbook.md
 │   └── 4.Sample-prompts.md
+├── F&O-User-Onboarding-Agent/               ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   ├── 4.Sample-prompts.md
+│   └── 5.UAT-Test-Guide.md
 ├── 📂 HR-Onboarding-Agent/                ← ✅ Available
 │   ├── 📂 0.Resources/
 │   ├── 1.Overview.md
@@ -35,13 +42,6 @@ Each scenario folder is self-contained and follows a standardized structure so t
 │   ├── 2.Architecture.md
 │   ├── 3.Runbook.md
 │   └── 4.Sample-Prompts.md
-├── F&O-User-Onboarding-Agent/               ← ✅ Available
-│   ├── 📂 0.Resources/
-│   ├── 1.Overview.md
-│   ├── 2.Architecture.md
-│   ├── 3.Runbook.md
-│   ├── 4.Sample-prompts.md
-│   └── 5.UAT-Test-Guide.md
 ├── Scenario03 (TBD)/                      ← 🚧 Coming Soon
 ├── Scenario04 (TBD)/                      ← 🚧 Coming Soon
 ├── Scenario05 (TBD)/                      ← 🚧 Coming Soon
@@ -77,6 +77,7 @@ Below is the standard structure, using **HR Onboarding Agent** as the reference 
 | [Dynamics-365-Monitoring-Agent](./Dynamics-365-Monitoring-Agent/) | System Administration (D365 F&O) | AI-powered monitoring and diagnostics agent for Dynamics 365 Finance & Supply Chain that combines Application Insights telemetry with Copilot Studio to surface anomalies, answer natural-language queries on telemetry data, and guide or automate remediations. | Microsoft Copilot Studio, Dynamics 365 F&O, Azure Application Insights | ✅ Available |
 | [Workplace-Agent](./Workplace-Agent/) | Workforce Productivity / Internal Operations | AI-powered agent that handles internal inquiries (FAQ) and application requests (e.g., equipment loans, expense approvals) using SharePoint, Dataverse, and Power Automate. | Microsoft Copilot Studio, SharePoint, Dataverse, Power Automate | ✅ Available |
 | [M365-Agent-Templates](./M365-Agent-Templates/) | Pre-configured Agent Templates | Pre-configured, deploy-ready AI agent templates for Microsoft 365 built by the Copilot Agents & Platform Ecosystem (CAPE) team. This folder contains Overview documents for the following 5 agent templates:Executive Briefing Agent,Know My Customer Agent,My Company Policy Agent,Plan My Day Agent, and Request Tracker Agent | Microsoft 365 Copilot, Copilot Studio | 📋 Overview Available |
+| [F&O-User-Onboarding-Agent](./F&O-User-Onboarding-Agent/) | ERP Administration / User Lifecycle | Automates onboarding of new users into Dynamics 365 Finance & Operations by provisioning accounts, assigning roles, and managing approval workflows using AI-driven orchestration. | Microsoft Copilot Studio, Dynamics 365 F&O, Azure AD, Power Automate, Microsoft Teams | ✅ Available |
 | Scenario03 (TBD) | TBD | TBD | TBD | 🚧 Coming Soon |
 | Scenario04 (TBD) | TBD | TBD | TBD | 🚧 Coming Soon |
 | Scenario05 (TBD) | TBD | TBD | TBD | 🚧 Coming Soon |
