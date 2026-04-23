@@ -155,13 +155,15 @@ Generates structured briefing or document with actionable insights
 
 ## Resources
 
+The following resources are available for download from the [M365 Agent Templates](https://microsoft.github.io/m365-agent-templates/) repository:
+
 | Resource | Description | Link |
 |---|---|---|
-| 📦 Agent Package | Solution package (.zip) | https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Know%20My%20Customer/KnowMyCustomer_1_0_0_1.zip |
-| 📖 Setup Guide | Setup documentation | https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Know%20My%20Customer/Know%20My%20Customer%20Agent%20-%20Setup%20Guide.pdf |
-| 📊 Overview Deck | Scenario presentation | https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Know%20My%20Customer/Know%20My%20Customer%20Agent%20-%20Overview%20Deck.pptx |
-| ✅ Evaluation Test Plan | Evaluation documentation | https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Know%20My%20Customer/Know%20My%20Customer%20Agent%20-%20Evaluation%20Test%20Plan.pdf |
-| ✅ Evaluation Test Set | CSV test file | https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Know%20My%20Customer/Know%20My%20Customer%20Agent%20-%20Evaluation%20Test%20Set.csv |
-| 📝 Word Template | Report template | https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Know%20My%20Customer/Know%20My%20Customer%20Agent%20-%20Evaluation%20Test%20Set.csv |
-| 🔗 GitHub Repo | M365 Agent Templates | https://microsoft.github.io/m365-agent-templates/ |
+| 📦 Agent Package | Importable agent solution package (.zip) for deployment to your Microsoft 365 environment | [KnowMyCustomer_1_0_0_1.zip](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Know%20My%20Customer/KnowMyCustomer_1_0_0_1.zip) |
+| 📖 Setup Guide | Step-by-step setup and configuration guide | [Know My Customer Agent Setup Guide.pdf](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Know%20My%20Customer/Know%20My%20Customer%20Agent%20-%20Setup%20Guide.pdf) |
+| 📊 Overview Deck | Scenario overview presentation | [Know My Customer Agent - Overview Deck.pptx](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Know%20My%20Customer/Know%20My%20Customer%20Agent%20-%20Overview%20Deck.pptx) |
+| ✅ Evaluation Test Plan | Evaluation prompts and expected results for testing | [Know My Customer Agent - Evaluation Test Plan.pdf](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Know%20My%20Customer/Know%20My%20Customer%20Agent%20-%20Evaluation%20Test%20Plan.pdf) |
+| ✅ Evaluation Test Set | CSV test file | [Know My Customer Agent - Evaluation Test Set.csv](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Know%20My%20Customer/Know%20My%20Customer%20Agent%20-%20Evaluation%20Test%20Set.csv) |
+| 📝 Word Template | Report template | [Know My Customer Agent - Evaluation Test Set.csv](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Know%20My%20Customer/Know%20My%20Customer%20Agent%20-%20Evaluation%20Test%20Set.csv) |
 
+> 💡 **Explore more**: Browse the full [M365 Agent Templates](https://microsoft.github.io/m365-agent-templates/) repository to discover all available agent templates and resources.
