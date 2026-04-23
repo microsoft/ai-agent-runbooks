@@ -117,11 +117,14 @@ Agent gathers details and searches for similar requests
 
 ## Resources
 
+The following resources are available for download from the [M365 Agent Templates](https://microsoft.github.io/m365-agent-templates/) repository:
+
 | Resource | Description | Link |
 |---|---|---|
-| 📦 Agent Package | Solution package (.zip) | https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Request%20Tracker/RequestTrackerAgent_1_0_0_0.zip |
-| 📖 Setup Guide | Setup documentation | https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Request%20Tracker/Request%20Tracker%20Agent%20-%20Setup%20Guide.pdf |
-| 📊 Overview Deck | Scenario deck | https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Request%20Tracker/Request%20Tracker%20Agent%20-%20Overview%20Deck.pptx |
-| ✅ Evaluation Test Plan | Evaluation guide | https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Request%20Tracker/Request%20Tracker%20Agent%20-%20Evaluation%20Test%20Plan.pdf |
-| ✅ Evaluation Test Set | CSV test set | https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Request%20Tracker/Request%20Tracker%20Agent%20-%20Evaluation%20Test%20Set.csv |
-| 🔗 GitHub Repo | M365 Agent Templates | https://microsoft.github.io/m365-agent-templates/ |
+| 📦 Agent Package | Importable agent solution package (.zip) for deployment to your Microsoft 365 environment | [RequestTrackerAgent_1_0_0_0.zip](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Request%20Tracker/RequestTrackerAgent_1_0_0_0.zip) |
+| 📖 Setup Guide | Step-by-step setup and configuration guide | [Request Tracker Agent - Setup Guide.pdf](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Request%20Tracker/Request%20Tracker%20Agent%20-%20Setup%20Guide.pdf) |
+| 📊 Overview Deck | Scenario overview presentation | [Request Tracker Agent - Overview Deck.pptx](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Request%20Tracker/Request%20Tracker%20Agent%20-%20Overview%20Deck.pptx) |
+| ✅ Evaluation Test Plan | Evaluation prompts and expected results for testing | [Request Tracker Agent - Evaluation Test Plan.pdf](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Request%20Tracker/Request%20Tracker%20Agent%20-%20Evaluation%20Test%20Plan.pdf) |
+| ✅ Evaluation Test Set | CSV test set | [Request Tracker Agent - Evaluation Test Set.csv](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Request%20Tracker/Request%20Tracker%20Agent%20-%20Evaluation%20Test%20Set.csv) |
+
+> 💡 **Explore more**: Browse the full [M365 Agent Templates](https://microsoft.github.io/m365-agent-templates/) repository to discover all available agent templates and resources.
