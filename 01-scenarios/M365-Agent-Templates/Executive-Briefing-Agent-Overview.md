@@ -109,7 +109,7 @@ The agent produces executive-ready deliverables such as:
 
 ## Resources
 
-The following resources are available for download:
+The following resources are available for download from the [M365 Agent Templates](https://microsoft.github.io/m365-agent-templates/) repository:
 
 | Resource | Description | Link |
 |---|---|---|
@@ -118,17 +118,4 @@ The following resources are available for download:
 | 📊 Overview Deck | Scenario overview presentation | [Executive Briefing Agent — Overview Deck.pptx](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Executive%20Briefing/Executive%20Briefing%20Agent%20-%20Overview%20Deck.pptx) |
 | ✅ Evaluation Test Plan | Evaluation prompts and expected results | [Executive Briefing Agent — Evaluation Test Plan.pdf](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/Executive%20Briefing/Executive%20Briefing%20Agent%20-%20Evaluation%20Test%20Plan.pdf) |
 
-> 💡 **Explore more**: Browse the full [M365 Agent Templates repository](https://microsoft.github.io/m365-agent-templates/) for additional resources.
-
-
-
-The following resources are available for download from the [M365 Agent Templates](<a href="https://microsoft.github.io/m365-agent-templates/" target="_blank" rel="noopener noreferrer" title="https://microsoft.github.io/m365-agent-templates/" class="fai-ChatInputEntity__text ___6erqso0 fyind8e f1tx3yz7 f1deo86v f1eh06m1 f1iescvh">https://microsoft.github.io/m365-agent-templates/</a>) repository:
-
-| Resource | Description | Link |
-|---------|------------|------|
-| 📦 Agent Package | Importable agent solution package (.zip) for deployment to your Microsoft 365 environment | [ExecutiveBriefing_v1.0.0.0.zip](기존_링크_그대로_유지) |
-| 📘 Setup Guide | Step-by-step setup and configuration guide | [Executive Briefing Agent — Setup Guide.pdf](기존_링크_그대로_유지) |
-| 📊 Overview Deck | Scenario overview presentation | [Executive Briefing Agent — Overview Deck.pptx](기존_링크_그대로_유지) |
-| ✅ Evaluation Test Plan | Evaluation prompts and expected results for testing | [Executive Briefing Agent — Evaluation Test Plan.pdf](기존_링크_그대로_유지) |
-
-💡 Explore more: Browse the full [M365 Agent Templates](<a href="https://microsoft.github.io/m365-agent-templates/" target="_blank" rel="noopener noreferrer" title="https://microsoft.github.io/m365-agent-templates/" class="fai-ChatInputEntity__text ___6erqso0 fyind8e f1tx3yz7 f1deo86v f1eh06m1 f1iescvh">https://microsoft.github.io/m365-agent-templates/</a>) repository to discover all available agent templates and resources.
+> 💡 **Explore more**: Browse the full [M365 Agent Templates](https://microsoft.github.io/m365-agent-templates/) repository to discover all available agent templates and resources.
