@@ -85,7 +85,7 @@ flowchart TD
 
 ## Resources
 
-The following resources are available for download:
+The following resources are available for download from the [M365 Agent Templates](https://microsoft.github.io/m365-agent-templates/) repository:
 
 | Resource | Description | Link |
 |---|---|---|
@@ -94,4 +94,4 @@ The following resources are available for download:
 | 📊 Overview Deck | Scenario overview presentation | [My Company Policy Agent — Overview Deck.pptx](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/My%20Company%20Policy/My%20Company%20Policy%20Agent%20-%20Overview%20Deck.pptx) |
 | ✅ Evaluation Test Plan | Evaluation prompts and expected results | [My Company Policy Agent — Evaluation Test Plan.pdf](https://raw.githubusercontent.com/microsoft/m365-agent-templates/main/My%20Company%20Policy/My%20Company%20Policy%20Agent%20-%20Evaluation%20Test%20Plan.pdf) |
 
-> 💡 **Explore more**: Browse the full [M365 Agent Templates repository](https://microsoft.github.io/m365-agent-templates/) for additional scenarios and resources.
+> 💡 **Explore more**: Browse the full [M365 Agent Templates](https://microsoft.github.io/m365-agent-templates/) repository to discover all available agent templates and resources.
