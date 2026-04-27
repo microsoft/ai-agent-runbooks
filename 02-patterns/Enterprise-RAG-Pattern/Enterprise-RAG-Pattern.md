@@ -233,7 +233,7 @@ flowchart TD
    - Library level: `https://contoso.sharepoint.com/sites/HR/Shared Documents`
    - OneDrive folder: shared folder URL from OneDrive
 4. Click **Add** — Copilot Studio indexes the site via Microsoft Graph
-5. Repeat for each site or folder (up to 10 knowledge sources per agent)
+5. Repeat for each site or folder (up to 25 knowledge sources per agent)
 6. Test with a query in the **Test** panel — citations appear as clickable file links
 
 > **Tip:** Use **library-level URLs** rather than site-level for large SharePoint sites.
