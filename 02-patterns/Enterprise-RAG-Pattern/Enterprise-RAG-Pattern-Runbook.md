@@ -368,7 +368,7 @@ Choose your integration approach based on scale, control requirements, and data 
 **Characteristics**:
 - Setup time: 15-30 minutes
 - Azure AI Search: Not required
-- Maximum documents: ~1,000 per source
+- Maximum documents: ~1,000 per agent
 - Chunking control: Automatic only
 - Permission model: Entra ID automatic
 - Search type: Semantic only
