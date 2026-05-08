@@ -162,7 +162,7 @@ Aim for groundedness ≥ 4.0 / 5.0 before going to production.
 |------------|------------------------|--------------------------|---------------------|
 | **Setup effort** | Minutes (UI only) | Hours (index + connector) | Days (full pipeline) |
 | **Azure AI Search required** | No | Yes | Yes |
-| **Max documents** | ~1,000 per source | Millions | Millions |
+| **Max documents** | ~1,000 per agent | Millions | Millions |
 | **Custom chunking** | No (automatic) | Yes (full control) | Yes (intelligent) |
 | **Permission trimming** | Entra ID (automatic) | Entra ID (configurable) | Entra ID + row-level |
 | **Hybrid search** | No (semantic only) | Yes (vector + BM25) | Yes (agentic) |
