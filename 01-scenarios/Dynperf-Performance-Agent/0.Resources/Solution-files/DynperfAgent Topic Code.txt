@@ -1,0 +1,281 @@
+kind: AdaptiveDialog
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    triggerQueries:
+      - Dynperf
+      - Get slow queries
+      - Get missing indexes
+      - query performance
+      - query tuning
+
+  actions:
+    - kind: SetVariable
+      id: setVariable_V8CfMU
+      variable: Topic.utcNow
+      value: =Now()
+
+    - kind: SetVariable
+      id: setVariable_pvNZC2
+      variable: Topic.utcToday
+      value: =Text(DateAdd(Now(), -4,TimeUnit.Hours),"HH:mm")
+
+    - kind: AdaptiveCardPrompt
+      id: eFwADj
+      card: |-
+        ={
+          type: "AdaptiveCard",
+          '$schema': "https://adaptivecards.io/schemas/adaptive-card.json",
+          version: "1.5",
+          body: [
+            {
+              type: "Container",
+              items: [
+                {
+                  type: "ColumnSet",
+                  columns: [
+                    {
+                      type: "Column",
+                      width: "stretch",
+                      items: [
+                        {
+                          type: "Icon",
+                          horizontalAlignment: "Left",
+                          name: "DatabaseLightning",
+                          color: "Accent",
+                          spacing: "ExtraSmall"
+                        }
+                      ]
+                    },
+                    {
+                      type: "Column",
+                      width: "stretch",
+                      items: [
+                        {
+                          type: "TextBlock",
+                          text: "DynPerf Tool",
+                          wrap: true,
+                          color: "Accent",
+                          style: "heading"
+                        }
+                      ]
+                    }
+                  ],
+                  horizontalAlignment: "Left"
+                }
+              ]
+            },
+            {
+              type: "TextBlock",
+              text: "Current UTC Time  " & Topic.utcNow & "  --All times in UTC",
+              wrap: true
+             },
+
+            {
+              type: "Input.Date",
+              label: "📅 Start Date",
+              id: "startdate",
+              value: Text( Now(), "yyyy-MM-dd" ),
+              placeholder: "Input the Start Date"
+            },
+            {
+              type: "Input.Time",
+              label: "🕒 Start Time",
+              value: Text(DateAdd(Now(), -4,TimeUnit.Hours),"HH:mm"),
+              id: "StartTime"
+            },
+            {
+              type: "Input.Date",
+              label: "📅 End Date",
+               value: Text( Now(), "yyyy-MM-dd" ),
+              placeholder: "Input the End Date",
+              id: "endate"
+            },
+            {
+              type: "Input.Time",
+              label: "🕒 End Time",
+               value: Text( Now(), "HH:mm" ),
+              id: "EndTime"
+            },
+            {
+              type: "Input.Text",
+              label: "🔍 Search Text",
+              placeholder: "Input Seach Text - Wildcards automatically added",
+              id: "searchtext"
+            },
+            {
+              type: "Input.Number",
+              label: "⌛ Min Duration (ms)",
+              placeholder: "Specify Minimum Duration in milliseconds",
+              id: "minduration",
+              value: 10
+            },
+            {
+              type: "Input.Number",
+              label: "🔢 Min Executions",
+              id: "MinExecutions",
+              placeholder: "Specify Minimum Executions",
+              value: 1
+            },
+            {
+              type: "ActionSet",
+              actions: [
+                {
+                  type: "Action.Submit",
+                  title: "Submit",
+                  style: "destructive",
+                  data: {
+                    id: "submit",
+                    shouldAwaitUserInput: true
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      output:
+        binding:
+          actionSubmitId: Topic.actionSubmitId
+          endate: Topic.endate
+          EndTime: Topic.EndTime
+          id: Topic.id
+          minduration: Topic.minduration
+          MinExecutions: Topic.MinExecutions
+          searchtext: Topic.searchtext
+          shouldAwaitUserInput: Topic.shouldAwaitUserInput
+          startdate: Topic.startdate
+          StartTime: Topic.StartTime
+
+      outputType:
+        properties:
+          actionSubmitId: String
+          endate: Date
+          EndTime: Time
+          id: String
+          minduration: Number
+          MinExecutions: Number
+          searchtext: String
+          shouldAwaitUserInput: Boolean
+          startdate: Date
+          StartTime: Time
+
+    - kind: BeginDialog
+      id: VB8J7L
+      input:
+        binding:
+          mserp_DynPerfSlowQueryCustomAPI_EndDate: =Text(Topic.endate & " " & Topic.EndTime)
+          mserp_DynPerfSlowQueryCustomAPI_MinDuration: =Text(Topic.minduration)
+          mserp_DynPerfSlowQueryCustomAPI_MinExecutions: =Text(Topic.MinExecutions)
+          mserp_DynPerfSlowQueryCustomAPI_SearchText: =Text("%" & Topic.searchtext & "%")
+          mserp_DynPerfSlowQueryCustomAPI_StartDate: =Text(Topic.startdate & " " & Topic.StartTime)
+
+      dialog: msdyn_fnocopilot.DynPerfRole.DynPerfSlowQueryCustomAPI_83f78374-94b6-f011-bbd3-7c1e526716f4
+      output:
+        binding:
+          mserp_DynPerfSlowQueryCustomAPI_topQueriesInJson: Topic.mserp_DynPerfSlowQueryCustomAPI_topQueriesInJson
+
+    - kind: ParseValue
+      id: MO4b0w
+      variable: Topic.JsonData
+      valueType:
+        kind: Record
+        properties:
+          Results:
+            type:
+              kind: Table
+              properties:
+                AVG_DURATION_MS: Number
+                MAX_DURATION_MS: Number
+                PLAN_ID: Number
+                QUERY_ID: Number
+                TOTAL_EXECUTIONS: Number
+                TOTAL_TIME_SECS: Number
+
+      value: =Topic.mserp_DynPerfSlowQueryCustomAPI_topQueriesInJson
+
+    - kind: SendActivity
+      id: sendActivity_0NVrrT
+      activity: |-
+        {"**Query Execution Summary**" & Char(10) &
+        "| QUERY_ID | PLAN_ID |  AVG_DURATION_MS | MAX_DURATION_MS | TOTAL_EXECUTIONS | TOTAL_TIME_SECS |" & Char(10) &
+        "|----------|----------|-----------------|-----------------|------------------|-----------------|" & Char(10) &
+        Concat(
+            Topic.JsonData.Results,
+                " | " & Text(QUERY_ID) &
+            "| " & Text(PLAN_ID) &
+
+            " | " & Text(AVG_DURATION_MS) &
+            " | " & Text(MAX_DURATION_MS) &
+            " | " & Text(TOTAL_EXECUTIONS) &
+            " | " & Text(TOTAL_TIME_SECS) & " |" & Char(10)
+        )}
+
+    - kind: Question
+      id: question_pgRky3
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.Var1
+      prompt: Search for more queries?
+      entity:
+        kind: EmbeddedEntity
+        definition:
+          kind: ClosedListEntity
+          items:
+            - id: Yes, Search Again
+              displayName: Yes, Search Again
+
+            - id: No, Do Not Search Again
+              displayName: No, Do Not Search Again
+
+    - kind: ConditionGroup
+      id: conditionGroup_8WZ1hw
+      conditions:
+        - id: conditionItem_E2wCfE
+          condition: =Topic.Var1 = 'msdyn_fnocopilot.topic.DynperfTopic.main.question_pgRky3'.'Yes, Search Again'
+          actions:
+            - kind: GotoAction
+              id: 5xKj8g
+              actionId: setVariable_V8CfMU
+
+        - id: conditionItem_oPfNGv
+          condition: =Topic.Var1 = 'msdyn_fnocopilot.topic.DynperfTopic.main.question_pgRky3'.'No, Do Not Search Again'
+
+    - kind: EndDialog
+      id: gVi3TT
+
+inputType: {}
+outputType:
+  properties:
+    JsonData:
+      displayName: JsonData
+      type:
+        kind: Record
+        properties:
+          Results:
+            type:
+              kind: Table
+              properties:
+                AVG_DURATION_MS: Number
+                MAX_DURATION_MS: Number
+                PLAN_ID: Number
+                QUERY_ID: Number
+                TOTAL_EXECUTIONS: Number
+                TOTAL_TIME_SECS: Number
+
+    JsonData.Results:
+      displayName: JsonData.Results
+      type:
+        kind: Table
+        properties:
+          AVG_DURATION_MS: Number
+          MAX_DURATION_MS: Number
+          PLAN_ID: Number
+          QUERY_ID: Number
+          TOTAL_EXECUTIONS: Number
+          TOTAL_TIME_SECS: Number
+
+    minduration:
+      displayName: minduration
+      type: Number

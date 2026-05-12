@@ -1,0 +1,42 @@
+kind: TaskDialog
+inputs:
+  - kind: AutomaticTaskInput
+    propertyName: mserp_DynPerfSlowQueryCustomAPI_StartDate
+    name: StartDate
+    description: Specify the StartDate
+
+  - kind: AutomaticTaskInput
+    propertyName: mserp_DynPerfSlowQueryCustomAPI_EndDate
+    name: EndDate
+    description: Specify the EndDate
+
+  - kind: AutomaticTaskInput
+    propertyName: mserp_DynPerfSlowQueryCustomAPI_SearchText
+    name: SearchText
+    description: Input the SearchText
+
+  - kind: AutomaticTaskInput
+    propertyName: mserp_DynPerfSlowQueryCustomAPI_MinDuration
+    name: MinDuration
+    description: Specify MinDuration
+
+  - kind: AutomaticTaskInput
+    propertyName: mserp_DynPerfSlowQueryCustomAPI_MinExecutions
+    name: MinExecutions
+    description: Specify the MinExecutions
+
+modelDisplayName: Get top X Slow queries - DynPerfRole
+modelDescription: Return the list of the top X slow queries
+outputs:
+  - propertyName: mserp_DynPerfSlowQueryCustomAPI_topQueriesInJson
+    name: topQueriesInJson
+    description: Top slow SQL queries in JSON format
+
+action:
+  kind: InvokeAIPluginTaskAction
+  entityKey: aiplugin.name=mserp_xppapi_DynPerfRole,operationid=mserp_DynPerfSlowQueryCustomAPI_83f78374-94b6-f011-bbd3-7c1e526716f4
+  primaryConnectionReference:
+    kind: InvokerConnectionReference
+
+outputMode: All
+triggerCondition: =Or(IsBlank(Global.PA_Copilot_ServerForm_UserContext), Or(Global.PA_Copilot_ServerForm_UserContext.isSystemAdministrator, !IsBlank(Global.PA_Copilot_ServerForm_UserContext.securityRoles) && "DynPerfRole" in Global.PA_Copilot_ServerForm_UserContext.securityRoles))
