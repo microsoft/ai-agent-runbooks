@@ -38,7 +38,10 @@ Whether you're building your first agent or scaling across multiple business dom
 - 🔧 [Dynamics 365 Monitoring Agent](./01-scenarios/Dynamics-365-Monitoring-Agent/) — AI-powered monitoring and diagnostics agent for D365 Finance & Supply Chain using Application Insights telemetry
 - 🏢 [Workplace Agent](./01-scenarios/Workplace-Agent/) — Declarative agent that handles internal FAQ inquiries and application request workflows using SharePoint, Dataverse, and Power Automate  
 - 🧾 [F&O User Onboarding Agent](./01-scenarios/F&O-User-Onboarding-Agent/) — Autonomous onboarding solution that automates user provisioning in Microsoft Entra ID and Dynamics 365 Finance & Operations, including approval workflows and role assignment.  
-- 🧩 [M365 Agent Templates](./01-scenarios/M365-Agent-Templates/) — Collection of pre-built, deploy-ready Microsoft 365 Copilot agents (e.g., Plan My Day, Executive Briefing, Request Tracker) designed to accelerate common workplace scenarios and enable rapid customization.  
+- 🧩 [M365 Agent Templates](./01-scenarios/M365-Agent-Templates/) — Collection of pre-built, deploy-ready Microsoft 365 Copilot agents (e.g., Plan My Day, Executive Briefing, Request Tracker) designed to accelerate common workplace scenarios and enable rapid customization.
+- ⚙️ [D365 F&SCM Compare & Copy Configurations Agent](./01-scenarios/D365-Finance-&-SupplyChain-Compare-and-Copy-Configurations-Agent) — AI-powered agent that compares and copies module configurations across Dynamics 365 Finance & Supply Chain Management environments, helping administrators identify configuration differences, validate settings, and maintain consistency using the Dynamics 365 ERP MCP server.
+- 📊 [DynPerf Performance Agent](./01-scenarios/Dynperf-Performance-Agent) — AI-powered performance diagnostics agent that leverages DynamicsPerf data to help administrators analyze SQL query statistics, detect bottlenecks, and optimize Dynamics 365 environment performance with actionable, natural-language insights.
+
 
 **Need implementation patterns?** Check out [02-patterns/](./02-patterns/) for proven technical approaches including Copilot Studio orchestration, RAG patterns, and multi-agent design.
 
