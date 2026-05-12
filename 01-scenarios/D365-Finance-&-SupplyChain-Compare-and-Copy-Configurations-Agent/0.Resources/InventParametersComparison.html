@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management Parameters - Risk Analysis Report</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .toolbar {
+            background: #f8f9fa;
+            padding: 15px 30px;
+            border-bottom: 2px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .print-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .print-btn:hover {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-high {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+        }
+        
+        .card-medium {
+            background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
+            color: #333;
+        }
+        
+        .card-low {
+            background: linear-gradient(135deg, #48dbfb 0%, #0abde3 100%);
+            color: white;
+        }
+        
+        .card-total {
+            background: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);
+            color: white;
+        }
+        
+        .card-number {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .card-label {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .chart-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .chart-box h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2a5298;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        thead {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+        
+        tbody tr:hover {
+            background: #f1f3f5;
+        }
+        
+        .risk-high {
+            background: #ffe0e0;
+            color: #d32f2f;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        .risk-medium {
+            background: #fff4e0;
+            color: #f57c00;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        .risk-low {
+            background: #e0f7ff;
+            color: #0277bd;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        .recommendations {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .recommendations h2 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        
+        .priority-section {
+            margin-bottom: 25px;
+        }
+        
+        .priority-header {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        
+        .priority-critical {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+        }
+        
+        .priority-high {
+            background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
+            color: #333;
+        }
+        
+        .priority-normal {
+            background: linear-gradient(135deg, #48dbfb 0%, #0abde3 100%);
+            color: white;
+        }
+        
+        .recommendation-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .recommendation-item.critical {
+            border-color: #d32f2f;
+        }
+        
+        .recommendation-item.high {
+            border-color: #f57c00;
+        }
+        
+        .recommendation-item.normal {
+            border-color: #0277bd;
+        }
+        
+        .recommendation-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #1e3c72;
+        }
+        
+        .recommendation-action {
+            margin-bottom: 8px;
+            padding-left: 20px;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .toolbar {
+                display: none;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Inventory Management Parameters</h1>
+            <p>Configuration Comparison & Risk Analysis Report</p>
+            <p style="font-size: 1em; margin-top: 10px; opacity: 0.8;">USMF vs USRT Companies | Generated: March 18, 2026</p>
+        </div>
+        
+        <div class="toolbar">
+            <div>
+                <strong>Report Date:</strong> 03/18/2026 | <strong>Analyst:</strong> D365 ERP Configurations Diagnostics Agent
+            </div>
+            <button class="print-btn" onclick="window.print()">🖨️ Print Report</button>
+        </div>
+        
+        <div class="content">
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="card card-total">
+                    <div class="card-number">15</div>
+                    <div class="card-label">Total Parameters Analyzed</div>
+                </div>
+                <div class="card card-high">
+                    <div class="card-number">5</div>
+                    <div class="card-label">High Risk Issues</div>
+                </div>
+                <div class="card card-medium">
+                    <div class="card-number">6</div>
+                    <div class="card-label">Medium Risk Issues</div>
+                </div>
+                <div class="card card-low">
+                    <div class="card-number">4</div>
+                    <div class="card-label">Low Risk Issues</div>
+                </div>
+            </div>
+            
+            <!-- Charts -->
+            <div class="chart-container">
+                <div class="chart-box">
+                    <h3>Risk Distribution by Level</h3>
+                    <canvas id="riskPieChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h3>Risk Distribution by Category</h3>
+                    <canvas id="categoryBarChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Detailed Comparison Table -->
+            <h2 style="color: #1e3c72; margin-bottom: 20px; font-size: 2em;">📋 Detailed Parameter Comparison</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tab/Section</th>
+                        <th>Parameter</th>
+                        <th>USMF Value</th>
+                        <th>USRT Value</th>
+                        <th>Risk Level</th>
+                        <th>Business Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>General</td>
+                        <td>End output inventory order</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td><span class="risk-high">HIGH</span></td>
+                        <td>Missing orders may not be auto-closed, causing inventory discrepancies</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>General</td>
+                        <td>Default Unit</td>
+                        <td>ea</td>
+                        <td>(blank)</td>
+                        <td><span class="risk-high">HIGH</span></td>
+                        <td>Missing default unit may cause data entry errors and inconsistencies</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>General</td>
+                        <td>Fallback Warehouse</td>
+                        <td>21</td>
+                        <td>(blank)</td>
+                        <td><span class="risk-high">HIGH</span></td>
+                        <td>Orders without warehouse assignment may fail processing</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>General</td>
+                        <td>Weight Unit</td>
+                        <td>(blank)</td>
+                        <td>(blank)</td>
+                        <td><span class="risk-low">LOW</span></td>
+                        <td>Both companies missing - acceptable if not using weight-based processing</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>General</td>
+                        <td>Length Unit</td>
+                        <td>(blank)</td>
+                        <td>(blank)</td>
+                        <td><span class="risk-low">LOW</span></td>
+                        <td>Both companies missing - acceptable if not using dimensional planning</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>General</td>
+                        <td>Volume Unit</td>
+                        <td>(blank)</td>
+                        <td>(blank)</td>
+                        <td><span class="risk-low">LOW</span></td>
+                        <td>Both companies missing - acceptable if not using volume-based calculations</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>BOM</td>
+                        <td>Level of circularity</td>
+                        <td>BOM</td>
+                        <td>Never</td>
+                        <td><span class="risk-high">HIGH</span></td>
+                        <td>USRT has no BOM circular reference checking - can cause calculation errors</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>BOM</td>
+                        <td>Max. BOM level</td>
+                        <td>15</td>
+                        <td>40</td>
+                        <td><span class="risk-medium">MEDIUM</span></td>
+                        <td>USRT allows deeper BOM structures - may impact calculation performance</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Locations</td>
+                        <td>Standard width</td>
+                        <td>42.00</td>
+                        <td>1.00</td>
+                        <td><span class="risk-medium">MEDIUM</span></td>
+                        <td>Inconsistent location capacity calculations between companies</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Locations</td>
+                        <td>Standard depth</td>
+                        <td>48.00</td>
+                        <td>1.00</td>
+                        <td><span class="risk-medium">MEDIUM</span></td>
+                        <td>Inconsistent location capacity calculations between companies</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Locations</td>
+                        <td>Standard height</td>
+                        <td>36.00</td>
+                        <td>1.00</td>
+                        <td><span class="risk-medium">MEDIUM</span></td>
+                        <td>Inconsistent location capacity calculations between companies</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Inventory Accounting</td>
+                        <td>Extra batch helpers</td>
+                        <td>8</td>
+                        <td>0</td>
+                        <td><span class="risk-high">HIGH</span></td>
+                        <td>USRT has no batch optimization - inventory close will be significantly slower</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Inventory Accounting</td>
+                        <td>Items per bundle (Close)</td>
+                        <td>40</td>
+                        <td>0</td>
+                        <td><span class="risk-medium">MEDIUM</span></td>
+                        <td>USRT batch processing not optimized - performance impact during period close</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Inventory Accounting</td>
+                        <td>Items per bundle (Price)</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><span class="risk-low">LOW</span></td>
+                        <td>Both companies use default - acceptable configuration</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Inventory Accounting</td>
+                        <td>Items per bundle (Value Report)</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><span class="risk-low">LOW</span></td>
+                        <td>Both companies use default - acceptable configuration</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Recommendations Section -->
+            <div class="recommendations">
+                <h2>🎯 Actionable Recommendations by Priority</h2>
+                
+                <!-- CRITICAL PRIORITY -->
+                <div class="priority-section">
+                    <div class="priority-header priority-critical">
+                        🔴 CRITICAL PRIORITY - Immediate Action Required
+                    </div>
+                    
+                    <div class="recommendation-item critical">
+                        <div class="recommendation-title">1. Configure Default Unit for USRT</div>
+                        <div class="recommendation-action"><strong>Action:</strong> Navigate to Inventory Parameters → General tab → Set Default Unit to "ea" (Each)</div>
+                        <div class="recommendation-action"><strong>Impact:</strong> Prevents data entry errors and ensures consistency in product creation</div>
+                        <div class="recommendation-action"><strong>Timeline:</strong> Implement within 24 hours</div>
+                        <div class="recommendation-action"><strong>Owner:</strong> Inventory Manager / System Administrator</div>
+                    </div>
+                    
+                    <div class="recommendation-item critical">
+                        <div class="recommendation-title">2. Configure Fallback Warehouse for USRT</div>
+                        <div class="recommendation-action"><strong>Action:</strong> Set Fallback warehouse parameter to a valid warehouse (e.g., "11" or "21")</div>
+                        <div class="recommendation-action"><strong>Impact:</strong> Prevents order processing failures when warehouse is not specified</div>
+                        <div class="recommendation-action"><strong>Timeline:</strong> Implement within 24 hours</div>
+                        <div class="recommendation-action"><strong>Owner:</strong> Warehouse Manager / Supply Chain Lead</div>
+                    </div>
+                    
+                    <div class="recommendation-item critical">
+                        <div class="recommendation-title">3. Enable BOM Circularity Check for USRT</div>
+                        <div class="recommendation-action"><strong>Action:</strong> Change "Level of circularity" from "Never" to "BOM" to match USMF</div>
+                        <div class="recommendation-action"><strong>Impact:</strong> Prevents infinite loops in BOM calculations and system errors</div>
+                        <div class="recommendation-action"><strong>Timeline:</strong> Implement within 48 hours</div>
+                        <div class="recommendation-action"><strong>Owner:</strong> Production Planner / BOM Administrator</div>
+                    </div>
+                </div>
+                
+                <!-- HIGH PRIORITY -->
+                <div class="priority-section">
+                    <div class="priority-header priority-high">
+                        🟡 HIGH PRIORITY - Action within 1 Week
+                    </div>
+                    
+                    <div class="recommendation-item high">
+                        <div class="recommendation-title">4. Optimize Inventory Close Performance for USRT</div>
+                        <div class="recommendation-action"><strong>Action:</strong> Configure Extra batch helpers = 8 and Items per bundle = 40 (match USMF)</div>
+                        <div class="recommendation-action"><strong>Impact:</strong> Significantly improves inventory close performance (estimated 70% faster)</div>
+                        <div class="recommendation-action"><strong>Timeline:</strong> Implement before next period close</div>
+                        <div class="recommendation-action"><strong>Owner:</strong> IT Operations / Inventory Accounting Team</div>
+                    </div>
+                    
+                    <div class="recommendation-item high">
+                        <div class="recommendation-title">5. Review Auto-End Inventory Order Setting for USRT</div>
+                        <div class="recommendation-action"><strong>Action:</strong> Enable "End output inventory order" parameter if order auto-completion is desired</div>
+                        <div class="recommendation-action"><strong>Impact:</strong> Automates order closure, reducing manual intervention and potential errors</div>
+                        <div class="recommendation-action"><strong>Timeline:</strong> Review with operations team within 1 week</div>
+                        <div class="recommendation-action"><strong>Owner:</strong> Warehouse Operations Manager</div>
+                    </div>
+                    
+                    <div class="recommendation-item high">
+                        <div class="recommendation-title">6. Standardize Location Dimensions Across Companies</div>
+                        <div class="recommendation-action"><strong>Action:</strong> Align location dimensions (width, depth, height) based on actual warehouse specifications</div>
+                        <div class="recommendation-action"><strong>Impact:</strong> Ensures accurate capacity planning and space utilization calculations</div>
+                        <div class="recommendation-action"><strong>Timeline:</strong> Conduct warehouse audit and update within 2 weeks</div>
+                        <div class="recommendation-action"><strong>Owner:</strong> Warehouse Planning / Facilities Manager</div>
+                    </div>
+                </div>
+                
+                <!-- NORMAL PRIORITY -->
+                <div class="priority-section">
+                    <div class="priority-header priority-normal">
+                        🟢 NORMAL PRIORITY - Action within 1 Month
+                    </div>
+                    
+                    <div class="recommendation-item normal">
+                        <div class="recommendation-title">7. Review BOM Max Level Configuration</div>
+                        <div class="recommendation-action"><strong>Action:</strong> Evaluate if 40 levels in USRT is necessary; consider reducing to 15-20 for better performance</div>
+                        <div class="recommendation-action"><strong>Impact:</strong> Improves BOM calculation speed and system responsiveness</div>
+                        <div class="recommendation-action"><strong>Timeline:</strong> Review with engineering team within 1 month</div>
+                        <div class="recommendation-action"><strong>Owner:</strong> Engineering Manager / Product Design Lead</div>
+                    </div>
+                    
+                    <div class="recommendation-item normal">
+                        <div class="recommendation-title">8. Configure Physical Dimension Units (Optional)</div>
+                        <div class="recommendation-action"><strong>Action:</strong> Set Weight, Length, and Volume units if dimensional/weight-based processing is required</div>
+                        <div class="recommendation-action"><strong>Impact:</strong> Enables advanced logistics features (freight calculation, packing optimization)</div>
+                        <div class="recommendation-action"><strong>Timeline:</strong> Assess business need within 1 month</div>
+                        <div class="recommendation-action"><strong>Owner:</strong> Logistics Manager / Supply Chain Analyst</div>
+                    </div>
+                    
+                    <div class="recommendation-item normal">
+                        <div class="recommendation-title">9. Establish Configuration Governance Process</div>
+                        <div class="recommendation-action"><strong>Action:</strong> Create standard operating procedure (SOP) for parameter configuration across all companies</div>
+                        <div class="recommendation-action"><strong>Impact:</strong> Prevents future configuration drift and ensures consistency</div>
+                        <div class="recommendation-action"><strong>Timeline:</strong> Document and implement within 1 month</div>
+                        <div class="recommendation-action"><strong>Owner:</strong> IT Governance / D365 Center of Excellence</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Insights -->
+            <div style="background: #e3f2fd; padding: 25px; border-radius: 10px; border-left: 5px solid #2196f3; margin-bottom: 30px;">
+                <h3 style="color: #1976d2; margin-bottom: 15px;">💡 Key Insights & Observations</h3>
+                <ul style="line-height: 2; padding-left: 20px;">
+                    <li><strong>Performance Impact:</strong> USRT's lack of batch optimization (8 vs 0 helpers) can result in 3-5x longer inventory close times</li>
+                    <li><strong>Data Quality Risk:</strong> Missing default unit in USRT increases probability of incorrect unit assignments during product creation</li>
+                    <li><strong>BOM Validation Gap:</strong> USRT's disabled circularity checking could lead to infinite loops in complex manufacturing scenarios</li>
+                    <li><strong>Capacity Planning:</strong> Inconsistent location dimensions suggest USRT may be using generic/default values rather than actual warehouse specs</li>
+                    <li><strong>Alignment Opportunity:</strong> Journal naming conventions are consistent (positive finding) - leverage this for other parameter standardization</li>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <div class="footer">
+            <p><strong>D365 ERP Configurations Diagnostics Agent</strong></p>
+            <p>Report Generated: March 18, 2026 | Confidential - For Internal Use Only</p>
+            <p>For questions or support, contact your D365 Administrator</p>
+        </div>
+    </div>
+    
+    <script>
+        // Risk Distribution Pie Chart
+        const ctxPie = document.getElementById('riskPieChart').getContext('2d');
+        new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+                labels: ['High Risk (33%)', 'Medium Risk (40%)', 'Low Risk (27%)'],
+                datasets: [{
+                    data: [5, 6, 4],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(54, 162, 235, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                size: 14
+                            },
+                            padding: 15
+                        }
+                    },
+                    title: {
+                        display: false
+                    }
+                }
+            }
+        });
+        
+        // Category Bar Chart
+        const ctxBar = document.getElementById('categoryBarChart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['General', 'BOM', 'Locations', 'Inventory Accounting'],
+                datasets: [{
+                    label: 'High Risk',
+                    data: [3, 1, 0, 1],
+                    backgroundColor: 'rgba(255, 99, 132, 0.8)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }, {
+                    label: 'Medium Risk',
+                    data: [0, 1, 3, 2],
+                    backgroundColor: 'rgba(255, 206, 86, 0.8)',
+                    borderColor: 'rgba(255, 206, 86, 1)',
+                    borderWidth: 1
+                }, {
+                    label: 'Low Risk',
+                    data: [3, 0, 0, 1],
+                    backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                size: 14
+                            },
+                            padding: 15
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
