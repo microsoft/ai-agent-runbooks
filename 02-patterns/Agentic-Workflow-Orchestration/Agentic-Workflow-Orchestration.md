@@ -675,8 +675,8 @@ flowchart TD
 
 | Resource | Path |
 |----------|------|
-| Lab 1.2 — Tools in Copilot Studio | `/labs/lab-1.2` |
-| Lab 1.3 — MCP Integration | `/labs/lab-1.3` |
+| Lab 1.2 — Tools in Copilot Studio | [`/labs/lab-1.2`](https://github.com/Azure/Copilot-Studio-and-Azure/blob/050bc3137a333106c9d2e2f60aba21cd8303d133/labs/1.2-tools/1.2-tools.md) |
+| Lab 1.3 — MCP Integration | [`/labs/lab-1.3`](https://github.com/Azure/Copilot-Studio-and-Azure/blob/050bc3137a333106c9d2e2f60aba21cd8303d133/labs/1.3-MCP/1.3-MCP.md) |
 | Lab 2.1 — ServiceNow ITSM Integration | `/labs/lab-2.1` |
 | Lab 2.2 — Jira DevOps Agent | `/labs/lab-2.2` |
 | Lab 2.3 — HR Onboarding Orchestration | `/labs/lab-2.3` |
