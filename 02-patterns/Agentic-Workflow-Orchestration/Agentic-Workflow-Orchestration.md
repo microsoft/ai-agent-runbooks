@@ -156,6 +156,125 @@ mindmap
         API Key or OAuth Auth
 ```
 
+
+
+
+
+```mermaid
+mindmap
+  root((🤖 Copilot Studio\nOrchestrator))
+    ITSM & DevOps
+      ServiceNow
+        Incident Management
+        Change Requests
+        CMDB Lookups
+        HR Service Delivery
+      Atlassian Jira
+        Bug Triage
+        Sprint Planning
+        Issue Transitions
+      Azure DevOps
+        Pipeline Triggers
+        Work Item Updates
+        Repo & Branch Ops
+```
+
+
+```mermaid
+mindmap
+  root((🤖 Copilot Studio\nOrchestrator))
+    CRM & Business Apps
+      Dynamics 365
+        Case Management
+        Opportunity Updates
+        Customer 360
+      Salesforce
+        Lead Scoring
+        Opportunity Stage
+        Account History
+```
+
+```mermaid
+mindmap
+  root((🤖 Copilot Studio\nOrchestrator))
+    Collaboration & Workflow
+      Microsoft Teams
+        Channel Notifications
+        Adaptive Cards
+        Chat Messaging
+      SharePoint
+        Document Search
+        Knowledge Base
+        List Operations
+      Office 365 Outlook
+        Email Send & Draft
+        Calendar Booking
+        Meeting Management
+      Approvals
+        HITL Approval Flows
+        Multi-stage Reviews
+```
+
+```mermaid
+mindmap
+  root((🤖 Copilot Studio\nOrchestrator))
+    Data & Storage
+      Dataverse
+        Record CRUD
+        Process Flows
+        Audit Logs
+      Microsoft Fabric
+        Data Pipeline Triggers
+        Lakehouse Queries
+      Power BI
+        Dataset Refresh
+        Alert Triggers
+        Report Export
+```
+
+```mermaid
+mindmap
+  root((🤖 Copilot Studio\nOrchestrator))
+    Security & Identity
+      Microsoft Sentinel
+        Alert Enrichment
+        Incident Response
+        Threat Intel
+      Defender for Endpoint
+        Device Isolation
+        Indicator Management
+        Investigation Actions
+      Azure AD / Entra ID
+        User & Group Mgmt
+        Session Revocation
+        License Assignment
+      Azure Key Vault
+        Secret Retrieval
+        Certificate Mgmt
+```
+
+```mermaid
+mindmap
+  root((🤖 Copilot Studio\nOrchestrator))
+    HR & Workforce
+      Workday
+        Employee Records
+        Leave Balance
+        Org Chart
+```
+
+```mermaid
+mindmap
+  root((🤖 Copilot Studio\nOrchestrator))
+    Integration
+      HTTP with Azure AD
+        Microsoft Graph API
+        Custom REST Calls
+      Custom Connectors
+        OpenAPI Import
+        API Key or OAuth Auth
+```
+
 ---
 
 ## 🔗 MCP Server Ecosystem (Model Context Protocol)
