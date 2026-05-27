@@ -10,6 +10,9 @@
 1. [Purpose & Scope](#1-purpose--scope)
 2. [Prerequisites](#2-prerequisites)
 3. [Core Architecture](#3-core-architecture)
+   - [3.1 Component Responsibilities](#31-component-responsibilities)
+   - [3.2 Data Flow — Step by Step](#32-data-flow--step-by-step)
+   - [3.3 Planning Mechanism — Instructions vs Topics vs Hybrid](#33-planning-mechanism--instructions-vs-topics-vs-hybrid)
 4. [Connector Configuration Guides](#4-connector-configuration-guides)
    - [4.1 ServiceNow](#41-servicenow-connector)
    - [4.2 Jira](#42-jira-connector)
@@ -154,6 +157,48 @@ flowchart TD
 7. **If incomplete:** LLM replans remaining steps (up to max iteration budget)
 8. **If complete:** GPT-4o synthesises a final response with action summary
 9. Every step is logged to the Dataverse audit table with input, output, duration, and status
+
+### 3.3 Planning Mechanism — Instructions vs Topics vs Hybrid
+
+Copilot Studio offers two complementary mechanisms for encoding planning logic.
+The maker picks the right one (or combines both) based on the predictability and
+compliance needs of each step.
+
+| Mechanism | Where the maker configures it | Best for |
+|-----------|-------------------------------|----------|
+| **Instructions** (Generative Orchestration) | Agent description + custom instructions + knowledge sources; toggle **Generative Orchestration** on | Open-ended goals where the LLM dynamically sequences tools and sub-agents at runtime |
+| **Topics** (classic authoring) | Topic trigger phrases + nodes + conditions in the topic editor | Deterministic, regulated, or compliance-gated flows where the path must not vary |
+| **Hybrid** (recommended for enterprise) | Instructions drive the outer loop; topics handle specific guard-railed sub-flows (e.g., approval gates, refund issuance) | Most enterprise scenarios — flexible planning with deterministic checkpoints |
+
+#### What to put in instructions (the planning brain)
+
+- **Role & scope** — who the agent is and what tasks are in/out of scope
+- **Tool preferences** — which tool to try first, fallbacks, and when to delegate to a sub-agent
+- **Replanning policy** — what to do when a tool returns no result or an error (retry, escalate, ask the user)
+- **HITL thresholds** — actions that require human approval (e.g., refunds > $200, account lockouts)
+- **Output format** — how to summarise the final result back to the user
+
+#### What to put in topics
+
+- High-stakes flows with mandatory steps (e.g., KYC verification, change-request approval)
+- Compliance-required confirmation prompts that must appear verbatim
+- Deterministic data-collection sequences before invoking a tool
+
+#### Example — instructions snippet for the Orchestrator Agent
+
+```
+You are an enterprise orchestrator agent. For any user goal:
+1. Decompose into atomic steps and pick the smallest set of tools needed.
+2. Prefer AI Search for knowledge; prefer connector tools for system actions.
+3. If a tool returns an error or empty result, retry once with adjusted parameters,
+   then escalate to the user with what you tried.
+4. Stop after 6 planning iterations; if the goal is unmet, summarise progress and ask.
+5. For irreversible actions (refunds > $200, account lockouts, mass email send),
+   invoke the "ApprovalGate" topic before executing.
+6. Final response: 3-line summary + action list + links to created records.
+```
+
+> **Note:** The topic name `ApprovalGate` above is an example pattern — build a corresponding topic with a deterministic Adaptive Card approval flow and route irreversible actions through it.
 
 ---
 
@@ -1020,4 +1065,5 @@ Create a Dataverse table named `awo_audit_log` with the following columns:
 | **Least Privilege** | Security principle: each service account should have only the minimum permissions required |
 | **Adaptive Card** | An interactive Teams card format used to present HITL approval requests with action buttons |
 | **JQL** | Jira Query Language — the structured query syntax used to filter Jira issues |
+
 
