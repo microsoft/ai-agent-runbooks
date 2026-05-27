@@ -37,23 +37,27 @@
 
 ## 1. Purpose & Scope
 
-This runbook provides step-by-step implementation guidance for the **Agentic Workflow Orchestration** pattern using Microsoft Copilot Studio and Azure AI. It covers 5 production-grade scenarios with connector-specific configuration, testing checklists, and troubleshooting guides.
+This runbook is a **technical reference for implementing the Agentic Workflow Orchestration pattern** on Microsoft Copilot Studio and Azure AI. It describes one possible composition of tools, connectors, sub-agents, and planning mechanisms — the maker (the team building the agent) decides which components to use, how to wire them together, and what trigger mode (conversational, event-driven, or scheduled) fits the scenario. Five example scenarios are included with connector-specific configuration, testing checklists, and troubleshooting guides; treat each as a worked illustration, not a prescribed deployment.
 
 | Attribute | Value |
 |-----------|-------|
 | **Intended audience** | Solution Architects, Cloud Architects, Power Platform developers, Azure engineers |
 | **Pattern complexity** | ⭐⭐⭐⭐ High |
 | **Estimated implementation time** | 3–10 days per scenario depending on connector complexity |
-| **Core platform** | Microsoft Copilot Studio + Azure OpenAI + Agent Flows (Power Automate) |
+| **Core platform** | Microsoft Copilot Studio (built-in generative AI) + Agent Flows (Power Automate) |
 
-### What This Pattern Does
+### What This Pattern Is For
 
-Unlike fixed-flow bots, the Agentic Workflow Orchestration pattern enables an AI agent to:
-- **Plan** — decompose a high-level user goal into atomic executable steps
-- **Execute** — call tools (agent flows wrapping connectors) in the right sequence
+Compared with fixed-flow bots, this pattern is designed for situations where the maker wants an
+implementation that **can**:
+- **Plan** — decompose a high-level user goal into atomic executable steps at runtime
+- **Execute** — call tools (agent flows wrapping connectors) in the order the LLM selects
 - **Adapt** — replan based on intermediate results when a step fails or returns unexpected output
 - **Coordinate** — delegate to specialist sub-agents for deep-domain tasks
 - **Audit** — log every action to Dataverse for compliance and debugging
+
+Each item above is a capability the maker enables by configuring the corresponding tools, instructions,
+and guardrails. The pattern itself does not run — it is a design blueprint.
 
 > **Terminology note — Agent Flows vs Cloud Flows:** This runbook uses *agent flows* as the primary
 > automation mechanism. Agent flows are built natively in Copilot Studio (GA mid-2025) and are the
@@ -69,19 +73,22 @@ Unlike fixed-flow bots, the Agentic Workflow Orchestration pattern enables an AI
 
 | Component | Minimum SKU | Notes |
 |-----------|-------------|-------|
-| Copilot Studio | Copilot Studio licence (per tenant) | Generative Orchestration must be enabled |
-| Azure OpenAI | Standard tier | GPT-4o deployment required |
-| Azure AI Search | Standard S1 | Required for knowledge base tools |
+| Copilot Studio | Copilot Studio licence (per tenant) | Generative Orchestration must be enabled. Uses the built-in Copilot Studio generative AI model and built-in knowledge sources (SharePoint, files, websites, Dataverse, public sites) — no separate Azure OpenAI or Azure AI Search resource required. |
 | Power Automate | Premium | Per-flow licence for connector calls |
-| Azure Monitor | Standard | For observability and alerting |
 | Dataverse | Power Platform environment | For audit logging |
+| Azure Monitor | Standard | *Optional* — only if the maker wants centralised Azure-side observability beyond Power Platform analytics |
+| Azure AI Search | Standard S1 | *Optional* — only if the maker needs vector / hybrid search beyond what Copilot Studio's built-in knowledge sources provide |
+
+> **Note on the planning model:** This runbook assumes the **default generative AI model that ships with Copilot Studio** — makers do not need to provision their own Azure OpenAI resource or deploy a model. A custom Azure OpenAI deployment is only required if your governance, region-residency, or fine-tuning needs call for it; in that case, configure it via the Copilot Studio model settings or call it directly from an agent flow.
+
+> **Note on knowledge sources:** Copilot Studio ships with native knowledge connectors for SharePoint, OneDrive files, public web URLs, Dataverse tables, and uploaded documents. Use these first. **Azure AI Search is only needed** when the maker requires advanced retrieval (vector / hybrid search, custom skillsets, large-scale enterprise indexes) that the built-in knowledge sources do not cover.
 
 ### 2.2 Permissions Required
 
 | Role | Where | Why |
 |------|-------|-----|
 | Environment Admin | Power Platform | Create environment, connections, connectors |
-| Azure Contributor | Azure Resource Group | Deploy AI Search, AOAI, Monitor resources |
+| Azure Contributor | Azure Resource Group | Deploy AI Search and Monitor resources (only required for optional components the maker chooses to add) |
 | SharePoint Site Owner | Target sites | Grant AI Search indexer read access |
 | ServiceNow Admin / Integration User | ServiceNow instance | Create/read incident, change, CMDB records |
 | Jira Admin | Jira Cloud project | OAuth 2.0 app registration |
@@ -91,13 +98,11 @@ Unlike fixed-flow bots, the Agentic Workflow Orchestration pattern enables an AI
 
 Before starting any scenario implementation, verify:
 
-- [ ] Azure subscription active with Contributor access
-- [ ] Azure OpenAI resource deployed in a supported region (East US / Sweden Central)
-- [ ] GPT-4o model deployed — note the deployment name
-- [ ] Azure AI Search resource created (Standard S1 or above)
 - [ ] Power Platform environment with Dataverse enabled
 - [ ] Copilot Studio licence assigned to implementation team
-- [ ] **Generative Orchestration** feature flag enabled in Copilot Studio settings
+- [ ] **Generative Orchestration** feature flag enabled in Copilot Studio settings (uses the built-in Copilot Studio model — no Azure OpenAI deployment required)
+- [ ] Azure subscription active with Contributor access *(only if AI Search, Azure Monitor, or other optional Azure components will be used)*
+- [ ] Azure AI Search resource created (Standard S1 or above) *(only if knowledge-base tools are in scope)*
 - [ ] Network connectivity confirmed: Power Automate → target system (ServiceNow / Jira / Dynamics 365)
 - [ ] Service accounts created per connector (see Section 4)
 - [ ] Azure Key Vault provisioned for storing connector secrets
@@ -105,6 +110,11 @@ Before starting any scenario implementation, verify:
 ---
 
 ## 3. Core Architecture
+
+The diagram below shows the logical components an implementation built on this pattern would
+coordinate at runtime. It is a reference composition — the maker decides which tools, sub-agents,
+and replanning behaviour to include, and which trigger surface (conversational, event-driven, or
+scheduled) starts the flow.
 
 ```mermaid
 flowchart TD
@@ -139,23 +149,27 @@ flowchart TD
 | Component | Technology | Responsibility |
 |-----------|-----------|----------------|
 | Orchestrator Agent | Copilot Studio | Entry point; manages conversation and tool dispatch |
-| Goal Planner | Copilot Studio + Azure OpenAI | Decomposes user goals into executable steps |
+| Goal Planner | Copilot Studio (built-in generative AI model) | Decomposes user goals into executable steps |
 | Tools | Agent Flows | Wrap each system action (create ticket, fetch data, send email). Built natively in Copilot Studio or imported from Power Automate cloud flows. |
 | Result Aggregator | Copilot Studio runtime | Collects outputs from parallel/sequential tool calls |
-| Replanning Loop | GPT-4o + Copilot Studio | Evaluates goal completion; replans if not achieved (max 5–8 iterations) |
+| Replanning Loop | Copilot Studio (built-in generative AI model) | Evaluates goal completion; replans if not achieved (max 5–8 iterations) |
 | Sub-Agents | Azure AI Agent Service | Specialist agents for deep-domain tasks (forensics, financial analysis) |
 | Audit Log | Dataverse | Persists every tool call, input, output, and decision |
 
 ### 3.2 Data Flow — Step by Step
 
-1. User submits a high-level goal via Teams, web chat, or embedded M365 surface
-2. Copilot Studio routes intent to the Orchestrator Agent
-3. GPT-4o planner decomposes the goal into 2–N atomic tool steps
-4. Tools are dispatched (sequentially or in parallel based on dependencies)
+The sequence below describes what an implementation built on this pattern would do at runtime once
+the maker has configured tools, instructions, and the chosen trigger. Steps are illustrative — a
+given implementation may include or skip any of them.
+
+1. The user (or a trigger event) submits a high-level goal via Teams, web chat, or an embedded M365 surface
+2. Copilot Studio routes the intent to the Orchestrator Agent
+3. The configured planner (the built-in Copilot Studio generative AI model by default) decomposes the goal into 2–N atomic tool steps
+4. Tools are dispatched (sequentially or in parallel based on dependencies declared by the maker)
 5. Each tool calls the target system via an agent flow → returns structured JSON
-6. Result Aggregator evaluates completeness against the original goal
-7. **If incomplete:** LLM replans remaining steps (up to max iteration budget)
-8. **If complete:** GPT-4o synthesises a final response with action summary
+6. The Result Aggregator evaluates completeness against the original goal
+7. **If incomplete:** the LLM replans remaining steps, up to the maker-defined iteration budget
+8. **If complete:** the LLM synthesises a final response with an action summary
 9. Every step is logged to the Dataverse audit table with input, output, duration, and status
 
 ### 3.3 Planning Mechanism — Instructions vs Topics vs Hybrid
@@ -459,17 +473,22 @@ User Goal → Copilot Studio Orchestrator
                └── Sub-Agents (Azure AI Agent Service for specialist tasks)
 ```
 
-In the agentic orchestration pattern, MCP servers and Power Platform connectors **work side by side** as tools available to the LLM planner. The orchestrator dynamically selects the right tool — whether it's an agent flow calling ServiceNow or an MCP action querying Azure Key Vault — based on the user's goal.
+In an implementation of this pattern, MCP servers and Power Platform connectors can **sit side by side** as tools available to the LLM planner. At runtime the orchestrator would dynamically select among them — for example, an agent flow calling ServiceNow or an MCP action querying Azure Key Vault — based on the user's goal and the tool descriptions the maker authored.
 
 ---
 
 ## 5. Implementation Guide by Scenario
 
+> The five scenarios below are **example implementations** of this pattern. Each shows one way a
+> maker could compose tools, instructions, and HITL gates to meet a specific business goal. Use them
+> as worked references — adapt the components, trigger mode, and risk thresholds to fit your
+> environment rather than treating them as fixed deployments.
+
 ---
 
 ### 5.1 Scenario D — DevOps: Jira Bug Triage & Auto-Fix PR
 
-**Business goal:** Automatically triage critical Jira bugs each sprint and create fix branches in Azure DevOps.
+**Example business goal:** Triage critical Jira bugs each sprint and create fix branches in Azure DevOps. In this example, the implementation runs on demand from a dev-lead prompt; a maker could equally trigger it on a sprint-start event or a schedule.
 
 #### Architecture
 
@@ -558,7 +577,7 @@ Response: { success: true, issueUrl }
 
 ### 5.2 Scenario E — ITSM: ServiceNow Change Request Automation
 
-**Business goal:** Prepare and submit a Change Request with automated risk assessment and Teams approval gate for high-risk changes.
+**Example business goal:** Prepare and submit a Change Request with automated risk assessment and a Teams approval gate for high-risk changes. Trigger mode is the maker's choice — this example uses a conversational prompt from a change manager.
 
 #### Architecture
 
@@ -631,7 +650,7 @@ flowchart TD
 
 ### 5.3 Scenario F — HR: Employee Onboarding Orchestration
 
-**Business goal:** Fully orchestrate Day-0 onboarding across M365, ServiceNow HR, and Workday — triggered by a single natural language request.
+**Example business goal:** Orchestrate Day-0 onboarding across M365, ServiceNow HR, and Workday. This example uses a single natural-language prompt from HR; an event-driven variant (Workday "new hire" record created) is equally valid — the maker decides.
 
 #### Architecture
 
@@ -699,7 +718,7 @@ flowchart TD
 
 ### 5.4 Scenario G — Customer Service: Complaint Resolution
 
-**Business goal:** Resolve billing disputes end-to-end — analyse root cause, draft resolution, update CRM, send personalised recovery offer.
+**Example business goal:** Resolve billing disputes end-to-end — analyse root cause, draft a resolution, update CRM, and send a personalised recovery offer. The maker chooses the trigger (agent-desk prompt, CRM case-creation event, or queue handoff) and the risk thresholds that gate HITL approval.
 
 #### Architecture
 
@@ -760,7 +779,7 @@ flowchart TD
 
 ### 5.5 Scenario H — Security: Threat Detection & Response
 
-**Business goal:** Investigate suspicious login alerts and automatically contain confirmed threats with full audit trail.
+**Example business goal:** Investigate suspicious login alerts and contain confirmed threats with a full audit trail. The maker is responsible for choosing confidence thresholds, the trigger (SOC-analyst prompt vs. Sentinel-alert webhook), and which containment actions remain gated behind HITL.
 
 > **⚠️ CRITICAL — Irreversible Actions Gate**
 > The following actions MUST have a Human-in-the-Loop gate unless confidence ≥ 95%:
@@ -1051,7 +1070,7 @@ Create a Dataverse table named `awo_audit_log` with the following columns:
 
 | Term | Definition |
 |------|------------|
-| **Agentic Orchestration** | The ability of an AI agent to autonomously plan, sequence, and execute multi-step tasks without rigid pre-programmed flows |
+| **Agentic Orchestration** | A design approach where an AI agent plans, sequences, and executes multi-step tasks at runtime instead of following a rigid pre-programmed flow. Whether a given implementation runs autonomously, with human approvals, or under a scheduled trigger is a choice the maker configures. |
 | **Copilot Studio** | Microsoft's low-code platform for building AI agents and copilots with generative AI capabilities |
 | **Generative Orchestration** | Copilot Studio feature that uses an LLM to dynamically select and sequence tools based on user intent |
 | **Agent Flow** | A flow built natively in Copilot Studio as a tool for an agent. Runs on the Power Automate engine with exclusive AI capabilities. Existing Power Automate cloud flows can also be imported as tools. |
@@ -1066,4 +1085,4 @@ Create a Dataverse table named `awo_audit_log` with the following columns:
 | **Adaptive Card** | An interactive Teams card format used to present HITL approval requests with action buttons |
 | **JQL** | Jira Query Language — the structured query syntax used to filter Jira issues |
 
-
+---
