@@ -6,7 +6,7 @@
 > pattern end-to-end or reuse selected components, and choose the trigger mode
 > (conversational, event-driven, or scheduled) to fit their scenario.
 
-**Complexity:** ⭐⭐⭐⭐ High | **Core Capability:** Multi-step, multi-agent task completion
+**Complexity:** ⭐⭐⭐⭐ High | **Pattern shape:** Composable multi-tool, multi-agent task decomposition (one possible composition; the maker selects which components apply)
 
 ---
 
@@ -30,6 +30,10 @@
 ---
 
 ## 🏗️ Core Architecture
+
+The diagram below shows the logical components an agent built on this pattern would coordinate at
+runtime. It is a reference shape — makers decide which tools, sub-agents, and replanning behaviour to
+include based on their scenario.
 
 ```mermaid
 flowchart TD
@@ -65,10 +69,11 @@ flowchart TD
 
 ## 🔌 Connector Ecosystem
 
-> All connectors below are **verified Power Platform connectors** — certified third-party or
-> Microsoft first-party — available as **agent flows** (recommended for Copilot Studio) or
-> Power Automate cloud flows. The **Integration** layer enables Graph API calls and custom
-> REST endpoints for systems without a certified connector.
+> The map below catalogues connectors a maker **can** wire into an implementation of this pattern.
+> All entries are **verified Power Platform connectors** — certified third-party or Microsoft
+> first-party — usable as **agent flows** (recommended for Copilot Studio) or Power Automate cloud
+> flows. The **Integration** layer enables Graph API calls and custom REST endpoints for systems
+> without a certified connector. Pick only the connectors your scenario needs.
 >
 > **Note:** *Agent flows* are the recommended way to build tools in Copilot Studio (GA mid-2025).
 > They run on the same Power Automate engine as cloud flows but are created natively within
@@ -163,10 +168,12 @@ mindmap
 
 ## 🔗 MCP Server Ecosystem (Model Context Protocol)
 
-> MCP is GA in Copilot Studio (May 2025). MCP servers are integrated through the Power Platform
-> connector infrastructure — they inherit enterprise security, DLP controls, and VNet integration.
-> **MCP and connectors are complementary** — connectors handle deterministic CRUD operations,
-> while MCP servers provide dynamic tool discovery and AI-native integration.
+> MCP is GA in Copilot Studio (May 2025). The servers listed here are options a maker can register
+> as tools — they are integrated through the Power Platform connector infrastructure and inherit
+> enterprise security, DLP controls, and VNet integration. **MCP and connectors are
+> complementary** — connectors handle deterministic CRUD operations, while MCP servers offer
+> dynamic tool discovery and AI-native integration. The maker chooses which to use based on the
+> scenario.
 
 ### MCP vs Power Platform Connectors — When to Use Each
 
@@ -312,11 +319,17 @@ For tasks requiring deep expertise, delegate to a specialist agent via the
 
 **Step 6 — Test with adversarial goals**
 Run tests with multi-step goals that require at least 3 tool calls. Validate that
-the agent replans correctly when one tool returns no results.
+the agent replans correctly when one tool returns no results, and that any irreversible
+actions remain gated by the HITL checkpoints the maker configured.
 
 ---
 
 ## 📖 Original Scenarios
+
+> The scenarios below are **illustrative example implementations** of this pattern — they describe
+> what an agent built on the pattern would do at runtime for a given user goal. Outcome figures
+> (e.g., time-savings) are indicative results observed in reference implementations, not guarantees
+> of the pattern itself.
 
 ### Scenario A — IT Service Management: Incident Resolution
 > IT engineer says: *"Investigate the payment service outage and open an incident ticket."*
@@ -327,7 +340,7 @@ the agent replans correctly when one tool returns no results.
 4. Tool 3 queries deployment history from Azure DevOps
 5. Agent synthesizes root-cause hypothesis → Tool 4 creates ServiceNow ticket with context pre-filled
 
-**Result:** Incident ticket creation time drops from 20 minutes to 90 seconds.
+**Indicative outcome (reference implementation):** Incident ticket creation time observed to drop from roughly 20 minutes to 90 seconds.
 
 ---
 
@@ -339,7 +352,7 @@ the agent replans correctly when one tool returns no results.
 3. Calls web search tool for recent Contoso news (Tool 3)
 4. Synthesizes findings → drafts proposal intro grounded in all three sources
 
-**Result:** Rep spends 5 minutes reviewing AI draft vs. 2 hours doing manual research.
+**Indicative outcome (reference implementation):** Rep spends ~5 minutes reviewing an AI draft vs. ~2 hours doing manual research.
 
 ---
 
@@ -351,11 +364,16 @@ the agent replans correctly when one tool returns no results.
 3. Flags any step that fails or returns an exception to the human reviewer
 4. Produces a completion summary report at the end
 
-**Result:** Month-end coordination overhead reduced by 60% with full audit trail.
+**Indicative outcome (reference implementation):** Month-end coordination overhead reduced by ~60% with a full audit trail.
 
 ---
 
 ## 🆕 Extended Scenarios with Diagrams
+
+> The extended scenarios are also **illustrative example implementations** — each shows one way an
+> agent built on this pattern could compose the available tools to meet a specific business goal.
+> Diagrams, step tables, and outcome figures reflect reference implementations, not fixed behaviour
+> of this pattern.
 
 ---
 
@@ -404,7 +422,7 @@ flowchart TD
 | 7 | Update Jira ticket: assign, add fix notes, link branch | **Jira** — `PUT /rest/api/2/issue/{id}` |
 | 8 | Post ranked triage card to dev Teams channel | **Microsoft Teams** connector |
 
-**Result:** Sprint triage that takes 3 hours manually completes in under 4 minutes. Developers start coding, not triaging.
+**Indicative outcome (reference implementation):** Sprint triage that took ~3 hours manually completed in under 4 minutes, freeing developers to code rather than triage.
 
 ---
 
@@ -457,7 +475,7 @@ flowchart TD
 | 6 | On approval: submit CR and trigger SNow notification workflow | **ServiceNow** connector |
 | 7 | Log CR number + audit metadata to Dataverse | **Dataverse** connector |
 
-**Result:** CR preparation time cut from 45 minutes to 3 minutes. Risk misclassification reduced by removing manual scoring.
+**Indicative outcome (reference implementation):** CR preparation time cut from ~45 minutes to ~3 minutes; risk misclassification reduced by removing manual scoring.
 
 ---
 
@@ -509,7 +527,7 @@ flowchart TD
 | 8 | Book orientation, manager 1:1, and IT setup slots | **Outlook Calendar** connector |
 | 9 | Track completion of all tasks in Dataverse; notify manager | **Dataverse** + **Teams** |
 
-**Result:** Onboarding setup that takes HR 4–6 hours is fully orchestrated in under 8 minutes. New hire is productive from Day 1.
+**Indicative outcome (reference implementation):** Onboarding setup that took HR ~4–6 hours was orchestrated in under 8 minutes, with the new hire productive from Day 1.
 
 ---
 
@@ -566,7 +584,7 @@ flowchart TD
 | 8 | Send recovery email with offer details | **Outlook** connector |
 | 9 | Close any linked ServiceNow IT tickets | **ServiceNow** connector |
 
-**Result:** Average handle time drops from 18 minutes to 4 minutes. CSAT scores improve by reducing resolution inconsistency.
+**Indicative outcome (reference implementation):** Average handle time dropped from ~18 minutes to ~4 minutes; CSAT improved as resolution inconsistency fell.
 
 ---
 
@@ -628,7 +646,7 @@ flowchart TD
 | 8 | Enrich low-confidence signals via external threat intel | **VirusTotal / MDTI** REST API |
 | 9 | Notify user, IT security team, and log to audit | **Outlook** + **Teams** connectors |
 
-**Result:** Mean time to contain (MTTC) drops from 4 hours to under 12 minutes. False positive rate reduced through automated enrichment before action.
+**Indicative outcome (reference implementation):** Mean time to contain (MTTC) dropped from ~4 hours to under 12 minutes; false positive rate reduced through automated enrichment before action.
 
 ---
 
@@ -693,7 +711,6 @@ flowchart TD
 | **HITL gates** | For irreversible actions (block user, isolate device, send bulk email) — always include an approval step. |
 
 ---
-
 
 ## 🔗 Related Labs & Accelerators
 
