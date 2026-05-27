@@ -1,7 +1,10 @@
 # 🤖 Agentic Workflow Orchestration
 
-> The agent **plans, decomposes, and executes** multi-step tasks autonomously — calling
-> tools, delegating to sub-agents, and adapting its plan based on intermediate results.
+> A reference pattern for designing AI agents that **plan, decompose, and execute**
+> multi-step tasks — orchestrating tools, delegating to specialist sub-agents, and
+> adapting the execution plan based on intermediate results. Makers can adopt this
+> pattern end-to-end or reuse selected components, and choose the trigger mode
+> (conversational, event-driven, or scheduled) to fit their scenario.
 
 **Complexity:** ⭐⭐⭐⭐ High | **Core Capability:** Multi-step, multi-agent task completion
 
@@ -275,9 +278,29 @@ For each sub-task, configure a **Tool** in Copilot Studio:
 - External system actions → Agent flow tool (or existing Power Automate cloud flow)
 - Structured data reads → Power Platform connector tool
 
-**Step 3 — Enable autonomous planning**
-Turn on **Generative Orchestration** in Copilot Studio so the LLM dynamically
-selects and sequences tools based on the user's intent — no rigid topic branching required.
+**Step 3 — Configure how the agent plans (Instructions vs Topics vs Hybrid)**
+Copilot Studio offers two complementary mechanisms for encoding planning logic.
+Pick the one that matches the predictability and compliance needs of each step.
+
+| Mechanism | Where the maker configures it | Best for |
+|-----------|-------------------------------|----------|
+| **Instructions** (Generative Orchestration) | Agent description + custom instructions + knowledge sources; turn **Generative Orchestration** on | Open-ended goals where the LLM dynamically sequences tools and sub-agents at runtime |
+| **Topics** (classic authoring) | Topic trigger phrases + nodes + conditions in the topic editor | Deterministic, regulated, or compliance-gated flows where the path must not vary |
+| **Hybrid** (recommended for enterprise) | Instructions drive the outer loop; topics handle specific guard-railed sub-flows (e.g., approval gates, refund issuance) | Most enterprise scenarios — flexible planning with deterministic checkpoints |
+
+What to put in **instructions** (the planning brain):
+
+- **Role & scope** — who the agent is and what tasks are in/out of scope
+- **Tool preferences** — which tool to try first, fallbacks, and when to delegate to a sub-agent
+- **Replanning policy** — what to do when a tool returns no result or an error (retry, escalate, ask the user)
+- **HITL thresholds** — actions that require human approval (e.g., refunds > $200, account lockouts)
+- **Output format** — how to summarise the final result back to the user
+
+What to put in **topics**:
+
+- High-stakes flows with mandatory steps (e.g., KYC verification, change-request approval)
+- Compliance-required confirmation prompts that must appear verbatim
+- Deterministic data-collection sequences before invoking a tool
 
 **Step 4 — Set a replanning budget**
 Define a maximum iteration count (recommended: 5–8 loops) to prevent infinite
@@ -670,6 +693,7 @@ flowchart TD
 | **HITL gates** | For irreversible actions (block user, isolate device, send bulk email) — always include an approval step. |
 
 ---
+
 
 ## 🔗 Related Labs & Accelerators
 
