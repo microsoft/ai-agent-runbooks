@@ -9,7 +9,7 @@
 
 1. [Purpose & Scope](#1-purpose--scope)
 2. [Prerequisites](#2-prerequisites)
-3. [Core Architecture](#3-core-architecture)
+3. [Reference Composition](#3-Reference Composition)
    - [3.1 Component Responsibilities](#31-component-responsibilities)
    - [3.2 Data Flow — Step by Step](#32-data-flow--step-by-step)
    - [3.3 Planning Mechanism — Instructions vs Topics vs Hybrid](#33-planning-mechanism--instructions-vs-topics-vs-hybrid)
