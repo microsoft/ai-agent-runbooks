@@ -29,7 +29,7 @@
 
 ---
 
-## 🏗️ Core Architecture
+## 🏗️ Reference Composition
 
 The diagram below shows the logical components an agent built on this pattern would coordinate at
 runtime. It is a reference shape — makers decide which tools, sub-agents, and replanning behaviour to
