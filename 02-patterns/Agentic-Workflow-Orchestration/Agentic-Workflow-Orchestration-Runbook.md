@@ -109,7 +109,7 @@ Before starting any scenario implementation, verify:
 
 ---
 
-## 3. Core Architecture
+## 3. Reference Composition
 
 The diagram below shows the logical components an implementation built on this pattern would
 coordinate at runtime. It is a reference composition — the maker decides which tools, sub-agents,
