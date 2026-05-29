@@ -47,6 +47,8 @@ Whether you're building your first agent or scaling across multiple business dom
 
 - 🧠 [Enterprise RAG Pattern](./02-patterns/Enterprise-RAG-Pattern/) — Multi-source, governed RAG pattern that grounds LLM responses in organizational data (SharePoint, OneDrive, Dataverse, Azure SQL, Fabric, Dynamics CRM) with document-level access control and full citation trails via Azure AI Search
 - 🔀 [Agentic Workflow Orchestration](./02-patterns/Agentic-Workflow-Orchestration/) — Multi-agent orchestration pattern for coordinating handoffs between specialized agents, enabling sequential, concurrent, and hierarchical agent collaboration across complex business workflows
+- 🧭 [Declarative vs Custom Engine Agent](./02-patterns/Declarative-vs-Custom-engine-agent/) — Decision framework for selecting between Declarative Agents and Copilot Studio Custom Engine 
+  Agents, covering three build methods (Agent Builder, Copilot Studio, Agents Toolkit), knowledge scale matrices, reference architectures, use-case scenario library, performance comparisons, and step-by-step implementation runbooks for both agent types and multi-agent composition
 
 ## Key Features
 
