@@ -25,14 +25,17 @@ The `02-patterns/` folder contains one subfolder per supported technical pattern
 
 ```
 02-patterns/
-├── README.md                                    ← 📖 You are here
-├── Agentic-Workflow-Orchestration/              ← 🚧 In Progress
+├── README.md                                                        ← 📖 You are here
+├── Agentic-Workflow-Orchestration/                                  ← ✅ Available
 │   └── Agentic-Workflow-Orchestration.md
-├── Enterprise-RAG-Pattern/                      ← ✅ Available
+├── Declarative-vs-Custom-engine-agent/                              ← ✅ Available
+│   ├── Declarative-Agents-vs-Copilot-Studio-Custom-Engine-Agents.md
+│   └── Declarative-Agents-vs-Copilot-Studio-Custom-Engine-Agents-Runbook.md
+├── Enterprise-RAG-Pattern/                                          ← ✅ Available
 │   ├── Enterprise-RAG-Pattern.md
 │   └── Enterprise-RAG-Pattern-Runbook.md
-├── Pattern03 (TBD)/                             ← 🚧 Coming Soon
-└── Pattern04 (TBD)/                             ← 🚧 Coming Soon
+├── Pattern04 (TBD)/                                                 ← 🚧 Coming Soon
+└── Pattern05 (TBD)/                                                 ← 🚧 Coming Soon
 ```
 
 ---
@@ -112,7 +115,8 @@ Step 6. Cross-reference 01-scenarios/ → apply the pattern within the scenario 
 | Pattern | Description | Key Technologies | Status |
 |---------|-------------|------------------|--------|
 | [Enterprise RAG Pattern](./Enterprise-RAG-Pattern/Enterprise-RAG-Pattern.md) | Multi-source, governed retrieval-augmented generation. Grounds LLM responses in organizational data with access control and citation trails. | Copilot Studio, Azure AI Search, Azure OpenAI, Foundry IQ | ✅ Available |
-| [Agentic Workflow Orchestration](./Agentic-Workflow-Orchestration/Agentic-Workflow-Orchestration.md) | Multi-agent workflow orchestration pattern for coordinating complex, multi-step tasks across multiple specialized agents. | Copilot Studio, Azure AI Foundry, Agent Framework | 🔨 In Progress |
+| [Agentic Workflow Orchestration](./Agentic-Workflow-Orchestration/Agentic-Workflow-Orchestration.md) | Multi-agent workflow orchestration pattern for coordinating complex, multi-step tasks across multiple specialized agents. | Copilot Studio, Azure AI Foundry, Agent Framework | ✅ Available |
+| [Declarative vs Custom Engine Agent](./Declarative-vs-Custom-engine-agent/Declarative-Agents-vs-Copilot-Studio-Custom-Engine-Agents.md) | Decision framework for choosing between Declarative Agents and Copilot Studio Custom Engine Agents. Covers three build methods (Agent Builder, Copilot Studio, Agents Toolkit), knowledge scale matrices, reference architectures, use-case scenarios, performance comparisons, and full implementation runbooks for both agent types and multi-agent composition. | Microsoft 365 Copilot, Copilot Studio, Agent Builder, Microsoft 365 Agents Toolkit, Azure OpenAI, Azure AI Search, Power Automate | ✅ Available |
 | Pattern03 (TBD) | TBD | TBD | 🚧 Coming Soon |
 | Pattern04 (TBD) | TBD | TBD | 🚧 Coming Soon |
 
