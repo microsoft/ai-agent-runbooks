@@ -1,0 +1,93 @@
+name: 💬 Ask a Question
+description: Not sure how something works? Ask the community and our team will help.
+title: "Question: "
+labels: ["question"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question about AI Agent Runbooks? We're happy to help! 
+        Please provide as much context as possible so we can give you the best answer.
+
+  - type: dropdown
+    id: topic
+    attributes:
+      label: What is your question about?
+      options:
+        - "Getting started / General usage"
+        - "Scenario implementation (01-scenarios)"
+        - "Technical patterns (02-patterns)"
+        - "Architecture or design decisions"
+        - "Copilot Studio configuration"
+        - "Azure AI Foundry integration"
+        - "Deployment or environment setup"
+        - "Contributing to the repository"
+        - "Other"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scenario-context
+    attributes:
+      label: Related scenario (if applicable)
+      options:
+        - "Not applicable"
+        - "D365 F&SCM Compare & Copy Configurations Agent"
+        - "Dynamics 365 Monitoring Agent"
+        - "DynPerf Performance Agent"
+        - "F&O User Onboarding Agent"
+        - "HR Onboarding Agent"
+        - "M365 Agent Templates"
+        - "Workplace Agent"
+        - "Other"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: pattern-context
+    attributes:
+      label: Related pattern (if applicable)
+      options:
+        - "Not applicable"
+        - "Agentic Workflow Orchestration"
+        - "Declarative vs Custom engine agent"
+        - "Enterprise RAG Pattern"
+        - "Other"
+    validations:
+      required: false
+      
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: Describe your question in detail. Include any context that might help us understand what you're trying to accomplish.
+      placeholder: "I'm trying to implement [scenario] and I'm not sure how to..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-tried
+    attributes:
+      label: What have you tried?
+      description: Share any steps you've already taken or resources you've consulted.
+      placeholder: "I've read the README for [scenario] and followed the setup guide, but..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Any other information, screenshots, or links that might help.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: search-check
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have searched existing issues and discussions to make sure this hasn't been answered already.
+          required: true
