@@ -66,6 +66,17 @@ Whether you're building your first agent or scaling across multiple business dom
 - 🔧 Technical patterns with architecture diagrams and code samples
 - 🎓 Best practices and lessons learned from real-world deployments
 
+## 📣 Feedback & Issues
+
+Found a bug? Have a question? We'd love to hear from you — no GitHub experience needed!
+
+| | Action | Description |
+|---|---|---|
+| 🐛 | [**Report a Bug**](https://github.com/microsoft/ai-agent-runbooks/issues/new?template=bug_report.yml) | Something not working as expected? A broken link, incorrect step, or outdated information? Let us know and we'll look into it. |
+| 💬 | [**Ask a Question**](https://github.com/microsoft/ai-agent-runbooks/issues/new?template=question.yml) | Not sure how something works? Ask the community and our team will help. |
+
+
+
 ## Contributing
 
 This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA), which confirms that you have the right to, and do, grant us the rights to use your contribution. For more details, visit [Contributor License Agreements](https://cla.opensource.microsoft.com).
