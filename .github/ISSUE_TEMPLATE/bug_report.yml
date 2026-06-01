@@ -1,0 +1,120 @@
+name: 🐛 Bug Report
+description: Report an issue with a runbook, pattern, or reference material
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the information below to help us investigate.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Which category is affected?
+      description: Select the area of the repository related to this issue.
+      options:
+        - "📋 Overview (00-overview)"
+        - "🎯 Scenarios (01-scenarios)"
+        - "🏗️ Patterns (02-patterns)"
+        - "📚 References (03-references)"
+        - "📄 README / General"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scenario
+    attributes:
+      label: Which scenario is affected? (if applicable)
+      description: Select the specific scenario, or choose "Not applicable".
+      options:
+        - "Not applicable"
+        - "D365 F&SCM Compare & Copy Configurations Agent"        
+        - "Dynamics 365 Monitoring Agent"
+        - "DynPerf Performance Agent"        
+        - "F&O User Onboarding Agent"
+        - "HR Onboarding Agent"
+        - "Workplace Agent"        
+        - "M365 Agent Templates"
+        - "Other (please specify in description)"
+    validations:
+      required: False
+
+  - type: dropdown
+    id: pattern
+    attributes:
+      label: Which pattern is affected? (if applicable)
+      description: Select the specific pattern, or choose "Not applicable".
+      options:
+        - "Not applicable"
+        - "Agentic Workflow Orchestration"
+        - "Declarative vs Custom engine agent"
+        - "Enterprise RAG Pattern"
+        - "Other (please specify in description)"
+    validations:
+      required: False
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: What type of issue is this?
+      options:
+        - "Incorrect or outdated information"
+        - "Broken link or missing resource"
+        - "Architecture diagram issue"
+        - "Code sample error"
+        - "Deployment steps not working"
+        - "Formatting / rendering issue"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear description of what happened vs. what you expected.
+      placeholder: "I was following the steps in [scenario name] and encountered..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Step-by-step instructions to reproduce the issue.
+      placeholder: |
+        1. Go to '...'
+        2. Follow step '...'
+        3. See the error
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Any relevant environment details (e.g., Copilot Studio version, Azure subscription type, browser, etc.)
+      placeholder: "Copilot Studio version, Azure region, browser, etc."
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain the problem.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have searched existing issues to make sure this is not a duplicate.
+          required: true
+        - label: I agree to follow this project's [Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+          required: true
