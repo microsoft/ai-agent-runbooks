@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Documentation
+    url: https://github.com/microsoft/ai-agent-runbooks/tree/main/00-overview
+    about: Read the overview and getting started guides before submitting an issue.
