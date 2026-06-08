@@ -36,6 +36,7 @@ Whether you're building your first agent or scaling across multiple business dom
 
 - 🧑‍💼 [HR Onboarding Agent](./01-scenarios/HR-Onboarding-Agent/) — Autonomous agent that helps new hires find HR-related information using a ServiceNow Knowledge Base
 - 🔧 [Dynamics 365 Monitoring Agent](./01-scenarios/Dynamics-365-Monitoring-Agent/) — AI-powered monitoring and diagnostics agent for D365 Finance & Supply Chain using Application Insights telemetry
+- 🛒 [Dynamics 365 PO Generation Agent](./01-scenarios/Dynamics-365-PO-Generation-Agent/) — AI-powered monitoring and diagnostics agent for D365 Finance & Supply Chain using Application Insights telemetry
 - 🏢 [Workplace Agent](./01-scenarios/Workplace-Agent/) — Declarative agent that handles internal FAQ inquiries and application request workflows using SharePoint, Dataverse, and Power Automate  
 - 🧾 [F&O User Onboarding Agent](./01-scenarios/F&O-User-Onboarding-Agent/) — Autonomous onboarding solution that automates user provisioning in Microsoft Entra ID and Dynamics 365 Finance & Operations, including approval workflows and role assignment.  
 - 🧩 [M365 Agent Templates](./01-scenarios/M365-Agent-Templates/) — Collection of pre-built, deploy-ready Microsoft 365 Copilot agents (e.g., Plan My Day, Executive Briefing, Request Tracker) designed to accelerate common workplace scenarios and enable rapid customization.
