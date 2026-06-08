@@ -23,6 +23,12 @@ Each scenario folder is self-contained and follows a standardized structure so t
 │   ├── 2.Architecture.md
 │   ├── 3.Runbook.md
 │   └── 4.Sample-prompts.md
+├── 📂 Dynamics-365-PO-Generation-Agent/       ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
 ├── 📂 Dynperf-Performance-Agent/           ← ✅ Available
 │   ├── 📂 0.Resources/
 │   ├── 1.Overview.md
