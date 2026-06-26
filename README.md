@@ -34,6 +34,7 @@ Whether you're building your first agent or scaling across multiple business dom
 
 **Ready to build?** Jump to [01-scenarios/](./01-scenarios/) and explore real-world agent implementations like:
 
+- 🤖 [Autonomous Invoice Orchestration Agent](./01-scenarios/Autonomous-invoice-Orchestration-Agent/) — Autonomous agent that helps employees create payment request forms and get them approved by their manager
 - 🧑‍💼 [HR Onboarding Agent](./01-scenarios/HR-Onboarding-Agent/) — Autonomous agent that helps new hires find HR-related information using a ServiceNow Knowledge Base
 - 🔧 [Dynamics 365 Monitoring Agent](./01-scenarios/Dynamics-365-Monitoring-Agent/) — AI-powered monitoring and diagnostics agent for D365 Finance & Supply Chain using Application Insights telemetry
 - 🛒 [Dynamics 365 PO Generation Agent](./01-scenarios/Dynamics-365-PO-Generation-Agent/) — Autonomous agent that creates a purchase order autonomously or manually
