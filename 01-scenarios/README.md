@@ -11,6 +11,12 @@ Each scenario folder is self-contained and follows a standardized structure so t
 
 ```
 📦 01-scenarios/
+├── 📂 Autonomous-Invoice-Orchestration-Agent/ ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
 ├── 📂 D365-Finance-&-SupplyChain-Compare-and-Copy-Configurations-Agent/ ← ✅ Available
 │   ├── 📂 0.Resources/
 │   ├── 1.Overview.md
@@ -101,6 +107,7 @@ Below is the standard structure, using **HR Onboarding Agent** as the reference 
 
 | Scenario | Type | Description | Platform | Status |
 |----------|------|-------------|----------|--------|
+| [Autonomous-Invoice-Orchestration-Ageny](./Autonomous-Invoice-Orchestration-Agent/) | Payment Approval Automation | Automates the payment request and approval process.| Microsoft Copilot Studios, Power Automate|✅ Available |
 | [D365-Finance-&-SupplyChain-Compare-and-Copy-Configurations-Agent](./D365-Finance-&-SupplyChain-Compare-and-Copy-Configurations-Agent/) | ERP Configuration Management (D365 F&SCM) | AI-powered agent that compares and copies module configurations across Dynamics 365 Finance & Supply Chain Management environments. Helps administrators identify configuration differences between companies, validate settings during implementations, and maintain consistency across environments using the Dynamics 365 ERP MCP server. | Microsoft Copilot Studio, Dynamics 365 F&SCM, Dynamics 365 ERP MCP Server | ✅ Available |
 | [Dynamics-365-Monitoring-Agent](./Dynamics-365-Monitoring-Agent/) | System Administration (D365 F&O) | AI-powered monitoring and diagnostics agent for Dynamics 365 Finance & Supply Chain that combines Application Insights telemetry with Copilot Studio to surface anomalies, answer natural-language queries on telemetry data, and guide or automate remediations. | Microsoft Copilot Studio, Dynamics 365 F&O, Azure Application Insights | ✅ Available |
 | [Dynamics-365-PO-Generation-Agent](./Dynamics-365-PO-Generation-Agent/) | System Administration (D365 F&O) | Autonomous agent that creates a purchase order autonomously or manually |Microsoft Copilot Studios, Dynamics 365 F&O | ✅ Available |
