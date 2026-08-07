@@ -26,16 +26,35 @@ The `02-patterns/` folder contains one subfolder per supported technical pattern
 ```
 02-patterns/
 ├── README.md                                                        ← 📖 You are here
+├── Agent-Governance-and-Rollout-Control-Plane/                       ← ✅ Available
+│   ├── Agent-Governance-and-Rollout-Control-Plane.md
+│   └── Agent-Governance-and-Rollout-Control-Plane-Runbook.md
+├── Agent-Publishing-and-Channel-Deployment/                          ← ✅ Available
+│   ├── Agent-Publishing-and-Channel-Deployment.md
+│   └── Agent-Publishing-and-Channel-Deployment-Runbook.md
 ├── Agentic-Workflow-Orchestration/                                  ← ✅ Available
 │   └── Agentic-Workflow-Orchestration.md
+├── Branded-Office-Artifact-Generation/                               ← ✅ Available
+│   ├── Branded-Office-Artifact-Generation.md
+│   └── Branded-Office-Artifact-Generation-Runbook.md
+├── Copilot-Connector-Knowledge-Onboarding/                           ← ✅ Available
+│   ├── Copilot-Connector-Knowledge-Onboarding.md
+│   └── Copilot-Connector-Knowledge-Onboarding-Runbook.md
+├── Copilot-Credits-Cost-Control/                                     ← ✅ Available
+│   ├── Copilot-Credits-Cost-Control.md
+│   └── Copilot-Credits-Cost-Control-Runbook.md
 ├── Declarative-vs-Custom-engine-agent/                              ← ✅ Available
 │   ├── Declarative-Agents-vs-Copilot-Studio-Custom-Engine-Agents.md
 │   └── Declarative-Agents-vs-Copilot-Studio-Custom-Engine-Agents-Runbook.md
 ├── Enterprise-RAG-Pattern/                                          ← ✅ Available
 │   ├── Enterprise-RAG-Pattern.md
 │   └── Enterprise-RAG-Pattern-Runbook.md
-├── Pattern04 (TBD)/                                                 ← 🚧 Coming Soon
-└── Pattern05 (TBD)/                                                 ← 🚧 Coming Soon
+├── Grounding-and-Response-Quality-Remediation/                       ← ✅ Available
+│   ├── Grounding-and-Response-Quality-Remediation.md
+│   └── Grounding-and-Response-Quality-Remediation-Runbook.md
+└── MCP-Server-Integration/                                           ← ✅ Available
+    ├── MCP-Server-Integration.md
+    └── MCP-Server-Integration-Runbook.md
 ```
 
 ---
@@ -117,8 +136,13 @@ Step 6. Cross-reference 01-scenarios/ → apply the pattern within the scenario 
 | [Enterprise RAG Pattern](./Enterprise-RAG-Pattern/Enterprise-RAG-Pattern.md) | Multi-source, governed retrieval-augmented generation. Grounds LLM responses in organizational data with access control and citation trails. | Copilot Studio, Azure AI Search, Azure OpenAI, Foundry IQ | ✅ Available |
 | [Agentic Workflow Orchestration](./Agentic-Workflow-Orchestration/Agentic-Workflow-Orchestration.md) | Multi-agent workflow orchestration pattern for coordinating complex, multi-step tasks across multiple specialized agents. | Copilot Studio, Azure AI Foundry, Agent Framework | ✅ Available |
 | [Declarative vs Custom Engine Agent](./Declarative-vs-Custom-engine-agent/Declarative-Agents-vs-Copilot-Studio-Custom-Engine-Agents.md) | Decision framework for choosing between Declarative Agents and Copilot Studio Custom Engine Agents. Covers three build methods (Agent Builder, Copilot Studio, Agents Toolkit), knowledge scale matrices, reference architectures, use-case scenarios, performance comparisons, and full implementation runbooks for both agent types and multi-agent composition. | Microsoft 365 Copilot, Copilot Studio, Agent Builder, Microsoft 365 Agents Toolkit, Azure OpenAI, Azure AI Search, Power Automate | ✅ Available |
-| Pattern03 (TBD) | TBD | TBD | 🚧 Coming Soon |
-| Pattern04 (TBD) | TBD | TBD | 🚧 Coming Soon |
+| [Copilot Connector Knowledge Onboarding](./Copilot-Connector-Knowledge-Onboarding/Copilot-Connector-Knowledge-Onboarding.md) | Getting third-party enterprise content into the Microsoft Graph index with correct permissions, so agents can ground on it. Covers connector type selection, source permission modelling, identity mapping, staged rollout, and the positive/negative permission evidence that unblocks security review. | Microsoft 365 Copilot connectors, Microsoft Graph, ServiceNow, Jira, Confluence, Salesforce, Workday | ✅ Available |
+| [Agent Governance & Rollout Control Plane](./Agent-Governance-and-Rollout-Control-Plane/Agent-Governance-and-Rollout-Control-Plane.md) | Separating agent creation from consumption, controlling sharing scope, establishing an approval route, and building the inventory and audit position enterprise rollouts depend on. The most common blocker between a working agent and a deployed one. | Microsoft 365 admin center, Power Platform admin center, Microsoft Entra, Microsoft Purview, Microsoft Agent 365 | ✅ Available |
+| [Copilot Credits & Cost Control](./Copilot-Credits-Cost-Control/Copilot-Credits-Cost-Control.md) | Consumption rates per agent feature, what enforcement actually stops (and what only alerts), capacity allocation by environment, per-agent caps, testing budgets, and chargeback design. | Copilot Studio, Power Platform admin center, Azure subscription (pay-as-you-go) | ✅ Available |
+| [Grounding & Response Quality Remediation](./Grounding-and-Response-Quality-Remediation/Grounding-and-Response-Quality-Remediation.md) | An ordered diagnostic ladder for agents that are built, connected, and still answering badly — reproducibility, user specificity, retrievability, content readability, retrieval path, instructions, platform change, and architectural fit. | Microsoft 365 Copilot, Copilot Studio, Microsoft Graph semantic index, Copilot Agent Kit | ✅ Available |
+| [Agent Publishing & Channel Deployment](./Agent-Publishing-and-Channel-Deployment/Agent-Publishing-and-Channel-Deployment.md) | The last mile: licensing prerequisites per channel, channel-specific behaviour differences, authentication and action attribution, and rich-content rendering across Microsoft 365 Copilot, Teams, SharePoint, web, and third-party channels. | Copilot Studio, Microsoft 365 Copilot, Microsoft Teams, SharePoint, Microsoft Entra | ✅ Available |
+| [MCP Server Integration](./MCP-Server-Integration/MCP-Server-Integration.md) | Connecting third-party systems to Copilot when connectors are not deep enough. The MCP-vs-connector decision, task-shaped tool design, plugin and tool count limits, per-user identity and protocol versioning, dynamic tool discovery, and operating the server as a production service. | Model Context Protocol, Copilot Cowork, declarative agents, Copilot Studio, Microsoft Foundry, Salesforce, Databricks, Snowflake | ✅ Available |
+| [Branded Office Artifact Generation](./Branded-Office-Artifact-Generation/Branded-Office-Artifact-Generation.md) | Making agent-generated PowerPoint, Word, and Excel output brand-compliant, factually reliable, and safe to send. Organization Asset Library setup, template hygiene, the entry-point × model test matrix, fidelity rules for missing data, and destructive-edit safety. | Copilot Cowork, Office Agent Mode, SharePoint Organization Asset Library, Microsoft 365 Copilot | ✅ Available |
 
 ---
 

@@ -44,6 +44,11 @@ Whether you're building your first agent or scaling across multiple business dom
 - ⚙️ [D365 F&SCM Compare & Copy Configurations Agent](./01-scenarios/D365-Finance-&-SupplyChain-Compare-and-Copy-Configurations-Agent) — AI-powered agent that compares and copies module configurations across Dynamics 365 Finance & Supply Chain Management environments, helping administrators identify configuration differences, validate settings, and maintain consistency using the Dynamics 365 ERP MCP server.
 - 📊 [DynPerf Performance Agent](./01-scenarios/Dynperf-Performance-Agent) — AI-powered performance diagnostics agent that leverages DynamicsPerf data to help administrators analyze SQL query statistics, detect bottlenecks, and optimize Dynamics 365 environment performance with actionable, natural-language insights.
 - 📈 [ERP-D365-Inventory-Optimization-Agent](./01-scenarios/ERP-D365-Inventory-Optimization-Agent) — Interactive agent that generates reports on Inventory from D365 F&O for inventory managers and other stakeholders to get current information, predictions, and other analytics around their inventory data.
+- 🎫 [IT Service Desk Insights Agent](./01-scenarios/IT-Service-Desk-Insights-Agent/) — Declarative agent grounded on ServiceNow knowledge and catalog content that answers employee how-to questions and performs sentiment and theme analysis over ticket text, with permission-trimmed retrieval.
+- 🧑‍💻 [Employee Self-Service Agent](./01-scenarios/Employee-Self-Service-Agent/) — One conversational front door in Microsoft 365 Copilot for HR and IT support, grounded on the HRIS, ITSM, and SharePoint. Includes the qualification and readiness work that dominates this delivery.
+- 🎟️ [Copilot Licence Lifecycle Agent](./01-scenarios/Copilot-License-Lifecycle-Agent/) — Copilot Studio agent that manages the Microsoft 365 Copilot licence estate: inventory, dormancy detection, reclaim and reassignment, and waitlist management.
+- 💼 [CRM Account Planning Cowork Agent](./01-scenarios/CRM-Account-Planning-Cowork-Agent/) — Copilot Cowork connected to the CRM through a purpose-built MCP server, producing branded account plans, QBR decks, and pipeline models as Office artifacts.
+- 🤝 [Client Meeting Preparation Agent](./01-scenarios/Client-Meeting-Preparation-Agent/) — Pre-meeting briefings and post-meeting file notes for advisers and relationship managers, assembled from the book of record, relationship history, and the client file. Built for regulated advisory work, with hard advice boundaries and information barrier enforcement.
 
 
 **Need implementation patterns?** Check out [02-patterns/](./02-patterns/) for proven technical approaches including Copilot Studio orchestration, RAG patterns, and multi-agent design.
@@ -52,6 +57,18 @@ Whether you're building your first agent or scaling across multiple business dom
 - 🔀 [Agentic Workflow Orchestration](./02-patterns/Agentic-Workflow-Orchestration/) — Multi-agent orchestration pattern for coordinating handoffs between specialized agents, enabling sequential, concurrent, and hierarchical agent collaboration across complex business workflows
 - 🧭 [Declarative vs Custom Engine Agent](./02-patterns/Declarative-vs-Custom-engine-agent/) — Decision framework for selecting between Declarative Agents and Copilot Studio Custom Engine 
   Agents, covering three build methods (Agent Builder, Copilot Studio, Agents Toolkit), knowledge scale matrices, reference architectures, use-case scenario library, performance comparisons, and step-by-step implementation runbooks for both agent types and multi-agent composition
+- 🔌 [Copilot Connector Knowledge Onboarding](./02-patterns/Copilot-Connector-Knowledge-Onboarding/) — Getting third-party enterprise content (ServiceNow, Jira, Confluence, Salesforce, Workday) into the Microsoft Graph index with correct ACLs, including the permission validation evidence that unblocks security review
+- 🛡️ [Agent Governance & Rollout Control Plane](./02-patterns/Agent-Governance-and-Rollout-Control-Plane/) — Separating agent creation from consumption, controlling sharing, establishing an approval route, and building the inventory and audit position that enterprise rollouts depend on
+- 💳 [Copilot Credits & Cost Control](./02-patterns/Copilot-Credits-Cost-Control/) — Credit consumption rates, what enforcement actually stops, capacity allocation, per-agent caps, and chargeback design
+- 🔬 [Grounding & Response Quality Remediation](./02-patterns/Grounding-and-Response-Quality-Remediation/) — An ordered diagnostic ladder for agents that are built, connected, and still answering badly
+- 🚢 [Agent Publishing & Channel Deployment](./02-patterns/Agent-Publishing-and-Channel-Deployment/) — The last mile: licensing prerequisites, channel-specific behaviour, authentication, and rendering across Microsoft 365 Copilot, Teams, SharePoint, and third-party channels
+- 🔌 [MCP Server Integration](./02-patterns/MCP-Server-Integration/) — Connecting third-party systems (Salesforce, Workday, ServiceNow, Databricks, Snowflake, GitHub) to Copilot Cowork, declarative agents, Copilot Studio, and Foundry via Model Context Protocol servers, including tool design, per-user identity, dynamic tool discovery, and gateway-mediated topologies for on-premises and private-network backends (APIM, Apigee, Workato, MuleSoft)
+- 🎨 [Branded Office Artifact Generation](./02-patterns/Branded-Office-Artifact-Generation/) — Making agent-generated PowerPoint, Word, and Excel output brand-compliant, factually reliable, and safe to send, using the Organization Asset Library and an entry-point × model test matrix
+
+**Need reference material?** [03-references/](./03-references/) holds the curated documentation index and the field-observed constraints that shape design.
+
+- 📚 [Agent Delivery Reference Library](./03-references/Agent-Delivery-Reference-Library.md) — Microsoft and non-Microsoft references organised by delivery question rather than by product
+- ⚠️ [Known Limitations & Workarounds](./03-references/Known-Limitations-and-Workarounds.md) — constraints observed repeatedly in the field, with the design responses that work
 
 ## Key Features
 

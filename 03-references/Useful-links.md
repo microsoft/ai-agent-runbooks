@@ -1,3 +1,12 @@
+## In This Folder
+
+| Document | Description |
+|----------|-------------|
+| [Agent Delivery Reference Library](./Agent-Delivery-Reference-Library.md) | Curated Microsoft and non-Microsoft references organised by delivery question — agent type selection, connecting knowledge, grounding quality, multi-agent, governance, licensing and cost, publishing, testing, ALM, and responsible AI. |
+| [Known Limitations & Workarounds](./Known-Limitations-and-Workarounds.md) | Constraints observed repeatedly across real agent deliveries, with the design responses that work. Use at qualification and design, not during firefighting. |
+
+---
+
 ## Useful Resources
 
 | Document | Description |
