@@ -187,6 +187,26 @@ organised by the delivery question you are trying to answer rather than by produ
 
 ---
 
+## 11. Document Processing and Extraction
+
+For any workload where the input is a document rather than a question.
+
+| Resource | Use it for |
+|---|---|
+| [Azure AI Document Intelligence](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview) | OCR, layout, prebuilt and custom extraction models — the default when input is scanned |
+| [Document Intelligence prebuilt models](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/model-overview) | Invoices, receipts, IDs, contracts — check before building a custom model |
+| [Document Intelligence layout model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/prebuilt/layout) | Tables, line items, and reading order — required for anything with a schedule |
+| [Custom extraction models](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/train/custom-model) | Consistent-layout forms specific to the customer |
+| [Content Understanding](https://learn.microsoft.com/en-us/azure/ai-services/content-understanding/overview) | Multimodal extraction across documents, images, audio, and video where layout varies |
+| [Document Intelligence language support](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/language-support) | Confirm coverage before promising multilingual accuracy |
+| [AI Builder document processing](https://learn.microsoft.com/en-us/ai-builder/form-processing-model-overview) | Low-code extraction inside Power Platform where volumes are modest |
+| [Power Automate approvals](https://learn.microsoft.com/en-us/power-automate/get-started-approvals) | The human gate between extraction and a downstream write |
+
+> 📌 Estimate document workloads on **pages per month**, not documents per month. The difference is
+> commonly 3–5x, and it is the whole cost model.
+
+---
+
 ## How to Use This Library
 
 1. Start from the delivery question, not the product. The sections above map to the phases of an

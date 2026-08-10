@@ -197,9 +197,37 @@ late.
 
 ---
 
+## 12. Migration Programmes, Delivery Boundaries, and Document Workloads
+
+Drawn from a 236-engagement migration portfolio across 166 customers. Unlike the sections above,
+most of these are **delivery** constraints rather than product constraints — but they stop
+engagements just as reliably.
+
+| # | Limitation | Impact | Design response |
+|---|---|---|---|
+| N1 | 🔴 Pre-requisite work dominates the schedule. In one portfolio, **156 of 236 engagements were stalled in "executing pre-requisites"** — licensing, environment provisioning, data access, DLP policy, and security approval | The programme looks stalled while nothing technical is wrong. Forecasts based on build effort are wrong by a wide margin | Treat pre-requisites as a named work package with its own owner, plan, and exit criteria. Baseline the elapsed time and report it separately from build |
+| N2 | 🔴 Customer environment provisioning delays block start entirely | Weeks of elapsed time with the delivery team idle | Make environment readiness a gate before mobilisation, not a task within it. Define exactly what "ready" means and get it confirmed in writing |
+| N3 | 🔴 System access not granted at kick-off | Same as N2, and harder to escalate because it looks like a task rather than a blocker | Named access owner per system, with access confirmed before the sprint that needs it |
+| N4 | 🟠 Scope policies can exclude work **after** nomination approval. One engagement was approved, then found to breach a **one-custom-connector-per-use-case** delivery policy, having required three | Approved work becomes out of scope late; the customer's expectation is already set | Read the integration count out of the use case at qualification. Where a policy caps custom connectors, either re-shape the use case or agree the exception before approval |
+| N5 | 🟠 SI / partner boundary ambiguity where a systems integrator holds part of the solution | Duplicate work, gaps, or a stalled handoff | Write the split down explicitly — one line per component naming the owning party. Review it at every stage gate |
+| N6 | 🟠 Existing agent estates produce **inconsistent outcomes** on the same task | Trust erodes; migration is blamed for pre-existing behaviour | Inconsistency is nearly always a missing fixed standard to compare against, not model instability. Establish the standard before migrating the agent |
+| N7 | 🟠 Agent sprawl across environments discovered mid-programme | Fragmented estate with no owner, duplicate agents, unclear disposition | Run inventory and disposition (keep / rebuild / retire / merge) as the first migration work package. See [Copilot Studio Migration & Modernisation](../02-patterns/Copilot-Studio-Migration-and-Modernisation/Copilot-Studio-Migration-and-Modernisation.md) |
+| N8 | 🔴 **The target system frequently has no API.** Real cases include payroll integrations where no interface existed between the systems at all | Late discovery invalidates the architecture and the business case | Ask "what does the output land in, and who commits it?" in the first qualification conversation. Where there is no API, the deliverable is a file — get written agreement that this is acceptable |
+| N9 | 🔴 Copilot Studio cannot read scanned or photographed documents | A sprint is lost proving this | Test one real scan on day one. Scanned input means Foundry / Document Intelligence. See [Copilot Studio & Foundry Split Architecture](../02-patterns/Copilot-Studio-and-Foundry-Split-Architecture/Copilot-Studio-and-Foundry-Split-Architecture.md) |
+| N10 | 🟠 Extraction accuracy measured on clean documents does not survive production | Go-live accuracy collapses against real scans and photographs | Build the golden set from the **worst** documents available, and report accuracy per field and per language — never as one blended figure |
+| N11 | 🟠 Table and line-item extraction fails silently without layout-aware processing | Wrong quantities and prices reach downstream systems | Use layout-aware extraction for anything with a schedule or line items, and test tables spanning page breaks explicitly |
+| N12 | 🟠 Confidence thresholds set without data produce either unmanageable review queues or confident wrong values | Either the saving disappears or the errors do not | Derive thresholds from measured error-vs-confidence data on the golden set, per field. Check the resulting review volume against real reviewer capacity |
+| N13 | 🔴 Meeting and transcript processing invents actions and assigns owners who never accepted them | People work on things nobody agreed. Destroys trust immediately | Hard evidence rule: no action without a verbatim quote. Make the invented-action test a release gate |
+| N14 | 🔴 Transcript processing requires a consent and works-council position in several jurisdictions | Legal and employee-relations exposure; can stop a live agent | Establish the legal basis, the excluded meeting categories, and the works council agreement before build, not before go-live |
+| N15 | 🟠 Only a small minority of Copilot Studio agents in a migration portfolio publish to Microsoft 365 Copilot (**8 of 236** in one dataset) | Teams assume M365 Copilot is the default surface and design for the wrong channel | Confirm the target channel at qualification. It changes licensing, authentication, and rendering. See [Agent Publishing & Channel Deployment](../02-patterns/Agent-Publishing-and-Channel-Deployment/Agent-Publishing-and-Channel-Deployment.md) |
+| N16 | 🟡 Supplier and counterparty document templates drift without notice | Extraction accuracy decays gradually and nobody reports it | Re-run the golden set quarterly as a regression check |
+| N17 | 🟡 Reviewers rubber-stamp once volume exceeds attention | The human gate becomes decorative while remaining the control of record | Measure the modification rate. A gate with a near-zero modification rate is not functioning. See [Human-in-the-Loop Review & Approval](../02-patterns/Human-in-the-Loop-Review-and-Approval/Human-in-the-Loop-Review-and-Approval.md) |
+
+---
+
 ## How to Use This List
 
-**At qualification.** Walk sections 1, 2, 8, 10, and 11 with the customer. These contain the
+**At qualification.** Walk sections 1, 2, 8, 10, 11, and 12 with the customer. These contain the
 constraints that stop projects rather than slow them.
 
 **At design.** Walk sections 3, 5, 6, 7, and 9 against your intended architecture. Anything

@@ -41,6 +41,30 @@ Each scenario folder is self-contained and follows a standardized structure so t
 │   ├── 2.Architecture.md
 │   ├── 3.Runbook.md
 │   └── 4.Sample-prompts.md
+├── 📂 Contract-and-Legal-Intelligence-Agent/ ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Document-Processing-and-Extraction-Agent/ ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Email-and-Mailbox-Triage-Agent/      ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Meeting-Intelligence-Agent/          ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
 ├── 📂 Dynamics-365-Monitoring-Agent/       ← ✅ Available
 │   ├── 📂 0.Resources/
 │   ├── 1.Overview.md
@@ -141,6 +165,10 @@ Below is the standard structure, using **HR Onboarding Agent** as the reference 
 | [Copilot-License-Lifecycle-Agent](./Copilot-License-Lifecycle-Agent/) | IT Operations / FinOps for Copilot | Copilot Studio agent that manages the Microsoft 365 Copilot licence estate — inventory, dormancy detection, notification and reclaim with approvals, and waitlist management — with a full audit trail in Dataverse. Also works well as a Copilot Studio enablement asset for customer teams. | Microsoft Copilot Studio, Power Automate, Microsoft Graph, Dataverse | ✅ Available |
 | [CRM-Account-Planning-Cowork-Agent](./CRM-Account-Planning-Cowork-Agent/) | Sales Productivity / Revenue Operations | Copilot Cowork connected to the CRM through a purpose-built MCP server that exposes custom objects and composed queries the standard connector cannot reach. Produces branded account plans, QBR decks, and pipeline models as Office artifacts, with approval gates on write-back. | Microsoft 365 Copilot Cowork, MCP server, Salesforce, Organization Asset Library | ✅ Available |
 | [Client-Meeting-Preparation-Agent](./Client-Meeting-Preparation-Agent/) | Client Advisory / Relationship Management | Pre-meeting briefings and post-meeting file notes for advisers, relationship managers, and account teams. Assembles positions, relationship history, outstanding items, and watch-outs from the book of record, correspondence, and the client file — with hard advice boundaries, information barrier enforcement, and full citation. Generalises across wealth, banking, insurance, subscriptions, and durable assets. | Microsoft 365 Copilot, Copilot connectors or MCP server, SharePoint, Microsoft Purview | ✅ Available |
+| [Contract-and-Legal-Intelligence-Agent](./Contract-and-Legal-Intelligence-Agent/) | Legal Operations / Contract Lifecycle | Clause extraction, risk flagging against documented standard positions, tracked-changes redlines, and evidence retrieval across a document corpus — with a hard legal-advice boundary and a qualified human on every decision. Covers DPA and NDA review, negotiation support, resolutions, and claim evidence assembly. | Copilot Studio, Microsoft Foundry / Document Intelligence, SharePoint, Word | ✅ Available |
+| [Document-Processing-and-Extraction-Agent](./Document-Processing-and-Extraction-Agent/) | Operations / Back-Office Automation | Classify, extract, validate, and route high-volume documents — quotes, invoices, order confirmations, billing statements, work instructions. Multilingual OCR, validation against master data, confidence-based routing to human review, and output shaped to whatever the downstream system actually accepts (including when it has no API). | Microsoft Foundry / Document Intelligence, Content Understanding, Copilot Studio, Power Automate | ✅ Available |
+| [Email-and-Mailbox-Triage-Agent](./Email-and-Mailbox-Triage-Agent/) | Shared Mailbox Operations / Customer Service | Classifies, prioritises, routes, and drafts responses for high-volume shared mailboxes. Covers classification taxonomy design, confidence thresholds, the draft-never-send boundary, and the ticket or case handoff. The single most frequent use case in the portfolio. | Copilot Studio, Power Automate, Exchange Online, Microsoft Foundry (for attachments) | ✅ Available |
+| [Meeting-Intelligence-Agent](./Meeting-Intelligence-Agent/) | Workforce Productivity / Governance | Extracts decisions, actions, and owners from meeting transcripts with a hard evidence rule, deduplicates across recurring series, and tracks commitments to closure. Includes the consent and works-council position, the excluded-meeting categories, and the invented-action release gate. | Microsoft 365 Copilot, Copilot Studio, Microsoft Teams, Microsoft Graph, Dataverse | ✅ Available |
 | [D365-Finance-&-SupplyChain-Compare-and-Copy-Configurations-Agent](./D365-Finance-&-SupplyChain-Compare-and-Copy-Configurations-Agent/) | ERP Configuration Management (D365 F&SCM) | AI-powered agent that compares and copies module configurations across Dynamics 365 Finance & Supply Chain Management environments. Helps administrators identify configuration differences between companies, validate settings during implementations, and maintain consistency across environments using the Dynamics 365 ERP MCP server. | Microsoft Copilot Studio, Dynamics 365 F&SCM, Dynamics 365 ERP MCP Server | ✅ Available |
 | [Dynamics-365-Monitoring-Agent](./Dynamics-365-Monitoring-Agent/) | System Administration (D365 F&O) | AI-powered monitoring and diagnostics agent for Dynamics 365 Finance & Supply Chain that combines Application Insights telemetry with Copilot Studio to surface anomalies, answer natural-language queries on telemetry data, and guide or automate remediations. | Microsoft Copilot Studio, Dynamics 365 F&O, Azure Application Insights | ✅ Available |
 | [Dynamics-365-PO-Generation-Agent](./Dynamics-365-PO-Generation-Agent/) | System Administration (D365 F&O) | Autonomous agent that creates a purchase order autonomously or manually |Microsoft Copilot Studios, Dynamics 365 F&O | ✅ Available |

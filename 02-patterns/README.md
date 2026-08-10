@@ -43,6 +43,12 @@ The `02-patterns/` folder contains one subfolder per supported technical pattern
 ├── Copilot-Credits-Cost-Control/                                     ← ✅ Available
 │   ├── Copilot-Credits-Cost-Control.md
 │   └── Copilot-Credits-Cost-Control-Runbook.md
+├── Copilot-Studio-Migration-and-Modernisation/                       ← ✅ Available
+│   ├── Copilot-Studio-Migration-and-Modernisation.md
+│   └── Copilot-Studio-Migration-and-Modernisation-Runbook.md
+├── Copilot-Studio-and-Foundry-Split-Architecture/                    ← ✅ Available
+│   ├── Copilot-Studio-and-Foundry-Split-Architecture.md
+│   └── Copilot-Studio-and-Foundry-Split-Architecture-Runbook.md
 ├── Declarative-vs-Custom-engine-agent/                              ← ✅ Available
 │   ├── Declarative-Agents-vs-Copilot-Studio-Custom-Engine-Agents.md
 │   └── Declarative-Agents-vs-Copilot-Studio-Custom-Engine-Agents-Runbook.md
@@ -52,6 +58,12 @@ The `02-patterns/` folder contains one subfolder per supported technical pattern
 ├── Grounding-and-Response-Quality-Remediation/                       ← ✅ Available
 │   ├── Grounding-and-Response-Quality-Remediation.md
 │   └── Grounding-and-Response-Quality-Remediation-Runbook.md
+├── Human-in-the-Loop-Review-and-Approval/                            ← ✅ Available
+│   ├── Human-in-the-Loop-Review-and-Approval.md
+│   └── Human-in-the-Loop-Review-and-Approval-Runbook.md
+├── Intelligent-Document-Processing-Pipeline/                         ← ✅ Available
+│   ├── Intelligent-Document-Processing-Pipeline.md
+│   └── Intelligent-Document-Processing-Pipeline-Runbook.md
 └── MCP-Server-Integration/                                           ← ✅ Available
     ├── MCP-Server-Integration.md
     └── MCP-Server-Integration-Runbook.md
@@ -143,6 +155,10 @@ Step 6. Cross-reference 01-scenarios/ → apply the pattern within the scenario 
 | [Agent Publishing & Channel Deployment](./Agent-Publishing-and-Channel-Deployment/Agent-Publishing-and-Channel-Deployment.md) | The last mile: licensing prerequisites per channel, channel-specific behaviour differences, authentication and action attribution, and rich-content rendering across Microsoft 365 Copilot, Teams, SharePoint, web, and third-party channels. | Copilot Studio, Microsoft 365 Copilot, Microsoft Teams, SharePoint, Microsoft Entra | ✅ Available |
 | [MCP Server Integration](./MCP-Server-Integration/MCP-Server-Integration.md) | Connecting third-party systems to Copilot when connectors are not deep enough. The MCP-vs-connector decision, task-shaped tool design, plugin and tool count limits, per-user identity and protocol versioning, dynamic tool discovery, and operating the server as a production service. | Model Context Protocol, Copilot Cowork, declarative agents, Copilot Studio, Microsoft Foundry, Salesforce, Databricks, Snowflake | ✅ Available |
 | [Branded Office Artifact Generation](./Branded-Office-Artifact-Generation/Branded-Office-Artifact-Generation.md) | Making agent-generated PowerPoint, Word, and Excel output brand-compliant, factually reliable, and safe to send. Organization Asset Library setup, template hygiene, the entry-point × model test matrix, fidelity rules for missing data, and destructive-edit safety. | Copilot Cowork, Office Agent Mode, SharePoint Organization Asset Library, Microsoft 365 Copilot | ✅ Available |
+| [Copilot Studio Migration & Modernisation](./Copilot-Studio-Migration-and-Modernisation/Copilot-Studio-Migration-and-Modernisation.md) | Moving existing conversational and automation estates onto Copilot Studio. Covers inventory and disposition of the legacy estate, the pre-requisite work packages that stall the majority of migrations, parallel-run cut-over, and decommissioning. Written from a portfolio where every engagement was a migration, not a greenfield build. | Copilot Studio, Power Platform, Microsoft Entra, Microsoft Purview | ✅ Available |
+| [Copilot Studio & Foundry Split Architecture](./Copilot-Studio-and-Foundry-Split-Architecture/Copilot-Studio-and-Foundry-Split-Architecture.md) | Deciding what belongs in Copilot Studio and what belongs in Foundry, and how the two halves talk to each other. Capability boundary tests, the four common split topologies, ownership and lifecycle across two platforms, and the cost and latency consequences of the boundary. | Copilot Studio, Microsoft Foundry, Azure AI Search, Document Intelligence | ✅ Available |
+| [Intelligent Document Processing Pipeline](./Intelligent-Document-Processing-Pipeline/Intelligent-Document-Processing-Pipeline.md) | Classify → extract → validate → route → output. The reusable pipeline behind quote, invoice, order, contract, and form processing. Extraction stack selection, confidence threshold derivation from measured data, validation against master data, and the downstream boundary when the target system has no API. | Microsoft Foundry, Document Intelligence, Content Understanding, Power Automate, Copilot Studio | ✅ Available |
+| [Human-in-the-Loop Review & Approval](./Human-in-the-Loop-Review-and-Approval/Human-in-the-Loop-Review-and-Approval.md) | Designing the gate between an agent's output and a consequence. Where to place the gate, what the reviewer must be shown, confidence-based routing, review fatigue and rubber-stamping, escalation, and the audit record that makes the decision defensible. | Copilot Studio, Power Automate approvals, Dataverse, Microsoft Teams | ✅ Available |
 
 ---
 
