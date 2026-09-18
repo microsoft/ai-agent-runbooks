@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contribute — AI Agent Runbooks</title>
+<meta name="description" content="How to contribute a scenario, pattern or fix to AI Agent Runbooks — folder standards, naming conventions, the CLA and how to raise an issue.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%238b5cf6'/><stop offset='.5' stop-color='%230078d4'/><stop offset='1' stop-color='%2300b294'/></linearGradient></defs><rect width='32' height='32' rx='9' fill='url(%23g)'/></svg>">
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  (function () {
+    var stored = null;
+    try { stored = localStorage.getItem("arb-theme"); } catch (e) {}
+    var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 4.4 3.4 7.4 8 8 4.6-.6 8-3.6 8-8V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+      </span>
+      <span class="name"><strong>AI Agent Runbooks</strong><span>Microsoft</span></span>
+    </a>
+    <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <nav class="nav">
+      <a class="navlink" href="index.html">Home</a>
+      <a class="navlink" href="overview.html">Overview</a>
+      <a class="navlink" href="scenarios.html">Scenarios</a>
+      <a class="navlink" href="patterns.html">Patterns</a>
+      <a class="navlink" href="references.html">References</a>
+      <a class="navlink" href="contribute.html">Contribute</a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle theme"></button>
+      <a class="icon-btn" href="https://github.com/microsoft/ai-agent-runbooks" target="_blank" rel="noopener" aria-label="Open the repository on GitHub" data-github-icon></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <div class="crumbs"><a href="index.html">Home</a> / Contribute</div>
+      <h1>Contribute</h1>
+      <p>
+        This repository grows from field delivery. Found a bug, a broken link, an outdated step — or delivered
+        something worth writing down? We would love to hear from you. No GitHub experience needed.
+      </p>
+      <div class="hero-actions" style="margin-top:1.5rem">
+        <a class="btn btn-primary" href="https://github.com/microsoft/ai-agent-runbooks/issues/new?template=bug_report.yml" target="_blank" rel="noopener">Report a bug</a>
+        <a class="btn btn-ghost" href="https://github.com/microsoft/ai-agent-runbooks/issues/new?template=question.yml" target="_blank" rel="noopener">Ask a question</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:1rem">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Adding content</div>
+        <h2>Two contribution shapes</h2>
+      </div>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">🎯</div>
+          <h3>A new scenario</h3>
+          <div class="type">01-scenarios/&lt;Scenario-Name-Agent&gt;/</div>
+          <p>
+            Create a self-contained folder using the standard four artefacts so any engineer can pick it up and
+            deliver it consistently. Add your scenario to the table in the section README.
+          </p>
+          <div class="foot"><a href="https://github.com/microsoft/ai-agent-runbooks/tree/main/01-scenarios" target="_blank" rel="noopener">Scenario standards →</a></div>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">🏗️</div>
+          <h3>A new pattern</h3>
+          <div class="type">02-patterns/&lt;Pattern-Name&gt;/</div>
+          <p>
+            Patterns ship as a pair: <code>&lt;PatternName&gt;.md</code> for the decision-oriented overview and
+            <code>&lt;PatternName&gt;-Runbook.md</code> for the implementation detail used during delivery.
+          </p>
+          <div class="foot"><a href="https://github.com/microsoft/ai-agent-runbooks/tree/main/02-patterns" target="_blank" rel="noopener">Pattern standards →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Scenario artefacts</div>
+        <h2>The four files every scenario needs</h2>
+      </div>
+      <div class="anatomy" id="anatomy"></div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Naming</div>
+        <h2>Hyphens, not underscores</h2>
+        <p class="muted">Folder and file names use Title-Case-With-Hyphens so links stay predictable across the repository.</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3 style="color:var(--teal)">✅ Correct</h3>
+          <div class="anatomy" style="margin-top:.75rem">
+            <div class="anatomy-row"><code>Enterprise-RAG-Pattern/</code><span>Folder</span></div>
+            <div class="anatomy-row"><code>Enterprise-RAG-Pattern.md</code><span>Overview</span></div>
+            <div class="anatomy-row"><code>Enterprise-RAG-Pattern-Runbook.md</code><span>Runbook</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--coral)">❌ Incorrect</h3>
+          <div class="anatomy" style="margin-top:.75rem">
+            <div class="anatomy-row"><code>Enterprise_RAG_Pattern/</code><span>Underscores</span></div>
+            <div class="anatomy-row"><code>EnterpriseRAGPattern.md</code><span>No separators</span></div>
+            <div class="anatomy-row"><code>enterprise_rag_runbook.md</code><span>Lower case</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta">
+        <div class="cta-grid">
+          <div>
+            <div style="font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem">Before your first pull request</div>
+            <h2>The Contributor Licence Agreement</h2>
+            <p>
+              Most contributions require you to agree to a Contributor Licence Agreement, confirming you have
+              the right to grant us the rights to use your contribution. When you open a pull request, a CLA
+              bot works out whether you need one and guides you through it — you only do this once across all
+              Microsoft repositories that use the CLA.
+            </p>
+            <p style="margin-bottom:0">
+              This project has adopted the Microsoft Open Source Code of Conduct. Use of Microsoft trademarks
+              or logos must follow Microsoft's Trademark &amp; Brand Guidelines.
+            </p>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://cla.opensource.microsoft.com" target="_blank" rel="noopener">Review the CLA</a>
+            <a class="btn btn-ghost" href="https://opensource.microsoft.com/codeofconduct/" target="_blank" rel="noopener">Code of Conduct</a>
+            <a class="btn btn-ghost" href="https://github.com/microsoft/ai-agent-runbooks/blob/main/SECURITY.md" target="_blank" rel="noopener">Security policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:.75rem">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 4.4 3.4 7.4 8 8 4.6-.6 8-3.6 8-8V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <span class="name"><strong>AI Agent Runbooks</strong><span>Microsoft</span></span>
+        </a>
+        <p class="muted" style="font-size:.92rem;max-width:38ch">
+          Structured runbooks, proven patterns and real-world scenarios for enterprise AI agent delivery.
+        </p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="scenarios.html">Scenarios</a></li>
+          <li><a href="patterns.html">Patterns</a></li>
+          <li><a href="references.html">References</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="contribute.html">Contribute</a></li>
+          <li><a href="https://github.com/microsoft/ai-agent-runbooks/issues/new?template=bug_report.yml" target="_blank" rel="noopener">Report a bug</a></li>
+          <li><a href="https://github.com/microsoft/ai-agent-runbooks/issues/new?template=question.yml" target="_blank" rel="noopener">Ask a question</a></li>
+          <li><a href="https://github.com/microsoft/ai-agent-runbooks" target="_blank" rel="noopener">GitHub repository</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Microsoft</h4>
+        <ul>
+          <li><a href="https://go.microsoft.com/fwlink/?LinkId=521839" target="_blank" rel="noopener">Privacy Statement</a></li>
+          <li><a href="https://cla.opensource.microsoft.com" target="_blank" rel="noopener">Contributor Licence Agreement</a></li>
+          <li><a href="https://opensource.microsoft.com/codeofconduct/" target="_blank" rel="noopener">Code of Conduct</a></li>
+          <li><a href="https://github.com/microsoft/ai-agent-runbooks/blob/main/SECURITY.md" target="_blank" rel="noopener">Security</a></li>
+          <li><a href="https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general" target="_blank" rel="noopener">Trademarks</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© Microsoft Corporation. Released under the MIT Licence.</span>
+      <span>Community-maintained · contributions welcome</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  document.getElementById("anatomy").innerHTML = RUNBOOK_ANATOMY.map(function (a) {
+    return '<div class="anatomy-row"><code>' + a.file + "</code><span>" + a.desc + "</span></div>";
+  }).join("");
+</script>
+
+</body>
+</html>

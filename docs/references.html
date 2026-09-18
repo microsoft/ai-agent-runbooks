@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References — AI Agent Runbooks</title>
+<meta name="description" content="Reference material for AI agent delivery: the curated documentation library, field-observed limitations and workarounds, and useful links.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%238b5cf6'/><stop offset='.5' stop-color='%230078d4'/><stop offset='1' stop-color='%2300b294'/></linearGradient></defs><rect width='32' height='32' rx='9' fill='url(%23g)'/></svg>">
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  (function () {
+    var stored = null;
+    try { stored = localStorage.getItem("arb-theme"); } catch (e) {}
+    var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 4.4 3.4 7.4 8 8 4.6-.6 8-3.6 8-8V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+      </span>
+      <span class="name"><strong>AI Agent Runbooks</strong><span>Microsoft</span></span>
+    </a>
+    <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <nav class="nav">
+      <a class="navlink" href="index.html">Home</a>
+      <a class="navlink" href="overview.html">Overview</a>
+      <a class="navlink" href="scenarios.html">Scenarios</a>
+      <a class="navlink" href="patterns.html">Patterns</a>
+      <a class="navlink" href="references.html">References</a>
+      <a class="navlink" href="contribute.html">Contribute</a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle theme"></button>
+      <a class="icon-btn" href="https://github.com/microsoft/ai-agent-runbooks" target="_blank" rel="noopener" aria-label="Open the repository on GitHub" data-github-icon></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <div class="crumbs"><a href="index.html">Home</a> / References</div>
+      <h1>References</h1>
+      <p>
+        The curated documentation index and the field-observed constraints that shape design. Read the
+        limitations before you commit an architecture to a customer.
+      </p>
+    </div>
+  </section>
+
+  <section style="padding-bottom:2rem">
+    <div class="wrap">
+      <div class="grid grid-3" id="reference-grid"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Repository map</div>
+        <h2>Where everything lives</h2>
+        <p class="muted">Four top-level folders, one purpose each.</p>
+      </div>
+      <div class="anatomy">
+        <div class="anatomy-row"><code>00-overview/</code><span>Repository objectives, agent taxonomy, structure and how to get started.</span></div>
+        <div class="anatomy-row"><code>01-scenarios/</code><span>Pre-built AI agent use cases and end-to-end implementations.</span></div>
+        <div class="anatomy-row"><code>02-patterns/</code><span>Technical patterns, architecture decisions and industry best practices.</span></div>
+        <div class="anatomy-row"><code>03-references/</code><span>Templates, guides, architecture references and additional resources.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta">
+        <div style="font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem">Anatomy of a scenario</div>
+        <h2>What you get in every scenario folder</h2>
+        <div class="anatomy" id="anatomy" style="margin-top:1.5rem"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:.75rem">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 4.4 3.4 7.4 8 8 4.6-.6 8-3.6 8-8V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <span class="name"><strong>AI Agent Runbooks</strong><span>Microsoft</span></span>
+        </a>
+        <p class="muted" style="font-size:.92rem;max-width:38ch">
+          Structured runbooks, proven patterns and real-world scenarios for enterprise AI agent delivery.
+        </p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="scenarios.html">Scenarios</a></li>
+          <li><a href="patterns.html">Patterns</a></li>
+          <li><a href="references.html">References</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="contribute.html">Contribute</a></li>
+          <li><a href="https://github.com/microsoft/ai-agent-runbooks/issues/new?template=bug_report.yml" target="_blank" rel="noopener">Report a bug</a></li>
+          <li><a href="https://github.com/microsoft/ai-agent-runbooks/issues/new?template=question.yml" target="_blank" rel="noopener">Ask a question</a></li>
+          <li><a href="https://github.com/microsoft/ai-agent-runbooks" target="_blank" rel="noopener">GitHub repository</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Microsoft</h4>
+        <ul>
+          <li><a href="https://go.microsoft.com/fwlink/?LinkId=521839" target="_blank" rel="noopener">Privacy Statement</a></li>
+          <li><a href="https://cla.opensource.microsoft.com" target="_blank" rel="noopener">Contributor Licence Agreement</a></li>
+          <li><a href="https://opensource.microsoft.com/codeofconduct/" target="_blank" rel="noopener">Code of Conduct</a></li>
+          <li><a href="https://github.com/microsoft/ai-agent-runbooks/blob/main/SECURITY.md" target="_blank" rel="noopener">Security</a></li>
+          <li><a href="https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general" target="_blank" rel="noopener">Trademarks</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© Microsoft Corporation. Released under the MIT Licence.</span>
+      <span>Community-maintained · contributions welcome</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  document.getElementById("reference-grid").innerHTML = REFERENCES.map(function (r) {
+    return '<a class="card" href="' + BLOB + "/" + encodeURI(r.file) + '" target="_blank" rel="noopener">' +
+      '<div class="card-icon" aria-hidden="true">' + r.icon + "</div>" +
+      "<h3>" + r.title + "</h3>" +
+      "<p>" + r.desc + "</p>" +
+      '<div class="foot"><span class="tag">' + r.file.split("/").pop() + "</span></div></a>";
+  }).join("");
+
+  document.getElementById("anatomy").innerHTML = RUNBOOK_ANATOMY.map(function (a) {
+    return '<div class="anatomy-row"><code>' + a.file + "</code><span>" + a.desc + "</span></div>";
+  }).join("");
+</script>
+
+</body>
+</html>

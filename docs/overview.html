@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overview — AI Agent Runbooks</title>
+<meta name="description" content="What AI Agent Runbooks is, what a runbook contains, the Microsoft platforms it covers, how the repository is organised and where to start.">
+<meta property="og:title" content="Overview — AI Agent Runbooks">
+<meta property="og:description" content="What AI Agent Runbooks is, what a runbook contains, the platforms it covers and how to navigate the repository.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%238b5cf6'/><stop offset='.5' stop-color='%230078d4'/><stop offset='1' stop-color='%2300b294'/></linearGradient></defs><rect width='32' height='32' rx='9' fill='url(%23g)'/></svg>">
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  (function () {
+    var stored = null;
+    try { stored = localStorage.getItem("arb-theme"); } catch (e) {}
+    var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 4.4 3.4 7.4 8 8 4.6-.6 8-3.6 8-8V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+      </span>
+      <span class="name"><strong>AI Agent Runbooks</strong><span>Microsoft</span></span>
+    </a>
+    <button class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <nav class="nav">
+      <a class="navlink" href="index.html">Home</a>
+      <a class="navlink" href="overview.html">Overview</a>
+      <a class="navlink" href="scenarios.html">Scenarios</a>
+      <a class="navlink" href="patterns.html">Patterns</a>
+      <a class="navlink" href="references.html">References</a>
+      <a class="navlink" href="contribute.html">Contribute</a>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle theme"></button>
+      <a class="icon-btn" href="https://github.com/microsoft/ai-agent-runbooks" target="_blank" rel="noopener" aria-label="Open the repository on GitHub" data-github-icon></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <div class="crumbs"><a href="index.html">Home</a> / Overview</div>
+      <h1>What AI Agent Runbooks is</h1>
+      <p>
+        An open, community-driven repository that packages proven enterprise delivery knowledge for AI agents
+        built on Microsoft technologies — so delivery teams spend their time on customisation and business
+        value instead of rediscovering foundational patterns on every engagement.
+      </p>
+      <div class="hero-actions" style="margin-top:1.5rem">
+        <a class="btn btn-primary" href="scenarios.html">Browse scenarios</a>
+        <a class="btn btn-ghost" href="https://github.com/microsoft/ai-agent-runbooks/tree/main/00-overview" target="_blank" rel="noopener">Read it on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="section" style="padding-top:2rem">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Why it exists</div>
+        <h2>Born from delivery, not from documentation.</h2>
+        <p class="muted">
+          This repository came out of real enterprise engagements, where Microsoft Cloud Solution Architects and
+          Technical Specialists kept hitting the same gap: no structured, reusable, validated guidance for
+          building AI agents at scale. Product documentation explains what a feature does. A runbook tells you
+          what to build, in what order, what will go wrong, and what to do about it.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card pillar">
+          <div class="step">CONSISTENT</div>
+          <h3>Same shape every time</h3>
+          <p>Every scenario follows an identical folder and file structure, so any engineer can pick one up mid-engagement and deliver it.</p>
+        </div>
+        <div class="card pillar">
+          <div class="step">VALIDATED</div>
+          <h3>Proven in production</h3>
+          <p>Content is written from deliveries that actually reached production on Copilot Studio, Microsoft Foundry and Microsoft 365 Copilot.</p>
+        </div>
+        <div class="card pillar">
+          <div class="step">REUSABLE</div>
+          <h3>Build once, reuse everywhere</h3>
+          <p>Architecture decisions, grounding, governance and cost control are documented as patterns and shared across scenarios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS A RUNBOOK -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Definition</div>
+        <h2>What is an AI Agent Runbook?</h2>
+        <p class="muted">
+          A structured, end-to-end implementation guide for one specific agent use case, purpose-built around a
+          real business scenario and carrying everything needed to understand, design, build and deploy the agent
+          in an enterprise environment — concept to production, repeatable.
+        </p>
+      </div>
+      <div class="anatomy" id="anatomy"></div>
+    </div>
+  </section>
+
+  <!-- PLATFORMS -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Platforms</div>
+        <h2>Where these agents are built</h2>
+        <p class="muted">Guidance spans three Microsoft AI platforms — often combined within a single scenario.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">🛠️</div>
+          <h3>Microsoft Copilot Studio</h3>
+          <div class="type">Low-code conversational agents</div>
+          <p>Build, test and deploy conversational agents and copilots across Microsoft 365 and custom channels, with knowledge sources, topics, actions and connectors.</p>
+          <div class="foot"><span class="tag">Topics &amp; actions</span><span class="tag">Connectors</span><span class="tag">Channels</span></div>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">🧪</div>
+          <h3>Microsoft Foundry</h3>
+          <div class="type">Pro-code and custom engine</div>
+          <p>Enterprise-grade platform for building, evaluating and deploying custom models and agent solutions using Azure OpenAI and Azure AI services.</p>
+          <div class="foot"><span class="tag">Azure OpenAI</span><span class="tag">Evaluation</span><span class="tag">Orchestration</span></div>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">✨</div>
+          <h3>Microsoft 365 Copilot</h3>
+          <div class="type">In-flow extensibility</div>
+          <p>The native AI experience inside Microsoft 365 apps, extended through declarative agents, connectors and Copilot extensibility scenarios.</p>
+          <div class="foot"><span class="tag">Declarative agents</span><span class="tag">Graph connectors</span><span class="tag">Extensibility</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAXONOMY / COVERAGE -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Coverage</div>
+        <h2>How the catalogue is organised</h2>
+        <p class="muted">
+          Scenarios are grouped by business domain and agent type. Patterns are grouped by engineering theme and
+          apply across domains.
+        </p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">🏢</div>
+          <h3>Scenario platforms</h3>
+          <div class="type">Business-anchored builds</div>
+          <p>Scenarios span HR, IT service desk, legal, finance and ERP, built on the platform combinations below.</p>
+          <div class="foot" id="scenario-platforms"></div>
+        </div>
+        <div class="card">
+          <div class="card-icon" aria-hidden="true">🧩</div>
+          <h3>Pattern themes</h3>
+          <div class="type">Reusable engineering</div>
+          <p>Patterns capture the decisions that repeat on every engagement — documented once, reused everywhere.</p>
+          <div class="foot" id="pattern-themes"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPOSITORY MAP -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Navigation</div>
+        <h2>Four folders, one purpose each</h2>
+        <p class="muted">The repository is deliberately shallow — find the folder that matches your question and start there.</p>
+      </div>
+      <div class="anatomy">
+        <div class="anatomy-row"><code>00-overview/</code><span>Repository objectives, agent taxonomy, structure and navigation. Start here if you are new.</span></div>
+        <div class="anatomy-row"><code>01-scenarios/</code><span>End-to-end runbooks per use case. Start here if you are building a specific agent.</span></div>
+        <div class="anatomy-row"><code>02-patterns/</code><span>Technical patterns, architecture decisions and best practices. Start here if you need building blocks.</span></div>
+        <div class="anatomy-row"><code>03-references/</code><span>Templates, limitations, links and architecture references. Start here if you need reference material.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO USE -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">How to use it</div>
+        <h2>A delivery path, not a reading list</h2>
+      </div>
+      <div class="hero-art" aria-label="Delivery path">
+        <div class="art-head">From request to production</div>
+        <div class="art-step"><span class="n">01</span><span><strong>Match the use case</strong><span>Find the closest scenario in the catalogue — or the nearest neighbour.</span></span></div>
+        <div class="art-step"><span class="n">02</span><span><strong>Confirm the architecture</strong><span>Check the relevant patterns before committing to a design.</span></span></div>
+        <div class="art-step"><span class="n">03</span><span><strong>Read the limitations</strong><span>Know the platform edges and workarounds before you promise anything.</span></span></div>
+        <div class="art-step"><span class="n">04</span><span><strong>Run the runbook</strong><span>Configure, build, test and deploy using the step-by-step guide and sample prompts.</span></span></div>
+        <div class="art-step"><span class="n">05</span><span><strong>Give it back</strong><span>Correct what was wrong, add what was missing, contribute the next scenario.</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta">
+        <div class="cta-grid">
+          <div>
+            <div style="font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem">Next step</div>
+            <h2>Pick a use case and start building.</h2>
+            <p style="margin-bottom:0">
+              The catalogue is the fastest way in. If you already know the architecture question you need
+              answered, go straight to the patterns instead.
+            </p>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="scenarios.html">Browse the scenario catalogue</a>
+            <a class="btn btn-ghost" href="patterns.html">Explore technical patterns</a>
+            <a class="btn btn-ghost" href="contribute.html">How to contribute</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- DISCLAIMER -->
+  <section class="section disclaimer-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Disclaimer</div>
+        <h2>Read this before you use anything here</h2>
+        <p class="muted">
+          A community-driven project, not an officially supported Microsoft product, provided as-is.
+          Four things to know before you build on this content.
+        </p>
+      </div>
+
+      <div class="hero-art disclaimer-panel" aria-label="Disclaimer">
+        <div class="art-head">Please read before using this content</div>
+        <div class="art-step">
+          <span class="n">01</span>
+          <span><strong>Content accuracy &amp; currency</strong><span>Reflects product capabilities at the time of authoring. Features, interfaces, APIs and behaviours may change without notice — verify before use.</span></span>
+        </div>
+        <div class="art-step">
+          <span class="n">02</span>
+          <span><strong>No Microsoft support</strong><span>Community-driven and not an officially supported Microsoft product. Microsoft Support (CSS) does not assist with this content.</span></span>
+        </div>
+        <div class="art-step">
+          <span class="n">03</span>
+          <span><strong>Deployment responsibility</strong><span>Any deployment is the sole responsibility of the customer or user — including compliance, security, data privacy and validation.</span></span>
+        </div>
+        <div class="art-step">
+          <span class="n">04</span>
+          <span><strong>Use at your own risk</strong><span>Provided “as-is”, without warranty of any kind, express or implied, and with no guarantee of completeness or suitability.</span></span>
+        </div>
+
+        <details class="disclaimer-full">
+          <summary><span class="chev" aria-hidden="true">›</span> Read the full disclaimer</summary>
+          <div class="disclaimer-body">
+            <p><strong>Please read the following disclaimers carefully before using any content in this repository.</strong></p>
+
+            <h4>1. Content accuracy and currency</h4>
+            <p>
+              The content, configurations, architecture diagrams, and implementation guidance included in this
+              repository reflect information and product capabilities available <strong>at the time of authoring</strong>.
+              Microsoft products and services — including Microsoft Copilot Studio, Azure AI Foundry, and
+              Microsoft 365 Copilot — are continuously updated, and <strong>features, interfaces, APIs, and
+              behaviors may change</strong> without notice following a product update or release.
+            </p>
+            <p>
+              Users are responsible for verifying that the guidance in this repository remains applicable and
+              accurate against the current version of the relevant Microsoft products and services before use in
+              any project or production environment.
+            </p>
+
+            <h4>2. No Microsoft support</h4>
+            <p>
+              This repository is a <strong>community-driven project</strong> and is <strong>not an officially
+              supported Microsoft product</strong>. Content is contributed and maintained by Microsoft employees
+              and community members acting in a voluntary capacity.
+            </p>
+            <p>
+              <strong>Microsoft Support (CSS) does not provide assistance, troubleshooting, or incident
+              response</strong> for issues arising from the use of content in this repository. For official
+              product support, please use the
+              <a href="https://support.microsoft.com" target="_blank" rel="noopener">Microsoft Support portal</a>
+              or your designated Microsoft support channel.
+            </p>
+
+            <h4>3. Deployment responsibility</h4>
+            <p>
+              Any deployment of AI Agent solutions derived from or informed by the content in this repository is
+              <strong>the sole responsibility of the customer or user performing the deployment</strong>. This
+              includes, but is not limited to:
+            </p>
+            <ul>
+              <li>Ensuring compliance with applicable laws, regulations, and organizational policies</li>
+              <li>Validating configurations, integrations, and data handling practices in your target environment</li>
+              <li>Managing access controls, security configurations, and data privacy requirements</li>
+              <li>Testing and validating agent behavior prior to production release</li>
+            </ul>
+            <p>
+              Microsoft and the contributors to this repository <strong>assume no liability</strong> for any
+              damages, data loss, service disruption, or compliance violations resulting from the use or
+              deployment of content from this repository.
+            </p>
+
+            <h4>4. General use at own risk</h4>
+            <p>
+              This repository is provided <strong>“as-is”</strong>, without warranty of any kind, express or
+              implied. The authors and contributors make no representations or guarantees regarding the
+              completeness, reliability, suitability, or availability of any content within this repository for
+              any particular purpose. <strong>Use of this repository and its contents is entirely at your own
+              risk.</strong>
+            </p>
+
+            <p class="disclaimer-note">
+              Source of record:
+              <a href="https://github.com/microsoft/ai-agent-runbooks/tree/main/00-overview#disclaimer" target="_blank" rel="noopener">00-overview · Disclaimer</a>.
+              Trademark guidance is covered by
+              <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general" target="_blank" rel="noopener">Microsoft’s Trademark &amp; Brand Guidelines</a>.
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:.75rem">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v6c0 4.4 3.4 7.4 8 8 4.6-.6 8-3.6 8-8V7l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <span class="name"><strong>AI Agent Runbooks</strong><span>Microsoft</span></span>
+        </a>
+        <p class="muted" style="font-size:.92rem;max-width:38ch">
+          Structured runbooks, proven patterns and real-world scenarios for enterprise AI agent delivery.
+        </p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="overview.html">Overview</a></li>
+          <li><a href="scenarios.html">Scenarios</a></li>
+          <li><a href="patterns.html">Patterns</a></li>
+          <li><a href="references.html">References</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Community</h4>
+        <ul>
+          <li><a href="contribute.html">Contribute</a></li>
+          <li><a href="https://github.com/microsoft/ai-agent-runbooks/issues/new?template=bug_report.yml" target="_blank" rel="noopener">Report a bug</a></li>
+          <li><a href="https://github.com/microsoft/ai-agent-runbooks/issues/new?template=question.yml" target="_blank" rel="noopener">Ask a question</a></li>
+          <li><a href="https://github.com/microsoft/ai-agent-runbooks" target="_blank" rel="noopener">GitHub repository</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Microsoft</h4>
+        <ul>
+          <li><a href="https://go.microsoft.com/fwlink/?LinkId=521839" target="_blank" rel="noopener">Privacy Statement</a></li>
+          <li><a href="https://cla.opensource.microsoft.com" target="_blank" rel="noopener">Contributor Licence Agreement</a></li>
+          <li><a href="https://opensource.microsoft.com/codeofconduct/" target="_blank" rel="noopener">Code of Conduct</a></li>
+          <li><a href="https://github.com/microsoft/ai-agent-runbooks/blob/main/SECURITY.md" target="_blank" rel="noopener">Security</a></li>
+          <li><a href="https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general" target="_blank" rel="noopener">Trademarks</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© Microsoft Corporation. Released under the MIT Licence.</span>
+      <span>Community-maintained · contributions welcome</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  (function () {
+    document.getElementById("anatomy").innerHTML = RUNBOOK_ANATOMY.map(function (a) {
+      return '<div class="anatomy-row"><code>' + esc(a.file) + "</code><span>" + esc(a.desc) + "</span></div>";
+    }).join("");
+
+    function countBy(list, key) {
+      var counts = {};
+      list.forEach(function (it) {
+        var v = it[key];
+        (Array.isArray(v) ? v : [v]).forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
+      });
+      return Object.keys(counts)
+        .sort(function (a, b) { return counts[b] - counts[a] || a.localeCompare(b); })
+        .slice(0, 6)
+        .map(function (k) { return '<span class="tag">' + esc(k) + ' <span aria-hidden="true">·</span> ' + counts[k] + "</span>"; })
+        .join("");
+    }
+
+    document.getElementById("scenario-platforms").innerHTML = countBy(SCENARIOS, "tech");
+    document.getElementById("pattern-themes").innerHTML = countBy(PATTERNS, "theme");
+  })();
+</script>
+
+</body>
+</html>
