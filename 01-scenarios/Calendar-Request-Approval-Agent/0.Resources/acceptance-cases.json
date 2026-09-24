@@ -1,0 +1,70 @@
+{
+  "syntheticOnly": true,
+  "purpose": "Manual acceptance inputs and expected results; not a deployment payload or executed test report.",
+  "commonInput": {
+    "Subject": "Synthetic calendar lab",
+    "StartTime": "2026-10-06T16:00:00Z",
+    "EndTime": "2026-10-06T17:00:00Z",
+    "Notes": "SYNTHETIC PRIVATE NOTE - do not copy to published entries"
+  },
+  "cases": [
+    {
+      "id": "CAL-01",
+      "requestType": "PTO",
+      "callerRole": "employee",
+      "confirmed": true,
+      "approvalDecision": "Approve",
+      "expected": {"status": "Approved", "destination": "TeamCalendar", "sharePointItems": 1, "outlookEvents": 1}
+    },
+    {
+      "id": "CAL-02",
+      "requestType": "PTO",
+      "callerRole": "employee",
+      "confirmed": true,
+      "approvalDecision": "Reject",
+      "expected": {"status": "Rejected", "sharePointItems": 0, "outlookEvents": 0}
+    },
+    {
+      "id": "CAL-03",
+      "requestType": "OOO",
+      "callerRole": "employee",
+      "confirmed": true,
+      "expected": {"humanApproval": false, "destination": "TeamCalendar", "sharePointItems": 1, "outlookEvents": 1}
+    },
+    {
+      "id": "CAL-04",
+      "requestType": "Event",
+      "callerRole": "employee",
+      "confirmed": true,
+      "expected": {"humanApproval": false, "destination": "EventCalendar", "sharePointItems": 1, "outlookEvents": 1}
+    },
+    {
+      "id": "CAL-05",
+      "requestType": "Company",
+      "callerRole": "company-publisher",
+      "confirmed": true,
+      "expected": {"destination": "CompanyCalendar", "sharePointItems": 1, "outlookEvents": 1}
+    },
+    {
+      "id": "CAL-06",
+      "requestType": "Company",
+      "callerRole": "employee",
+      "confirmed": true,
+      "expected": {"denied": true, "requestsCreated": 0, "sharePointItems": 0, "outlookEvents": 0}
+    },
+    {
+      "id": "CAL-07",
+      "requestType": "PTO",
+      "callerRole": "employee",
+      "confirmed": false,
+      "expected": {"requestsCreated": 0, "sharePointItems": 0, "outlookEvents": 0}
+    },
+    {
+      "id": "CAL-08",
+      "requestType": "Unexpected",
+      "callerRole": "employee",
+      "confirmed": true,
+      "expected": {"denied": true, "requestsCreated": 0, "sharePointItems": 0, "outlookEvents": 0}
+    }
+  ]
+}

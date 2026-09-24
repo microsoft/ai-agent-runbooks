@@ -1,0 +1,165 @@
+{
+  "syntheticOnly": true,
+  "purpose": "Eligibility contract examples, not an index import, tenant identity mapping, or executed test report.",
+  "assumptions": "All records have current content/ACL evidence unless IsSecurityTrimmed is false. Separate outage, expiry and revocation tests are required.",
+  "documents": [
+    {
+      "Id": "global-onboarding",
+      "lane": "organization-wide",
+      "Title": "Synthetic global onboarding",
+      "Chunk": "SYNTHETIC TEST CONTENT: consult the global onboarding checklist.",
+      "Country": ["GLOBAL"],
+      "IsPublic": true,
+      "IsSecurityTrimmed": false,
+      "AllowedUserIds": [],
+      "AllowedGroupIds": []
+    },
+    {
+      "Id": "us-onboarding",
+      "lane": "organization-wide",
+      "Title": "Synthetic US onboarding",
+      "Chunk": "SYNTHETIC TEST CONTENT: consult the US onboarding checklist.",
+      "Country": ["US"],
+      "IsPublic": true,
+      "IsSecurityTrimmed": false,
+      "AllowedUserIds": [],
+      "AllowedGroupIds": []
+    },
+    {
+      "Id": "gb-onboarding",
+      "lane": "organization-wide",
+      "Title": "Synthetic GB onboarding",
+      "Chunk": "SYNTHETIC TEST CONTENT: consult the GB onboarding checklist.",
+      "Country": ["GB"],
+      "IsPublic": true,
+      "IsSecurityTrimmed": false,
+      "AllowedUserIds": [],
+      "AllowedGroupIds": []
+    },
+    {
+      "Id": "restricted-us",
+      "lane": "restricted",
+      "Title": "Synthetic restricted US guidance",
+      "Chunk": "SYNTHETIC TEST CONTENT: visible to the synthetic HR group in the US.",
+      "Country": ["US"],
+      "IsPublic": false,
+      "IsSecurityTrimmed": true,
+      "AllowedUserIds": [],
+      "AllowedGroupIds": ["synthetic-hr-group"]
+    },
+    {
+      "Id": "restricted-gb",
+      "lane": "restricted",
+      "Title": "Synthetic restricted GB guidance",
+      "Chunk": "SYNTHETIC TEST CONTENT: visible to the synthetic HR group in GB.",
+      "Country": ["GB"],
+      "IsPublic": false,
+      "IsSecurityTrimmed": true,
+      "AllowedUserIds": [],
+      "AllowedGroupIds": ["synthetic-hr-group"]
+    },
+    {
+      "Id": "unresolved-acl",
+      "lane": "restricted",
+      "Title": "Synthetic unresolved permissions",
+      "Chunk": "SYNTHETIC TEST CONTENT: must not be retrievable.",
+      "Country": ["US"],
+      "IsPublic": false,
+      "IsSecurityTrimmed": false,
+      "AllowedUserIds": [],
+      "AllowedGroupIds": ["synthetic-hr-group"]
+    },
+    {
+      "Id": "untagged",
+      "lane": "organization-wide",
+      "Title": "Synthetic missing country",
+      "Chunk": "SYNTHETIC TEST CONTENT: missing country is not global.",
+      "Country": [],
+      "IsPublic": true,
+      "IsSecurityTrimmed": false,
+      "AllowedUserIds": [],
+      "AllowedGroupIds": []
+    },
+    {
+      "Id": "restricted-linked-file",
+      "lane": "restricted",
+      "parentId": "global-onboarding",
+      "Title": "Synthetic independently restricted linked file",
+      "Chunk": "SYNTHETIC TEST CONTENT: parent access does not grant file access.",
+      "Country": ["US"],
+      "IsPublic": false,
+      "IsSecurityTrimmed": true,
+      "AllowedUserIds": [],
+      "AllowedGroupIds": ["synthetic-finance-group"]
+    },
+    {
+      "Id": "direct-user-grant",
+      "lane": "restricted",
+      "Title": "Synthetic direct-user grant",
+      "Chunk": "SYNTHETIC TEST CONTENT: no group membership required for this direct grant.",
+      "Country": ["US"],
+      "IsPublic": false,
+      "IsSecurityTrimmed": true,
+      "AllowedUserIds": ["synthetic-direct-user"],
+      "AllowedGroupIds": []
+    }
+  ],
+  "cases": [
+    {
+      "id": "employee-us",
+      "authenticatedEmployee": true,
+      "userId": "synthetic-employee-us",
+      "country": "US",
+      "groups": [],
+      "expectedEligibleIds": ["global-onboarding", "us-onboarding"]
+    },
+    {
+      "id": "employee-gb",
+      "authenticatedEmployee": true,
+      "userId": "synthetic-employee-gb",
+      "country": "GB",
+      "groups": [],
+      "expectedEligibleIds": ["global-onboarding", "gb-onboarding"]
+    },
+    {
+      "id": "hr-us",
+      "authenticatedEmployee": true,
+      "userId": "synthetic-hr-user",
+      "country": "US",
+      "groups": ["synthetic-hr-group"],
+      "expectedEligibleIds": ["global-onboarding", "us-onboarding", "restricted-us"]
+    },
+    {
+      "id": "finance-us",
+      "authenticatedEmployee": true,
+      "userId": "synthetic-finance-user",
+      "country": "US",
+      "groups": ["synthetic-finance-group"],
+      "expectedEligibleIds": ["global-onboarding", "us-onboarding", "restricted-linked-file"]
+    },
+    {
+      "id": "direct-user",
+      "authenticatedEmployee": true,
+      "userId": "synthetic-direct-user",
+      "country": "US",
+      "groups": [],
+      "expectedEligibleIds": ["global-onboarding", "us-onboarding", "direct-user-grant"]
+    },
+    {
+      "id": "missing-country",
+      "authenticatedEmployee": true,
+      "userId": "synthetic-no-country-user",
+      "country": null,
+      "groups": [],
+      "expectedEligibleIds": []
+    },
+    {
+      "id": "unauthenticated",
+      "authenticatedEmployee": false,
+      "userId": null,
+      "country": "US",
+      "groups": [],
+      "expectedEligibleIds": []
+    }
+  ]
+}

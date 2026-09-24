@@ -1,6 +1,6 @@
 # AI Agent Runbooks — website
 
-A new front door for [`microsoft/ai-agent-runbooks`](https://github.com/microsoft/ai-agent-runbooks).
+A front door for the [`spetren/ai-agent-runbooks`](https://github.com/spetren/ai-agent-runbooks) fork.
 Static, dependency-free and built to be the browsable catalogue for every runbook, pattern and
 reference in the repository.
 
@@ -68,6 +68,10 @@ Filter chips, search, result counts and the homepage statistics all regenerate a
 Keep `tech` values spelled consistently — the platform filters are derived from them, and only
 values used by more than one item become chips.
 
+The `REPO` constant in `assets/data.js` points generated catalogue links at this fork.
+Entries marked `Draft` are reference guidance, not validated deployments. Links to new
+scenarios become publicly available only after their files are published to `main`.
+
 ## Deploying to GitHub Pages
 
 1. Copy the `docs/` folder into the root of the `ai-agent-runbooks` repository.
@@ -75,7 +79,8 @@ values used by more than one item become chips.
 3. Under **Build and deployment**, set **Source** to *Deploy from a branch*.
 4. Choose branch `main` and folder `/docs`, then **Save**.
 
-The site publishes at `https://microsoft.github.io/ai-agent-runbooks/`.
+If GitHub Pages is enabled for this fork, its default address is
+`https://spetren.github.io/ai-agent-runbooks/`. Local edits do not publish the site.
 
 If the organisation prefers GitHub Actions over branch deployment, the workflow in
 `.github/workflows/pages.yml` (included in this bundle) does the same thing — copy it to
@@ -91,7 +96,7 @@ python -m http.server 8899
 
 ## Notes
 
-- Every GitHub link the site generates was verified to return HTTP 200 against `main`.
+- Generated catalogue links target this fork's `main`; unpublished local drafts are not yet available there.
 - The catalogue links out to the repository rather than duplicating content, so the runbooks stay
   the single source of truth and the site never goes stale on content edits.
 - If you later want the runbook markdown rendered on the site itself, the same `data.js` model can

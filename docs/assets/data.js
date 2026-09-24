@@ -4,7 +4,7 @@
    new scenario, pattern or reference lands in the repository.
    ============================================================= */
 
-const REPO = "https://github.com/microsoft/ai-agent-runbooks";
+const REPO = "https://github.com/spetren/ai-agent-runbooks";
 const TREE = REPO + "/tree/main";
 const BLOB = REPO + "/blob/main";
 
@@ -19,6 +19,15 @@ const SCENARIOS = [
     status: "Available"
   },
   {
+    id: "Calendar-Request-Approval-Agent",
+    title: "Calendar Request Approval Agent",
+    type: "Workforce Productivity / Approvals",
+    icon: "📅",
+    desc: "Draft guide for conversational calendar intake, deterministic approval and routing, and SharePoint/Outlook publication. Includes identity, privacy and recovery gates; not an importable solution.",
+    tech: ["Microsoft Copilot Studio", "Power Automate", "SharePoint", "Office 365 Outlook"],
+    status: "Draft"
+  },
+  {
     id: "Copilot-License-Lifecycle-Agent",
     title: "Copilot Licence Lifecycle Agent",
     type: "IT Operations / FinOps for Copilot",
@@ -26,6 +35,15 @@ const SCENARIOS = [
     desc: "Manages the Microsoft 365 Copilot licence estate — inventory, dormancy detection, notification, reclaim with approvals and waitlist management — with a full audit trail in Dataverse.",
     tech: ["Microsoft Copilot Studio", "Power Automate", "Microsoft Graph", "Dataverse"],
     status: "Available"
+  },
+  {
+    id: "Country-Aware-HR-Knowledge-Agent",
+    title: "Country-Aware HR Knowledge Agent",
+    type: "HR Knowledge / Governed Retrieval",
+    icon: "🧑‍💼",
+    desc: "Draft reference design for country-scoped SharePoint knowledge with organization-wide and optional restricted lanes. Requires custom ingestion and authenticated query-time authorization; deployment artifacts are not included.",
+    tech: ["Microsoft Copilot Studio", "SharePoint", "Microsoft Graph", "Azure AI Search", "Azure OpenAI"],
+    status: "Draft"
   },
   {
     id: "CRM-Account-Planning-Cowork-Agent",
