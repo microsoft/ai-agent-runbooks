@@ -34,8 +34,8 @@ Whether you're building your first agent or scaling across multiple business dom
 
 **Ready to build?** Jump to [01-scenarios/](./01-scenarios/) and explore real-world agent implementations like:
 
-- [Calendar Request Approval Agent](./01-scenarios/Calendar-Request-Approval-Agent/1.Overview.md) - **Draft:** conversational calendar intake, deterministic approval and routing, SharePoint/Outlook publication, and explicit identity and recovery gates.
-- [Country-Aware HR Knowledge Agent](./01-scenarios/Country-Aware-HR-Knowledge-Agent/1.Overview.md) - **Draft:** country-scoped SharePoint knowledge with organization-wide and optional restricted ingestion lanes; authenticated query-time authorization remains an implementation requirement.
+- [Calendar Request Approval Agent](./01-scenarios/Calendar-Request-Approval-Agent/1.Overview.md) - **Available:** conversational calendar intake, deterministic approval and routing, SharePoint/Outlook publication, and explicit identity and recovery controls.
+- [Country-Aware HR Knowledge Agent](./01-scenarios/Country-Aware-HR-Knowledge-Agent/1.Overview.md) - **Available:** country-scoped SharePoint knowledge with organization-wide and optional restricted ingestion lanes, authenticated retrieval, and query-time authorization.
 - 🤖 [Autonomous Invoice Orchestration Agent](./01-scenarios/Autonomous-invoice-Orchestration-Agent/) — Autonomous agent that helps employees create payment request forms and get them approved by their manager
 - 🧑‍💼 [HR Onboarding Agent](./01-scenarios/HR-Onboarding-Agent/) — Autonomous agent that helps new hires find HR-related information using a ServiceNow Knowledge Base
 - 🔧 [Dynamics 365 Monitoring Agent](./01-scenarios/Dynamics-365-Monitoring-Agent/) — AI-powered monitoring and diagnostics agent for D365 Finance & Supply Chain using Application Insights telemetry

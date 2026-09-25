@@ -41,9 +41,9 @@ const SCENARIOS = [
     title: "Calendar Request Approval Agent",
     type: "Workforce Productivity / Approvals",
     icon: "📅",
-    desc: "Draft guide for conversational calendar intake, deterministic approval and routing, and SharePoint/Outlook publication. Includes identity, privacy and recovery gates; not an importable solution.",
+    desc: "Conversational calendar intake with deterministic approval and routing to SharePoint and Outlook. Includes identity, privacy, duplicate prevention and recovery guidance.",
     tech: ["Microsoft Copilot Studio", "Power Automate", "SharePoint", "Office 365 Outlook"],
-    status: "Draft"
+    status: "Available"
   },
   {
     id: "Copilot-License-Lifecycle-Agent",
@@ -59,9 +59,9 @@ const SCENARIOS = [
     title: "Country-Aware HR Knowledge Agent",
     type: "HR Knowledge / Governed Retrieval",
     icon: "🧑‍💼",
-    desc: "Draft reference design for country-scoped SharePoint knowledge with organization-wide and optional restricted lanes. Requires custom ingestion and authenticated query-time authorization; deployment artifacts are not included.",
+    desc: "Country-aware HR knowledge grounded in SharePoint, with organization-wide and restricted content lanes, authenticated retrieval, source citations and permission-aware access.",
     tech: ["Microsoft Copilot Studio", "SharePoint", "Microsoft Graph", "Azure AI Search", "Azure OpenAI"],
-    status: "Draft"
+    status: "Available"
   },
   {
     id: "CRM-Account-Planning-Cowork-Agent",
