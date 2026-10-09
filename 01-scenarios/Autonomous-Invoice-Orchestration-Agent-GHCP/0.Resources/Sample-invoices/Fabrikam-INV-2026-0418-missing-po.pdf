@@ -1,0 +1,63 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 1360 >>
+stream
+BT /F2 20 Tf 50 740 Td (INVOICE) Tj ET
+BT /F2 11 Tf 50 712 Td (Fabrikam Office Supplies Ltd) Tj ET
+BT /F1 10 Tf 50 697 Td (100 Example Street, Sampletown) Tj ET
+BT /F1 10 Tf 50 682 Td (Vendor ID: V-10482) Tj ET
+BT /F1 10 Tf 380 712 Td (Invoice Number: INV-2026-0418) Tj ET
+BT /F1 10 Tf 380 697 Td (Invoice Date: 2026-04-16) Tj ET
+BT /F1 10 Tf 380 682 Td (Due Date: 2026-05-16) Tj ET
+BT /F2 11 Tf 50 640 Td (Bill To) Tj ET
+BT /F1 10 Tf 50 625 Td (Contoso Holdings Ltd) Tj ET
+BT /F1 10 Tf 50 610 Td (1 Placeholder Avenue, Example City) Tj ET
+BT /F2 10 Tf 50 570 Td (Description) Tj ET
+BT /F2 10 Tf 300 570 Td (Qty) Tj ET
+BT /F2 10 Tf 360 570 Td (Unit price) Tj ET
+BT /F2 10 Tf 470 570 Td (Amount) Tj ET
+BT /F1 10 Tf 50 552 Td (Desk lamp) Tj ET
+BT /F1 10 Tf 300 552 Td (5) Tj ET
+BT /F1 10 Tf 360 552 Td (60.00) Tj ET
+BT /F1 10 Tf 470 552 Td (300.00) Tj ET
+BT /F1 10 Tf 50 534 Td (Monitor stand) Tj ET
+BT /F1 10 Tf 300 534 Td (4) Tj ET
+BT /F1 10 Tf 360 534 Td (50.00) Tj ET
+BT /F1 10 Tf 470 534 Td (200.00) Tj ET
+BT /F1 10 Tf 360 504 Td (Subtotal: 500.00) Tj ET
+BT /F1 10 Tf 360 488 Td (Tax \(8%\): 40.00) Tj ET
+BT /F2 11 Tf 360 472 Td (Total Amount Due: 540.00) Tj ET
+BT /F1 10 Tf 360 456 Td (Currency: USD) Tj ET
+BT /F1 10 Tf 50 416 Td (GL Code: 6410 Office Supplies) Tj ET
+BT /F1 9 Tf 50 376 Td (Synthetic sample invoice for testing. Not a real document.) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000001663 00000 n 
+0000001733 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+1808
+%%EOF
