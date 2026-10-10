@@ -24,6 +24,4 @@ Two synthetic, single-page invoices for testing the Autonomous Invoice Orchestra
 | GL code | 6410 Office Supplies | 6410 Office Supplies |
 | Bill To | Contoso Holdings Ltd | Contoso Holdings Ltd |
 
-For these fixtures, add **Contoso Holdings Ltd** to the approved legal entity names in the agent instructions in the test environment only.
-
 Do not use these files as production data. Test with a real mailbox and library only in a non-production environment. Do not add real invoices to this repository.

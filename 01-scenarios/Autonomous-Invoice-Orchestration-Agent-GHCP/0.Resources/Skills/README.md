@@ -33,7 +33,7 @@ Create both variables in the solution before testing, as described in [Step 1-2 
 
 Upload each `SKILL.md` in **Build > Skills > Add skill > Upload a skill**. No ZIP is needed for these standalone files. Inspect the name, the quoted description and the imported instructions afterward. Uploading a skill does not create a tool, connection, workflow or permission.
 
-The skills contain no site addresses, library names, mailbox names or legal entity names. Site and folder values come from the environment variables above. Other deployment values go in the agent instructions as described in the [Runbook](../../3.Runbook.md#step-2-3-update-agent-instructions).
+The skills contain no site addresses, library names, mailbox names or legal entity names. Site and folder values come from the environment variables above. Other deployment values go in the agent instructions as described in [Step 2-1 of the Runbook](../../3.Runbook.md#step-2-1-create-the-agent).
 
 For an operational pause, disable the workflow first. Then remove the agent's tool exposure or unpublish the agent. Removing a skill alone does not revoke tool permissions.
 
