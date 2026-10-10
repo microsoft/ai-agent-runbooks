@@ -8,6 +8,7 @@
 | [Skills/README.md](Skills/README.md) | Runtime import order, tool dependencies and upload notes |
 | `Skills/<capability-id>/SKILL.md` | Standalone skill instructions, not tools or connection installers |
 | [Build-prompts/1.Dataverse.md](Build-prompts/1.Dataverse.md) | One Copilot (Tables > Get started with Copilot) prompt that creates the **Auto Invoice** table with its 18 columns in the **Autonomous Invoice Orchestration** solution. Includes the checks to run after Copilot builds the table, how to delete the sample rows and how to add or change a column by hand |
+| [Build-prompts/2.Agent.md](Build-prompts/2.Agent.md) | One Copilot Studio Home prompt that creates the **Invoice Extraction Agent** with its model, instructions and tools (SharePoint MCP, Dataverse MCP and the **CreateSharingLink** action). Includes the checks to run afterwards and how to set the **CreateSharingLink** inputs by hand. The prompt creates no skills, so upload them afterwards |
 | [Sample-invoices](Sample-invoices/README.md) | Two synthetic fixture invoices and what each one tests |
 | [Sample Prompts](../4.Sample-prompts.md) | Acceptance cases, with every result recorded as Not run |
 
