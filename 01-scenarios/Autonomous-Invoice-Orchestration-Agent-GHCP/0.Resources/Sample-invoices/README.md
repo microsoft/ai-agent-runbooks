@@ -5,7 +5,7 @@ Two synthetic, single-page invoices for testing the Autonomous Invoice Orchestra
 | File | Purpose | Expected result |
 |---|---|---|
 | `Fabrikam-INV-2026-0417-complete.pdf` | Complete invoice with every field printed | Decision `READY_FOR_APPROVAL`, no issues, approval starts |
-| `Fabrikam-INV-2026-0418-missing-po.pdf` | Same layout, no purchase order number | Purchase Order Number missing, Decision `NEEDS_REVIEW`, reply to the sender, no approval |
+| `Fabrikam-INV-2026-0418-missing-po.pdf` | Same layout, no purchase order number | Purchase Order Number missing, Decision `NEEDS_REVIEW`, email to Finance, no approval |
 
 ## Values printed on the invoices
 

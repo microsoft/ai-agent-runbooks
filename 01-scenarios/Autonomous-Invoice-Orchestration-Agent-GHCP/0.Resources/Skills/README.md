@@ -7,7 +7,7 @@ Both skills are included in the standard configuration. Import them in the order
 | 1 | [invoice-extraction-review](invoice-extraction-review/SKILL.md) | Get the invoice PDF, create a sharing link for it (Source Link), extract the 11 invoice fields, work out Issues Found, Summary and Decision, and save one row in the **Auto Invoice Review** Dataverse table | SharePoint file content tool and `CreateSharingLink`. Dataverse create a row |
 | 2 | [save-invoice-json-to-sharepoint](save-invoice-json-to-sharepoint/SKILL.md) | Resolve the SharePoint site and Reviews folder from environment variables, build the review JSON, save it as a file, create a sharing link for it (Review Link) and store the link in the Dataverse row | Dataverse list rows, SharePoint **Create file** and `CreateSharingLink`. Dataverse update a row |
 
-The tools are real connector operations configured in **Build > Tools**, listed with their limits in [Capability and Integration Contracts](../Capability-matrix.md#agent-tool-contracts). The agent has no email or approval tool. The completeness check, approval and reply to the sender are workflow steps, not skills.
+The tools are real connector operations configured in **Build > Tools**, listed with their limits in [Capability and Integration Contracts](../Capability-matrix.md#agent-tool-contracts). The agent has no email or approval tool. The decision check, approval and the emails to Finance and the sender are workflow steps, not skills.
 
 ## Skill inputs
 
@@ -16,7 +16,7 @@ The tools are real connector operations configured in **Build > Tools**, listed 
 | invoice-extraction-review | The prompt gives an invoice as a PDF attachment or as a link to a file in a SharePoint document library | The invoice PDF or its SharePoint link |
 | save-invoice-json-to-sharepoint | The invoice fields have been extracted, **and** the prompt supplies all four of `emailSubject`, `emailSender`, `sourcePdfPath` and `sourcePdfLink`. Without all four it does nothing | The output of invoice-extraction-review plus the four prompt fields. The JSON file has 18 keys: 14 extracted or computed values and the four prompt fields |
 
-The workflow's agent message must therefore carry these four fields, or the review JSON file and the Review Link are never written.
+The prompt that the workflow builds carries `emailSubject` (as "Email subject"), `emailSender` (as "Sender") and `sourcePdfPath` (the saved PDF path), but no `sourcePdfLink`. Unless the agent supplies the link itself, from the sharing link that `invoice-extraction-review` creates, the review JSON file and the Review Link are never written. This is release gate G2 in the [Resources README](../README.md#release-gates). If the check fails, add the link to the prompt of the Agent node by hand.
 
 ## Environment variables
 
@@ -37,4 +37,4 @@ The skills contain no site addresses, library names, mailbox names or legal enti
 
 For an operational pause, disable the workflow first. Then remove the agent's tool exposure or unpublish the agent. Removing a skill alone does not revoke tool permissions.
 
-Use the [capability tests and the composed test](../../4.Sample-prompts.md#capability-tests) before publication. Skill selection is not guaranteed ordering, so the instructions state the order and the workflow validates the returned JSON.
+Use the [capability tests and the composed test](../../4.Sample-prompts.md#capability-tests) before publication. Skill selection is not guaranteed ordering, so the instructions state the order and the workflow reads the returned decision.
