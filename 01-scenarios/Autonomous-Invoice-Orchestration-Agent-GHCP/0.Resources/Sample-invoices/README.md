@@ -1,6 +1,6 @@
 # Sample Invoices
 
-Two synthetic, single-page invoices for testing the Autonomous Invoice Orchestration Agent. All names, numbers and addresses are fictional. The PDFs contain selectable text.
+Two synthetic, single-page invoices for testing the Invoice Processing Agent. All names, numbers and addresses are fictional. The PDFs contain selectable text.
 
 | File | Purpose | Expected result |
 |---|---|---|

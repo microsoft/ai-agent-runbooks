@@ -47,7 +47,7 @@ The repository organizes AI Agent scenarios by business domain and agent type. T
 |--------|------------|-------------|
 | Human Resources | HR Onboarding Agent | Guides new employees through onboarding tasks, policy acknowledgments, and first-day workflows |
 | Human Resources | [HR Onboarding Agent](../01-scenarios/HR-Onboarding-Agent-GHCP/1.Overview.md) | Normal HR conversation, onboarding plans and connected user-mailbox replies using two GHCP skills and an Outlook workflow; development walkthrough with explicit operational limitations |
-| Finance | [Autonomous Invoice Orchestration Agent](../01-scenarios/Autonomous-Invoice-Orchestration-Agent-GHCP/1.Overview.md) | Email-triggered invoice intake with PDF extraction into Dataverse and JSON review files, then an approval or a reply to the sender about missing fields, using three GHCP skills and one Workflows flow; development walkthrough with explicit release gates |
+| Finance | [Invoice Processing Agent](../01-scenarios/Autonomous-Invoice-Orchestration-Agent-GHCP/1.Overview.md) | Email-triggered invoice intake with PDF extraction into Dataverse and JSON review files, then an approval or a reply to the sender about missing fields, using three GHCP skills and one Workflows flow; development walkthrough with explicit release gates |
 | Employee Experience | [Employee Self-Service (GHCP)](../01-scenarios/Employee-Self-Service-Agent-GHCP/1.Overview.md) | Draft Copilot Studio GitHub Copilot harness scenario with read-only HR/IT guidance and request navigation; own IT request status is a proposed, OFF caller-authorized extension |
 
 Additional scenarios across IT & Operations, Customer Service, Finance, Legal, and Sales domains are planned for future releases.

@@ -1,4 +1,4 @@
-# Autonomous Invoice Orchestration Agent — Runtime Skills
+# Invoice Processing Agent — Runtime Skills
 
 Both skills are included in the standard configuration. Import them in the order below. Each file is self-contained with its declared tool dependencies. The second skill uses the invoice fields and the review outcome that the first skill produced, so the agent's instructions run them in this order for every invoice.
 
