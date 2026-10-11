@@ -7,13 +7,12 @@
 | [Capability-matrix.md](Capability-matrix.md) | Two included capabilities, the workflow-owned operations, the JSON response contract, the decision rule, the Dataverse data model and the limits |
 | [Skills/README.md](Skills/README.md) | Runtime import order, tool dependencies and upload notes |
 | `Skills/<capability-id>/SKILL.md` | Standalone skill instructions, not tools or connection installers |
-| [Build-prompts/1.Dataverse.md](Build-prompts/1.Dataverse.md) | One Copilot (Tables > Get started with Copilot) prompt that creates the **Auto Invoice Review** table with its 17 columns in the **Autonomous Invoice Orchestration** solution. Includes the checks to run after Copilot builds the table, how to delete the sample rows and how to add or change a column by hand |
 | [Sample-invoices](Sample-invoices/README.md) | Two synthetic fixture invoices and what each one tests |
 | [Sample Prompts](../4.Sample-prompts.md) | Acceptance cases, with every result recorded as Not run |
 
 Delivered assets are documentation, runtime definitions and synthetic fixtures only. No deployed agent, workflow export, connection, service credentials, real invoice data or successful tenant test evidence is included. Keep operational evidence and environment values in the organization's access-controlled delivery record.
 
-Build in this order: the Dataverse table, then the SharePoint library, then the agent with its tools, instructions and skills ([Runbook Step 2-1](../3.Runbook.md#step-2-1-create-the-agent)), then the workflow, then the tests. The [Runbook](../3.Runbook.md) has the steps. Uploading a skill does not create tools, connections, the workflow or any authorization. Copilot creates the workflow from the ready-made prompt in [Runbook Step 2-3](../3.Runbook.md#step-2-3-build-the-workflow-invoice-intake-and-approval). The routing, decision check, approval and emails live in the workflow, not in a skill.
+Build in this order: the SharePoint library, then the Dataverse solution, table and environment variables ([Runbook Step 2-2](../3.Runbook.md#step-2-2-create-table) has the Copilot prompt that creates the **Auto Invoice Review** table), then the agent with its tools, instructions and skills ([Runbook Step 3-1](../3.Runbook.md#step-3-1-create-the-agent)), then the workflow, then the tests. The [Runbook](../3.Runbook.md) has the steps. Uploading a skill does not create tools, connections, the workflow or any authorization. Copilot creates the workflow from the ready-made prompt in [Runbook Step 3-3](../3.Runbook.md#step-3-3-build-the-workflow-invoice-intake-and-approval). The routing, decision check, approval and emails live in the workflow, not in a skill.
 
 ## Release gates
 
