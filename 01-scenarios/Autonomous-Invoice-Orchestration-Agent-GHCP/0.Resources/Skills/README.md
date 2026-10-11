@@ -5,7 +5,7 @@ Both skills are included in the standard configuration. Import them in the order
 | Order | Capability / file | Purpose | Required tools |
 |---|---|---|---|
 | 1 | [invoice-extraction-review](invoice-extraction-review/SKILL.md) | Get the invoice PDF, create a sharing link for it (Source Link), extract the 11 invoice fields, work out Issues Found, Summary and Decision, and save one row in the **Auto Invoice Review** Dataverse table | SharePoint file content tool and `CreateSharingLink`. Dataverse create a row |
-| 2 | [save-invoice-json-to-sharepoint](save-invoice-json-to-sharepoint/SKILL.md) | Resolve the SharePoint site and Reviews folder from environment variables, build the review JSON, save it as a file, create a sharing link for it (Review Link) and store the link in the Dataverse row | Dataverse list rows, SharePoint **Create file** and `CreateSharingLink`. Dataverse update a row |
+| 2 | [save-invoice-json-to-sharepoint](save-invoice-json-to-sharepoint/SKILL.md) | Resolve the SharePoint site, document library and Reviews folder from environment variables, build the review JSON, save it as a file, create a sharing link for it (Review Link) and store the link in the Dataverse row | Dataverse list rows, SharePoint **Create file** and `CreateSharingLink`. Dataverse update a row |
 
 The tools are real connector operations configured in **Build > Tools**, listed with their limits in [Capability and Integration Contracts](../Capability-matrix.md#agent-tool-contracts). The agent has no email or approval tool. The decision check, approval and the emails to Finance and the sender are workflow steps, not skills.
 
@@ -20,14 +20,15 @@ The prompt that the workflow builds carries `emailSubject` (as "Email subject"),
 
 ## Environment variables
 
-save-invoice-json-to-sharepoint does not hardcode the destination. It reads two Power Platform environment variables from the solution through the Dataverse tool (the `environmentvariabledefinition` and `environmentvariablevalue` tables). It uses the current value, falls back to the default value, and stops with a message that names the variable if neither has a value.
+save-invoice-json-to-sharepoint does not hardcode the destination. It reads three Power Platform environment variables from the solution through the Dataverse tool (the `environmentvariabledefinition` and `environmentvariablevalue` tables). It uses the current value, falls back to the default value, and stops with a message that names the variable if neither has a value.
 
 | Purpose | Environment variable display name |
 |---|---|
 | SharePoint site URL | `SharePointSiteURL` |
+| SharePoint document library that holds the review JSON | `SharePointDocumentLibrary` |
 | Destination folder for the review JSON | `ReviewsFolderPath` |
 
-Create both variables in the solution before testing, as described in [Phase 2 of the Runbook](../../3.Runbook.md#phase-2-create-dataverse-solution-table-and-environment-variables). The Dataverse connection needs read access to these two tables.
+Create all three variables in the solution before testing, as described in [Phase 2 of the Runbook](../../3.Runbook.md#phase-2-create-dataverse-solution-table-and-environment-variables). The Dataverse connection needs read access to these two tables.
 
 ## Import
 
