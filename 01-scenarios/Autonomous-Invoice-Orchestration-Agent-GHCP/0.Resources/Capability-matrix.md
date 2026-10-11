@@ -35,11 +35,11 @@ These steps run in the workflow, not in the agent. They are not runtime skills a
 | 2. Read the environment variables | A lookup by display name of `SharePointSiteURL`, `SharePointDocumentLibrary`, `SourceFolderPath` and `FinanceEmailAddress` | The current value, and the default value when there is no current value | The four values for steps 4, 7 and 8. When both values of a variable are empty, the run ends as **Failed** and the message names the variable. Nothing is saved | Scenario-defined contract. The operation that Copilot chooses and whether the workflow can read the variables `[VERIFY]` G5 |
 | 3. Keep PDFs | **Apply to each** over the attachments, with a condition | Only PDF files continue (name ends in `.pdf` or content type `application/pdf`). Cap on files per email `[FILL]` | Other attachments are skipped. An email with no PDF ends with no saved file, no agent call and no email | Design choice |
 | 4. Save the original | SharePoint **Create file**, inside the loop | Site Address = `SharePointSiteURL`. Library = `SharePointDocumentLibrary`. Folder Path = `SourceFolderPath` (`/Invoices/Sources`). File name and content from the attachment, see the [naming contract](#naming-and-path-contract) | The full path of the saved PDF | Documented. How Copilot combines the library and the folder into the Folder Path, behavior when the name exists, and the returned path form `[VERIFY]` G5 |
-| 5. Call the agent | Agent node named `InvoiceProcessingAgent`, **An existing agent** = the published Invoice Processing Agent | Prompt as shown below. The email body and the attachment text are not passed. The response parameter is `result`. Output = **Custom structured output** with the 10 string properties of the [JSON response contract](#json-response-contract) | The 10 values as `structuredOutput/<key>`. The workflow waits for the agent to finish | Documented node. Output behavior and a failed agent step `[VERIFY]` G2 |
+| 5. Call the agent | Agent node named `InvoiceProcessingAgent`, **An existing agent** = the published Invoice Processing Agent | Prompt as shown below. The email body and the attachment text are not passed. The response parameter is `result`. Output = **Custom structured output** with the 11 string properties of the [JSON response contract](#json-response-contract) | The 11 values as `structuredOutput/<key>`. The workflow waits for the agent to finish | Documented node. Output behavior and a failed agent step `[VERIFY]` G2 |
 | 6. Decision check | If/else | `decision` equals `READY_FOR_APPROVAL`. See the [decision rule](#decision-rule) | **Yes:** step 8. **No:** step 7 | Scenario-defined contract. The workflow, not the agent, decides who is notified |
 | 7. Manual review email | Outlook **Send an email** | To the `FinanceEmailAddress` value, with the sender of the invoice email in CC. Subject `Invoice approval needed: ` and the invoice number. HTML body with the invoice number, vendor, decision, issues, summary, a link to the source PDF and a link to the review package | One email per PDF. The sender is copied and sees the issues. The row is already saved with Decision `NEEDS_REVIEW` | Documented operation. Send rights `[VERIFY]` G5 |
-| 8. Approval | Office 365 Users **Get manager (V2)** for the sender, then Approvals standard approval **Start and wait for an approval** (**Approve/Reject - First to respond**) | Assigned to the sender's manager email address. When the sender has no manager, or the lookup returns nothing or fails, assigned to the `FinanceEmailAddress` value. Title `Invoice approval needed: ` and the invoice number. Details as text: vendor, total amount due and currency, invoice date, due date, summary, the source PDF link and the review package link | Outcome and responses are kept in the approval record and the run history. Then step 9. The workflow does not pay the invoice. The 10-key output has no invoice date, so that line stays blank | Documented operations. Availability and time limits in Workflows `[VERIFY]` G3. Manager lookup, its result for a sender outside the organization and the fallback `[VERIFY]` G3. Invoice date line and link formatting `[VERIFY]` G2 |
-| 9. Tell the sender the outcome | If/else with three branches named **Approved**, **Rejected** and **Other**, then Outlook **Send an email** | **Approved:** outcome `Approve`. **Rejected:** outcome `Reject`. **Other:** every other outcome. The email goes to the sender of the invoice email, as an HTML body | **Approved:** subject `Invoice approved: ` and the invoice number, with the invoice number, vendor and the two links. **Rejected:** subject `Invoice rejected: ` and the invoice number, with the invoice number, vendor, decision, issues, summary and the two links. **Other:** no action | Documented operation. The exact outcome values `[VERIFY]` G3. Send rights `[VERIFY]` G5 |
+| 8. Approval | Office 365 Users **Get manager (V2)** for the sender, then Approvals standard approval **Start and wait for an approval** (**Approve/Reject - First to respond**) | Assigned to the sender's manager email address. When the sender has no manager, or the lookup returns nothing or fails, assigned to the `FinanceEmailAddress` value. The approval is named `InvoiceApproval`. Title `Invoice approval needed: ` and the invoice number. Details as text: vendor, total amount due and currency, invoice date, due date, summary, the source PDF link and the review package link | Outcome and responses are kept in the approval record and the run history. Then step 9. The workflow does not pay the invoice. | Documented operations. Availability and time limits in Workflows `[VERIFY]` G3. Manager lookup, its result for a sender outside the organization and the fallback `[VERIFY]` G3. Link formatting `[VERIFY]` G2 |
+| 9. Tell the sender the outcome | If/else with three branches named **Approved**, **Rejected** and **Other**, then Outlook **Send an email** | **Approved:** outcome `Approve`. **Rejected:** outcome `Reject`. **Other:** every other outcome. The email goes to the sender of the invoice email, as an HTML body | **Approved:** subject `Invoice approved: ` and the invoice number, with the invoice number, vendor, the comment of the first approval response and the two links. **Rejected:** subject `Invoice rejected: ` and the invoice number, with the invoice number, vendor and the two links. **Other:** no action | Documented operation. The exact outcome values `[VERIFY]` G3. Send rights `[VERIFY]` G5 |
 
 The prompt in step 5 has this form. The values in angle brackets come from step 4 and from the trigger.
 
@@ -74,7 +74,7 @@ The tools are configured in [Step 3-1 of the Runbook](../3.Runbook.md#step-3-1-c
 
 ## JSON response contract
 
-The agent's final response is one JSON object, with no text before or after it. It is defined in the agent instructions in [Step 3-1 of the Runbook](../3.Runbook.md#step-3-1-create-the-agent) and has exactly these 10 camelCase keys. All keys are always present. A value that is not on the invoice is an empty string. The Agent node's custom structured output has the same 10 string properties, and the workflow reads each one as `structuredOutput/<key>`. This is a **Scenario-defined contract**.
+The agent's final response is one JSON object, with no text before or after it. It is defined in the agent instructions in [Step 3-1 of the Runbook](../3.Runbook.md#step-3-1-create-the-agent) and has exactly these 11 camelCase keys. All keys are always present. A value that is not on the invoice is an empty string. The Agent node's custom structured output has the same 11 string properties, and the workflow reads each one as `structuredOutput/<key>`. This is a **Scenario-defined contract**.
 
 | Key | Type | Meaning |
 |---|---|---|
@@ -82,6 +82,7 @@ The agent's final response is one JSON object, with no text before or after it. 
 | `vendorName` | string | Vendor name |
 | `currency` | string | ISO 4217 code such as `USD` |
 | `totalAmountDue` | string | Total amount due |
+| `invoiceDate` | string | Invoice date |
 | `dueDate` | string | Due date |
 | `decision` | string | `READY_FOR_APPROVAL` or `NEEDS_REVIEW` |
 | `issues` | string | The missing fields, separated by semicolons. Empty when nothing is missing |
@@ -89,13 +90,13 @@ The agent's final response is one JSON object, with no text before or after it. 
 | `sourceLink` | string | Sharing link to the saved PDF |
 | `reviewLink` | string | Sharing link to the review JSON file |
 
-The response is shorter than the review file. Vendor ID, purchase order number, invoice date, subtotal, tax and GL code are saved in the Dataverse row and in the 18-key review file, and the response carries them only through `decision` and `issues`.
+The response is shorter than the review file. Vendor ID, purchase order number, subtotal, tax and GL code are saved in the Dataverse row and in the 18-key review file, and the response carries them only through `decision` and `issues`.
 
 ### Decision rule
 
 The workflow makes one decision, in step 6, from `decision`.
 
-1. **Ready for approval.** `decision` is exactly `READY_FOR_APPROVAL`. The skill sets it only when all 11 invoice fields were found, so it covers the six fields that the response does not carry. The workflow starts the approval.
+1. **Ready for approval.** `decision` is exactly `READY_FOR_APPROVAL`. The skill sets it only when all 11 invoice fields were found, so it covers the five fields that the response does not carry. The workflow starts the approval.
 2. **Anything else.** `NEEDS_REVIEW`, an empty value or any other text sends the manual review email to Finance, with the sender in CC. The email lists `issues` and `summary`.
 
 The workflow does not check the other keys or the two links. The sender sees what is missing only through the CC on the Finance email, and Finance follows up. Invoices that do not print a purchase order number, a GL code, a vendor ID or a date therefore go to Finance, never to the approver. This is a **Design choice**.
@@ -106,7 +107,7 @@ The workflow does not check the other keys or the two links. The sender sees wha
 |---|---|---|
 | `decision` is `READY_FOR_APPROVAL` | The row and the review file are written, and every invoice field was found | Start the approval for the sender's manager, or for Finance when the sender has no manager |
 | `decision` is anything else | The invoice lacks information. The row is saved as `NEEDS_REVIEW` | Email Finance with the sender in CC. No separate email to the sender |
-| Approval outcome `Approve` | The approver accepted the invoice | Email the sender that the invoice was approved |
+| Approval outcome `Approve` | The approver accepted the invoice | Email the sender that the invoice was approved, with the approver's comment |
 | Approval outcome `Reject` | The approver rejected the invoice | Email the sender that the invoice was rejected |
 | Any other approval outcome | The approval did not end in an approval or a rejection | Take no action. Inspect the run history |
 | The sender has no manager | The sender is outside the organization or has no manager in the directory, or the lookup failed | Assign the approval to the `FinanceEmailAddress` value. The run continues |
