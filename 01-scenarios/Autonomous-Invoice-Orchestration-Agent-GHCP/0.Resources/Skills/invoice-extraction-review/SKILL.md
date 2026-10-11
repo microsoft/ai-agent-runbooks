@@ -22,7 +22,7 @@ Read the invoice carefully and extract each of these fields. If a field is genui
 
 | Information | Column | Type | Notes |
 |---|---|---|---|
-| Invoice number | INVOICE_KEY | single line of text | |
+| Invoice number | INVOICE_NUMBER | single line of text | |
 | Vendor | VENDOR_NAME | single line of text | |
 | Vendor ID | VENDOR_ID | single line of text | |
 | Invoice date | INVOICE_DATE | datetime | leave empty if not found |
@@ -48,6 +48,6 @@ Once you've tried to extract every field in Step 3, compute these:
 
 Use the Dataverse tool to create one new row in the "Auto Invoice Review" table with these column values:
 
-- INVOICE_KEY, VENDOR_NAME, VENDOR_ID, INVOICE_DATE, DUE_DATE, PURCHASE_ORDER_NUMBER, SUBTOTAL, TAX, TOTAL_AMOUNT_DUE, CURRENCY, GL_CODE — as extracted in Step 2 (empty/null for anything not found).
+- INVOICE_NUMBER, VENDOR_NAME, VENDOR_ID, INVOICE_DATE, DUE_DATE, PURCHASE_ORDER_NUMBER, SUBTOTAL, TAX, TOTAL_AMOUNT_DUE, CURRENCY, GL_CODE — as extracted in Step 2 (empty/null for anything not found).
 - ISSUES_FOUND, SUMMARY, DECISION — as computed in Step 3.
 - SOURCE_LINK from Step 2.

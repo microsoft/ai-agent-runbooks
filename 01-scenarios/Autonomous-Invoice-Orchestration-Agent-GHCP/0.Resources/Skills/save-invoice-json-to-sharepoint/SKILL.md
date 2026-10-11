@@ -34,7 +34,7 @@ Assemble a JSON object with exactly these keys, using the values extracted/compu
 
 | Key | Source |
 |---|---|
-| invoiceKey | extracted INVOICE_KEY |
+| invoiceNumber | extracted INVOICE_NUMBER |
 | vendorName | extracted VENDOR_NAME |
 | vendorId | extracted VENDOR_ID |
 | invoiceDate | extracted INVOICE_DATE |
@@ -58,12 +58,12 @@ Leave any field that was not found on the invoice as an empty string, matching h
 Example output:
 
 ```json
-{"invoiceKey": "TEST-MISSING-003", "vendorName": "Fabrikam Test Services", "vendorId": "V12345", "invoiceDate": "9/24/2026", "dueDate": "10/24/2026", "purchaseOrderNumber": "PO-2026-1042", "subtotal": "500.00", "tax": "40.00", "totalAmountDue": "540.00", "currency": "USD", "glCode": "GL-12345", "decision": "NEEDS_REVIEW", "issues": "Invoice date not provided on document; Due date not provided", "summary": "This is a synthetic test invoice from Fabrikam Test Services for $540.00 that needs manual review.", "emailSubject": "Invoice", "emailSender": "AmberR@M365CPI76932473.OnMicrosoft.com", "sourcePdfPath": "/Shared Documents/Invoices/Source/20261007_135209_Incomplete_Test_Invoice_NEEDS_REVIEW.pdf", "sourcePdfLink": "https://m365cpi76932473.sharepoint.com/:b:/s/CopilotAgent/IQD40_y39bm9T7Nrt0spcYEHASfzwUKzs6E5UeS6LXjkqyI"}
+{"invoiceNumber": "TEST-MISSING-003", "vendorName": "Fabrikam Test Services", "vendorId": "V12345", "invoiceDate": "9/24/2026", "dueDate": "10/24/2026", "purchaseOrderNumber": "PO-2026-1042", "subtotal": "500.00", "tax": "40.00", "totalAmountDue": "540.00", "currency": "USD", "glCode": "GL-12345", "decision": "NEEDS_REVIEW", "issues": "Invoice date not provided on document; Due date not provided", "summary": "This is a synthetic test invoice from Fabrikam Test Services for $540.00 that needs manual review.", "emailSubject": "Invoice", "emailSender": "AmberR@M365CPI76932473.OnMicrosoft.com", "sourcePdfPath": "/Shared Documents/Invoices/Source/20261007_135209_Incomplete_Test_Invoice_NEEDS_REVIEW.pdf", "sourcePdfLink": "https://m365cpi76932473.sharepoint.com/:b:/s/CopilotAgent/IQD40_y39bm9T7Nrt0spcYEHASfzwUKzs6E5UeS6LXjkqyI"}
 ```
 
 ## Step 4 — Name the file
 
-Name the file using timestamp 'yyyyMMdd_hhmmss_' and invoiceKey when available, e.g. `20261007_135209_TEST-MISSING-003.json`. If invoiceKey is empty, name it using a timestamp instead using original invoice file name
+Name the file using timestamp 'yyyyMMdd_hhmmss_' and invoiceNumber when available, e.g. `20261007_135209_TEST-MISSING-003.json`. If invoiceNumber is empty, name it using a timestamp instead using original invoice file name
 
 ## Step 5 — Save the file
 
