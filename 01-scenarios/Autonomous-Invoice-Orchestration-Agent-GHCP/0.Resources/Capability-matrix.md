@@ -78,7 +78,7 @@ The agent's final response is one JSON object, with no text before or after it. 
 
 | Key | Type | Meaning |
 |---|---|---|
-| `invoiceKey` | string | The invoice number as printed |
+| `invoiceKey` | string | The invoice number as printed. The Dataverse row holds it in the Invoice Number column |
 | `vendorName` | string | Vendor name |
 | `currency` | string | ISO 4217 code such as `USD` |
 | `totalAmountDue` | string | Total amount due |
@@ -125,8 +125,7 @@ One table, **Auto Invoice Review**, in the **Autonomous Invoice Orchestration** 
 | Decision | Choice | NEEDS_REVIEW, READY_FOR_APPROVAL | `DECISION` | invoice-extraction-review |
 | Due Date | Date Only | — | `DUE_DATE` | invoice-extraction-review |
 | Invoice Date | Date Only | — | `INVOICE_DATE` | invoice-extraction-review |
-| Invoice Key | Text | 850 | `INVOICE_KEY` | invoice-extraction-review |
-| Invoice Number | Text | 100 | — | No skill |
+| Invoice Number | Text | 100 | `INVOICE_KEY` | invoice-extraction-review |
 | Issues Found | Multiline Text | At least 4000 (raised after the table is saved) | `ISSUES_FOUND` | invoice-extraction-review |
 | Purchase Order Number | Text | 100 | `PURCHASE_ORDER_NUMBER` | invoice-extraction-review |
 | Review Link | URL | 200 | `REVIEW_LINK` | save-invoice-json-to-sharepoint |
@@ -138,10 +137,10 @@ One table, **Auto Invoice Review**, in the **Autonomous Invoice Orchestration** 
 | Vendor ID | Text | 100 | `VENDOR_ID` | invoice-extraction-review |
 | Vendor Name | Text | 100 | `VENDOR_NAME` | invoice-extraction-review |
 
-- `invoice-extraction-review` writes 15 columns and `save-invoice-json-to-sharepoint` writes the Review Link. No skill sets Billed to Legal Entity or Invoice Number, so both stay empty until a skill is extended. The skill's `INVOICE_KEY` holds the invoice number as printed.
+- `invoice-extraction-review` writes 15 columns and `save-invoice-json-to-sharepoint` writes the Review Link. No skill sets Billed to Legal Entity, so it stays empty until a skill is extended. The skill's `INVOICE_KEY` field holds the invoice number as printed and is saved in the Invoice Number column.
 - Every column is optional. Any business-required flag (a red `*` in the data grid) must be cleared, so an invoice that lacks a value is still saved with Decision `NEEDS_REVIEW` and Finance can follow up.
-- Copilot chooses the table's primary name column from the 18 listed columns, most likely Vendor Name. The skills never read or write by it, and whether a row is still created when that column is empty is `[VERIFY]` G4.
-- The build prompt asks Copilot for 18 columns. The Auto Invoice Review ID is the table's native primary key that Dataverse creates itself, and its display name in the maker portal can be the table name. This scenario always calls it Auto Invoice Review ID.
+- Copilot chooses the table's primary name column from the 17 listed columns, most likely Vendor Name. The skills never read or write by it, and whether a row is still created when that column is empty is `[VERIFY]` G4.
+- The build prompt asks Copilot for 17 columns. The Auto Invoice Review ID is the table's native primary key that Dataverse creates itself, and its display name in the maker portal can be the table name. This scenario always calls it Auto Invoice Review ID.
 - The table has no alternate key and neither skill looks for an existing row, so a second run for the same invoice creates a second row.
 - Choice values are written as the labels `NEEDS_REVIEW` and `READY_FOR_APPROVAL`. Whether the connector accepts labels or option values is `[VERIFY]` G4.
 - Source Link and Review Link are capped at 200 characters. Keep the site, library and folder names short.
@@ -161,7 +160,7 @@ One table, **Auto Invoice Review**, in the **Autonomous Invoice Orchestration** 
 |---|---|---|
 | PDF quality | Scanned images, handwriting and unusual layouts may yield missing or wrong values. A wrong value that is present is not caught by the decision check, so the approver must compare it with the PDF | AP/Finance team |
 | Duplicates | There is no duplicate detection. The same invoice, or a corrected resubmission, creates another row and another review file, and the earlier `NEEDS_REVIEW` row stays. AP/Finance deletes extra rows | AP/Finance team |
-| Checks the skills do not make | The skills check that fields are present. They do not check that subtotal plus tax equals the total or that the bill-to is an approved legal entity, and they leave Billed to Legal Entity and Invoice Number empty | AP/Finance team |
+| Checks the skills do not make | The skills check that fields are present. They do not check that subtotal plus tax equals the total or that the bill-to is an approved legal entity, and they leave Billed to Legal Entity empty | AP/Finance team |
 | Manual review | An invoice that is not `READY_FOR_APPROVAL` is emailed only to the `FinanceEmailAddress` value. The sender is not told what is missing, so Finance contacts the sender and decides how to continue | AP/Finance team |
 | Partial writes | If the row is written but the sharing link, the review file or the Review Link update fails, the row stays without a Review Link. The workflow does not check the links, so the approval and the emails show an empty review link. The invoice is not processed again automatically | Power Platform engineer |
 | File names | An invoice number that contains characters SharePoint does not allow in a file name can make the review file write fail `[VERIFY]` G5 | Power Platform engineer |
