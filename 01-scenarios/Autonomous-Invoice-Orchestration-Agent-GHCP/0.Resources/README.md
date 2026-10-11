@@ -57,6 +57,6 @@ Do not reduce a gate to an instruction telling the model to be careful. The deci
 ## Design choices and operational records
 
 - One workflow and one agent. The agent is called only by the workflow and has no end-user channel. The agent calls no workflow and has no email or approval tool.
-- The workflow decides from the returned `decision`. The approval starts only when Decision is `READY_FOR_APPROVAL`, which the skill sets only when all 11 invoice fields were found. Any other decision sends a manual review email to Finance and the sender is not told. This is a **scenario-defined contract**.
+- The workflow decides from the returned `decision`. The approval starts only when Decision is `READY_FOR_APPROVAL`, which the skill sets only when all 11 invoice fields were found. Any other decision sends a manual review email to Finance with the sender in CC. This is a **scenario-defined contract**.
 - Routine intake has no per-message human approval before the extraction and the row are written. A person approves each invoice that is ready for approval, and the sender gets an approved or rejected email afterwards.
 - Record the invoice mailbox, approver, connection owners, library and solution names, tool and skill versions, test runs and release approvals in a restricted delivery record. Store no credentials or real invoices in this repository.
