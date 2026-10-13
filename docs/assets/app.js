@@ -1,6 +1,6 @@
 /* =============================================================
    AI Agent Runbooks — behaviour
-   Theme, navigation, and the catalogue search/filter engine.
+   Theme, navigation, catalogue filters, and site-wide search.
    ============================================================= */
 
 /* ---------- theme (runs immediately, see inline bootstrap in <head>) ---------- */
@@ -22,6 +22,14 @@ const ICONS = {
   arrow: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
 };
 
+const SEARCH_SCOPES = [
+  { value: "all", label: "All" },
+  { value: "site", label: "Site" },
+  { value: "scenarios", label: "Scenarios" },
+  { value: "patterns", label: "Patterns" },
+  { value: "references", label: "References" }
+];
+
 /* ---------- helpers ---------- */
 function esc(s) {
   return String(s).replace(/[&<>"']/g, function (c) {
@@ -39,6 +47,41 @@ function tagRow(tech, max) {
 function statusPill(status) {
   const preview = status !== "Available";
   return '<span class="pill-status' + (preview ? " preview" : "") + '">' + esc(status) + "</span>";
+}
+
+function searchScopeLabel(scope) {
+  return scope === "site" ? "Site page"
+    : scope === "scenarios" ? "Scenario"
+      : scope === "patterns" ? "Pattern"
+        : "Reference";
+}
+
+function normalizeSearchText(value) {
+  return String(value || "").toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+function snippetFromText(text, query) {
+  const value = String(text || "").replace(/\s+/g, " ").trim();
+  if (!value) return "";
+  if (!query) return value.slice(0, 200) + (value.length > 200 ? "…" : "");
+
+  const phrase = normalizeSearchText(query);
+  const tokens = phrase.split(" ").filter(Boolean);
+  const haystack = value.toLowerCase();
+  let index = haystack.indexOf(phrase);
+  if (index === -1) {
+    tokens.some(function (token) {
+      index = haystack.indexOf(token);
+      return index !== -1;
+    });
+  }
+  if (index === -1) index = 0;
+
+  const start = Math.max(0, index - 80);
+  const end = Math.min(value.length, index + 160);
+  const prefix = start > 0 ? "…" : "";
+  const suffix = end < value.length ? "…" : "";
+  return prefix + value.slice(start, end).trim() + suffix;
 }
 
 /* ---------- card renderers ---------- */
@@ -73,14 +116,13 @@ function initCatalogue(opts) {
 
   const items = opts.items;
   const render = opts.render;
-  const facet = opts.facet;          // function(item) -> array of filter values
-  const searchText = opts.searchText; // function(item) -> string
+  const facet = opts.facet;
+  const searchText = opts.searchText;
 
   const input = document.getElementById(opts.searchId);
   const chipBox = document.getElementById(opts.filterId);
   const counter = document.getElementById(opts.countId);
 
-  // build facet list, most common first
   const counts = {};
   items.forEach(function (it) {
     facet(it).forEach(function (v) { counts[v] = (counts[v] || 0) + 1; });
@@ -96,7 +138,7 @@ function initCatalogue(opts) {
   chipBox.innerHTML =
     '<button class="chip" type="button" data-value="" aria-pressed="true">All ' + opts.label + "</button>" +
     facets.map(function (f) {
-      return '<button class="chip" type="button" data-value="' + esc(f) + '" aria-pressed="false">' + esc(f) + " <span aria-hidden=\"true\">·</span> " + counts[f] + "</button>";
+      return '<button class="chip" type="button" data-value="' + esc(f) + '" aria-pressed="false">' + esc(f) + ' <span aria-hidden="true">·</span> ' + counts[f] + "</button>";
     }).join("");
 
   function draw() {
@@ -137,9 +179,226 @@ function initCatalogue(opts) {
   draw();
 }
 
+/* ---------- site-wide search ---------- */
+function initGlobalSearch() {
+  const triggers = Array.prototype.slice.call(document.querySelectorAll("[data-global-search]"));
+  if (!triggers.length) return;
+
+  const state = {
+    scope: "all",
+    query: "",
+    index: null,
+    loading: null,
+    lastTrigger: null
+  };
+
+  document.body.insertAdjacentHTML("beforeend",
+    '<dialog class="search-dialog" id="site-search-dialog" aria-labelledby="site-search-title">' +
+      '<div class="search-dialog-panel">' +
+        '<div class="search-dialog-head">' +
+          '<div>' +
+            '<p class="search-dialog-kicker">Global search</p>' +
+            '<h2 id="site-search-title">Search the site and public runbook source</h2>' +
+          "</div>" +
+          '<button class="icon-btn search-dialog-close" type="button" aria-label="Close search dialog">×</button>' +
+        "</div>" +
+        '<form class="search-shell search-dialog-form" method="dialog" novalidate>' +
+          '<label class="search-dialog-label" for="site-search-input">Search query</label>' +
+          '<div class="search search-dialog-search">' +
+            '<span data-search-icon aria-hidden="true"></span>' +
+            '<input id="site-search-input" type="search" autocomplete="off" spellcheck="false" placeholder="Try “contract review”, “RAG”, or “limitations”">' +
+          "</div>" +
+        "</form>" +
+        '<fieldset class="search-scope" aria-label="Search scope">' +
+          SEARCH_SCOPES.map(function (scope) {
+            return '<label class="scope-chip"><input type="radio" name="site-search-scope" value="' + scope.value + '"' + (scope.value === "all" ? " checked" : "") + '><span>' + scope.label + "</span></label>";
+          }).join("") +
+        "</fieldset>" +
+        '<div class="search-meta">' +
+          '<p class="result-count" id="site-search-status" role="status" aria-live="polite">Loading the search index…</p>' +
+          '<button class="btn btn-ghost search-retry" type="button" hidden>Retry</button>' +
+        "</div>" +
+        '<div class="search-results" id="site-search-results" tabindex="-1"></div>' +
+      "</div>" +
+    "</dialog>");
+
+  const dialog = document.getElementById("site-search-dialog");
+  const input = document.getElementById("site-search-input");
+  const results = document.getElementById("site-search-results");
+  const status = document.getElementById("site-search-status");
+  const retry = dialog.querySelector(".search-retry");
+  const closeBtn = dialog.querySelector(".search-dialog-close");
+  dialog.querySelector(".search-dialog-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    renderResults();
+  });
+
+  function resetIndex() {
+    state.index = null;
+    state.loading = null;
+    delete window.ARB_SEARCH_INDEX;
+    document.querySelectorAll("script[data-search-index-script]").forEach(function (script) { script.remove(); });
+  }
+
+  function setStatus(message, mode) {
+    status.textContent = message;
+    status.dataset.mode = mode || "";
+  }
+
+  function loadIndex() {
+    if (Array.isArray(window.ARB_SEARCH_INDEX)) {
+      state.index = window.ARB_SEARCH_INDEX;
+      return Promise.resolve(state.index);
+    }
+    if (state.loading) return state.loading;
+
+    state.loading = new Promise(function (resolve, reject) {
+      const script = document.createElement("script");
+      script.src = "assets/search-index.js";
+      script.async = true;
+      script.dataset.searchIndexScript = "true";
+      script.onload = function () {
+        if (Array.isArray(window.ARB_SEARCH_INDEX)) {
+          state.index = window.ARB_SEARCH_INDEX;
+          resolve(state.index);
+          return;
+        }
+        reject(new Error("Search index loaded but did not expose window.ARB_SEARCH_INDEX."));
+      };
+      script.onerror = function () {
+        reject(new Error("Search index failed to load."));
+      };
+      document.head.appendChild(script);
+    }).catch(function (error) {
+      resetIndex();
+      throw error;
+    });
+
+    return state.loading;
+  }
+
+  function rankResults(items, query, scope) {
+    const phrase = normalizeSearchText(query);
+    const tokens = phrase.split(" ").filter(Boolean);
+    if (!tokens.length) return [];
+
+    return items.map(function (item) {
+      if (scope !== "all" && item.category !== scope) return null;
+      const title = normalizeSearchText(item.title);
+      const text = normalizeSearchText(item.text);
+      const combined = title + " " + text;
+      if (!tokens.every(function (token) { return combined.indexOf(token) !== -1; })) return null;
+
+      let score = 0;
+      if (title.indexOf(phrase) !== -1) score += 200;
+      if (text.indexOf(phrase) !== -1) score += 90;
+      tokens.forEach(function (token) {
+        if (title.indexOf(token) !== -1) score += 40;
+        if (text.indexOf(token) !== -1) score += 10;
+      });
+      if (scope === "all" && item.category === "site") score += 5;
+
+      return { item: item, score: score };
+    }).filter(Boolean).sort(function (a, b) {
+      return b.score - a.score || a.item.title.localeCompare(b.item.title);
+    }).slice(0, 40).map(function (entry) { return entry.item; });
+  }
+
+  function renderResults() {
+    if (!Array.isArray(state.index)) return;
+    const query = state.query.trim();
+    if (!query) {
+      results.innerHTML = '<div class="empty"><p><strong>Start typing to search.</strong></p><p>Search titles first, then full text across the site and the public runbook source.</p></div>';
+      setStatus("Ready. Search titles and full text across site pages and public runbooks.", "ready");
+      retry.hidden = true;
+      return;
+    }
+
+    const matches = rankResults(state.index, query, state.scope);
+    if (!matches.length) {
+      results.innerHTML = '<div class="empty"><p><strong>No matches.</strong></p><p>Try a different phrase, or widen the scope.</p></div>';
+      setStatus('No matches for "' + query + '".', "empty");
+      retry.hidden = true;
+      return;
+    }
+
+    results.innerHTML = matches.map(function (item) {
+      return (
+        '<a class="search-result" href="' + esc(item.url) + '"' + (item.url.indexOf("http") === 0 ? ' target="_blank" rel="noopener"' : "") + ">" +
+          '<div class="search-result-head">' +
+            '<strong>' + esc(item.title) + "</strong>" +
+            '<span class="tag">' + esc(searchScopeLabel(item.category)) + "</span>" +
+          "</div>" +
+          '<p>' + esc(snippetFromText(item.text, query)) + "</p>" +
+          '<span class="search-result-url">' + esc(item.url) + "</span>" +
+        "</a>"
+      );
+    }).join("");
+    setStatus("Showing " + matches.length + " result" + (matches.length === 1 ? "" : "s") + " in " + SEARCH_SCOPES.filter(function (scope) { return scope.value === state.scope; })[0].label + ".", "ready");
+    retry.hidden = true;
+  }
+
+  function showLoadError(error) {
+    results.innerHTML = '<div class="empty"><p><strong>Search is unavailable right now.</strong></p><p>' + esc(error.message || "The search index could not be loaded.") + "</p></div>";
+    setStatus("Search index failed to load.", "error");
+    retry.hidden = false;
+  }
+
+  function openDialog(trigger) {
+    state.lastTrigger = trigger;
+    if (!dialog.open) dialog.showModal();
+    setStatus("Loading the search index…", "loading");
+    results.innerHTML = '<div class="empty"><p><strong>Loading search index…</strong></p><p>This only happens when you open search.</p></div>';
+    retry.hidden = true;
+    loadIndex().then(function () {
+      renderResults();
+      if (dialog.open) {
+        input.focus();
+        input.select();
+      }
+    }).catch(showLoadError);
+  }
+
+  closeBtn.addEventListener("click", function () { dialog.close(); });
+  dialog.addEventListener("click", function (e) {
+    if (e.target === dialog) dialog.close();
+  });
+  dialog.addEventListener("close", function () {
+    if (state.lastTrigger && typeof state.lastTrigger.focus === "function") state.lastTrigger.focus();
+  });
+  input.addEventListener("input", function () {
+    state.query = input.value;
+    renderResults();
+  });
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      dialog.close();
+    }
+  });
+  dialog.querySelectorAll('input[name="site-search-scope"]').forEach(function (radio) {
+    radio.addEventListener("change", function () {
+      state.scope = radio.value;
+      renderResults();
+    });
+  });
+  retry.addEventListener("click", function () {
+    if (retry.hidden) return;
+    setStatus("Retrying search index load…", "loading");
+    results.innerHTML = '<div class="empty"><p><strong>Retrying…</strong></p></div>';
+    retry.hidden = true;
+    resetIndex();
+    loadIndex().then(renderResults).catch(showLoadError);
+  });
+  triggers.forEach(function (trigger) {
+    trigger.addEventListener("click", function () {
+      openDialog(trigger);
+    });
+  });
+}
+
 /* ---------- chrome ---------- */
 document.addEventListener("DOMContentLoaded", function () {
-  // theme buttons
   applyTheme(document.documentElement.getAttribute("data-theme") || "light");
   document.querySelectorAll("[data-theme-toggle]").forEach(function (btn) {
     btn.addEventListener("click", function () {
@@ -148,7 +407,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // mobile nav
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".nav");
   if (toggle && nav) {
@@ -159,17 +417,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // mark the current page in the nav
   const here = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".nav a.navlink").forEach(function (a) {
     if (a.getAttribute("href") === here) a.classList.add("active");
   });
 
-  // search icon injection
   document.querySelectorAll("[data-search-icon]").forEach(function (el) { el.innerHTML = ICONS.search; });
   document.querySelectorAll("[data-github-icon]").forEach(function (el) { el.innerHTML = ICONS.github; });
 
-  // homepage stat counts stay honest with the data file
+  initGlobalSearch();
+
   const sc = document.getElementById("stat-scenarios");
   if (sc) sc.textContent = SCENARIOS.length;
   const pc = document.getElementById("stat-patterns");

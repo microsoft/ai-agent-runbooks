@@ -5,6 +5,11 @@ on:
     branches: [main]
     paths:
       - "docs/**"
+      - "scripts/**"
+      - "00-overview/**"
+      - "01-scenarios/**"
+      - "02-patterns/**"
+      - "03-references/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -25,6 +30,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Build and validate search index
+        run: |
+          node scripts/build-search-index.js
+          python3 scripts/test_search_index.py
 
       - uses: actions/configure-pages@v5
 

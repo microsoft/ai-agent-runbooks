@@ -21,7 +21,8 @@ docs/
     └── app.js          → Theme, navigation, search/filter engine, card rendering
 ```
 
-No build step, no framework, no npm install. Open `docs/index.html` in a browser and it works.
+No framework or npm install is required. Open `docs/index.html` in a browser and it works.
+Global search uses the prebuilt `docs/assets/search-index.js`, loaded when search opens.
 
 ## Design
 
@@ -67,6 +68,27 @@ When a new scenario or pattern lands in the repository, add one object:
 Filter chips, search, result counts and the homepage statistics all regenerate automatically.
 Keep `tech` values spelled consistently — the platform filters are derived from them, and only
 values used by more than one item become chips.
+
+## Site-wide search
+
+The search button before the theme toggle opens a keyboard-accessible dialog. Search titles
+and full text, or narrow results to Site, Scenarios, Patterns or References. Escape closes
+the dialog and restores focus to the button; Enter keeps the results visible.
+
+The index includes the six site pages, the current catalogue metadata, and Markdown from
+this public repository's `00-overview`, `01-scenarios`, `02-patterns` and `03-references`
+folders. No private dev content or runtime GitHub API requests are used.
+
+From the repository root, rebuild and validate with:
+
+```powershell
+node scripts\build-search-index.js
+python scripts\test_search_index.py
+```
+
+The Pages workflow rebuilds the index from the same commit it deploys. Changes to any of
+those source folders, `docs/`, or `scripts/` trigger deployment. New source documents are
+searchable automatically; adding catalogue cards still requires an entry in `data.js`.
 
 ## Deploying to GitHub Pages
 
