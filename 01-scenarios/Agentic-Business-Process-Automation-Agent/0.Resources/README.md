@@ -1,5 +1,9 @@
 # Source References and Capability Evidence
- Runtime packages, code, images, and
+
+This page collects the upstream source references and capability evidence used in
+this scenario.
+
+Runtime packages, code, images, and
 domain knowledge files remain upstream; no accelerator binaries are copied here.
 Pin a source commit and compatible solution versions during delivery because `main`
 and its package names can change.
