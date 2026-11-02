@@ -394,6 +394,20 @@ const SCENARIOS = [
 
 const PATTERNS = [
   {
+    "id": "Workday-Developer-Tenant-Entra-ID-SSO",
+    "title": "Configure Workday Developer Tenant Entra ID SSO",
+    "icon": "🔐",
+    "desc": "Browser SAML SSO for an existing Workday application developer/test tenant: access qualification, Entra gallery setup, NameID mapping, recovery, acceptance tests, certificate lifecycle, and rollback. Separate from Developer Site SSO, provisioning, and API authentication.",
+    "tech": [
+      "Workday",
+      "Microsoft Entra ID",
+      "SAML 2.0"
+    ],
+    "status": "Available",
+    "file": "Workday-Developer-Tenant-Entra-ID-SSO/Workday-Developer-Tenant-Entra-ID-SSO.md",
+    "theme": "Integration"
+  },
+  {
     "id": "GitHub-Copilot-Harness-Execution",
     "title": "GitHub Copilot Harness Execution",
     "icon": "🧰",
@@ -718,6 +732,16 @@ const PATTERNS = [
     "status": "Available",
     "file": "Human-in-the-Loop-Review-and-Approval/Human-in-the-Loop-Review-and-Approval.md",
     "theme": "Governance & Operations"
+  },
+  {
+    "id": "Copilot-Studio-Harness-Selection",
+    "title": "Copilot Studio Harness Selection and Cowork Decision Pattern",
+    "icon": "🧩",
+    "desc": "This pattern first decides use an existing experience or build an agent, then compares two runtimes inside Microsoft Copilot Studio. Cowork is an experience choice, not a third Studio harness. Here, Cowork means Microsoft 365 Copilot Cowork for work or school accounts, not Anthropic Claude Cowork or the personal-account preview. Use the selection runbook to turn the comparison into a documented architecture decision. Check the upfront compatibility gaps before following the comprehensive decision tree.",
+    "tech": [],
+    "status": "Documentation Available",
+    "file": "Copilot-Studio-Harness-Selection/Copilot-Studio-Harness-Selection.md",
+    "theme": "Architecture & Design"
   }
 ];
 
