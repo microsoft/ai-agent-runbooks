@@ -108,8 +108,8 @@
     }
   },
   "patterns": {
-    "Workday-Developer-Tenant-Entra-ID-SSO": {
-      "title": "Configure Workday Developer Tenant Entra ID SSO",
+    "Workday-Integration": {
+      "title": "Workday Integration",
       "icon": "🔐",
       "theme": "Integration"
     },

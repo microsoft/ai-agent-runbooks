@@ -88,9 +88,9 @@ The `02-patterns/` folder contains one subfolder per supported technical pattern
 ├── Pilot-to-Scale-Validation-Gates/                                  ← ✅ Available
 │   ├── Pilot-to-Scale-Validation-Gates.md
 │   └── Pilot-to-Scale-Validation-Gates-Runbook.md
-└── Workday-Developer-Tenant-Entra-ID-SSO/                            ← ✅ Available
-    ├── Workday-Developer-Tenant-Entra-ID-SSO.md
-    └── Workday-Developer-Tenant-Entra-ID-SSO-Runbook.md
+└── Workday-Integration/                                            ← ✅ Available
+    ├── Workday-Integration.md
+    └── Workday-Developer-Tenant-Entra-ID-SSO.md
 ```
 
 ---
@@ -169,7 +169,7 @@ Step 6. Cross-reference 01-scenarios/ → apply the pattern within the scenario 
 
 | Pattern | Description | Key Technologies | Status |
 |---------|-------------|------------------|--------|
-| [Configure Workday Developer Tenant Entra ID SSO](./Workday-Developer-Tenant-Entra-ID-SSO/Workday-Developer-Tenant-Entra-ID-SSO.md) | Browser SAML SSO for an existing Workday application developer/test tenant: access qualification, Entra gallery setup, NameID mapping, recovery, acceptance tests, certificate lifecycle, and rollback. Separate from Developer Site SSO, provisioning, and API authentication. | Workday, Microsoft Entra ID, SAML 2.0 | ✅ Available |
+| [Workday Integration](./Workday-Integration/Workday-Integration.md) | Browser SAML SSO for an existing Workday application developer/test tenant: access qualification, Entra gallery setup, NameID mapping, recovery, acceptance tests, certificate lifecycle, and rollback. Separate from Developer Site SSO, provisioning, and API authentication. | Workday, Microsoft Entra ID, SAML 2.0 | ✅ Available |
 | [Cowork Enablement](./Cowork-Enablement/Cowork-Enablement.md) | Shared tenant readiness, security, governance, billing and operational handover for Cowork. Includes a 24-step runbook, platform acceptance tests and evidence templates; apply within business scenarios. | Microsoft 365 Copilot Cowork, Microsoft 365 admin center, Azure Cost Management | ✅ Available |
 | [Cowork Skill Delivery and Scheduled Reviews](./Cowork-Skill-Delivery-and-Scheduled-Reviews/Cowork-Skill-Delivery-and-Scheduled-Reviews.md) | Configuration-first skill/reference lifecycle, routing, trusted packages, controlled sharing, on-demand acceptance, optional user-owned scheduled drafts, cost and rollback. | Microsoft 365 Copilot Cowork, OneDrive, skills, plugins | ✅ Available |
 | [Governed Analytics Review](./Governed-Analytics-Review/Governed-Analytics-Review.md) | Explicit source/KPI contracts, period/filter/units reconciliation, RLS, supported explanations and consistent narrative/dashboard outputs with independent artifact-access review. | Power BI, Microsoft Fabric, Excel Online, Microsoft 365 Copilot Cowork | ✅ Available |

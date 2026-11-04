@@ -65,7 +65,7 @@ Whether you're building your first agent or scaling across multiple business dom
 
 **Need implementation patterns?** Check out [02-patterns/](./02-patterns/) for proven technical approaches including Copilot Studio orchestration, RAG patterns, and multi-agent design.
 
-- [Configure Workday Developer Tenant Entra ID SSO](./02-patterns/Workday-Developer-Tenant-Entra-ID-SSO/Workday-Developer-Tenant-Entra-ID-SSO.md) — Browser SAML SSO for a Workday application test tenant, with account mapping, lockout recovery, validation, certificate lifecycle, and rollback; separate from Developer Site and API authentication.
+- [Workday Integration](./02-patterns/Workday-Integration/Workday-Integration.md) — Browser SAML SSO for a Workday application test tenant, with account mapping, lockout recovery, validation, certificate lifecycle, and rollback; separate from Developer Site and API authentication.
 - 🛡️ [Agent Governance & Rollout Control Plane](./02-patterns/Agent-Governance-and-Rollout-Control-Plane/) — Separating agent creation from consumption, controlling sharing, establishing an approval route, and building the inventory and audit position that enterprise rollouts depend on
 - 🚢 [Agent Publishing & Channel Deployment](./02-patterns/Agent-Publishing-and-Channel-Deployment/) — The last mile: licensing prerequisites, channel-specific behaviour, authentication, and rendering across Microsoft 365 Copilot, Teams, SharePoint, and third-party channels
 - 🔀 [Agentic Workflow Orchestration](./02-patterns/Agentic-Workflow-Orchestration/) — Multi-agent orchestration pattern for coordinating handoffs between specialized agents, enabling sequential, concurrent, and hierarchical agent collaboration across complex business workflows

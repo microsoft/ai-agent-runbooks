@@ -1,4 +1,4 @@
-# Configure Workday Tenant Entra ID SSO
+# Workday Integration
 
 Configure Microsoft Entra ID as the SAML identity provider for an existing Workday tenant. This pattern covers browser sign-in to the **Workday application**,
 not sign-in to the Workday Developer Site at `developer.workday.com`.
@@ -59,10 +59,10 @@ sequenceDiagram
     participant E as Microsoft Entra ID (IdP)
     U->>W: Open tenant-specific SAML sign-on URL
     W->>E: SAML authentication request
-    E->>E: Authenticate; evaluate assignment and applicable policies
+    E->>E: Authenticate and evaluate assignment and applicable policies
     E-->>U: Signed SAML response and assertion
     U->>W: Post response to tenant-specific Reply URL (ACS)
-    W->>W: Validate trust, audience and NameID; resolve Workday account
+    W->>W: Validate trust, audience and NameID and resolve Workday account
     W-->>U: Workday session with existing Workday permissions
 ```
 
@@ -108,7 +108,7 @@ it or invent a new identifier to bypass the constraint.
 5. Test a new SP-initiated session, the account identity, application permissions, and denied access.
 6. Hand over certificate renewal, refresh/rebuild checks, rollback, and ownership.
 
-Follow the [implementation runbook](Workday-Developer-Tenant-Entra-ID-SSO-Runbook.md)
+Follow the [implementation runbook](Workday-Developer-Tenant-Entra-ID-SSO.md)
 for the field-by-field sequence and acceptance evidence.
 
 Entra pilot assignment limits who can authenticate through that enterprise application.

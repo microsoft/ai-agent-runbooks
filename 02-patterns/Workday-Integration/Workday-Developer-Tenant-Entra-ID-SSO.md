@@ -1,10 +1,8 @@
-# Runbook - Configure Entra ID SSO with Workday
+# Runbook - Workday Integration with Microsoft Entra ID
 
-Use this runbook to configure Microsoft Entra ID SAML SSO authentication with Workday tenant. Read the [pattern overview](Workday-Developer-Tenant-Entra-ID-SSO.md)
+This runbook covers configuration of Microsoft Entra ID SAML SSO authentication with Workday tenant. Read the [pattern overview](Workday-Integration.md). It applies for both Workday Developer and Test/Production tenants.
 
-You can use this same runbook to configure Workday Developer and Test/Production tenants.
-
-Runbook covers configuration of Workday enterprise application in Entra ID and collecting the configuration details needed to connect the two systems. In Workday side we setup SAML identity provider, authentication policies and security group for Workday users who should use SAML SSO authentication. We will reuse existing Workday account to test SSO by changing user name to match one of your Entra ID user account's user principal name (UPN).
+Runbook covers configuration of Workday enterprise application in Entra ID and collecting the configuration details needed to connect the two systems. In Workday side we setup SAML identity provider, authentication policies and security group for Workday users who should use SAML SSO authentication. 
 
 ## Setup Workday Developer Tenant
 
@@ -239,13 +237,15 @@ We will create Security Group in Workday to control which user accounts should u
     
     ![alt text](images/wd-22.png)
 
-16. Click OK and Done
+   &nbsp;
+
+16. Click **OK** and **Done**
     
     &nbsp;
 
 17. Select **Activate All Authentication Policies**
 
-   ![alt text](images/wd-23.png)
+    ![alt text](images/wd-23.png)
 
 18. Provide **Comment** and click **OK**
     
@@ -258,7 +258,6 @@ We will create Security Group in Workday to control which user accounts should u
 20. Authentication policies should be enabled now
     
     ![alt text](images/wd-26.png)
-
 
 &nbsp;
 

@@ -394,8 +394,8 @@ const SCENARIOS = [
 
 const PATTERNS = [
   {
-    "id": "Workday-Developer-Tenant-Entra-ID-SSO",
-    "title": "Configure Workday Developer Tenant Entra ID SSO",
+    "id": "Workday-Integration",
+    "title": "Workday Integration",
     "icon": "🔐",
     "desc": "Browser SAML SSO for an existing Workday application developer/test tenant: access qualification, Entra gallery setup, NameID mapping, recovery, acceptance tests, certificate lifecycle, and rollback. Separate from Developer Site SSO, provisioning, and API authentication.",
     "tech": [
@@ -404,7 +404,7 @@ const PATTERNS = [
       "SAML 2.0"
     ],
     "status": "Available",
-    "file": "Workday-Developer-Tenant-Entra-ID-SSO/Workday-Developer-Tenant-Entra-ID-SSO.md",
+    "file": "Workday-Integration/Workday-Integration.md",
     "theme": "Integration"
   },
   {
