@@ -397,11 +397,15 @@ const PATTERNS = [
     "id": "Workday-Integration",
     "title": "Workday Integration",
     "icon": "🔐",
-    "desc": "Browser SAML SSO for an existing Workday application developer/test tenant: access qualification, Entra gallery setup, NameID mapping, recovery, acceptance tests, certificate lifecycle, and rollback. Separate from Developer Site SSO, provisioning, and API authentication.",
+    "desc": "Three ordered setup paths: SSO with Entra ID, Entra ID Integrated authentication for the Workday Power Platform connector, and Workday Sana Self-Service Agent A2A integration for Copilot Studio agents.",
     "tech": [
       "Workday",
       "Microsoft Entra ID",
-      "SAML 2.0"
+      "SAML 2.0",
+      "Power Platform",
+      "Microsoft Copilot Studio",
+      "OAuth 2.0",
+      "A2A"
     ],
     "status": "Available",
     "file": "Workday-Integration/Workday-Integration.md",

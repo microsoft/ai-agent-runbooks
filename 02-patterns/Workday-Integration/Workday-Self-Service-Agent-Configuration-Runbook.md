@@ -76,7 +76,8 @@ Visual Studio Code with REST Client extension is used here but you can use any R
    
     ![alt text](images/reg-ext-agent-01.png)
 
-2. Open ??? to Visual Studio
+&nbsp;
+2. Open [WD-RegisterExternalAgent.http](./Resources/WD-RegisterExternalAgent.http) file to Visual Studio Code
    
 3. Set these values and then save the file. Remember that if you are using Workday Developer tenant then {REGION} = `odp` and for other tenants see [Workday tenant regions](#workday-tenant-regions)
    
