@@ -90,7 +90,7 @@ The `02-patterns/` folder contains one subfolder per supported technical pattern
 │   └── Pilot-to-Scale-Validation-Gates-Runbook.md
 └── Workday-Integration/                                            ← ✅ Available
     ├── Workday-Integration.md
-    └── Workday-Developer-Tenant-Entra-ID-SSO.md
+    └── Workday-Developer-Tenant-and-Entra-ID-SSO-Runbook.md
 ```
 
 ---

@@ -2,11 +2,9 @@
 
 Use this when you want to integrate Copilot Studio agent with Workday Self-Service agent using A2A protocol. 
 
-Each A2A configuration in Power Platform will create custom connector in Copilot Studio. Workday agent requires PKCE challenge when authenticating against Workday agents and currently is it not possible to configure custom connector to support PKCE in the Power Apps/Automate portal. This need to be configured using Power Platform CLI which is the last step in the configuration
-
 ## Prerequisites
 
-- Workday tenant and single sign-on configured between Entra ID and Workday > [Runbook - Workday Integration with Microsoft Entra ID](Workday-Developer-Tenant-Entra-ID-SSO)
+- Workday tenant and single sign-on configured between Entra ID and Workday > [Runbook - Workday Integration with Microsoft Entra ID](Workday-Developer-Tenant-and-Entra-ID-SSO-Runbook.md)
 - REST API client like Visual Studio Code with REST Client extension installed
 
 ## Workday tenant regions
@@ -221,6 +219,5 @@ Register that exact value on the Workday OAuth client. Each Power Platform custo
 10. Test A2A in your agent for example by asking about `tell me about my employee information including home address and provide results as table`
     
 11. 
-
 
 

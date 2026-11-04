@@ -4,7 +4,7 @@ This runbook covers configuration of Workday integration with Power Platform to 
 
 ## Prerequisites
 
-- Workday tenant and single sign-on configured between Entra ID and Workday > [Runbook - Workday Integration with Microsoft Entra ID](Workday-Developer-Tenant-Entra-ID-SSO)
+- Workday tenant and single sign-on configured between Entra ID and Workday > [Runbook - Workday Integration with Microsoft Entra ID](Workday-Developer-Tenant-and-Entra-ID-SSO-Runbook.md)
 
 
 ## Create Workday API client

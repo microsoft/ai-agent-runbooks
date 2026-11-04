@@ -108,7 +108,7 @@ it or invent a new identifier to bypass the constraint.
 5. Test a new SP-initiated session, the account identity, application permissions, and denied access.
 6. Hand over certificate renewal, refresh/rebuild checks, rollback, and ownership.
 
-Follow the [implementation runbook](Workday-Developer-Tenant-Entra-ID-SSO.md)
+Follow the [implementation runbook](Workday-Developer-Tenant-and-Entra-ID-SSO-Runbook.md)
 for the field-by-field sequence and acceptance evidence.
 
 Entra pilot assignment limits who can authenticate through that enterprise application.
