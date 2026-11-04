@@ -218,7 +218,5 @@ Register that exact value on the Workday OAuth client. Each Power Platform custo
     ![alt text](images/mcs-a2a-08.png)
 
 10. Test A2A in your agent for example by asking about `tell me about my employee information including home address and provide results as table`
-    
-11. 
 
 

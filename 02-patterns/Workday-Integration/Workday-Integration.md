@@ -185,8 +185,7 @@ broaden access or switch identities simply to bypass the failure.
 
 This folder contains manual configuration walkthroughs, screenshots, and a registration
 request template. It does not deploy connections, grant permissions, or provide a live
-acceptance record. The A2A walkthrough still has an unfinished final step; resolve the
-remaining instructions before treating it as a complete delivery checklist.
+acceptance record.
 
 ---
 
