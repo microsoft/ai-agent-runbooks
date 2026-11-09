@@ -18,16 +18,23 @@ This runbook covers configuration of Workday integration with Power Platform to 
    - Assertion Verification: **Use Configured IdPs**
    - Access Token Type: **Bearer**
    - Allow Access to All System Users: ✅
-   - Scope (Functional Areas): All required Workday functional areas which need to be accessible for Power Platform solution using API client like **Core Payroll, Organizations and Roles, Staffing, Time Off and Leave** 
+   - Scope (Functional Areas): All required Workday functional areas which need to be accessible for Power Platform solution using API client like **Contact Information, Organizations and Roles, Staffing, Time Off and Leave**
    - Include Workday Owned Scope: ✅
    
      ![alt text](images/pp-wd-api-02.png)
-     ![alt text](images/pp-wd-api-03.png)
-      
+
 
 3. Copy **Client ID**, **Workday REST API Endpoint** without /v1/tenant_name and **Token Endpoint**
 
     ![alt text](images/pp-wd-api-04.png)
+
+
+## Configure Workday Domain Security
+
+In Workday to be able to access and update employee information from external clients like Copilot Studio agent using integration. **Workday administrators** need to configure permissions depending which information need to be accessed using integration. Follow these Microsoft Employee Self-Service agent template instructions explaining how to define Workday domain level permissions
+
+https://learn.microsoft.com/en-us/copilot/employee-self-service/declarative-agent-workday-reference#workday-task-5-configure-domain-security-for-your-rollout
+
 
 
 ## Configure Entra ID
