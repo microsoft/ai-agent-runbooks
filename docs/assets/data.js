@@ -397,7 +397,7 @@ const PATTERNS = [
     "id": "Workday-Integration",
     "title": "Workday Integration",
     "icon": "🔐",
-    "desc": "Three ordered setup paths: SSO with Entra ID, Entra ID Integrated authentication for the Workday Power Platform connector, and Workday Sana Self-Service Agent A2A integration for Copilot Studio agents.",
+    "desc": "Four setup paths: SSO with Entra ID, Entra ID Integrated authentication for the Workday Power Platform connector, Workday Sana Self-Service Agent A2A integration, and Workday MCP tool integration for Copilot Studio agents.",
     "tech": [
       "Workday",
       "Microsoft Entra ID",
@@ -405,7 +405,8 @@ const PATTERNS = [
       "Power Platform",
       "Microsoft Copilot Studio",
       "OAuth 2.0",
-      "A2A"
+      "A2A",
+      "MCP Server"
     ],
     "status": "Available",
     "file": "Workday-Integration/Workday-Integration.md",
