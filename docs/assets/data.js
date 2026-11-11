@@ -283,7 +283,7 @@ const SCENARIOS = [
     "id": "Agentic-Business-Process-Automation-Agent",
     "title": "Agentic Business Process Automation Agent",
     "icon": "🔄",
-    "desc": "Reusable event-driven case runtime designed for waits beyond 30 days, a custom HITL console and task APIs for functional/regional teams and role-based allocation, process-agnostic monitoring, and Forge-assisted adaptation for claims, contracts, loans, deals, tax, and RFQs. Order Processing reference; tenant and elapsed-time validation required.",
+    "desc": "Reusable event-driven case runtime designed for waits beyond 30 days, a custom HITL console and task APIs for functional/regional teams and role-based allocation, process-agnostic monitoring, and adaptation for claims, contracts, loans, deals, tax, and RFQs using Agent Forge, an AI-powered software factory for agentic development. Order Processing reference; tenant and elapsed-time validation required.",
     "tech": [
       "Microsoft Copilot Studio",
       "GitHub Copilot harness",
@@ -547,6 +547,21 @@ const SCENARIOS = [
       "Agent Builder",
       "ServiceNow",
       "Copilot Connectors"
+    ],
+    "status": "Available",
+    "type": "IT Service Management / Employee Support"
+  },
+  {
+    "id": "IT-Service-Desk-Insights-Agent-GHCP",
+    "title": "IT Service Desk Insights Agent with GHCP Harness",
+    "icon": "🎫",
+    "desc": "Blueprint for knowledge-guided investigation and independently enabled ServiceNow incident actions, with requester-only closure and optional Dynamics Customer Service handoff. Includes twelve instruction-only skills and acceptance guidance; no deployable package or tenant-tested implementation.",
+    "tech": [
+      "Microsoft Copilot Studio",
+      "GitHub Copilot harness",
+      "ServiceNow",
+      "Office 365 Users",
+      "Dynamics 365 Customer Service"
     ],
     "status": "Available",
     "type": "IT Service Management / Employee Support"

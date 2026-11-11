@@ -8,8 +8,8 @@ installation, ERP integration, or GitHub engineering integration is required.
 Four optional Dynamics Customer Service [skill definitions](Skills/README.md) are included
 for deployments that need cross-system case handoff. Each capability below links to its own
 `Skills/<capability-name>/SKILL.md`.
-Agent-facing tools remain contracts to implement/configure. Connector definitions, scripts,
-and workflow exports are not included. The delivery team must provision and validate the
+Agent-facing tools remain contracts to implement/configure. An agent project, connector
+definitions, scripts, workflow exports, and evaluation JSON are not included. The delivery team must provision and validate the
 tools, connections, and backend policies before enabling a capability. Native connector
 operation IDs are identified separately.
 See [Release readiness](Release-readiness.md) for the current known issues and evidence gates.
@@ -104,7 +104,7 @@ is required when native operation behavior does not meet the contract.
 | [`sn-incident-close`](Skills/sn-incident-close/SKILL.md) | `CloseOwnIncident` | Dedicated requester-close workflow using the backend's approved self-service transition | S0, W0, `sn-incident-read`; explicit requester confirmation, authoritative requester match and eligible current state |
 
 **Creation limitation:** Microsoft documents that native `CreateRecord` ignores the full
-`description` value because of the underlying ServiceNow REST API limitation. The native MVP
+`description` value because of the underlying ServiceNow REST API limitation. The proposed native profile
 therefore sends only `short_description` and returns the remaining details as a manual handoff
 summary. If the investigation must be persisted at creation, use a supported custom create-only
 operation and verify the stored description. Never hide an `UpdateRecord`, note, or attachment
@@ -193,7 +193,7 @@ product's read/close pair and its prerequisites.
 
 Complete one card per enabled capability, including its actual deployed mappings:
 
-| Field | What the offshore delivery team must record |
+| Field | What the delivery team must record |
 |---|---|
 | Identity | Capability/skill ID, agent ID, version, target environment, profile and ON/OFF state |
 | Dependencies | Required capability IDs, actual skill files, tool/workflow IDs, connection references |

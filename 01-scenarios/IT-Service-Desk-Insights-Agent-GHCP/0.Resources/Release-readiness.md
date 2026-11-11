@@ -1,25 +1,26 @@
-# IT Service Desk Insights Agent - Release Readiness
+[1. Overview](../1.Overview.md) > [2. Architecture](../2.Architecture.md) > [3. Runbook](../3.Runbook.md) > [4. Sample Prompts](../4.Sample-prompts.md) > [5. Packaging Guide](../5.Working-solution.md) > **Release Readiness**
+
+# IT Service Desk Insights Agent with GHCP Harness - Release Readiness
 
 Configuration, known-issue, and acceptance guidance for the
-[GHCP runbook](../3.Runbook.md). The repository supplies documentation, runtime skill
-definitions, and an unbound ServiceNow-only local MVP. No tenant deployment, published
-agent, verified impersonation/ACL configuration, or complete live acceptance result is claimed. A user-provided
-trace showed `sn-incident-read` routing to native **List Records** in a separately built
-agent; it does not validate the checked-in local project, requester scope, pagination, or
-incident creation.
+[GHCP runbook](../3.Runbook.md). The repository supplies documentation, twelve instruction-only
+skill definitions, proposed tool contracts, and Markdown acceptance cases. It does not supply
+an agent project, connector definitions, workflow exports, evaluation JSON, or a solution ZIP.
+No tenant deployment, published agent, verified impersonation/ACL configuration, or executed
+acceptance result is claimed.
 
 ## Current Known Issues and Limitations
 
 | ID | Area | Current behavior / release decision |
 |---|---|---|
-| K1 | Native incident creation | The [Microsoft ServiceNow connector reference](https://learn.microsoft.com/en-us/connectors/service-now/) documents that **Create Record** ignores the full `description` value because of an underlying ServiceNow REST API limitation. The native MVP submits only `short_description` and returns the detailed investigation as a manual handoff. Use a separately validated custom create-only operation when complete evidence must be stored at creation. |
-| K2 | Incident search coverage | `ListRecords` is bounded. The checked-in local tool defaults to 20 records; another tenant configuration can use a different limit, such as 100. One page is never proof that every incident was searched. Use focused queries and explicit pagination/offset when broader coverage is required. |
-| K3 | Own-ticket enforcement | The intended profile uses ServiceNow invoker authentication: the source impersonates the signed-in user, and incident ACLs restrict both list and direct reads to records where that user is caller/requester. Creation sets `caller_id` server-side from the same identity. The local YAML cannot prove those tenant controls; `GetMyProfile` is context, not authorization. |
+| K1 | Native incident creation | The [Microsoft ServiceNow connector reference](https://learn.microsoft.com/en-us/connectors/service-now/) documents that **Create Record** ignores the full `description` value because of an underlying ServiceNow REST API limitation. The proposed native profile submits only `short_description` and returns the detailed investigation as a manual handoff. Use a separately validated custom create-only operation when complete evidence must be stored at creation. |
+| K2 | Incident search coverage | Configure and record a bounded `ListRecords` query limit; no tool or default limit is supplied here. One page is never proof that every incident was searched. Use focused queries and explicit pagination/offset when broader coverage is required. |
+| K3 | Own-ticket enforcement | The intended profile uses ServiceNow invoker authentication: the source impersonates the signed-in user, and incident ACLs restrict both list and direct reads to records where that user is caller/requester. Creation sets `caller_id` server-side from the same identity. These tenant controls require runtime evidence; `GetMyProfile` is context, not authorization. |
 | K4 | Tool names in traces | Copilot Studio can show native action/schema names such as **List Records**, **Get Record**, and **Create Record** instead of a custom alias. Skills and acceptance evidence use the native names. |
-| K5 | Tool attachment | A connector operation appearing in an export or connector definition does not mean it is attached as an active agent tool. In the latest user-provided export, **Create Record** was present in connector metadata but no active create-tool component was visible. Verify **Build > Tools**, connection binding, and the actual execution trace. |
-| K6 | Knowledge scope | The local MVP has no fixed ServiceNow KB IDs. It searches every knowledge base readable through the signed-in connection. Approve and test the source scope before publication. |
-| K7 | Local package status | The local YAML is unbound. PAC 2.12.2 serialized the components but omitted the native tool-to-connection association asset and verified connector icon metadata. The validation ZIP is not an import-ready release. |
-| K8 | Runtime evidence | The JSON cases are definitions only. The observed **List Records** routing trace covers one read path, not the checked-in project or the remaining acceptance suite. Repository validation, a successful skill import, or a tool visible in a connector catalog is not evidence that tenant permissions, persistence, or failure handling work. |
+| K5 | Tool attachment | A connector operation appearing in an export or connector definition does not mean it is attached as an active agent tool. Verify **Build > Tools**, connection binding, and the actual execution trace for each enabled operation. |
+| K6 | Knowledge scope | Configure approved ServiceNow KB scope before enabling retrieval. Connection readability alone is not approval to search every accessible knowledge base. Test the permitted and excluded sources before publication. |
+| K7 | Packaging readiness | No agent package or importable solution is supplied. After implementation, verify exported components, tool-to-connection associations, target connection mapping, and import behavior using the [packaging guide](../5.Working-solution.md). Successful serialization alone is not release acceptance. |
+| K8 | Runtime evidence | The Markdown acceptance cases are proposed tests, not recorded results. Repository validation, a successful skill import, or a tool visible in a connector catalog is not evidence that tenant permissions, persistence, or failure handling work. |
 
 The native `description` limitation applies to **Create Record**. It does not authorize
 exposing generic **Update Record**, and it does not prove that a separately constrained
@@ -51,20 +52,20 @@ a summary-only incident plus a detailed manual handoff, record that decision exp
 
 ## Acceptance Status
 
-Use [Sample prompts](../4.Sample-prompts.md) and the local
-[acceptance definitions](Working-solution/Evaluation/acceptance-cases.json). Record the
+Use the Markdown acceptance cases and [evaluation-record template](../4.Sample-prompts.md#evaluation-record)
+in [Sample prompts](../4.Sample-prompts.md). Record the
 agent version, signed-in user, connection identity, configured query limit, actual tool calls,
 source record IDs, persisted fields, timestamp, result, and evidence location.
 
 | Area | Repository status | Required tenant evidence |
 |---|---|---|
 | Knowledge retrieval | Defined, not run | Authorized article retrieval, citations, denied access, and KB scope |
-| Incident read | Native `ListRecords` routing observed once in a separate tenant build; full suite not run | Bounded `ListRecords`, `GetRecord`, pagination/coverage statement, and no restricted-field disclosure |
-| Incident create | Native schema reduced to `short_description` | Exact confirmation, persisted short description, manual detailed handoff, no hidden mutation, and unknown-outcome reconciliation |
+| Incident read | Skill and tool contract defined; not run | Bounded `ListRecords`, `GetRecord`, pagination/coverage statement, and no restricted-field disclosure |
+| Incident create | Proposed native contract uses `short_description`; not run | Exact confirmation, persisted short description, manual detailed handoff, no hidden mutation, and unknown-outcome reconciliation; full description persistence for a custom complete-evidence profile |
 | ServiceNow own-ticket boundary | Intended through invoker impersonation and source ACLs; not tenant-verified | Two-user list/direct-read tests, server-assigned caller on creation, and requester-close checks when enabled |
 | Updates, notes, attachments, closure | Skill definitions only | Deployed narrow tools/workflows and positive/negative authorization evidence |
 | Optional Dynamics handoff | Design and skills only | Separate environment, identity, field mapping, partial-failure, and lifecycle evidence |
-| Packaging/import | Validation-only local pack | Supported export/import with tool associations, connection mapping, component review, and republish evidence |
+| Packaging/import | Guide only; no package supplied or import tested | Supported export/import with tool associations, connection mapping, component review, and republish evidence |
 
 ## Monitor, Disable, and Roll Back
 
@@ -79,6 +80,10 @@ source record IDs, persisted fields, timestamp, result, and evidence location.
 5. Restore a recorded known-good profile through the supported tenant process, then repeat
    G4-E3 before re-enabling the affected capability.
 
-[Overview](../1.Overview.md) | [Architecture](../2.Architecture.md) |
-[Runbook](../3.Runbook.md) | [Sample prompts](../4.Sample-prompts.md) |
-[Working solution](../5.Working-solution.md)
+## Related Resources
+
+| Resource | Link |
+|---|---|
+| Capability and Integration Contracts | [Capability matrix](Capability-matrix.md) |
+| Acceptance Cases | [Sample prompts](../4.Sample-prompts.md) |
+| Export and Import Guidance | [Packaging guide](../5.Working-solution.md) |

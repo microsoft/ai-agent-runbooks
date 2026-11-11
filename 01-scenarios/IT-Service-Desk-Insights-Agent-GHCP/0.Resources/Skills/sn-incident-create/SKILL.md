@@ -1,6 +1,6 @@
 ---
 name: sn-incident-create
-description: "Create a new incident in ServiceNow."
+description: "Use when the user asks to create a new ServiceNow incident or requests a ticket for an unresolved investigation. Check for an existing incident, confirm the exact creation payload, and return the new record reference with any manual handoff details. Do NOT use for reading status alone, updating or annotating existing incidents, attachments, routing, assignment, closure, or Dynamics cases."
 ---
 
 # Create a ServiceNow Incident

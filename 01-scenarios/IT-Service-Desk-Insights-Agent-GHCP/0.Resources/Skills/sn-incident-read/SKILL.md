@@ -1,6 +1,6 @@
 ---
 name: sn-incident-read
-description: "Read tickets and incidents from ServiceNow."
+description: "Use when the user asks to find, list, inspect, or check the status of their own ServiceNow incidents, or when an enabled action needs an incident lookup or duplicate check. Retrieve bounded, authorized evidence through ListRecords and GetRecord. Do NOT use for knowledge or catalog searches, other users' incidents, full-population analytics, record mutations, or Dynamics cases."
 ---
 
 # Read ServiceNow Incidents

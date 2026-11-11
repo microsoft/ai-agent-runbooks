@@ -6,7 +6,7 @@ Dynamics Customer Service skill definitions**, one for each capability in the
 Each definition is stored as `<capability-name>/SKILL.md`; its YAML `name` matches the
 folder and matrix capability ID exactly.
 
-These files are intended for the single [IT Service Desk Insights Agent (GHCP)](../../1.Overview.md) on the GitHub Copilot
+These files are intended for the single [IT Service Desk Insights Agent with GHCP Harness](../../1.Overview.md) on the GitHub Copilot
 harness inside Copilot Studio. They are not installed automatically and are not an
 organization-wide skill deployment.
 
