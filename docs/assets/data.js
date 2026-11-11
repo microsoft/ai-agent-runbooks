@@ -6,6 +6,191 @@ const BLOB = REPO + "/blob/main";
 
 const SCENARIOS = [
   {
+    "id": "Decision-Maker-Cowork-Agent",
+    "title": "Decision Maker Cowork Agent",
+    "icon": "🧭",
+    "desc": "Daily attention dashboard, board pre-reads, sourced decision briefs, KPI exceptions and professional relationship briefings; leader/delegate access and exact-action review.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Outlook",
+      "Microsoft Teams",
+      "SharePoint",
+      "OneDrive",
+      "Excel Online"
+    ],
+    "status": "Available",
+    "type": "Executive Decision Support"
+  },
+  {
+    "id": "Force-Multiplier-Cowork-Agent",
+    "title": "Force Multiplier Cowork Agent",
+    "icon": "🗓️",
+    "desc": "Week-in-review, cross-org status, inbox decision queues, delegated artifacts and coverage plans; verified delegated access and draft-only preparation.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Outlook",
+      "Microsoft Teams",
+      "SharePoint",
+      "OneDrive"
+    ],
+    "status": "Available",
+    "type": "Executive Delegation / Coordination"
+  },
+  {
+    "id": "Quota-Carrier-Cowork-Agent",
+    "title": "Quota Carrier Cowork Agent",
+    "icon": "💼",
+    "desc": "Customer meeting follow-through, RFPs, proposals, QBRs, expansion and Commit-deal review; qualified CRM grounding and seller-approved actions.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Dynamics 365 Sales",
+      "Outlook",
+      "Microsoft Teams",
+      "SharePoint"
+    ],
+    "status": "Available",
+    "type": "Seller Productivity"
+  },
+  {
+    "id": "Number-Owner-Cowork-Agent",
+    "title": "Number Owner Cowork Agent",
+    "icon": "📈",
+    "desc": "Team-scope Commit review, pipeline-versus-budget explanation and expansion plays with authoritative targets, reconciled values and no seller ranking.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Dynamics 365 Sales",
+      "SharePoint",
+      "Excel Online",
+      "Power BI",
+      "Microsoft Fabric"
+    ],
+    "status": "Available",
+    "type": "Sales Leadership / Pipeline"
+  },
+  {
+    "id": "Campaign-Operator-Cowork-Agent",
+    "title": "Campaign Operator Cowork Agent",
+    "icon": "📣",
+    "desc": "Content-drift audits, campaign/asset/event coordination and customer-signal synthesis from governed messaging and evidence; no unapproved publication or source edits.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Outlook",
+      "Microsoft Teams",
+      "SharePoint",
+      "Excel Online"
+    ],
+    "status": "Available",
+    "type": "Marketing / Campaign Execution"
+  },
+  {
+    "id": "Launch-Lead-Cowork-Agent",
+    "title": "Launch Lead Cowork Agent",
+    "icon": "🚀",
+    "desc": "Audience-specific launch kits, competitive responses, messaging frameworks and results readouts; cited proof, explicit gaps and comms/legal review.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Outlook",
+      "Microsoft Teams",
+      "SharePoint",
+      "OneDrive"
+    ],
+    "status": "Available",
+    "type": "Marketing / Launch Activation"
+  },
+  {
+    "id": "Close-Owner-Cowork-Agent",
+    "title": "Close Owner Cowork Agent",
+    "icon": "📊",
+    "desc": "Weekly reviews, close/variance packs, budget consolidation, reconciliation, audit evidence and market intelligence with authoritative totals and human finance decisions.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Excel Online",
+      "Power BI",
+      "Microsoft Fabric",
+      "SharePoint"
+    ],
+    "status": "Available",
+    "type": "Finance / Close and Controls"
+  },
+  {
+    "id": "Procurement-Operator-Cowork-Agent",
+    "title": "Procurement Operator Cowork Agent",
+    "icon": "🛒",
+    "desc": "Master-data and expense staging, RFQ responses, supplier comparison and regulatory evidence preparation; traceable fields, segregation of duties and no autonomous submission.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Excel Online",
+      "SharePoint",
+      "Outlook",
+      "Microsoft Teams"
+    ],
+    "status": "Available",
+    "type": "Procurement / Operations"
+  },
+  {
+    "id": "Contract-Counsel-Cowork-Agent",
+    "title": "Contract Counsel Cowork Agent",
+    "icon": "⚖️",
+    "desc": "Playbook review, precedent drafting, tracked-change assistance and final-draft comparison; qualified counsel owns interpretation, markup decisions and execution.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Microsoft 365 Copilot",
+      "Word",
+      "Outlook",
+      "Microsoft Teams",
+      "SharePoint"
+    ],
+    "status": "Available",
+    "type": "Legal / Agreement Lifecycle"
+  },
+  {
+    "id": "Portfolio-Counsel-Cowork-Agent",
+    "title": "Portfolio Counsel Cowork Agent",
+    "icon": "📚",
+    "desc": "Portfolio terms, obligations/deadlines, contract-family maps, regulatory gaps and case chronologies; clause citations, ethical walls and counsel-owned decisions.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Word",
+      "Excel Online",
+      "SharePoint",
+      "Outlook",
+      "Microsoft Teams"
+    ],
+    "status": "Available",
+    "type": "Legal / Portfolio and Matter Evidence"
+  },
+  {
+    "id": "Case-Specialist-Cowork-Agent",
+    "title": "Case Specialist Cowork Agent",
+    "icon": "🎟️",
+    "desc": "Case intake, knowledge-cited replies, diagnosis hypotheses, stalled-case outreach and escalation handoffs; PII controls and specialist-approved actions.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "SharePoint",
+      "OneDrive",
+      "Outlook",
+      "Microsoft Teams"
+    ],
+    "status": "Available",
+    "type": "Service / Complex Cases"
+  },
+  {
+    "id": "Service-Ops-Leader-Cowork-Agent",
+    "title": "Service Ops Leader Cowork Agent",
+    "icon": "🛠️",
+    "desc": "SLA triage, service reviews, intervention trackers, customer-feedback themes and team-level coaching; fresh source/timezone checks and no individual agent scoring.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Excel Online",
+      "SharePoint",
+      "Outlook",
+      "Microsoft Teams",
+      "Power BI"
+    ],
+    "status": "Available",
+    "type": "Service / Operations Leadership"
+  },
+  {
     "id": "Compliance-Self-Inspection-Agent",
     "title": "Compliance Self-Inspection Agent",
     "icon": "🛡️",
@@ -52,8 +237,8 @@ const SCENARIOS = [
     "type": "Leadership Productivity / Executive Readiness"
   },
   {
-    "id": "Recurring-Analytics-Cowork-Agent",
-    "title": "Recurring Analytics Cowork Agent",
+    "id": "Insights-Analyst-Cowork-Agent",
+    "title": "Insights Analyst Cowork Agent",
     "icon": "📊",
     "desc": "Six configured skills: one router and five consolidated Sales, Finance, Retail, Manufacturing and Service reviews from approved sources; KPI reconciliation, RLS, Markdown and HTML outputs.",
     "tech": [
@@ -93,6 +278,23 @@ const SCENARIOS = [
     ],
     "status": "Available",
     "type": "Accounts Payable / Invoice Approval"
+  },
+  {
+    "id": "Agentic-Business-Process-Automation-Agent",
+    "title": "Agentic Business Process Automation Agent",
+    "icon": "🔄",
+    "desc": "Reusable event-driven case runtime designed for waits beyond 30 days, a custom HITL console and task APIs for functional/regional teams and role-based allocation, process-agnostic monitoring, and adaptation for claims, contracts, loans, deals, tax, and RFQs using Agent Forge, an AI-powered software factory for agentic development. Order Processing reference; tenant and elapsed-time validation required.",
+    "tech": [
+      "Microsoft Copilot Studio",
+      "GitHub Copilot harness",
+      "Workflows",
+      "Dataverse",
+      "Power Apps code apps",
+      "Microsoft Teams",
+      "Outlook"
+    ],
+    "status": "Available",
+    "type": "Cross-Domain Operations / Long-Running Document-Based Processes"
   },
   {
     "id": "Calendar-Request-Approval-Agent",
@@ -411,6 +613,21 @@ const PATTERNS = [
     "status": "Available",
     "file": "Workday-Integration/Workday-Integration.md",
     "theme": "Integration"
+  },
+  {
+    "id": "Persona-Skill-Routing-and-Scope-Isolation",
+    "title": "Persona Skill Routing and Scope Isolation",
+    "icon": "🧭",
+    "desc": "Route-or-clarify across persona packs, declared-name/version conflicts, built-in overlap, actual identity/source scope, output review and tested update/rollback. Includes a separate implementation runbook.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Skills",
+      "Plugins",
+      "Microsoft Entra"
+    ],
+    "status": "Documentation Available",
+    "file": "Persona-Skill-Routing-and-Scope-Isolation/Persona-Skill-Routing-and-Scope-Isolation.md",
+    "theme": "Delivery & Deployment"
   },
   {
     "id": "GitHub-Copilot-Harness-Execution",

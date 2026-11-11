@@ -36,6 +36,7 @@ Whether you're building your first agent or scaling across multiple business dom
 
 - 🤖 [Autonomous Invoice Orchestration Agent](./01-scenarios/Autonomous-Invoice-Orchestration-Agent/) — Autonomous agent that helps employees create payment request forms and get them approved by their manager
 - 🧾 [Autonomous Invoice Orchestration Agent with GHCP Harness](./01-scenarios/Autonomous-Invoice-Orchestration-Agent-GHCP/1.Overview.md) — GitHub Copilot harness scenario that extracts fields from emailed PDF invoices into Dataverse, then starts an approval or sends the invoice to Finance for review. Two Workflows flows and one runtime skill.
+- 🔄 [Agentic Business Process Automation Agent](./01-scenarios/Agentic-Business-Process-Automation-Agent/1.Overview.md) — Reusable accelerator for long-running, event-driven document cases, with a custom HITL console, multi-team task queues and role-based allocation APIs, process-agnostic monitoring agent, and agentic customization supported by [Agent Forge](https://azure-samples.github.io/faf-landing-page/), an AI-powered software factory for agentic development. Order Processing reference implementation available.
 - 💼 [CRM Account Planning Cowork Agent](./01-scenarios/CRM-Account-Planning-Cowork-Agent/) — Copilot Cowork connected to the CRM through a purpose-built MCP server, producing branded account plans, QBR decks, and pipeline models as Office artifacts.
 - 🗓️ [Calendar Request Approval Agent](./01-scenarios/Calendar-Request-Approval-Agent/1.Overview.md) — Conversational calendar intake, deterministic approval and routing, SharePoint/Outlook publication, and explicit identity and recovery controls.
 - 🧑‍💼 [Chief of Staff Cowork Agent](./01-scenarios/Chief-of-Staff-Cowork-Agent/) — Five configured skills for weekly leadership briefs, stakeholder drafts, review packs and factual team-work visibility, with human review and people-safety boundaries.
@@ -59,9 +60,28 @@ Whether you're building your first agent or scaling across multiple business dom
 - 🎫 [IT Service Desk Insights Agent](./01-scenarios/IT-Service-Desk-Insights-Agent/) — Declarative agent grounded on ServiceNow knowledge and catalog content that answers employee how-to questions and performs sentiment and theme analysis over ticket text, with permission-trimmed retrieval.
 - 🧩 [M365 Agent](./01-scenarios/M365-Agent/) — Collection of pre-built, deploy-ready Microsoft 365 Copilot agents (e.g., Plan My Day, Executive Briefing, Request Tracker) designed to accelerate common workplace scenarios and enable rapid customization.
 - 🗓️ [Meeting Intelligence Agent](./01-scenarios/Meeting-Intelligence-Agent/) — Extracts decisions, actions, and owners from meeting transcripts under a hard evidence rule, deduplicates across recurring series, and tracks commitments to closure. Includes the consent position and the invented-action release gate.
-- 📊 [Recurring Analytics Cowork Agent](./01-scenarios/Recurring-Analytics-Cowork-Agent/) — Six configured skills for Sales, Finance, Retail, Manufacturing and Service reviews from existing Power BI, Fabric or Excel data, with reconciled KPIs and Markdown/HTML outputs.
+- 📊 [Insights Analyst Cowork Agent](./01-scenarios/Insights-Analyst-Cowork-Agent/) — Six configured skills for Sales, Finance, Retail, Manufacturing and Service reviews from existing Power BI, Fabric or Excel data, with reconciled KPIs and Markdown/HTML outputs.
 - 🏢 [Workplace Agent](./01-scenarios/Workplace-Agent/) — Declarative agent that handles internal FAQ inquiries and application request workflows using SharePoint, Dataverse, and Power Automate  
 
+
+### Persona-Based Cowork Scenarios
+
+Twelve configuration-first persona suites follow the Chief of Staff documentation model, with
+unchanged starter plugin archives, package/version notes, source and approval boundaries, and
+workflow-specific acceptance tests. Archive availability is not tenant deployment or acceptance.
+
+| Domain | Persona scenarios |
+|---|---|
+| Leadership | [Decision Maker](./01-scenarios/Decision-Maker-Cowork-Agent/1.Overview.md), [Force Multiplier](./01-scenarios/Force-Multiplier-Cowork-Agent/1.Overview.md) |
+| Sales | [Quota Carrier](./01-scenarios/Quota-Carrier-Cowork-Agent/1.Overview.md), [Number Owner](./01-scenarios/Number-Owner-Cowork-Agent/1.Overview.md) |
+| Marketing | [Campaign Operator](./01-scenarios/Campaign-Operator-Cowork-Agent/1.Overview.md), [Launch Lead](./01-scenarios/Launch-Lead-Cowork-Agent/1.Overview.md) |
+| Finance and operations | [Close Owner](./01-scenarios/Close-Owner-Cowork-Agent/1.Overview.md), [Procurement Operator](./01-scenarios/Procurement-Operator-Cowork-Agent/1.Overview.md) |
+| Legal | [Contract Counsel](./01-scenarios/Contract-Counsel-Cowork-Agent/1.Overview.md), [Portfolio Counsel](./01-scenarios/Portfolio-Counsel-Cowork-Agent/1.Overview.md) |
+| Service | [Case Specialist](./01-scenarios/Case-Specialist-Cowork-Agent/1.Overview.md), [Service Ops Leader](./01-scenarios/Service-Ops-Leader-Cowork-Agent/1.Overview.md) |
+
+Use the [persona catalogue](./01-scenarios/README.md#persona-based-cowork-scenarios) and
+[Persona Skill Routing and Scope Isolation](./02-patterns/Persona-Skill-Routing-and-Scope-Isolation/Persona-Skill-Routing-and-Scope-Isolation.md)
+to select workflows and qualify overlapping packages before installation.
 
 **Need implementation patterns?** Check out [02-patterns/](./02-patterns/) for proven technical approaches including Copilot Studio orchestration, RAG patterns, and multi-agent design.
 
@@ -87,6 +107,7 @@ Whether you're building your first agent or scaling across multiple business dom
 - ✋ [Human-in-the-Loop Review & Approval](./02-patterns/Human-in-the-Loop-Review-and-Approval/) — Designing the gate between an agent's output and a consequence: gate placement, what the reviewer must be shown, confidence-based routing, review fatigue, and the audit record
 - 📑 [Intelligent Document Processing Pipeline](./02-patterns/Intelligent-Document-Processing-Pipeline/) — Classify → extract → validate → route → output: extraction stack selection, confidence thresholds derived from measured data, validation against master data, and the downstream boundary when the target system has no API
 - 🚦 [Pilot-to-Scale Validation Gates](./02-patterns/Pilot-to-Scale-Validation-Gates/) — Evidence-gated progression from pilot to scale: signed boundary, control posture, verification tests, success criteria, ownership matrix and a recorded expand/extend/pause/stop decision
+- [Persona Skill Routing and Scope Isolation](./02-patterns/Persona-Skill-Routing-and-Scope-Isolation/Persona-Skill-Routing-and-Scope-Isolation.md) - Route-or-clarify, same-name skill/version conflicts, built-in overlap and verified seller/team, delegate and case/matter scope across persona packs; includes a delivery runbook.
 - 🔎 [MCP Federated Connectors](./02-patterns/MCP-Federated-Connectors/MCP-Federated-Connectors.md) — A separate pattern for live, read-only external retrieval in supported Microsoft 365 Copilot experiences without a source index, including custom connector onboarding, complex-authentication limitations, and private-only on-premises connectivity gaps
 - 🔌 [MCP Server Integration](./02-patterns/MCP-Server-Integration/) — Connecting third-party systems (Salesforce, Workday, ServiceNow, Databricks, Snowflake, GitHub) to Copilot Cowork, declarative agents, Copilot Studio, and Foundry via Model Context Protocol servers, including tool design, per-user identity, dynamic tool discovery, and gateway-mediated topologies for on-premises and private-network backends (APIM, Apigee, Workato, MuleSoft)
 

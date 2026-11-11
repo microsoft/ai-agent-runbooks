@@ -47,6 +47,12 @@ Each scenario folder is self-contained and follows a standardized structure so t
 │   ├── 2.Architecture.md
 │   ├── 3.Runbook.md
 │   └── 4.Sample-prompts.md
+├── 📂 Agentic-Business-Process-Automation-Agent/ ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
 ├── 📂 D365-Finance-&-SupplyChain-Compare-and-Copy-Configurations-Agent/ ← ✅ Available
 │   ├── 📂 0.Resources/
 │   ├── 1.Overview.md
@@ -71,7 +77,79 @@ Each scenario folder is self-contained and follows a standardized structure so t
 │   ├── 2.Architecture.md
 │   ├── 3.Runbook.md
 │   └── 4.Sample-prompts.md
-├── 📂 Recurring-Analytics-Cowork-Agent/   ← ✅ Available
+├── 📂 Insights-Analyst-Cowork-Agent/      ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Campaign-Operator-Cowork-Agent/     ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Case-Specialist-Cowork-Agent/       ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Close-Owner-Cowork-Agent/           ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Contract-Counsel-Cowork-Agent/      ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Decision-Maker-Cowork-Agent/        ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Force-Multiplier-Cowork-Agent/      ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Launch-Lead-Cowork-Agent/           ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Number-Owner-Cowork-Agent/          ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Portfolio-Counsel-Cowork-Agent/     ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Procurement-Operator-Cowork-Agent/  ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Quota-Carrier-Cowork-Agent/         ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Service-Ops-Leader-Cowork-Agent/    ← ✅ Available
 │   ├── 📂 0.Resources/
 │   ├── 1.Overview.md
 │   ├── 2.Architecture.md
@@ -203,26 +281,96 @@ Below is the standard structure, using **HR Onboarding Agent** as the reference 
 | `3.Runbook.md` | Step-by-step implementation instructions covering configuration, development, testing, and deployment |
 | `4.Sample-prompts.md` | Prompt examples, expected behaviour and validation status for topics, trigger phrases, and conversation flows |
 
+### Guidelines for New Scenarios
+
+Apply the same structure to every new scenario, including persona-based Cowork agents:
+
+- Use a descriptive, hyphen-separated folder name ending in `-Agent`, following existing
+  scenario naming conventions. Keep the four numbered documents and `0.Resources/` together.
+- Describe the business outcome, target users, capabilities, scope exclusions and measurable
+  baseline in the overview. Link the reusable patterns used by the scenario.
+- Show the actual runtime, identity, source permissions, integrations, data flow and approval
+  boundaries in the architecture; do not describe configured skills as separately hosted agents.
+- Include prerequisites, configuration, testing, acceptance, operational ownership and rollback
+  in the runbook. Start on demand and qualify optional scheduling separately.
+- Give each workflow sample prompts with expected behaviour, plus missing-data, permission,
+  safety, approval and recovery tests. Distinguish proposed tests from executed evidence.
+- For packaged resources, include `0.Resources/README.md` with provenance, versions, contents,
+  installation caveats and validation status. Preserve supplied originals and document approved
+  working-copy changes rather than silently replacing them.
+- Add the scenario to both the folder tree and the catalogue below using the existing folder
+  presentation and status labels. Keep deployment and acceptance qualifications in the guidance
+  and resource guide rather than introducing a different status convention per scenario.
+
+Use [HR Onboarding](./HR-Onboarding-Agent/1.Overview.md) as the general reference and
+[Chief of Staff Cowork](./Chief-of-Staff-Cowork-Agent/1.Overview.md) for configuration-first
+Cowork delivery. The persona scenarios use that same model, not an exception to it.
+
 ---
+
+## Persona-Based Cowork Scenarios
+
+The twelve persona scenarios follow the same four-document model as Chief of Staff. Each
+resource guide links an unchanged supplied plugin ZIP and records actual skill versions,
+archive layout, source variants and local inspection status. Documentation and starter-archive
+availability do **not** imply supported upload, tenant deployment or completed acceptance.
+
+- Leadership: [Decision Maker](./Decision-Maker-Cowork-Agent/1.Overview.md) and
+  [Force Multiplier](./Force-Multiplier-Cowork-Agent/1.Overview.md).
+- Sales: [Quota Carrier](./Quota-Carrier-Cowork-Agent/1.Overview.md) and
+  [Number Owner](./Number-Owner-Cowork-Agent/1.Overview.md).
+- Marketing: [Campaign Operator](./Campaign-Operator-Cowork-Agent/1.Overview.md) and
+  [Launch Lead](./Launch-Lead-Cowork-Agent/1.Overview.md).
+- Finance/operations: [Close Owner](./Close-Owner-Cowork-Agent/1.Overview.md) and
+  [Procurement Operator](./Procurement-Operator-Cowork-Agent/1.Overview.md).
+- Legal: [Contract Counsel](./Contract-Counsel-Cowork-Agent/1.Overview.md) and
+  [Portfolio Counsel](./Portfolio-Counsel-Cowork-Agent/1.Overview.md).
+- Service: [Case Specialist](./Case-Specialist-Cowork-Agent/1.Overview.md) and
+  [Service Ops Leader](./Service-Ops-Leader-Cowork-Agent/1.Overview.md).
+
+Reuse shared [Cowork Enablement](../02-patterns/Cowork-Enablement/Cowork-Enablement.md),
+[skill delivery](../02-patterns/Cowork-Skill-Delivery-and-Scheduled-Reviews/Cowork-Skill-Delivery-and-Scheduled-Reviews.md),
+[cost governance](../02-patterns/Cowork-Spending-Policies-and-Cost-Governance/Cowork-Spending-Policies-and-Cost-Governance.md)
+and [pilot gates](../02-patterns/Pilot-to-Scale-Validation-Gates/Pilot-to-Scale-Validation-Gates.md).
+Apply [Persona Skill Routing and Scope Isolation](../02-patterns/Persona-Skill-Routing-and-Scope-Isolation/Persona-Skill-Routing-and-Scope-Isolation.md)
+before enabling overlapping packs. Each overview maps additional domain-specific patterns.
+These are configured skill suites, not twelve new hosted runtimes; existing scenarios remain distinct.
 
 ## 📋 Currently Supported Scenarios
 
-For the two configuration-first Cowork scenarios below, **Available** means the documentation
-and starter archives are available in each scenario's resource folder. Tenant deployment and
-acceptance are not implied; review package-specific prerequisites before installation.
+**Status refers to repository content, not deployment:** **✅ Available** identifies an available
+scenario documentation set; **📋 Overview Available** identifies overview-only content. Neither
+label implies tenant deployment or completed acceptance.
+
+For Chief of Staff, Insights Analyst and the twelve persona-based Cowork scenarios, starter
+archives are also available in each scenario's resource folder. Review its resource guide for
+package versions, layout, compatibility and validation status before installation.
 
 Apply the [Cowork Enablement pattern](../02-patterns/Cowork-Enablement/Cowork-Enablement.md)
-within Chief of Staff, Recurring Analytics and CRM Account Planning. Tenant enablement is
-shared delivery guidance, not an additional business scenario.
+within Chief of Staff, Insights Analyst, CRM Account Planning and the persona-based Cowork
+scenarios. Tenant enablement is shared delivery guidance, not an additional business scenario.
 
 | Scenario | Type | Description | Platform | Status |
 |----------|------|-------------|----------|--------|
+| [Decision Maker Cowork Agent](./Decision-Maker-Cowork-Agent/) | Executive Decision Support | Daily attention dashboard, board pre-reads, sourced decision briefs, KPI exceptions and professional relationship briefings; leader/delegate access and exact-action review. | Microsoft 365 Copilot Cowork, Outlook, Teams, SharePoint, OneDrive, Excel Online | ✅ Available |
+| [Force Multiplier Cowork Agent](./Force-Multiplier-Cowork-Agent/) | Executive Delegation / Coordination | Week-in-review, cross-org status, inbox decision queues, delegated artifacts and coverage plans; verified delegated access and draft-only preparation. | Microsoft 365 Copilot Cowork, Outlook, Teams, SharePoint, OneDrive | ✅ Available |
+| [Quota Carrier Cowork Agent](./Quota-Carrier-Cowork-Agent/) | Seller Productivity | Customer meeting follow-through, RFPs, proposals, QBRs, expansion and Commit-deal review; qualified CRM grounding and seller-approved actions. | Microsoft 365 Copilot Cowork, Dynamics 365 Sales, Outlook, Teams, SharePoint | ✅ Available |
+| [Number Owner Cowork Agent](./Number-Owner-Cowork-Agent/) | Sales Leadership / Pipeline | Team-scope Commit review, pipeline-versus-budget explanation and expansion plays with authoritative targets, reconciled values and no seller ranking. | Microsoft 365 Copilot Cowork, Dynamics 365 Sales, SharePoint, Excel Online, Power BI, Microsoft Fabric | ✅ Available |
+| [Campaign Operator Cowork Agent](./Campaign-Operator-Cowork-Agent/) | Marketing / Campaign Execution | Content-drift audits, campaign/asset/event coordination and customer-signal synthesis from governed messaging and evidence; no unapproved publication or source edits. | Microsoft 365 Copilot Cowork, Outlook, Teams, SharePoint, Excel Online | ✅ Available |
+| [Launch Lead Cowork Agent](./Launch-Lead-Cowork-Agent/) | Marketing / Launch Activation | Audience-specific launch kits, competitive responses, messaging frameworks and results readouts; cited proof, explicit gaps and comms/legal review. | Microsoft 365 Copilot Cowork, Outlook, Teams, SharePoint, OneDrive | ✅ Available |
+| [Close Owner Cowork Agent](./Close-Owner-Cowork-Agent/) | Finance / Close and Controls | Weekly reviews, close/variance packs, budget consolidation, reconciliation, audit evidence and market intelligence with authoritative totals and human finance decisions. | Microsoft 365 Copilot Cowork, Excel Online, Power BI, Microsoft Fabric, SharePoint | ✅ Available |
+| [Procurement Operator Cowork Agent](./Procurement-Operator-Cowork-Agent/) | Procurement / Operations | Master-data and expense staging, RFQ responses, supplier comparison and regulatory evidence preparation; traceable fields, segregation of duties and no autonomous submission. | Microsoft 365 Copilot Cowork, Excel Online, SharePoint, Outlook, Teams | ✅ Available |
+| [Contract Counsel Cowork Agent](./Contract-Counsel-Cowork-Agent/) | Legal / Agreement Lifecycle | Playbook review, precedent drafting, tracked-change assistance and final-draft comparison; qualified counsel owns interpretation, markup decisions and execution. | Microsoft 365 Copilot Cowork, Microsoft 365 Copilot, Word, Outlook, Teams, SharePoint | ✅ Available |
+| [Portfolio Counsel Cowork Agent](./Portfolio-Counsel-Cowork-Agent/) | Legal / Portfolio and Matter Evidence | Portfolio terms, obligations/deadlines, contract-family maps, regulatory gaps and case chronologies; clause citations, ethical walls and counsel-owned decisions. | Microsoft 365 Copilot Cowork, Word, Excel Online, SharePoint, Outlook, Teams | ✅ Available |
+| [Case Specialist Cowork Agent](./Case-Specialist-Cowork-Agent/) | Service / Complex Cases | Case intake, knowledge-cited replies, diagnosis hypotheses, stalled-case outreach and escalation handoffs; PII controls and specialist-approved actions. | Microsoft 365 Copilot Cowork, SharePoint, OneDrive, Outlook, Teams | ✅ Available |
+| [Service Ops Leader Cowork Agent](./Service-Ops-Leader-Cowork-Agent/) | Service / Operations Leadership | SLA triage, service reviews, intervention trackers, customer-feedback themes and team-level coaching; fresh source/timezone checks and no individual agent scoring. | Microsoft 365 Copilot Cowork, Excel Online, SharePoint, Outlook, Teams, Power BI | ✅ Available |
 | [Chief-of-Staff-Cowork-Agent](./Chief-of-Staff-Cowork-Agent/) | Leadership Productivity / Executive Readiness | Five configured skills for weekly briefs, executive drafts, leadership packs and observable team-work digests; draft-first approvals, people safety and optional recurring preparation. | Microsoft 365 Copilot Cowork, Outlook, Teams, SharePoint, OneDrive | ✅ Available |
-| [Recurring-Analytics-Cowork-Agent](./Recurring-Analytics-Cowork-Agent/) | Business Analytics / Recurring Reviews | Six configured skills: one router and five consolidated Sales, Finance, Retail, Manufacturing and Service reviews from approved sources; KPI reconciliation, RLS, Markdown and HTML outputs. | Microsoft 365 Copilot Cowork, Power BI, Microsoft Fabric, Excel Online | ✅ Available |
+| [Insights Analyst Cowork Agent](./Insights-Analyst-Cowork-Agent/) | Business Analytics / Recurring Reviews | Six configured skills: one router and five consolidated Sales, Finance, Retail, Manufacturing and Service reviews from approved sources; KPI reconciliation, RLS, Markdown and HTML outputs. | Microsoft 365 Copilot Cowork, Power BI, Microsoft Fabric, Excel Online | ✅ Available |
 | [Calendar Request Approval Agent](./Calendar-Request-Approval-Agent/1.Overview.md) | Workforce Productivity / Approvals | Confirm calendar requests, enforce request-type authorization and approval policy, and publish to SharePoint and an explicitly authorized Outlook calendar. Includes production recovery guidance. | Microsoft Copilot Studio, Power Automate, SharePoint, Office 365 Outlook | ✅ Available |
 | [Country-Aware HR Knowledge Agent](./Country-Aware-HR-Knowledge-Agent/1.Overview.md) | HR Knowledge / Governed Retrieval | Country-scoped SharePoint knowledge with organization-wide and optional restricted lanes, custom ingestion, authenticated retrieval, ACL freshness, and permission-aware access. | Microsoft Copilot Studio, Microsoft Graph, Azure AI Search, Azure OpenAI, SharePoint | ✅ Available |
 | [Autonomous-Invoice-Orchestration-Ageny](./Autonomous-Invoice-Orchestration-Agent/) | Payment Approval Automation | Automates the payment request and approval process.| Microsoft Copilot Studios, Power Automate|✅ Available |
 | [Autonomous Invoice Orchestration Agent with GHCP Harness](./Autonomous-Invoice-Orchestration-Agent-GHCP/1.Overview.md) | Accounts Payable / Invoice Approval | Email-triggered PDF invoice extraction into Dataverse and a JSON review file, then approval or Finance review, using one skill and two Workflows flows. Implementation and tenant validation are required. | Microsoft Copilot Studio, GitHub Copilot harness, Workflows, Outlook, SharePoint, Dataverse, Approvals | ✅ Available |
+| [Agentic Business Process Automation Agent](./Agentic-Business-Process-Automation-Agent/1.Overview.md) | Cross-Domain Operations / Long-Running Document-Based Processes | Reusable event-driven case runtime designed for waits beyond 30 days, a custom HITL console and task APIs for functional/regional teams and role-based allocation, process-agnostic monitoring, and adaptation for claims, contracts, loans, deals, tax, and RFQs using [Agent Forge](https://azure-samples.github.io/faf-landing-page/), an AI-powered software factory for agentic development. Order Processing reference; tenant and elapsed-time validation required. | Microsoft Copilot Studio, GitHub Copilot harness, Workflows, Dataverse, Power Apps code apps, Teams, Outlook | ✅ Available |
 | [Copilot-License-Lifecycle-Agent](./Copilot-License-Lifecycle-Agent/) | IT Operations / FinOps for Copilot | Copilot Studio agent that manages the Microsoft 365 Copilot licence estate — inventory, dormancy detection, notification and reclaim with approvals, and waitlist management — with a full audit trail in Dataverse. Also works well as a Copilot Studio enablement asset for customer teams. | Microsoft Copilot Studio, Power Automate, Microsoft Graph, Dataverse | ✅ Available |
 | [CRM-Account-Planning-Cowork-Agent](./CRM-Account-Planning-Cowork-Agent/) | Sales Productivity / Revenue Operations | Copilot Cowork connected to the CRM through a purpose-built MCP server that exposes custom objects and composed queries the standard connector cannot reach. Produces branded account plans, QBR decks, and pipeline models as Office artifacts, with approval gates on write-back. | Microsoft 365 Copilot Cowork, MCP server, Salesforce, Organization Asset Library | ✅ Available |
 | [Client-Meeting-Preparation-Agent](./Client-Meeting-Preparation-Agent/) | Client Advisory / Relationship Management | Pre-meeting briefings and post-meeting file notes for advisers, relationship managers, and account teams. Assembles positions, relationship history, outstanding items, and watch-outs from the book of record, correspondence, and the client file — with hard advice boundaries, information barrier enforcement, and full citation. Generalises across wealth, banking, insurance, subscriptions, and durable assets. | Microsoft 365 Copilot, Copilot connectors or MCP server, SharePoint, Microsoft Purview | ✅ Available |
@@ -242,7 +390,7 @@ shared delivery guidance, not an additional business scenario.
 | [F&O-User-Onboarding-Agent](./F&O-User-Onboarding-Agent/) | ERP Administration / User Lifecycle | Automates onboarding of new users into Dynamics 365 Finance & Operations by provisioning accounts, assigning roles, and managing approval workflows using AI-driven orchestration. | Microsoft Copilot Studio, Dynamics 365 F&O, Azure AD, Power Automate, Microsoft Teams | ✅ Available |
 | [HR-Onboarding-Agent](./HR-Onboarding-Agent/) | Employee Self-Service (HR) | Autonomous agent that helps new hires find HR-related information such as onboarding processes, policies, and employee benefits by leveraging a ServiceNow Knowledge Base. | Microsoft Copilot Studio, ServiceNow Copilot Connector, Power Platform | ✅ Available |
 | [HR Onboarding Agent with GHCP Harness](./HR-Onboarding-Agent-GHCP/1.Overview.md) | Employee Self-Service (HR) | Normal HR chat, onboarding plans and connected user-mailbox replies with two skills. Outlook sends the agent's HTML without per-message approval; development scope and limitations are documented. | Microsoft Copilot Studio, GitHub Copilot harness, Workflows, Outlook, ServiceNow knowledge | ✅ Available |
-| [M365-Agent](./M365-Agent/) | Pre-configured Agent Templates | Pre-configured, deploy-ready AI agent templates for Microsoft 365 built by the Copilot Agents & Platform Ecosystem (CAPE) team. This folder contains Overview documents for the following **10** agent templates:<br>• [AI Learning Advisor Agent](./M365-Agent-Templates/AI-Learning-Advisor-Agent-Overview.md) — Personal AI teaching assistant for the Microsoft stack, delivering step-by-step guidance and learning plans grounded in Microsoft Learn<br>• [Executive Briefing Agent](./M365-Agent-Templates/Executive-Briefing-Agent-Overview.md) — Generates concise leadership briefings with account health, key metrics, and recommended talking points<br>• [Know My Customer Agent](./M365-Agent-Templates/Know-My-Customer-Agent-Overview.md) — Surfaces customer insights, account history, and relationship context from Microsoft 365 data<br>• [My Company Policy Agent](./M365-Agent-Templates/My-Company-Policy-Agent-Overview.md) — Provides employees with trusted, conversational access to company policies, HR information, and benefits<br>• [Personal News Digest Agent](./M365-Agent-Templates/Personal-News-Digest-Agent-Overview.md) — Filters corporate broadcasts into a personalized, role- and location-aware digest of what truly matters<br>• [Plan My Day Agent](./M365-Agent-Templates/Plan-My-Day-Agent-Overview.md) — Pulls calendar, emails, and tasks to help employees prioritize their day<br>• [Project Delta Digest Agent](./M365-Agent-Templates/Project-Delta-Digest-Agent-Overview.md) — Generates structured daily/weekly digests of project activity including shipped items, risks, and blockers<br>• [Request Tracker Agent](./M365-Agent-Templates/Request-Tracker-Agent.md) — Tracks and manages internal requests and approval workflows<br>• [SME Finder Agent](./M365-Agent-Templates/SME-Finder-Agent-Overview.md) — Surfaces the most relevant subject matter experts using real M365 work signals with ready-to-use introduction messages<br>• [Status Update Agent](./M365-Agent-Templates/Status-Update-Agent-Overview.md) — Turns Microsoft 365 activity into clear status summaries, brag docs, and manager emails | Microsoft 365 Copilot, Copilot Studio | 📋 Overview Available |
+| [M365-Agent](./M365-Agent/) | Pre-configured Agent Templates | Pre-configured, deploy-ready AI agent templates for Microsoft 365 built by the Copilot Agents & Platform Ecosystem (CAPE) team. This folder contains Overview documents for the following **10** agent templates:<br>• [AI Learning Advisor Agent](./M365-Agent/AI-Learning-Advisor-Agent-Overview.md) — Personal AI teaching assistant for the Microsoft stack, delivering step-by-step guidance and learning plans grounded in Microsoft Learn<br>• [Executive Briefing Agent](./M365-Agent/Executive-Briefing-Agent-Overview.md) — Generates concise leadership briefings with account health, key metrics, and recommended talking points<br>• [Know My Customer Agent](./M365-Agent/Know-My-Customer-Agent-Overview.md) — Surfaces customer insights, account history, and relationship context from Microsoft 365 data<br>• [My Company Policy Agent](./M365-Agent/My-Company-Policy-Agent-Overview.md) — Provides employees with trusted, conversational access to company policies, HR information, and benefits<br>• [Personal News Digest Agent](./M365-Agent/Personal-News-Digest-Agent-Overview.md) — Filters corporate broadcasts into a personalized, role- and location-aware digest of what truly matters<br>• [Plan My Day Agent](./M365-Agent/Plan-My-Day-Agent-Overview.md) — Pulls calendar, emails, and tasks to help employees prioritize their day<br>• [Project Delta Digest Agent](./M365-Agent/Project-Delta-Digest-Agent-Overview.md) — Generates structured daily/weekly digests of project activity including shipped items, risks, and blockers<br>• [Request Tracker Agent](./M365-Agent/Request-Tracker-Agent.md) — Tracks and manages internal requests and approval workflows<br>• [SME Finder Agent](./M365-Agent/SME-Finder-Agent-Overview.md) — Surfaces the most relevant subject matter experts using real M365 work signals with ready-to-use introduction messages<br>• [Status Update Agent](./M365-Agent/Status-Update-Agent-Overview.md) — Turns Microsoft 365 activity into clear status summaries, brag docs, and manager emails | Microsoft 365 Copilot, Copilot Studio | 📋 Overview Available |
 | [Workplace-Agent](./Workplace-Agent/) | Workforce Productivity / Internal Operations | AI-powered agent that handles internal inquiries (FAQ) and application requests (e.g., equipment loans, expense approvals) using SharePoint, Dataverse, and Power Automate. | Microsoft Copilot Studio, SharePoint, Dataverse, Power Automate | ✅ Available |
 
 ---

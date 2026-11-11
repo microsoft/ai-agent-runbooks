@@ -219,7 +219,7 @@ assuming every agent-management control applies unchanged.
 - [Pilot-to-Scale Validation Gates](../Pilot-to-Scale-Validation-Gates/Pilot-to-Scale-Validation-Gates.md) - evidence-gated expansion
 - [Cowork Enablement](../Cowork-Enablement/Cowork-Enablement.md) - shared tenant, governance and billing enablement within Cowork scenarios
 - Scenario: [Chief of Staff Cowork Agent](../../01-scenarios/Chief-of-Staff-Cowork-Agent/1.Overview.md) — leader/delegate scope and people-safety boundaries
-- Scenario: [Recurring Analytics Cowork Agent](../../01-scenarios/Recurring-Analytics-Cowork-Agent/1.Overview.md) — data owners, RLS personas and generated-output access
+- Scenario: [Insights Analyst Cowork Agent](../../01-scenarios/Insights-Analyst-Cowork-Agent/1.Overview.md) — data owners, RLS personas and generated-output access
 - [Copilot Credits & Cost Control](../Copilot-Credits-Cost-Control/Copilot-Credits-Cost-Control.md) — the financial half of the same problem
 - [Agent Publishing & Channel Deployment](../Agent-Publishing-and-Channel-Deployment/Agent-Publishing-and-Channel-Deployment.md)
 - [Declarative vs Custom Engine Agent](../Declarative-vs-Custom-engine-agent/Declarative-Agents-vs-Copilot-Studio-Custom-Engine-Agents.md)

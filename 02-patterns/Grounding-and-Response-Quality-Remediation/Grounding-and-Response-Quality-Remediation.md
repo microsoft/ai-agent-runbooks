@@ -297,7 +297,7 @@ are insufficient: reconcile measures, periods, filters and units with the source
 - Runbook: [Grounding-and-Response-Quality-Remediation-Runbook.md](Grounding-and-Response-Quality-Remediation-Runbook.md)
 - [Governed Analytics Review](../Governed-Analytics-Review/Governed-Analytics-Review.md) — numerical integrity beyond document grounding
 - Scenario: [Chief of Staff Cowork Agent](../../01-scenarios/Chief-of-Staff-Cowork-Agent/1.Overview.md) — evidence windows, factual claims and explicit gaps
-- Scenario: [Recurring Analytics Cowork Agent](../../01-scenarios/Recurring-Analytics-Cowork-Agent/1.Overview.md) — authoritative KPIs and consistent narrative/dashboard outputs
+- Scenario: [Insights Analyst Cowork Agent](../../01-scenarios/Insights-Analyst-Cowork-Agent/1.Overview.md) — authoritative KPIs and consistent narrative/dashboard outputs
 - [Copilot Connector Knowledge Onboarding](../Copilot-Connector-Knowledge-Onboarding/Copilot-Connector-Knowledge-Onboarding.md)
 - [Enterprise RAG Pattern](../Enterprise-RAG-Pattern/Enterprise-RAG-Pattern.md)
 - [Declarative vs Custom Engine Agent](../Declarative-vs-Custom-engine-agent/Declarative-Agents-vs-Copilot-Studio-Custom-Engine-Agents.md)

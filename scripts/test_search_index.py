@@ -78,12 +78,26 @@ class SearchIndexTests(unittest.TestCase):
             ("scenarios", scenarios, (
                 "Compliance-Self-Inspection-Agent",
                 "Contract-Review-GitHub-Copilot-Harness-Agent",
+                "Agentic-Business-Process-Automation-Agent",
+                "Decision-Maker-Cowork-Agent",
+                "Force-Multiplier-Cowork-Agent",
+                "Quota-Carrier-Cowork-Agent",
+                "Number-Owner-Cowork-Agent",
+                "Campaign-Operator-Cowork-Agent",
+                "Launch-Lead-Cowork-Agent",
+                "Close-Owner-Cowork-Agent",
+                "Procurement-Operator-Cowork-Agent",
+                "Contract-Counsel-Cowork-Agent",
+                "Portfolio-Counsel-Cowork-Agent",
+                "Case-Specialist-Cowork-Agent",
+                "Service-Ops-Leader-Cowork-Agent",
             )),
             ("patterns", patterns, (
                 "GitHub-Copilot-Harness-Execution",
                 "Cowork-Enablement",
                 "Cowork-Spending-Policies-and-Cost-Governance",
                 "Pilot-to-Scale-Validation-Gates",
+                "Persona-Skill-Routing-and-Scope-Isolation",
             )),
         ):
             cards = {item["id"]: item for item in items}

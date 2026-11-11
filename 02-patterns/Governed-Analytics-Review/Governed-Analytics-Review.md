@@ -114,7 +114,22 @@ Follow the [implementation runbook](Governed-Analytics-Review-Runbook.md).
 
 ## Scenario Applications
 
-- [Recurring Analytics](../../01-scenarios/Recurring-Analytics-Cowork-Agent/1.Overview.md):
+The [persona-based scenarios](../../01-scenarios/README.md#persona-based-cowork-scenarios)
+apply this contract wherever numerical review is included:
+
+| Persona | Additional acceptance focus |
+|---|---|
+| [Decision Maker](../../01-scenarios/Decision-Maker-Cowork-Agent/1.Overview.md) | KPI polarity, approved materiality, explicit reporting window and source-backed exception explanations |
+| [Quota Carrier](../../01-scenarios/Quota-Carrier-Cowork-Agent/1.Overview.md) / [Number Owner](../../01-scenarios/Number-Owner-Cowork-Agent/1.Overview.md) | Authorized seller/team scope, actual budget and fiscal period, coverage/variance reconciliation; no seller ranking |
+| [Close Owner](../../01-scenarios/Close-Owner-Cowork-Agent/1.Overview.md) | Ledger/control-total tie-out, formula traces, materiality, missing budget submissions and audit evidence coverage |
+| [Procurement Operator](../../01-scenarios/Procurement-Operator-Cowork-Agent/1.Overview.md) | Valid values, receipt/card totals, pricing and supplier comparisons; segregation of duties remains independent |
+| [Campaign Operator](../../01-scenarios/Campaign-Operator-Cowork-Agent/1.Overview.md) / [Launch Lead](../../01-scenarios/Launch-Lead-Cowork-Agent/1.Overview.md) | Approved performance data, campaign targets, sample coverage and no invented results |
+| [Service Ops Leader](../../01-scenarios/Service-Ops-Leader-Cowork-Agent/1.Overview.md) | Workbook freshness, SLA/business clock and timezone, queue aggregates and anonymized team-level coaching |
+
+These are proposed applications, not claims of live-tenant acceptance. Reuse an existing model
+only after actual query access and measure definitions are validated for the intended identity.
+
+- [Insights Analyst](../../01-scenarios/Insights-Analyst-Cowork-Agent/1.Overview.md):
   primary pattern for Sales, Finance, Retail, Manufacturing and Service reviews.
 - [Chief of Staff](../../01-scenarios/Chief-of-Staff-Cowork-Agent/1.Overview.md):
   conditional application when a leadership pack includes approved governed metrics.

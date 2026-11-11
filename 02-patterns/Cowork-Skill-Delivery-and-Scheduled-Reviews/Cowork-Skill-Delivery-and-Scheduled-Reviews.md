@@ -68,6 +68,13 @@ discovery rather than assuming a replacement. A converted/uploaded plugin is not
 approved for enterprise-wide release. Custom skills are not supported on Cowork mobile in the
 current use guide; qualify the actual client surface.
 
+When multiple persona packs share declared names or overlapping intents, apply
+[Persona Skill Routing and Scope Isolation](../Persona-Skill-Routing-and-Scope-Isolation/Persona-Skill-Routing-and-Scope-Isolation.md).
+Select an authoritative archive, qualify same-name versions and references, and test the
+execution scope before coexistence. A persona name is not an authorization boundary.
+Some supplied originals have an outer folder or mixed version metadata; follow each resource
+guide rather than assuming a root manifest or interchangeable loose sources.
+
 ### 3. Source and output contracts
 
 Define allowed/excluded sources, identity, evidence window, confidentiality, required sections,
@@ -121,9 +128,13 @@ Follow the [implementation runbook](Cowork-Skill-Delivery-and-Scheduled-Reviews-
 
 ## Scenario Applications
 
+- The twelve [persona scenarios](../../01-scenarios/README.md#persona-based-cowork-scenarios)
+  use this same lifecycle. Their resource guides preserve original ZIPs, inventory actual
+  versions/layouts and separate local inspection from tenant acceptance. Shared names and
+  sibling routing use the [persona-isolation runbook](../Persona-Skill-Routing-and-Scope-Isolation/Persona-Skill-Routing-and-Scope-Isolation-Runbook.md).
 - [Chief of Staff](../../01-scenarios/Chief-of-Staff-Cowork-Agent/1.Overview.md): five skills,
   weekly leadership preparation, review gates and people-safety boundaries.
-- [Recurring Analytics](../../01-scenarios/Recurring-Analytics-Cowork-Agent/1.Overview.md):
+- [Insights Analyst](../../01-scenarios/Insights-Analyst-Cowork-Agent/1.Overview.md):
   six skills, explicit source binding and repeatable business-function reviews.
 - [CRM Account Planning](../../01-scenarios/CRM-Account-Planning-Cowork-Agent/1.Overview.md):
   reusable skill/template lifecycle around its separately engineered MCP integration; this

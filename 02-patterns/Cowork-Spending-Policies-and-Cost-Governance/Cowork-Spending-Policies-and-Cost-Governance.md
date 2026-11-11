@@ -191,6 +191,13 @@ These are illustrative situations to design against, not reported customer outco
 
 ## Related Patterns and Scenarios
 
+The twelve [persona-based Cowork scenarios](../../01-scenarios/README.md#persona-based-cowork-scenarios)
+apply these controls to the approved cohort and its actual execution identity. Their package
+billing/intensity labels are indicative planning metadata, not official rates. Validate tenant
+entitlement and metering rather than inferring a universal billing rule from file creation.
+Include preparation plus review, recurring/event volume and official reporting in acceptance.
+Multi-persona installation does not create a separate spending identity for each persona.
+
 - Runbook: [Cowork-Spending-Policies-and-Cost-Governance-Runbook.md](Cowork-Spending-Policies-and-Cost-Governance-Runbook.md)
 - [Copilot Credits and Cost Control](../Copilot-Credits-Cost-Control/Copilot-Credits-Cost-Control.md) - the Copilot Studio counterpart
 - [Pilot-to-Scale Validation Gates](../Pilot-to-Scale-Validation-Gates/Pilot-to-Scale-Validation-Gates.md) - the decision these controls feed
@@ -198,7 +205,7 @@ These are illustrative situations to design against, not reported customer outco
 - [Cowork Skill Delivery and Scheduled Reviews](../Cowork-Skill-Delivery-and-Scheduled-Reviews/Cowork-Skill-Delivery-and-Scheduled-Reviews.md) - scheduled prompts raise consumption
 - [Cowork Enablement](../Cowork-Enablement/Cowork-Enablement.md) - shared tenant readiness and operational acceptance
 - Scenario: [Chief of Staff](../../01-scenarios/Chief-of-Staff-Cowork-Agent/1.Overview.md) - leader cohort, weekly preparation and cost review
-- Scenario: [Recurring Analytics](../../01-scenarios/Recurring-Analytics-Cowork-Agent/1.Overview.md) - recurring review intensity and function/cohort attribution
+- Scenario: [Insights Analyst](../../01-scenarios/Insights-Analyst-Cowork-Agent/1.Overview.md) - recurring review intensity and function/cohort attribution
 - Scenario: [CRM Account Planning](../../01-scenarios/CRM-Account-Planning-Cowork-Agent/1.Overview.md) - seller cohort, artifact-generation costs and separately funded MCP hosting
 
 ---

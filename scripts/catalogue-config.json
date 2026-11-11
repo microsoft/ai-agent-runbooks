@@ -1,5 +1,53 @@
 {
   "scenarios": {
+    "Decision-Maker-Cowork-Agent": {
+      "title": "Decision Maker Cowork Agent",
+      "icon": "🧭"
+    },
+    "Force-Multiplier-Cowork-Agent": {
+      "title": "Force Multiplier Cowork Agent",
+      "icon": "🗓️"
+    },
+    "Quota-Carrier-Cowork-Agent": {
+      "title": "Quota Carrier Cowork Agent",
+      "icon": "💼"
+    },
+    "Number-Owner-Cowork-Agent": {
+      "title": "Number Owner Cowork Agent",
+      "icon": "📈"
+    },
+    "Campaign-Operator-Cowork-Agent": {
+      "title": "Campaign Operator Cowork Agent",
+      "icon": "📣"
+    },
+    "Launch-Lead-Cowork-Agent": {
+      "title": "Launch Lead Cowork Agent",
+      "icon": "🚀"
+    },
+    "Close-Owner-Cowork-Agent": {
+      "title": "Close Owner Cowork Agent",
+      "icon": "📊"
+    },
+    "Procurement-Operator-Cowork-Agent": {
+      "title": "Procurement Operator Cowork Agent",
+      "icon": "🛒"
+    },
+    "Contract-Counsel-Cowork-Agent": {
+      "title": "Contract Counsel Cowork Agent",
+      "icon": "⚖️"
+    },
+    "Portfolio-Counsel-Cowork-Agent": {
+      "title": "Portfolio Counsel Cowork Agent",
+      "icon": "📚"
+    },
+    "Case-Specialist-Cowork-Agent": {
+      "title": "Case Specialist Cowork Agent",
+      "icon": "🎟️"
+    },
+    "Service-Ops-Leader-Cowork-Agent": {
+      "title": "Service Ops Leader Cowork Agent",
+      "icon": "🛠️"
+    },
     "Compliance-Self-Inspection-Agent": {
       "icon": "🛡️"
     },
@@ -10,8 +58,8 @@
       "title": "Chief of Staff Cowork Agent",
       "icon": "🗓️"
     },
-    "Recurring-Analytics-Cowork-Agent": {
-      "title": "Recurring Analytics Cowork Agent",
+    "Insights-Analyst-Cowork-Agent": {
+      "title": "Insights Analyst Cowork Agent",
       "icon": "📊"
     },
     "Autonomous-Invoice-Orchestration-Agent": {
@@ -21,6 +69,10 @@
     "Autonomous-Invoice-Orchestration-Agent-GHCP": {
       "title": "Autonomous Invoice Orchestration Agent with GHCP Harness",
       "icon": "🧾"
+    },
+    "Agentic-Business-Process-Automation-Agent": {
+      "title": "Agentic Business Process Automation Agent",
+      "icon": "🔄"
     },
     "Calendar-Request-Approval-Agent": {
       "title": "Calendar Request Approval Agent",
@@ -112,6 +164,11 @@
       "title": "Workday Integration",
       "icon": "🔐",
       "theme": "Integration"
+    },
+    "Persona-Skill-Routing-and-Scope-Isolation": {
+      "title": "Persona Skill Routing and Scope Isolation",
+      "icon": "🧭",
+      "theme": "Delivery & Deployment"
     },
     "GitHub-Copilot-Harness-Execution": {
       "icon": "🧰",

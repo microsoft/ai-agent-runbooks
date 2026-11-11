@@ -75,11 +75,17 @@ From the repository root, rebuild and validate with:
 ```powershell
 node scripts\build-search-index.js
 python scripts\test_search_index.py
+python scripts\test_persona_scenarios.py
 ```
 
 The Pages workflow rebuilds both the catalogue and index from the same commit it deploys. Changes to any of
 those source folders, `docs/`, or `scripts/` trigger deployment. New source documents are
 searchable automatically and appear in the catalogue without manually editing `data.js`.
+
+The persona checks validate the twelve scenario structures, original archive inventories/hashes,
+declared skill/reference coverage, preserved acceptance-test IDs, package-variant warnings and
+local documentation links. They do not execute skills or replace live-tenant acceptance.
+The Pages workflow runs both regression suites before uploading the site.
 
 ## Deploying to GitHub Pages
 

@@ -31,10 +31,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build and validate catalogue and search index
+      - name: Build and validate catalogue, search and persona resources
         run: |
           node scripts/build-search-index.js
           python3 scripts/test_search_index.py
+          python3 scripts/test_persona_scenarios.py
 
       - uses: actions/configure-pages@v5
 

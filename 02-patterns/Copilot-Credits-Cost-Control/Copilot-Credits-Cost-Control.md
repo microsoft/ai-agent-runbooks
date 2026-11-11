@@ -26,7 +26,7 @@ stop anything.
 > **Cowork applicability:** the rate and enforcement tables in this pattern describe Copilot
 > Studio, not a Cowork billing contract. For
 > [Chief of Staff](../../01-scenarios/Chief-of-Staff-Cowork-Agent/1.Overview.md) and
-> [Recurring Analytics](../../01-scenarios/Recurring-Analytics-Cowork-Agent/1.Overview.md),
+> [Insights Analyst](../../01-scenarios/Insights-Analyst-Cowork-Agent/1.Overview.md),
 > reuse cost ownership, baseline measurement and reporting discipline, but verify current
 > Cowork entitlements, meters and supported controls in the tenant. Do not assume Studio
 > rates, licensed-user exemptions, environment caps or enforcement thresholds apply.
