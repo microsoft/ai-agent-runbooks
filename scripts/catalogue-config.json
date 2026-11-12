@@ -146,6 +146,10 @@
       "title": "IT Service Desk Insights Agent",
       "icon": "🎫"
     },
+    "IT-Service-Desk-Insights-Agent-GHCP": {
+      "title": "IT Service Desk Insights Agent with GHCP Harness",
+      "icon": "🎫"
+    },
     "M365-Agent": {
       "title": "M365 Agent Templates",
       "icon": "🧩"

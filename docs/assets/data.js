@@ -552,6 +552,21 @@ const SCENARIOS = [
     "type": "IT Service Management / Employee Support"
   },
   {
+    "id": "IT-Service-Desk-Insights-Agent-GHCP",
+    "title": "IT Service Desk Insights Agent with GHCP Harness",
+    "icon": "🎫",
+    "desc": "Blueprint for knowledge-guided investigation and independently enabled ServiceNow incident actions, with requester-only closure and optional Dynamics Customer Service handoff. Includes twelve instruction-only skills and acceptance guidance; no deployable package or tenant-tested implementation.",
+    "tech": [
+      "Microsoft Copilot Studio",
+      "GitHub Copilot harness",
+      "ServiceNow",
+      "Office 365 Users",
+      "Dynamics 365 Customer Service"
+    ],
+    "status": "Available",
+    "type": "IT Service Management / Employee Support"
+  },
+  {
     "id": "M365-Agent",
     "title": "M365 Agent Templates",
     "icon": "🧩",
