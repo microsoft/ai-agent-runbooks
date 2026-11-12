@@ -2,6 +2,8 @@
 
 This runbook covers configuration of Microsoft Entra ID SAML SSO authentication with Workday tenant. Read the [pattern overview](Workday-Integration.md). It applies for both Workday Developer and Test/Production tenants.
 
+The screenshots show a developer tenant. Tenant creation, sample-account changes, and the **WPC Development** environment selection apply only to developer tenants. For test or production, use your actual tenant's host and select the environment matching that tenant rather than copying the developer settings.
+
 Runbook covers configuration of Workday enterprise application in Entra ID and collecting the configuration details needed to connect the two systems. In Workday side we setup SAML identity provider, authentication policies and security group for Workday users who should use SAML SSO authentication. 
 
 ## Setup Workday Developer Tenant
@@ -10,43 +12,43 @@ Skip this step if you already have Workday Developer tenant or configuration nee
 
 See detailed information about Workday developer tenants and how to create them from Workday documentation > https://developer.workday.com/documentation/GUID-4f875963-a845-43b5-868a-0f77e6261eb7-enHYPHENus/CreateandManagePersonalAccountDevelopmentTenants 
 
-1. Open this site to re https://developer.workday.com/about
+1. Open this site to create developer tenant > https://developer.workday.com/about
    
 2. Select **Create Account**
    
-   ![alt text](images/dev-tenant-01.png)
+   ![Workday developer website with the Create Account option](images/dev-tenant-01.png)
    
 3. Create your Workday ID
    
-   ![alt text](images/dev-tenant-02.png)
+   ![Workday ID registration form](images/dev-tenant-02.png)
 
 4. Request access to beta program
    
-   ![alt text](images/dev-tenant-03.png)
+   ![Workday developer portal with the option to request access to the beta program](images/dev-tenant-03.png)
 
 5. Fill-in required information and select request access
    
-   ![alt text](images/dev-tenant-04.png)
+   ![Workday Open Access Beta Program access request form](images/dev-tenant-04.png)
 
 6. You should get email confirmation about welcoming to Open Access Beta Program
    
-   ![alt text](images/dev-tenant-05.png)
+   ![Welcome email confirming access to the Workday Open Access Beta Program](images/dev-tenant-05.png)
 
 7. You can now create developer tenant in Workday developer portal
    
-   ![alt text](images/dev-tenant-06.png)
+   ![Workday developer portal Development Tenants panel with the Create Development Tenant button](images/dev-tenant-06.png)
 
 8. After little while your tenant is provisioned. **IMPORTANT!** These tenants will expire in 7-days if do not login to tenant. So please remember to visit the tenant at least once per week
    
-   ![alt text](images/dev-tenant-07.png)
+   ![Workday development tenant showing Running status and its expiration date highlighted](images/dev-tenant-07.png)
 
 9. You should get email with tenant link and password. Remember to login within 72-hours as this is temporary password and will expire. You can reset the password in developer portal if needed
     
-    ![alt text](images/dev-tenant-08.png)
+    ![Workday development tenant provisioning email with the tenant sign-in link and temporary password information](images/dev-tenant-08.png)
 
 10. Click the link to login to tenant. Username should be **`lmcneil`** check this still from documentation > [Create and Manage Personal Account Development Tenants](https://developer.workday.com/documentation/GUID-4f875963-a845-43b5-868a-0f77e6261eb7-enHYPHENus/CreateandManagePersonalAccountDevelopmentTenants)
     
-    ![alt text](images/dev-tenant-09.png)
+    ![Workday development tenant sign-in page](images/dev-tenant-09.png)
     
 11. Change the password
 
@@ -60,23 +62,23 @@ Official configuration documentation can be found from https://learn.microsoft.c
    
 2. Select **Enterprise apps**
    
-   ![alt text](images/entra-01.png)
+   ![Microsoft Entra admin center navigation with Enterprise applications selected](images/entra-01.png)
 
 3. If you do not have Workday application already installed in your tenant then click **+ New application**. If Workday is already installed then jump to step 6
    
-   ![alt text](images/entra-02.png)
+   ![Microsoft Entra Enterprise applications page with the New application option](images/entra-02.png)
 
 4. Search and select Workday application
    
-   ![alt text](images/entra-03.png)
+   ![Microsoft Entra application gallery search results for Workday](images/entra-03.png)
 
 5. Select **Single sign-on** > **SAML**
    
-   ![alt text](images/entra-04.png)
+   ![Workday enterprise application single sign-on setup with the SAML option](images/entra-04.png)
 
 6. Select **Edit** to configure SAML
    
-   ![alt text](images/entra-05.png)
+   ![Microsoft Entra Workday SAML configuration page with the Edit option](images/entra-05.png)
 
 7. Define following values by replacing `<TENANT-NAME>` with your actual Workday tenant name. 
 
@@ -84,7 +86,7 @@ Official configuration documentation can be found from https://learn.microsoft.c
 
    Verify your tenant's URL and update it if not the same as below `odpimpl.wd119`
 
-   ![alt text](images/entra-06.png)
+   ![Browser address bar showing the Workday developer tenant host odpimpl.wd119.myworkday.com](images/entra-06.png)
    
    - Identifier (Entity ID): `http://www.workday.com/<TENANT-NAME>`
    - Reply URL (Assertion Consumer Service URL): `https://odpimpl.wd119.myworkday.com/<TENANT-NAME>/login-saml.htmld`
@@ -93,26 +95,28 @@ Official configuration documentation can be found from https://learn.microsoft.c
 
    **Non-developer tenants:**
 
+   Replace `<WORKDAY-HOST>` with your actual test or production tenant's full host name, including its environment-specific subdomain, and `<TENANT-NAME>` with that tenant's name. Confirm the actual Reply URL, Sign on URL, and Logout URL with your Workday administrator or Workday support before saving. As noted in the [Microsoft Workday SSO tutorial](https://learn.microsoft.com/en-us/entra/identity/saas-apps/workday-tutorial#configure-microsoft-entra-sso), `impl.workday.com` is an example, not a host that works for every non-developer tenant.
+
    - Identifier (Entity ID): `http://www.workday.com/<TENANT-NAME>`
-   - Reply URL (Assertion Consumer Service URL): `https://impl.workday.com/<TENANT-NAME>/login-saml.htmld`
-   - Sign on URL: `https://impl.workday.com/<TENANT-NAME>/login-saml2.flex`
-   - Logout Url: `https://impl.workday.com/<TENANT-NAME>/login-saml.htmld`
+   - Reply URL (Assertion Consumer Service URL): `https://<WORKDAY-HOST>/<TENANT-NAME>/login-saml.htmld`
+   - Sign on URL: `https://<WORKDAY-HOST>/<TENANT-NAME>/login-saml2.flex`
+   - Logout Url: `https://<WORKDAY-HOST>/<TENANT-NAME>/login-saml.htmld`
 
 8. Do not test the sign-on yet
    
-   ![alt text](images/entra-07.png)
+   ![Workday single sign-on test prompt with No, I'll test later highlighted](images/entra-07.png)
 
 9. Download **Federation Metadata XML** file
 
-    ![alt text](images/entra-08.png)   
+    ![Microsoft Entra SAML configuration with the Federation Metadata XML download option](images/entra-08.png)
 
 10. Copy **Logout URL** we need that in configuration in Workday side
     
-    ![alt text](images/entra-09.png)
+    ![Microsoft Entra Workday single sign-on settings showing the Logout URL to copy](images/entra-09.png)
 
 11. Select **Users and groups** and add all users/groups who should be able to use Workday app and login to Workday
     
-    ![alt text](images/entra-10.png)
+    ![Workday enterprise application Users and groups page for assigning access](images/entra-10.png)
 
 ## Configure Workday
 
@@ -124,15 +128,15 @@ Workday developer tenants has several user accounts already created and we will 
 
 1. Search and select **Edit Workday Account** task
 
-    ![alt text](images/wd-01.png)
+    ![Workday search results showing the Edit Workday Account task](images/wd-01.png)
 
 2. Select one of the accounts for example the first one **Aidan Mitzner**
    
-    ![alt text](images/wd-02.png)
+    ![Workday account selector for choosing a sample user to test single sign-on](images/wd-02.png)
 
 3. Update **User Name** to match your Entra ID account's user principal name and select **Exempt Account** MFA setting. Then click **Submit**
    
-    ![alt text](images/wd-03.png)
+    ![Edit Workday Account form with the user name set to an Entra ID UPN and MFA set to Exempt Account](images/wd-03.png)
 
 &nbsp;
 
@@ -142,27 +146,27 @@ We will create Security Group in Workday to control which user accounts should u
 
 1. Search and select **Create Security Group** task
    
-   ![alt text](images/wd-04.png)
+   ![Workday search results showing the Create Security Group task](images/wd-04.png)
 
 2. Select **User-Based Security Group** and provide name for the group
    
-   ![alt text](images/wd-05.png)
+   ![Create Security Group dialog with User-Based Security Group selected and a group name entered](images/wd-05.png)
 
 3. Click **OK** 
 
-   ![alt text](images/wd-06.png)
+   ![Edit User-Based Security Group form for the Entra ID Users group with the OK button highlighted](images/wd-06.png)
 
 4. Search and select **Assign Users to User-Based Security Group** task
 
-   ![alt text](images/wd-07.png)
+   ![Workday search results showing the Assign Users to User-Based Security Group task](images/wd-07.png)
 
 5. Search and select the group you just created then click **OK**
    
-   ![alt text](images/wd-08.png)
+   ![Workday security group selector showing the newly created single sign-on user group](images/wd-08.png)
 
 6. Search and select the user(s) you want to add to group who should be able to login using Entra ID SSO
    
-   ![alt text](images/wd-09.png)
+   ![Workday user assignment form for adding users to the single sign-on security group](images/wd-09.png)
 
 &nbsp;
 
@@ -170,15 +174,15 @@ We will create Security Group in Workday to control which user accounts should u
 
 1. Open your Workday instance using your Workday tenant admin account and search and select **Edit Tenant Setup - Security**
     
-    ![alt text](images/wd-10.png)
+    ![Workday search results showing the Edit Tenant Setup - Security task](images/wd-10.png)
 
 2.  Scroll down select **Import Identity Provider**
     
-    ![alt text](images/wd-11.png)
+    ![Workday tenant security settings with the Import Identity Provider option](images/wd-11.png)
 
-3.  Provide name, for environment select **WPC Development** and upload the Federation Metadata XML file you downloaded from Entra ID and click **OK** twice and then click **Done**
+3.  Provide a name. In **Used for Environments**, select **WPC Development** only for a developer tenant. For a test or production tenant, select the environment matching your actual tenant; do not copy the developer selection shown in the screenshot. Upload the Federation Metadata XML file you downloaded from Entra ID, click **OK** twice, and then click **Done**.
     
-    ![alt text](images/wd-12.png)
+    ![Workday identity provider import form with the WPC Development environment and federation metadata upload](images/wd-12.png)
 
 4.  Configure provider
     - **Enable IdP Initiated Logout**: ✅
@@ -189,45 +193,45 @@ We will create Security Group in Workday to control which user accounts should u
     - **Service Provider ID** is the same as Identifier value in Entra ID SAML configuration `http://www.workday.com/TENANT_NAME`. Replace **TENANT_NAME** with your Workday tenant name.
     - **Do Not Deflate SP-initiated Authentication Request**: ✅
     
-    ![alt text](images/wd-13.png)
+    ![Workday SAML identity provider settings for logout URLs, SP-initiated authentication, and the service provider ID](images/wd-13.png)
 
 5.  Click **OK** and **Done**
 
 6.  Open **Edit Tenant Setup - Security** again
     
-    ![alt text](images/wd-14.png)
+    ![Workday Edit Tenant Setup - Security task reopened for SAML authentication configuration](images/wd-14.png)
 
 7.  Verify that **OAuth 2.0 Clients** setting is enabled, enable **SAML authentication**
 
-    ![alt text](images/wd-17.png)
+    ![Workday tenant security settings with OAuth 2.0 Clients and SAML authentication enabled](images/wd-17.png)
 
 8.  Select x509 Private Key Pair field and choose **Create x509 Private Key Pair**
    
-    ![alt text](images/wd-15.png)
+    ![Workday x509 Private Key Pair selector with the Create x509 Private Key Pair option](images/wd-15.png)
 
 9.  Provide name and click OK
     
-    ![alt text](images/wd-16.png)
+    ![Workday Create x509 Private Key Pair dialog with a key pair name entered](images/wd-16.png)
 
 10. Click **OK** and **Done** to save SAML configuration
     
-    ![alt text](images/wd-27.png)
+    ![Workday SAML identity provider settings with the x509 private key pair selected and the OK button highlighted](images/wd-27.png)
 
 11. Search and select **Manage Authentication Policies** report
 
-   ![alt text](images/wd-18.png)
+   ![Workday search results showing the Manage Authentication Policies report](images/wd-18.png)
 
 12. Click **Edit**
 
-   ![alt text](images/wd-19.png)
+   ![Workday authentication policy report with the Edit option](images/wd-19.png)
     
-13. Verify that correct type of environment(s) are include. In case working with Workday developer tenant add **WPC Development** environment
+13. Verify that the authentication policy includes the environment(s) matching the actual tenant and intended rollout. Add **WPC Development** only for a developer tenant; for test or production, select the corresponding test or production environment(s), consistent with the identity provider configuration in step 3.
     
-    ![alt text](images/wd-20.png)
+    ![Workday authentication policy environment selection including WPC Development](images/wd-20.png)
 
 14. Click **(+)** icon to add new Authentication Ruleset
     
-    ![alt text](images/wd-21.png)
+    ![Workday authentication rules table with the add ruleset button highlighted](images/wd-21.png)
 
 15. Provide name for the authentication rule and configure rest of the settings like below
     - **Security Group**: Group you created in the step [Create Security Group for SSO users](#Create-Security-Group-for-SSO-users)
@@ -235,7 +239,7 @@ We will create Security Group in Workday to control which user accounts should u
     - **Authentication Conditions**: Any
     - **Allowed Authentication Types**: Specific > select your SAML configuration
     
-    ![alt text](images/wd-22.png)
+    ![Workday SAML authentication rule configured with the single sign-on security group and allowed identity provider](images/wd-22.png)
 
    &nbsp;
 
@@ -245,19 +249,19 @@ We will create Security Group in Workday to control which user accounts should u
 
 17. Select **Activate All Authentication Policies**
 
-    ![alt text](images/wd-23.png)
+    ![Workday authentication policies page with the Activate All Authentication Policies option](images/wd-23.png)
 
 18. Provide **Comment** and click **OK**
     
-    ![alt text](images/wd-24.png)
+    ![Workday authentication policy activation dialog with a comment entered](images/wd-24.png)
 
 19. Select **Confirm** and click **OK** and **Done**
     
-    ![alt text](images/wd-25.png)
+    ![Workday authentication policy activation confirmation dialog](images/wd-25.png)
 
 20. Authentication policies should be enabled now
     
-    ![alt text](images/wd-26.png)
+    ![Workday authentication policy evaluation showing the policy enabled with no pending changes](images/wd-26.png)
 
 &nbsp;
 
@@ -268,23 +272,23 @@ Add Workday app to your app launcher in your tenant
 
 1. Open **App Launcher** and select **More apps**
    
-   ![alt text](images/test-sso-01.png)
+   ![Microsoft 365 App Launcher with the More apps option](images/test-sso-01.png)
 
 2. Scroll down to see Other apps and pin Workday to App Launcher
    
-   ![alt text](images/test-sso-02.png)
+   ![Microsoft 365 Other apps list with the option to pin Workday to the App Launcher](images/test-sso-02.png)
 
 3. Open App Launcher again and you should see Workday app pinned. If it is not visible then refresh the page
    
-   ![alt text](images/test-sso-03.png)
+   ![Microsoft 365 App Launcher showing the pinned Workday app](images/test-sso-03.png)
    
 4. Open Workday app and you should be redirected to Microsoft 365 login page for authentication
    
-   ![alt text](images/test-sso-04.png)
+   ![Microsoft sign-in page reached after opening the Workday app](images/test-sso-04.png)
 
 5. After successful login Workday portal should open with Workday user account you configured to get SOO login i.e. account user name matches the Entra ID user account's UPN
    
-   ![alt text](images/test-sso-05.png)
+   ![Workday portal opened after successful Microsoft Entra single sign-on](images/test-sso-05.png)
 
 
 

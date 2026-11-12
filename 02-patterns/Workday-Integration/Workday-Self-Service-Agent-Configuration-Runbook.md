@@ -35,22 +35,22 @@ Configure the ASOR security domains in Workday > [Set Up Agent System of Record]
 
 1. Login to Workday and search and select **Register API Client** task
 
-    ![alt text](images/pp-wd-api-01.png)
+    ![Workday search results showing the Register API Client task](images/pp-wd-api-01.png)
 
 2. Provide name for the client and configure it like below:
    - Client Grant Type: **Authorization Code Grant**
    - Access Token Type: **Bearer**
    - Redirection URI: `https://localhost`
-   - Scope (Functional Areas): **Agent System of Record** 
+   - Scope (Functional Areas): **Agent System of Record**
    - Include Workday Owned Scope: 
    
-    ![alt text](images/image-1.png)
+    ![Workday API client settings with Authorization Code Grant, Bearer tokens, and a localhost redirect URI](images/image-1.png)
 
-    ![alt text](images/image-2.png)
+    ![Workday API client scope set to Agent System of Record with Include Workday Owned Scope enabled](images/image-2.png)
 
 3. Copy **Client ID** and **Client Secret** as you will need them in the API calls. Client Secret can't been seen anymore after you have clicked **Done** can be 
 
-    ![alt text](images/image-5.png)
+    ![Workday API client registration results showing the client ID and client secret](images/image-5.png)
 
 
 ## Generate auth code and token to call the APIs
@@ -62,19 +62,19 @@ https://{REGION}.agent.workday.com/auth/authorize/{WD-TENANT-ALIAS}?response_typ
 ```
 Open URL in browser, login with your Workday account and select **Allow**
 
-![alt text](images/image-6.png) 
+![Workday authorization consent dialog with the Allow option](images/image-6.png)
 
 Copy the authorization code from the redirect URL
 
-![alt text](images/image-7.png)
+![Browser redirect URL containing the Workday authorization code](images/image-7.png)
 
 ## Register External Agent in Workday
 
-Visual Studio Code with REST Client extension is used here but you can use any REST client to 
+Visual Studio Code with REST Client extension is used here but you can use any REST client
 
 1. Open Visual Studio Code and make sure that REST Client extension is installed
    
-    ![alt text](images/reg-ext-agent-01.png)
+    ![REST Client extension installed in Visual Studio Code](images/reg-ext-agent-01.png)
 
 &nbsp;
 2. Open [WD-RegisterExternalAgent.http](./Resources/WD-RegisterExternalAgent.http) file to Visual Studio Code
@@ -89,17 +89,17 @@ Visual Studio Code with REST Client extension is used here but you can use any R
 
       &nbsp;
 
-      ![alt text](images/reg-ext-agent-02.png)
+      ![Workday external agent registration HTTP file with gateway, tenant, client credentials, and authorization code variables](images/reg-ext-agent-02.png)
 
 4. Click **Send Request** and if all values are correct for the API call then you should get HTTP 200 OK for successful call. Copy the **access token** value as that is needed in the next step. 
   
     **NOTE!** If you need to run this request again then first re-authorize to get new authorization code
    
-   ![alt text](images/reg-ext-agent-03.png)
+   ![REST Client token request returning HTTP 200 OK with an access token](images/reg-ext-agent-03.png)
 
 5. Paste the **access token** to @token variable value and click **Send Request**. You should get HTTP 201 Created response for successful call with body of registered agent 
    
-   ![alt text](images/reg-ext-agent-04.png)
+   ![REST Client external agent registration request returning HTTP 201 Created with the registered agent details](images/reg-ext-agent-04.png)
 
 
 ## Configure agent in Workday
@@ -108,38 +108,38 @@ In Workday, open **Agent Management Hub** to finalize external agent's configura
 
 1. Select the registered agent **Copilot Studio - Sana A2A**
    
-   ![alt text](images/wd-agent-01.png)
+   ![Workday Agent Management Hub showing the registered Copilot Studio - Sana A2A agent](images/wd-agent-01.png)
 
 2. Select **Credentials** and click **Edit**
    
-   ![alt text](images/wd-agent-02.png)
+   ![Workday external agent Credentials tab with the Edit option](images/wd-agent-02.png)
 
 3. Set **Redirect URI** to `https://localhost` and click **OK**. **NOTE!** This is temporary URI which will be replaced later with actual Redirect URI
    
-   ![alt text](images/wd-agent-03.png)
+   ![Workday external agent credentials with the temporary redirect URI set to https://localhost](images/wd-agent-03.png)
 
 4. Click **Generate New Client Secret** and in the opened dialog select **Confirm** and click **OK**
    
-    ![alt text](images/wd-agent-04.png)
+    ![Workday confirmation dialog for generating a new external agent client secret](images/wd-agent-04.png)
 
 5. Copy **Client Secret** somewhere like notepad as we need that in the Power Platform side of the configuration and click **Done**
 
-    ![alt text](images/wd-agent-05.png)
+    ![Workday dialog displaying the newly generated external agent client secret](images/wd-agent-05.png)
 
 6. Click **Configure Agent**
 
-    ![alt text](images/wd-agent-06.png)
+    ![Workday external agent page with the Configure Agent option](images/wd-agent-06.png)
 
 7. Enable Workday Self-Service Agent skill and define which users should be able to use it using **Available To**. Then click **Save**
 
-    ![alt text](images/wd-agent-07.png)
+    ![Workday agent configuration with the Self-Service Agent skill enabled and Available To user access settings](images/wd-agent-07.png)
 
 
 8. Activate the agent
 
-    ![alt text](images/wd-agent-08.png)
+    ![Inactive Copilot Studio - Sana A2A agent with the Activate Agent button highlighted](images/wd-agent-08.png)
 
-    ![alt text](images/wd-agent-09.png)
+    ![Copilot Studio - Sana A2A agent showing Active status after activation](images/wd-agent-09.png)
 
 &nbsp;
 
@@ -182,42 +182,42 @@ Register that exact value on the Workday OAuth client. Each Power Platform custo
    
 2. Select **Connected agents**. 
    
-   ![alt text](images/mcs-a2a-01.png)
+   ![Connected agents page in Copilot Studio](images/mcs-a2a-01.png)
 
 3. Select Add > **Add A2A Agent**
    
-   ![alt text](images/mcs-a2a-02.png)
+   ![Copilot Studio Add menu with the Add A2A Agent option](images/mcs-a2a-02.png)
 
 4. Paste agent endpoint URL defined [here](#build-the-urls-like-below-using-your-region-and-tenant-alias) and provide name and description
    
    - Name: `Workday-Self-Service-Agent`
    - Description: `Assist with employment-related tasks, including viewing and updating employee information, checking vacation balances, and submitting time-off requests.`
 
-    ![alt text](images/mcs-a2a-03.png)
+    ![Copilot Studio A2A agent setup with the Workday Self-Service Agent endpoint, name, and description](images/mcs-a2a-03.png)
       
 5. Select **OAuth 2.0** authentication and define following values. Values needed here are your Workday registered external agent Client ID/Secret, Authorization and Token URLs
 
-    ![alt text](images/mcs-a2a-04.png)
+    ![A2A connector OAuth 2.0 settings for the client ID, client secret, authorization URL, token URL, and refresh token URL](images/mcs-a2a-04.png)
 
     &nbsp;
 
-    ![alt text](images/mcs-a2a-04-2.png)
+    ![Workday external agent Credentials tab showing the OAuth authorization and token endpoints and client ID](images/mcs-a2a-04-2.png)
 
 6. Click **Next** to create the A2A connector
    
 7. Copy generated **Redirect URI**
    
-    ![alt text](images/mcs-a2a-05.png)
+    ![Generated redirect URI for the Workday A2A connector in Copilot Studio](images/mcs-a2a-05.png)
 
 8. Go to **Workday** external agent configuration and update the **Redirect URI**
 
-    ![alt text](images/mcs-a2a-07.png)
+    ![Workday external agent redirect URI updated to the generated Power Platform connector redirect URI](images/mcs-a2a-07.png)
 
 9.  Then back to Copilot Studio to create connection for the Workday A2A agent
     
-    ![alt text](images/mcs-a2a-08.png)
+    ![Copilot Studio connection setup for the Workday A2A agent](images/mcs-a2a-08.png)
 
 10. Test A2A in your agent for example by asking about `tell me about my employee information including home address and provide results as table`
 
-    ![alt text](images/mcs-a2a-09.png)
+    ![Copilot Studio test conversation retrieving employee information through the Workday A2A agent](images/mcs-a2a-09.png)
 
