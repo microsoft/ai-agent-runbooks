@@ -611,6 +611,25 @@ const SCENARIOS = [
 
 const PATTERNS = [
   {
+    "id": "Workday-Integration",
+    "title": "Workday Integration",
+    "icon": "🔐",
+    "desc": "Four setup paths: SSO with Entra ID, Entra ID Integrated authentication for the Workday Power Platform connector, Workday Sana Self-Service Agent A2A integration, and Workday MCP tool integration for Copilot Studio agents.",
+    "tech": [
+      "Workday",
+      "Microsoft Entra ID",
+      "SAML 2.0",
+      "Power Platform",
+      "Microsoft Copilot Studio",
+      "OAuth 2.0",
+      "A2A",
+      "MCP Server"
+    ],
+    "status": "Available",
+    "file": "Workday-Integration/Workday-Integration.md",
+    "theme": "Integration"
+  },
+  {
     "id": "Persona-Skill-Routing-and-Scope-Isolation",
     "title": "Persona Skill Routing and Scope Isolation",
     "icon": "🧭",

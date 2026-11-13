@@ -164,6 +164,11 @@
     }
   },
   "patterns": {
+    "Workday-Integration": {
+      "title": "Workday Integration",
+      "icon": "🔐",
+      "theme": "Integration"
+    },
     "Persona-Skill-Routing-and-Scope-Isolation": {
       "title": "Persona Skill Routing and Scope Isolation",
       "icon": "🧭",
