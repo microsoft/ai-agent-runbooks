@@ -1,0 +1,386 @@
+### Request OAuth2 Token
+@gateway = {REGION}.agent.workday.com
+@tenant =
+@clientId =
+@clientSecret =
+
+@code =
+
+POST https://{{gateway}}/auth/oauth2/{{tenant}}/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code&code={{code}}&client_id={{clientId}}&client_secret={{clientSecret}}
+
+
+### Register External Agent
+@token =
+
+POST https://{{gateway}}/asor/v1/agentDefinition
+Authorization: Bearer {{token}}
+Content-Type: application/json
+accept-encoding: identity
+wd-agent-tenant-alias: {{tenant}}
+
+{
+  "name": "Copilot Studio",
+  "version": "1.0.0",
+  "capabilities": {
+    "streaming": false,
+    "stateTransitionHistory": false,
+    "pushNotifications": false
+  },
+  "platform": {
+    "id": "Platform=MICROSOFT_COPILOT_STUDIO"
+  },
+  "description": "Copilot Studio integration ",
+  "url": "https://copilotstudio.microsoft.com",
+  "provider": {
+    "id": "Provider=Self-Built"
+  },
+  "skills": [
+    {
+      "id": "read_home_phone",
+      "name": "Read home phone numbers",
+      "description": "Read the signed-in worker's current home phone numbers.",
+      "inputModes": [
+        {
+          "type": "text/plain"
+        }
+      ],
+      "outputModes": [
+        {
+          "type": "text/plain"
+        },
+        {
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": "update_home_phone",
+      "name": "Update an existing home phone number",
+      "description": "Read current home phones, open a home contact change, update an existing phone on that event, and submit the event after explicit user confirmation. Check event status and verify the resulting home phone.",
+      "inputModes": [
+        {
+          "type": "text/plain"
+        }
+      ],
+      "outputModes": [
+        {
+          "type": "text/plain"
+        },
+        {
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": "read_employee_profile",
+      "name": "Read employee profile",
+      "description": "Retrieve the signed-in worker's profile to report their worker ID, display name, business title, public primary work email, and work location when returned and authorized. Do not infer missing fields or treat the location name as a full postal address.",
+      "inputModes": [
+        {
+          "type": "text/plain"
+        }
+      ],
+      "outputModes": [
+        {
+          "type": "text/plain"
+        },
+        {
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": "read_hire_and_service_dates",
+      "name": "Read hire and service dates",
+      "description": "Resolve the signed-in worker's Workday ID and retrieve their hire and service dates when authorized. Distinguish the current hire date from the original hire date.",
+      "inputModes": [
+        {
+          "type": "text/plain"
+        }
+      ],
+      "outputModes": [
+        {
+          "type": "text/plain"
+        },
+        {
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": "read_home_address",
+      "name": "Read home addresses",
+      "description": "Read the signed-in worker's current home addresses. This capability does not read a work address or change any address.",
+      "inputModes": [
+        {
+          "type": "text/plain"
+        }
+      ],
+      "outputModes": [
+        {
+          "type": "text/plain"
+        },
+        {
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": "read_absence_balances",
+      "name": "Read vacation and absence balances",
+      "description": "Resolve the signed-in worker's Workday ID and retrieve remaining absence balances for the requested date. Identify the relevant vacation plan and report its balance, unit, and effective date without combining unrelated plans or assuming hours are days.",
+      "inputModes": [
+        {
+          "type": "text/plain"
+        }
+      ],
+      "outputModes": [
+        {
+          "type": "text/plain"
+        },
+        {
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "id": "request_time_off",
+      "name": "Request time off",
+      "description": "Resolve the signed-in worker, check eligible time-off types, valid dates, daily quantities, balances, and existing entries, then create a time-off request only after explicit user confirmation. Creating the request starts the Workday approval workflow; do not report approval unless Workday confirms it. Do not invent IDs, quantities, units, reasons, or missing required values.",
+      "inputModes": [
+        {
+          "type": "text/plain"
+        }
+      ],
+      "outputModes": [
+        {
+          "type": "text/plain"
+        },
+        {
+          "type": "application/json"
+        }
+      ]
+    }
+  ],
+  "workdayConfig": [
+    {
+      "skillId": "read_home_phone",
+      "executionMode": {
+        "id": "Mode=Delegate"
+      },
+      "workdayResources": [
+        {
+          "tool_name": "list_worker_phone_numbers",
+          "agent_resource": {
+            "id": "7ed370d6885d10001c8f3fd06a910003"
+          },
+          "description": "Read home phone numbers currently on the worker's record."
+        }
+      ]
+    },
+    {
+      "skillId": "update_home_phone",
+      "executionMode": {
+        "id": "Mode=Delegate"
+      },
+      "workdayResources": [
+        {
+          "tool_name": "list_worker_phone_numbers",
+          "agent_resource": {
+            "id": "7ed370d6885d10001c8f3fd06a910003"
+          },
+          "description": "Read the current home phone before a change and verify it after completion."
+        },
+        {
+          "tool_name": "create_worker_home_contact_change",
+          "agent_resource": {
+            "id": "48baf000b54310001bf0cef40d9b0000"
+          },
+          "description": "Open a home contact change event for the worker."
+        },
+        {
+          "tool_name": "list_phone_numbers_for_home_contact_change",
+          "agent_resource": {
+            "id": "a8eb4c81f2c210000d9024f595170000"
+          },
+          "description": "Read the phone records on the home contact change event and resolve the phone to update."
+        },
+        {
+          "tool_name": "update_phone_number_for_home_contact_change",
+          "agent_resource": {
+            "id": "a8eb4c81f2c210000d9024f595170001"
+          },
+          "description": "Partially update an existing phone record on the home contact change event."
+        },
+        {
+          "tool_name": "submit_home_contact_change",
+          "agent_resource": {
+            "id": "a8eb4c81f2c210000d9e127ad4020000"
+          },
+          "description": "Submit the home contact change event after explicit user confirmation."
+        },
+        {
+          "tool_name": "find_home_contact_change_event",
+          "agent_resource": {
+            "id": "a8eb4c81f2c210000d91f03da0210000"
+          },
+          "description": "Retrieve the home contact change event and check its processing status."
+        },
+        {
+          "tool_name": "list_active_phone_device_types",
+          "agent_resource": {
+            "id": "49b8df972ae610000ca05b07e49f0000"
+          },
+          "description": "Look up valid phone device types required by the phone update tool."
+        },
+        {
+          "tool_name": "list_preferred_country_phone_codes",
+          "agent_resource": {
+            "id": "49b8df972ae610000ca01b5f15150000"
+          },
+          "description": "Look up valid preferred country phone codes required by the phone update tool."
+        }
+      ]
+    },
+    {
+      "skillId": "read_employee_profile",
+      "executionMode": {
+        "id": "Mode=Delegate"
+      },
+      "workdayResources": [
+        {
+          "tool_name": "find_staffing_workers",
+          "agent_resource": {
+            "id": "30aeb92af72e100063e2955a0eff0000"
+          },
+          "description": "Retrieve the signed-in worker's profile using contextInstanceId me, including their Workday WID and available staffing fields."
+        }
+      ]
+    },
+    {
+      "skillId": "read_hire_and_service_dates",
+      "executionMode": {
+        "id": "Mode=Delegate"
+      },
+      "workdayResources": [
+        {
+          "tool_name": "find_staffing_workers",
+          "agent_resource": {
+            "id": "30aeb92af72e100063e2955a0eff0000"
+          },
+          "description": "Resolve the signed-in worker's Workday WID using contextInstanceId me."
+        },
+        {
+          "tool_name": "find_service_dates_for_worker",
+          "agent_resource": {
+            "id": "c545581f797e100013a3ae9e78560000"
+          },
+          "description": "Read hire date, original hire date, and other service dates using the worker's actual Workday WID."
+        }
+      ]
+    },
+    {
+      "skillId": "read_home_address",
+      "executionMode": {
+        "id": "Mode=Delegate"
+      },
+      "workdayResources": [
+        {
+          "tool_name": "list_worker_addresses",
+          "agent_resource": {
+            "id": "7ed370d6885d10001c58ee893e9b0003"
+          },
+          "description": "Read home addresses currently on the signed-in worker's record using workersId me."
+        }
+      ]
+    },
+    {
+      "skillId": "read_absence_balances",
+      "executionMode": {
+        "id": "Mode=Delegate"
+      },
+      "workdayResources": [
+        {
+          "tool_name": "find_staffing_workers",
+          "agent_resource": {
+            "id": "30aeb92af72e100063e2955a0eff0000"
+          },
+          "description": "Resolve the signed-in worker's actual 32-character Workday WID using contextInstanceId me."
+        },
+        {
+          "tool_name": "find_absence_balances",
+          "agent_resource": {
+            "id": "3cf962648a6a10001482cdbe30920000"
+          },
+          "description": "Read remaining absence-plan balances using worker equal to the resolved Workday WID, with an optional effective date."
+        }
+      ]
+    },
+    {
+      "skillId": "request_time_off",
+      "executionMode": {
+        "id": "Mode=Delegate"
+      },
+      "workdayResources": [
+        {
+          "tool_name": "find_staffing_workers",
+          "agent_resource": {
+            "id": "30aeb92af72e100063e2955a0eff0000"
+          },
+          "description": "Resolve the signed-in worker's actual Workday WID and available primary-position reference."
+        },
+        {
+          "tool_name": "find_worker_eligible_absence_types",
+          "agent_resource": {
+            "id": "70de442fca1c10001402239a71a00000"
+          },
+          "description": "Resolve eligible Time Off or Absence Table types for the worker and requested date. Do not select Leave of Absence types for this workflow."
+        },
+        {
+          "tool_name": "find_worker_valid_time_off_dates",
+          "agent_resource": {
+            "id": "e7c82707946210001b4e44f36eb40000"
+          },
+          "description": "Check the selected type's valid dates and daily default quantities and units, including a position when required."
+        },
+        {
+          "tool_name": "find_absence_balances",
+          "agent_resource": {
+            "id": "3cf962648a6a10001482cdbe30920000"
+          },
+          "description": "Check the relevant remaining balance and units for the worker before requesting time off."
+        },
+        {
+          "tool_name": "find_worker_time_off_details",
+          "agent_resource": {
+            "id": "8aeaedfc4f3a10001cd749cf643f0000"
+          },
+          "description": "Read existing time-off entries for the requested date range to check overlaps and inspect returned entry status."
+        },
+        {
+          "tool_name": "create_worker_time_off_request",
+          "agent_resource": {
+            "id": "e2be8dacc8b110000f2a801242ff0000"
+          },
+          "description": "Create a confirmed time-off request using the resolved worker WID and days containing date, timeOffType.id, and dailyQuantity. Starts the normal Workday approval workflow."
+        }
+      ]
+    }
+  ],
+  "defaultOutputModes": [
+    {
+      "type": "text/plain"
+    },
+    {
+      "type": "application/json"
+    }
+  ],
+  "defaultInputModes": [
+    {
+      "type": "text/plain"
+    }
+  ]
+}
