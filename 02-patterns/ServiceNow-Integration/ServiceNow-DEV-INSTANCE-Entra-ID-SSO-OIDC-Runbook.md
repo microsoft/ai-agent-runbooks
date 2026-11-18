@@ -1,10 +1,13 @@
-# Runbook - ServiceNow SSO with Microsoft Entra ID and OIDC authentication configuration
+# Configure SSO with Microsoft Entra ID and OIDC authentication configuration for ServiceNow Personal Developer Instance (PDI)
 
-Configure **SAML browser SSO to the ServiceNow application** and
+> **IMPORTANT!** These instructions should be used **ONLY** for ServiceNow Personal Developer Instances (PDI).
+> 
+> If you are doing configuration in **Production** environment then follow official Microsoft guidance to available for Single Sign On configuration [configure ServiceNow for SSO with Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/saas-apps/servicenow-tutorial).
+>
+> This runbook is using PowerShell scripts to automate most of the configurations starting from step 4. 
+
+Configure **SAML SSO to the ServiceNow** and
 **Entra ID OIDC authentication support for ServiceNow Power Platform connections**.
-Start with the
-[pattern overview](ServiceNow-Integration.md). Use a non-production instance for the first
-pass; production changes require their own approved change and rollout plan.
 
 OIDC configuration is a separate step in this combined runbook:
 [Configure Entra ID OIDC authentication support with ServiceNow](#7-configure-entra-id-oidc-authentication-support-with-servicenow).
@@ -17,7 +20,6 @@ delegation. The SAML setup uses Multi-Provider SSO, as described in the
 Navigation labels vary by ServiceNow release. The legacy ServiceNow Express procedure
 is not covered here.
 
-> **Important!** This runbook is using PowerShell scripts to automate most of the configurations starting from step 4. If you can't use and run PowerShell scripts then please follow the official Microsoft guidance how to [configure ServiceNow for SSO with Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/saas-apps/servicenow-tutorial)
 
 ## 1. Confirm Access and Capture a Baseline
 
@@ -195,10 +197,7 @@ Next configuration script will configure SAML SSO in Entra ID and ServiceNow sid
 ## 7. Configure Entra ID OIDC authentication support with ServiceNow
 
 Use this step to configure OIDC authentication for ServiceNow Power Platform connections,
-independently of browser SAML SSO. Obtain an approved copy of
-`Configure-ServiceNowOIDC.ps1` and install the **Az.Accounts** PowerShell module before
-running it. Check existing OIDC provider dependencies, including Knowledge connector
-configuration, before making changes.
+independently of browser SAML SSO. `Configure-ServiceNowOIDC.ps1` script used in this step requires **Az.Accounts** and **Az.Resources** PowerShell modules which you need to have installed
 
 1. Run `Configure-ServiceNowOIDC.ps1` script defining **DisplayName** which is used as the name of the registered Entra ID application and name of the OAuth configuration in ServiceNow. Another required parameter is **ServiceNowInstance**
 
