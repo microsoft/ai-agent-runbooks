@@ -18,8 +18,8 @@ For overlapping core-profile questions, record one primary route: connector `get
 
 | Skill name / standalone upload | Integration type | ServiceNow permissions needed |
 |---|---|---|
-| [create-servicenow-incident](create-servicenow-incident/SKILL.md) | ServiceNow Power Platform Connector | Trusted own-user resolution and incident creation as that caller. |
-| [list-open-servicenow-tickets](list-open-servicenow-tickets/SKILL.md) | ServiceNow Power Platform Connector | Read own active incidents and approved display fields. |
+| [create-it-ticket](create-it-ticket/SKILL.md) | ServiceNow Power Platform Connector | Create an incident for the signed-in caller with confirmed urgency and both descriptions. For ticket links, read `ServiceNowInstanceName` via Microsoft Dataverse MCP Server. |
+| [list-it-tickets](list-it-tickets/SKILL.md) | ServiceNow Power Platform Connector | Read only incidents where the signed-in employee is the caller. For ticket links, read `ServiceNowInstanceName` via Microsoft Dataverse MCP Server. |
 | [list-hr-cases](list-hr-cases/SKILL.md) | ServiceNow Power Platform Connector | HRSD access to read own employee-visible HR cases and approved display fields. |
 | [submit-new-hr-case](submit-new-hr-case/SKILL.md) | ServiceNow Power Platform Connector | Read available HR service names and create a confirmed HR case for oneself. No case-list, update or attachment permission required. |
 
