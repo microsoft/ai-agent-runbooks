@@ -1,6 +1,6 @@
 ---
 name: get-workday-employee-information
-description: "Use when the signed-in user asks for their own Workday Employee ID, name, business title, work location, phone, email or worker type through the configured Workday Power Platform Connector profile route. Read the staffing worker endpoint with WD-REST-API. Not for Cost Center, other organizational assignments, other workers, home-contact or absence lookups, or updates."
+description: "Use when the signed-in user asks for their own Workday Employee ID, name, business title, work location, phone, email or worker type through the configured Workday Power Platform Connector profile route. Read the staffing worker endpoint with Workday Operation. Not for Cost Center, other organizational assignments, other workers, home-contact or absence lookups, or updates."
 ---
 # Get Workday Employee Information
 
@@ -10,7 +10,7 @@ Read only the signed-in worker's approved core profile fields through the config
 
 ## Tools
 
-Use only the approved `WD-REST-API` tool with HTTP method `GET` and relative path `staffing/v7/{tenant}/workers/me`. Leave `{tenant}` exactly as written; the connection resolves it. Never substitute a tenant, worker selector, another identity or an unrestricted API.
+Use only the approved `Workday Operation` tool with HTTP method `GET` and relative path `staffing/v7/{tenant}/workers/me`. Leave `{tenant}` exactly as written; the connection resolves it. Never substitute a tenant, worker selector, another identity or an unrestricted API.
 
 ## Inputs
 
@@ -19,7 +19,7 @@ The requested profile field(s), or an explicit general profile request, and the 
 ## Procedure
 
 1. Use this skill only when the configured core-profile route selects the connector version. Do not call both connector and MCP profile tools for the same core-profile lookup or use one to bypass the other's OFF or denied state.
-2. Call `WD-REST-API` with method `GET` and relative path `staffing/v7/{tenant}/workers/me`. No write confirmation is needed for this read.
+2. Call `Workday Operation` with method `GET` and relative path `staffing/v7/{tenant}/workers/me`. No write confirmation is needed for this read.
 3. Check the returned status before parsing the response body as a single worker JSON object. A non-success status, malformed JSON, null body or unexpected response shape is a failed or invalid lookup, not an empty profile.
 4. Extract only the requested fields using these mappings. A general profile request may include all seven approved fields:
 
