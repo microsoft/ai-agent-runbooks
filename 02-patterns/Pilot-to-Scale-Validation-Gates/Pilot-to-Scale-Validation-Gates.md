@@ -162,6 +162,13 @@ These are illustrative situations to design against, not reported customer outco
 
 ## Related Patterns and Scenarios
 
+For the twelve [persona-based Cowork scenarios](../../01-scenarios/README.md#persona-based-cowork-scenarios),
+retain the original functional test identifiers and add
+[persona-routing and scope-isolation gates](../Persona-Skill-Routing-and-Scope-Isolation/Persona-Skill-Routing-and-Scope-Isolation-Runbook.md#6-record-acceptance).
+Local archive inspection is not tenant installation or business acceptance. Wrong-scope,
+permission, domain-safety and approval failures block release regardless of an overall routing
+percentage; critical access, security and funding gates cannot be waived.
+
 - Runbook: [Pilot-to-Scale-Validation-Gates-Runbook.md](Pilot-to-Scale-Validation-Gates-Runbook.md)
 - [Cowork Spending Policies and Cost Governance](../Cowork-Spending-Policies-and-Cost-Governance/Cowork-Spending-Policies-and-Cost-Governance.md)
 - [Agent Governance and Rollout Control Plane](../Agent-Governance-and-Rollout-Control-Plane/Agent-Governance-and-Rollout-Control-Plane.md)
@@ -169,7 +176,7 @@ These are illustrative situations to design against, not reported customer outco
 - [Cowork Skill Delivery and Scheduled Reviews](../Cowork-Skill-Delivery-and-Scheduled-Reviews/Cowork-Skill-Delivery-and-Scheduled-Reviews.md)
 - [Cowork Enablement](../Cowork-Enablement/Cowork-Enablement.md) - platform readiness and shared acceptance tests
 - Scenario: [Chief of Staff](../../01-scenarios/Chief-of-Staff-Cowork-Agent/1.Overview.md) - people safety and leader/delegate acceptance
-- Scenario: [Recurring Analytics](../../01-scenarios/Recurring-Analytics-Cowork-Agent/1.Overview.md) - KPI and access acceptance per business function
+- Scenario: [Insights Analyst](../../01-scenarios/Insights-Analyst-Cowork-Agent/1.Overview.md) - KPI and access acceptance per business function
 - Scenario: [CRM Account Planning](../../01-scenarios/CRM-Account-Planning-Cowork-Agent/1.Overview.md) - seller review, CRM permissions and write-back approval
 
 ---

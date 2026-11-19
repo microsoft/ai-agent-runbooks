@@ -196,7 +196,7 @@ draft schedule does not approve distribution of all future outputs.
 - [Branded Office Artifact Generation](../Branded-Office-Artifact-Generation/Branded-Office-Artifact-Generation.md)
 - Scenario: [Contract & Legal Intelligence Agent](../../01-scenarios/Contract-and-Legal-Intelligence-Agent/1.Overview.md)
 - Scenario: [Chief of Staff Cowork Agent](../../01-scenarios/Chief-of-Staff-Cowork-Agent/1.Overview.md) — leadership drafts, sensitive context and schedule approval
-- Scenario: [Recurring Analytics Cowork Agent](../../01-scenarios/Recurring-Analytics-Cowork-Agent/1.Overview.md) — numerical review and separate output-access approval
+- Scenario: [Insights Analyst Cowork Agent](../../01-scenarios/Insights-Analyst-Cowork-Agent/1.Overview.md) — numerical review and separate output-access approval
 - [Cowork Skill Delivery and Scheduled Reviews](../Cowork-Skill-Delivery-and-Scheduled-Reviews/Cowork-Skill-Delivery-and-Scheduled-Reviews.md)
 
 ---

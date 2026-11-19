@@ -25,7 +25,7 @@ availability and controls before delivery.
 | [Use Cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork) | Sessions, supported surfaces and recurring task experience |
 | In this repo: [Cowork Skill Delivery and Scheduled Reviews](../02-patterns/Cowork-Skill-Delivery-and-Scheduled-Reviews/Cowork-Skill-Delivery-and-Scheduled-Reviews.md) | Configuration-first lifecycle, source/approval boundaries and conditional recurrence |
 | In this repo: [Governed Analytics Review](../02-patterns/Governed-Analytics-Review/Governed-Analytics-Review.md) | Authoritative KPI, period and RLS validation; generated-artifact access |
-| Scenarios: [Chief of Staff](../01-scenarios/Chief-of-Staff-Cowork-Agent/1.Overview.md) and [Recurring Analytics](../01-scenarios/Recurring-Analytics-Cowork-Agent/1.Overview.md) | End-to-end runbooks, acceptance prompts and source interpretation |
+| Scenarios: [Chief of Staff](../01-scenarios/Chief-of-Staff-Cowork-Agent/1.Overview.md) and [Insights Analyst](../01-scenarios/Insights-Analyst-Cowork-Agent/1.Overview.md) | End-to-end runbooks, acceptance prompts and source interpretation |
 | In this repo: [Cowork Enablement](../02-patterns/Cowork-Enablement/Cowork-Enablement.md) | Shared tenant readiness, governance, billing and validation applied within Cowork business scenarios |
 | In this repo: [Cowork Spending Policies and Cost Governance](../02-patterns/Cowork-Spending-Policies-and-Cost-Governance/Cowork-Spending-Policies-and-Cost-Governance.md) | Spending policies, limits, discovery and reconciliation for Cowork |
 | In this repo: [Pilot-to-Scale Validation Gates](../02-patterns/Pilot-to-Scale-Validation-Gates/Pilot-to-Scale-Validation-Gates.md) | Evidence-gated expansion decision |
@@ -167,6 +167,8 @@ availability and controls before delivery.
 | [Keep your presentation on-brand with Copilot](https://support.microsoft.com/topic/keep-your-presentation-on-brand-with-copilot-a3f7ff23-4d5a-4a4d-9ba0-a0a3e0dc8db4) | End-user guidance for brand-compliant generation |
 | In this repo: [Branded Office Artifact Generation](../02-patterns/Branded-Office-Artifact-Generation/Branded-Office-Artifact-Generation.md) | The delivery pattern |
 | In this repo: [CRM Account Planning Cowork Agent](../01-scenarios/CRM-Account-Planning-Cowork-Agent/1.Overview.md) | The scenario that combines Cowork, MCP, and artifact generation |
+| In this repo: [Persona-Based Cowork Scenarios](../01-scenarios/README.md#persona-based-cowork-scenarios) | Twelve persona delivery guides, original starter archives and explicit package-versus-tenant validation status |
+| In this repo: [Persona Skill Routing and Scope Isolation](../02-patterns/Persona-Skill-Routing-and-Scope-Isolation/Persona-Skill-Routing-and-Scope-Isolation.md) | Same-name/version conflicts, built-in overlap, route-or-clarify, actual source scope and update/rollback acceptance |
 
 ---
 

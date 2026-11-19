@@ -85,16 +85,27 @@ The `02-patterns/` folder contains one subfolder per supported technical pattern
 ├── MCP-Server-Integration/                                           ← ✅ Available
 │   ├── MCP-Server-Integration.md
 │   └── MCP-Server-Integration-Runbook.md
-└── Pilot-to-Scale-Validation-Gates/                                  ← ✅ Available
-    ├── Pilot-to-Scale-Validation-Gates.md
-    └── Pilot-to-Scale-Validation-Gates-Runbook.md
+├── Persona-Skill-Routing-and-Scope-Isolation/                       ← Documentation Available
+│   ├── Persona-Skill-Routing-and-Scope-Isolation.md
+│   └── Persona-Skill-Routing-and-Scope-Isolation-Runbook.md
+├── Pilot-to-Scale-Validation-Gates/                                  ← ✅ Available
+│   ├── Pilot-to-Scale-Validation-Gates.md
+│   └── Pilot-to-Scale-Validation-Gates-Runbook.md
+└── Workday-Integration/                                            ← ✅ Available
+    ├── Workday-Integration.md
+    ├── Workday-Developer-Tenant-and-Entra-ID-SSO-Runbook.md
+    ├── Power-Platform-Integration-Runbook.md
+    ├── Workday-Self-Service-Agent-Configuration-Runbook.md
+    └── Workday-MCP-Configuration-Runbook.md
 ```
 
 ---
 
 ## Pattern Folder Structure
 
-Each pattern folder follows a standardized 2-file structure:
+Each pattern folder normally contains an overview and an implementation runbook. Patterns
+with multiple integration paths, such as Workday Integration, can provide a separate
+runbook for each path:
 
 | File | Description |
 |------|-------------|
@@ -166,11 +177,13 @@ Step 6. Cross-reference 01-scenarios/ → apply the pattern within the scenario 
 
 | Pattern | Description | Key Technologies | Status |
 |---------|-------------|------------------|--------|
+| [Workday Integration](./Workday-Integration/Workday-Integration.md) | Four setup paths: SSO with Entra ID, Entra ID Integrated authentication for the Workday Power Platform connector, Workday Sana Self-Service Agent A2A integration, and Workday MCP tool integration for Copilot Studio agents. | Workday, Microsoft Entra ID, SAML 2.0, Power Platform, Copilot Studio, OAuth 2.0, A2A, MCP | ✅ Available |
 | [Cowork Enablement](./Cowork-Enablement/Cowork-Enablement.md) | Shared tenant readiness, security, governance, billing and operational handover for Cowork. Includes a 24-step runbook, platform acceptance tests and evidence templates; apply within business scenarios. | Microsoft 365 Copilot Cowork, Microsoft 365 admin center, Azure Cost Management | ✅ Available |
 | [Cowork Skill Delivery and Scheduled Reviews](./Cowork-Skill-Delivery-and-Scheduled-Reviews/Cowork-Skill-Delivery-and-Scheduled-Reviews.md) | Configuration-first skill/reference lifecycle, routing, trusted packages, controlled sharing, on-demand acceptance, optional user-owned scheduled drafts, cost and rollback. | Microsoft 365 Copilot Cowork, OneDrive, skills, plugins | ✅ Available |
 | [Governed Analytics Review](./Governed-Analytics-Review/Governed-Analytics-Review.md) | Explicit source/KPI contracts, period/filter/units reconciliation, RLS, supported explanations and consistent narrative/dashboard outputs with independent artifact-access review. | Power BI, Microsoft Fabric, Excel Online, Microsoft 365 Copilot Cowork | ✅ Available |
 | [Cowork Spending Policies and Cost Governance](./Cowork-Spending-Policies-and-Cost-Governance/Cowork-Spending-Policies-and-Cost-Governance.md) | Copilot Credit spending policies for Cowork: discovery, group scoping, policy and per-user limits, precedence, Auto-apply new services, alerts, billing methods, `/cost` limits and reconciliation. Distinct from the Copilot Studio credits pattern. | Microsoft 365 admin center Cost Management, Microsoft 365 Copilot Cowork, Azure Cost Management | ✅ Available |
 | [Pilot-to-Scale Validation Gates](./Pilot-to-Scale-Validation-Gates/Pilot-to-Scale-Validation-Gates.md) | Evidence-gated progression from pilot to scale: signed boundary, readiness and control gates, verification tests, success criteria, ownership matrix and an expand, extend, pause or stop decision. | Microsoft 365 Copilot Cowork, Microsoft 365 admin center | ✅ Available |
+| [Persona Skill Routing and Scope Isolation](./Persona-Skill-Routing-and-Scope-Isolation/Persona-Skill-Routing-and-Scope-Isolation.md) | Route-or-clarify across persona packs, declared-name/version conflicts, built-in overlap, actual identity/source scope, output review and tested update/rollback. Includes a separate implementation runbook. | Microsoft 365 Copilot Cowork, skills, plugins, Microsoft Entra | Documentation Available |
 | [Enterprise RAG Pattern](./Enterprise-RAG-Pattern/Enterprise-RAG-Pattern.md) | Multi-source, governed retrieval-augmented generation. Grounds LLM responses in organizational data with access control and citation trails. | Copilot Studio, Azure AI Search, Azure OpenAI, Foundry IQ | ✅ Available |
 | [Agentic Workflow Orchestration](./Agentic-Workflow-Orchestration/Agentic-Workflow-Orchestration.md) | Multi-agent workflow orchestration pattern for coordinating complex, multi-step tasks across multiple specialized agents. | Copilot Studio, Azure AI Foundry, Agent Framework | ✅ Available |
 | [GitHub Copilot Harness Execution](./GitHub-Copilot-Harness-Execution/GitHub-Copilot-Harness-Execution.md) | Adaptive planning, knowledge, tools, skills, and Hooks inside Copilot Studio; independent backend authorization, exact-version human approvals, idempotency, and controlled consequential workflows. Includes a separate implementation runbook. | Microsoft Copilot Studio, GitHub Copilot Harness, skills, Hooks, workflows | ✅ Available |

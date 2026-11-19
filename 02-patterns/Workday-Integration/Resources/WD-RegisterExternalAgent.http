@@ -1,0 +1,95 @@
+### Request OAuth2 Token
+@gateway = {REGION}.agent.workday.com
+@tenant = 
+@clientId = 
+@clientSecret = 
+
+@code = 
+
+POST https://{{gateway}}/auth/oauth2/{{tenant}}/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code&code={{code}}&client_id={{clientId}}&client_secret={{clientSecret}}
+
+
+### Register External Agent
+@token = 
+
+POST https://{{gateway}}/asor/v1/agentDefinition
+Authorization: Bearer {{token}}
+Content-Type: application/json
+accept-encoding: identity
+wd-agent-tenant-alias: {{tenant}}
+
+{
+  "name": "Copilot Studio - Sana A2A",
+  "version": "1.0.1",
+  "capabilities": {
+    "streaming": false,
+    "stateTransitionHistory": false,
+    "pushNotifications": false
+  },
+  "platform": {
+    "id": "Platform=MICROSOFT_COPILOT_STUDIO"
+  },
+  "workdayConfig": [
+    {
+      "executionMode": {
+        "id": "Mode=Delegate"
+      },
+      "workdayResources": [
+        {
+          "tool_name": "Sana Self-Service Agent",
+          "agent_resource": {
+            "id": "6bfadd7c014610000dffae8d77c00000"
+          },
+          "description": "Connects to Sana Self-Service Agent"
+        }
+      ],
+      "skillId": "ssa-agent-as-a-tool"
+    }
+  ],
+  "description": "Copilot Studio integration delegating employee self-service requests to Sana.",
+  "url": "https://copilotstudio.microsoft.com",
+  "provider": {
+    "id": "Provider=Self-Built"
+  },
+  "defaultOutputModes": [
+    {
+      "type": "text/plain"
+    },
+    {
+      "type": "application/json"
+    }
+  ],
+  "skills": [
+    {
+      "outputModes": [
+        {
+          "type": "text/plain"
+        },
+        {
+          "type": "application/json"
+        }
+      ],
+      "id": "ssa-agent-as-a-tool",
+      "inputModes": [
+        {
+          "type": "text/plain"
+        }
+      ],
+      "description": "Connects to the Workday Self-Service Agent",
+      "tags": [
+        {
+          "tag": "hr-operations"
+        }
+      ],
+      "name": "Workday Self-Service Agent"
+    }
+  ],
+  "defaultInputModes": [
+    {
+      "type": "text/plain"
+    }
+  ]
+}

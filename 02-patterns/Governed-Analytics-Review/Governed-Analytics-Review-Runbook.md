@@ -6,7 +6,7 @@ Use with the [pattern](Governed-Analytics-Review.md) and the scenario's function
 
 Obtain the exact approved source and identify its business/data owners. Prove an actual query
 through the intended runtime and user identity; browser report access is insufficient.
-For the Recurring Analytics Cowork route, qualify the required Fabric IQ plugin for Power
+For the Insights Analyst Cowork route, qualify the required Fabric IQ plugin for Power
 BI/Fabric or the supported Excel Online access path. Stop if unavailable; do not silently
 substitute a connector or identity.
 
@@ -29,7 +29,7 @@ Record these fields in the customer's governed workspace:
 | Risk/quality | Materiality thresholds, unknown state, reconciliation tolerances |
 | Output | Narrative/tables/dashboard schema, classification, reviewer and destination |
 
-For Recurring Analytics, default to the last complete Monday-Sunday week unless explicitly
+For Insights Analyst, default to the last complete Monday-Sunday week unless explicitly
 overridden. For another scenario, use its signed period contract rather than assuming that default.
 
 **Deliverable:** source-owner-approved contract and known expected values.
@@ -104,5 +104,5 @@ Provide the signed contract, accepted test evidence, output examples, schedule/s
 known gaps, data/support/security owners and pause/recovery procedures. Keep customer data and
 source URLs out of the public repository.
 
-See [Recurring Analytics delivery](../../01-scenarios/Recurring-Analytics-Cowork-Agent/3.Runbook.md)
+See [Insights Analyst delivery](../../01-scenarios/Insights-Analyst-Cowork-Agent/3.Runbook.md)
 for the six-skill implementation and per-function acceptance matrix.
