@@ -295,7 +295,7 @@ const SCENARIOS = [
     "id": "Employee-Self-Service-Agent-Microsoft-Copilot-Harness",
     "title": "Employee Self-Service Agent with Microsoft Copilot Harness",
     "icon": "🧑‍💻",
-    "desc": "SharePoint and ServiceNow knowledge plus seven starter skills: own HR-case/active-incident lists, incident creation, Workday profile/Cost Center, existing home-phone update and standard time-off request. Live bindings unvalidated and OFF; not a deployed agent.",
+    "desc": "SharePoint and ServiceNow knowledge plus nine starter skills: own HR-case/active-incident lists, HR-case and incident creation, Workday profile/Cost Center, existing home-phone update and standard time-off request. Live bindings unvalidated and OFF; not a deployed agent.",
     "tech": [
       "Microsoft Copilot Studio",
       "Microsoft Copilot Harness",

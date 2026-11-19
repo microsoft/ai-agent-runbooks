@@ -22,8 +22,8 @@
 
 ## Interpretation and support boundaries
 
-- **Integration boundary:** the eight starter procedures define required Workday and ServiceNow bindings. Integration owners must establish supported schemas, delegated identity and per-environment validation before enabling them.
-- **Design choice:** one authenticated front door; knowledge/navigation through global instructions without separate skills; eight optional own-record live skills, with one primary route for overlapping core-profile lookups; exact confirmation and reconciliation for writes; no autonomous execution.
+- **Integration boundary:** the nine starter procedures define required Workday and ServiceNow bindings. Integration owners must establish supported schemas, delegated identity and per-environment validation before enabling them.
+- **Design choice:** one authenticated front door; knowledge/navigation through global instructions without separate skills; nine optional own-record live skills, with one primary route for overlapping core-profile lookups; exact confirmation and reconciliation for writes; no autonomous execution.
 - **Binding evidence:** names/paths from the supplied skills are requirements to validate, not proof of vendor availability or delivered workflows. No former scenario-owned aliases are needed.
 - **Tenant gate:** runbook `[VERIFY]` entries have owners and acceptance criteria. Sensitive capabilities require explicit approval and tenant validation before enablement.
 - **Deployment value:** runbook `[FILL]` entries belong in a restricted deployment record, not runtime skills or source control.

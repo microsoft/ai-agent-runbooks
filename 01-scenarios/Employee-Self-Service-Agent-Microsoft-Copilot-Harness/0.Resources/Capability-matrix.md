@@ -1,12 +1,12 @@
 # Employee Self-Service Microsoft Copilot Harness capability matrix
 
-**Implementation status:** Eight starter runtime skills: seven adapted from the supplied definitions on 2026-11-11 and the connector-based employee-information skill added on 2026-11-13. No deployed tool bindings, workflows, credentials or live test evidence are supplied. All eight live capabilities are OFF until validated.
+**Implementation status:** Nine starter runtime skills, including confirmed submission of an employee's own HR case. No deployed tool bindings, workflows, credentials or live test evidence are supplied. All live capabilities are OFF until validated.
 
 ## Profiles and enabling rules
 
 **Knowledge-only baseline:** approved SharePoint and ServiceNow KB retrieval and source-backed navigation are handled by global instructions and configured knowledge, not separate skills. No action tools are exposed. Enable knowledge only after K passes.
 
-**Starter live scope:** select individual rows below after their gates pass; importing all eight is not required. Tool names come from the supplied skill definitions and are **binding requirements to verify**, not independently verified vendor operation IDs or proof of tenant availability. Record actual schemas, versions, delegated identity and allowed operations in the deployment manifest. For overlapping core-profile lookups, select the connector or MCP profile route; MCP-only requested reads remain separately governed. Do not duplicate lookups or switch routes after OFF, denied or failed results. Do not retain the old 28-skill set alongside these replacements.
+**Starter live scope:** select individual rows below after their gates pass; importing all nine is not required. Tool names come from the supplied skill definitions and are **binding requirements to verify**, not independently verified vendor operation IDs or proof of tenant availability. Record actual schemas, versions, delegated identity and allowed operations in the deployment manifest. For overlapping core-profile lookups, select the connector or MCP profile route; MCP-only requested reads remain separately governed. Do not duplicate lookups or switch routes after OFF, denied or failed results. Do not retain the old 28-skill set alongside these replacements.
 
 ## Capability inventory and import order
 
@@ -19,7 +19,8 @@
 | [request-workday-time-off-mcp](Skills/request-workday-time-off-mcp/SKILL.md) | Supplied standard time-off procedure; new starter capability | Worker resolution; `find_worker_eligible_absence_types`, `find_worker_valid_time_off_dates`, `find_worker_time_off_details`, `create_worker_time_off_request` | Supplied Workday-MCP names; tenant binding unverified | D, W, H | OFF; own Time Off / Absence Table only, confirmed submission, no Leave of Absence or approval |
 | [create-servicenow-incident](Skills/create-servicenow-incident/SKILL.md) | Supplied incident procedure; replaces broad incident-create alias | `GetIncidents` (trusted own user resolution), `CreateIncident` | Supplied names/parameters; tenant binding unverified | S, W | OFF; own caller, severity + short description, exact confirmation |
 | [list-open-servicenow-tickets](Skills/list-open-servicenow-tickets/SKILL.md) | Supplied active-incident list; other-person search removed | `GetIncidents` with fixed active/own-caller filter | Supplied names/query; effective employee identity unverified | S | OFF; own active incidents, three-column table, 50-record coverage limit |
-| [list-hr-cases](Skills/list-hr-cases/SKILL.md) | Supplied HR-case list; replaces HR list alias | `GetCases` | Supplied name; own-case/filter behavior unverified | S, H | OFF; own employee-visible cases, four-column table, actual queried state scope |
+| [list-hr-cases](Skills/list-hr-cases/SKILL.md) | Supplied HR-case list; replaces HR list alias | `List My HR Cases` | Supplied name; own-case/filter behavior unverified | S, H | OFF; own employee-visible cases with current user as both Opened For and Subject Person, four-column table with linked case numbers, actual queried state scope |
+| [submit-new-hr-case](Skills/submit-new-hr-case/SKILL.md) | Submit an ordinary HR case for oneself | `Fetch HR Services`, `Create HR Case` | List Records (HR Services) and Create Record (HR Case); validate service eligibility and persistence of both descriptions on create | S, H, W | OFF; employee selects service and confirms the case; both Opened For and Subject Person must resolve to the signed-in employee |
 
 Dependencies are tool/backend requirements, not additional skill imports:
 
@@ -33,8 +34,8 @@ Dependencies are tool/backend requirements, not additional skill imports:
 
 ## Deferred and excluded scope
 
-The previous HR-case create/details/latest-update/update/attachment skills, incident details/latest-update/update/attachment skills, Workday email updates and specialist Workday reads (compensation, certifications, company code, emergency contacts, languages, national IDs, passports, visas and dedicated anniversary lookup) are **not shipped or enabled** in this starter set. Requested approved employee-ID fields may be answered by either configured profile route; source service dates remain MCP-only if actually returned. This does not restore specialist operations. No attachments, new phone creation, work-phone edits, Leave of Absence, manager access, catalog checkout or population reporting are implied.
+HR-case details/latest-update/update/attachment skills, incident details/latest-update/update/attachment skills, Workday email updates and specialist Workday reads (compensation, certifications, company code, emergency contacts, languages, national IDs, passports, visas and dedicated anniversary lookup) are **not shipped or enabled** in this starter set. Requested approved employee-ID fields may be answered by either configured profile route; source service dates remain MCP-only if actually returned. This does not restore specialist operations. No attachments, new phone creation, work-phone edits, Leave of Absence, manager access, catalog checkout or population reporting are implied.
 
 Knowledge answers/navigation remain supported without runtime skills. The planning workbook is a broader illustrative backlog, not the current import manifest: mark any rows outside this matrix deferred/not selected.
 
-[Skills index](Skills/README.md) and [acceptance cases](../5.Sample-prompts.md#capability-tests) cover these same eight IDs in this order. Disabling/deleting a skill also requires revoking its tool/backend/alternate-path access and handling active sessions and pending work; preserve shared connections needed by other enabled skills.
+[Skills index](Skills/README.md) and [acceptance cases](../5.Sample-prompts.md#capability-tests) cover these same nine IDs in this order. Disabling/deleting a skill also requires revoking its tool/backend/alternate-path access and handling active sessions and pending work; preserve shared connections needed by other enabled skills.
