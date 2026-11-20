@@ -611,6 +611,23 @@ const SCENARIOS = [
 
 const PATTERNS = [
   {
+    "id": "ServiceNow-Integration",
+    "title": "ServiceNow Integration",
+    "icon": "🧩",
+    "desc": "ServiceNow instance readiness, Entra ID SAML SSO, Knowledge Copilot connector onboarding, and Power Platform OIDC connection setup, with identity mapping, pilot tests, recovery, and separate authorization boundaries.",
+    "tech": [
+      "ServiceNow",
+      "Microsoft Entra ID",
+      "SAML 2.0",
+      "OIDC",
+      "Power Platform",
+      "Copilot Connectors"
+    ],
+    "status": "Documentation Available",
+    "file": "ServiceNow-Integration/ServiceNow-Integration.md",
+    "theme": "Integration"
+  },
+  {
     "id": "Workday-Integration",
     "title": "Workday Integration",
     "icon": "🔐",
