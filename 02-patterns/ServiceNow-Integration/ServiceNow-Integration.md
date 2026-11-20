@@ -6,13 +6,11 @@ and Knowledge Copilot connector setup**, **ServiceNow browser SSO with Microsoft
 ingestion, live connector operations, and custom tools so that one successful sign-in
 is not mistaken for a working integration.
 
-The delivery includes a PDI-only combined SSO/OIDC configuration runbook, with OIDC authentication
-as its own numbered step, and three separate runbooks for developer tenant creation,
-HR plugin installation, and Knowledge Copilot connector configuration. Business operations and custom tools below remain
-decision guidance, not delivered actions, flows, or tool implementations.
-
-A separate [manual OIDC runbook](ServiceNow-OIDC-Runbook.md) is a draft; its ServiceNow
-provider-registration procedure is not yet complete.
+This folder includes separate runbooks for developer instance creation, HR plugin
+installation, Knowledge Copilot connector configuration, and Power Platform OIDC
+authentication. Browser SSO uses the official Microsoft documentation linked below.
+Business operations and custom tools remain decision guidance, not delivered actions,
+flows, or tool implementations.
 
 ---
 
@@ -20,9 +18,9 @@ provider-registration procedure is not yet complete.
 
 | Integration option | Use when you need... | Implementation guidance |
 | --- | --- | --- |
-| **Entra ID SSO** | Users to open the ServiceNow application with their Entra accounts | [ServiceNow SSO and OIDC configuration runbook](ServiceNow-DEV-INSTANCE-Entra-ID-SSO-OIDC-Runbook.md) - included for Personal Developer Instances only |
+| **Entra ID SSO** | Users to open the ServiceNow application with their Entra accounts | [Configure ServiceNow SSO with Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/saas-apps/servicenow-tutorial) - official Microsoft tutorial |
 | Knowledge ingestion | ServiceNow knowledge articles to appear in permission-trimmed Microsoft 365 Copilot search and answers | [Knowledge Copilot connector configuration runbook](ServiceNow-Copilot-Connector-Configuration-Runbook.md) - separate [developer tenant setup](ServiceNow-Developer-Tenant-Setup-Runbook.md) and [HR plugin installation](ServiceNow-HR-Plugin-Installation-Runbook.md) runbooks included; see also [Copilot Connector Knowledge Onboarding](../Copilot-Connector-Knowledge-Onboarding/Copilot-Connector-Knowledge-Onboarding.md) |
-| Live connector operations | A Copilot Studio agent, app, or workflow to read or change approved ServiceNow records | [Configure Entra ID OIDC authentication support with ServiceNow](ServiceNow-DEV-INSTANCE-Entra-ID-SSO-OIDC-Runbook.md#7-configure-entra-id-oidc-authentication-support-with-servicenow) - PDI connection setup included as a separate step; operation configuration and approval remain separate |
+| Live connector operations | A Copilot Studio agent, app, or workflow to read or change approved ServiceNow records | [ServiceNow OIDC configuration runbook](ServiceNow-OIDC-Runbook.md) - manual connection setup; operation configuration and approval remain separate |
 | Custom MCP tools | Narrow live operations not adequately covered by the connector | [MCP Server Integration](../MCP-Server-Integration/MCP-Server-Integration.md) - separate service, host authentication, and backend policy required |
 
 **Authentication is not authorization.** Entra app assignment does not create a
@@ -35,7 +33,8 @@ index. User provisioning is a separate lifecycle decision.
 ## Architecture
 
 The diagram shows logical integration boundaries, not complete token exchanges.
-Browser SSO, knowledge ingestion, and Power Platform OIDC authentication have setup guides in this folder.
+Browser SSO, knowledge ingestion, and Power Platform OIDC authentication have separate
+setup guides linked below; browser SSO uses official Microsoft documentation.
 
 ```mermaid
 flowchart LR
@@ -85,16 +84,14 @@ instance or, where available and suitable, a Personal Developer Instance (PDI).
 Developer-site access is not the same as an instance entitlement or administrator access;
 verify plugin availability and the current developer-program conditions.
 
-Use the automated runbook only with a PDI. For other instances, follow the
-[official Microsoft SSO tutorial](https://learn.microsoft.com/en-us/entra/identity/saas-apps/servicenow-tutorial).
+Follow the official [ServiceNow SSO tutorial](https://learn.microsoft.com/en-us/entra/identity/saas-apps/servicenow-tutorial)
+for SAML configuration. For this pattern:
 
-The SSO steps in the [PDI-only combined implementation runbook](ServiceNow-DEV-INSTANCE-Entra-ID-SSO-OIDC-Runbook.md) cover:
-
-- Instance readiness, retained local administrator recovery, and a configuration baseline.
-- The ServiceNow gallery enterprise application and instance-specific SAML values.
-- NameID mapping to the intended ServiceNow user field.
-- Multi-Provider SSO, identity-provider metadata, and the signing certificate.
-- Pilot assignment, positive and negative sign-in tests, rollback, and renewal ownership.
+- Confirm instance readiness, retain local administrator recovery, and record a configuration baseline.
+- Configure the ServiceNow gallery enterprise application and instance-specific SAML values.
+- Match NameID to the intended ServiceNow user field.
+- Configure Multi-Provider SSO, identity-provider metadata, and the signing certificate.
+- Confirm pilot assignment, positive and negative sign-in tests, rollback, and renewal ownership.
 
 **Outcome:** an assigned user signs in to the correct ServiceNow instance as the intended
 ServiceNow account and receives only that account's permitted access. Do not make a new
@@ -104,19 +101,23 @@ provider the instance default before pilot acceptance and a separate rollout dec
 
 ## 3. Configure Entra ID OIDC authentication support with ServiceNow
 
-Use [step 7 in the PDI-only combined SSO/OIDC runbook](ServiceNow-DEV-INSTANCE-Entra-ID-SSO-OIDC-Runbook.md#7-configure-entra-id-oidc-authentication-support-with-servicenow)
+Use the local [ServiceNow OIDC configuration runbook](ServiceNow-OIDC-Runbook.md)
 to authenticate ServiceNow Power Platform connector API requests independently of browser
 SAML SSO. It covers:
 
-- Running `Configure-ServiceNowOIDC.ps1` script with the application display name, instance URL, and authorized ServiceNow administrator credentials.
-- Capturing the returned **AppId** for the connection's **Resource URI**.
+- Manually registering the Entra application and configuring its token claims,
+  delegated scope, and connector authorization.
+- Registering the corresponding ServiceNow OIDC provider and matching its user claim
+  to the intended ServiceNow user field.
+- Using the Entra application's **Application (client) ID** as the connection's **Resource URI**.
 - Creating a ServiceNow Power Platform connection with **Microsoft Entra ID User Login**.
-- Checking existing OIDC provider dependencies and validating an approved read, the
-  effective user, and denied access through the consuming host.
+- Checking existing OIDC provider dependencies before configuring the connection.
+- Verifying that connection creation succeeds and the status is **Connected**.
 
-**Outcome:** the selected Power Platform host calls ServiceNow as the approved user.
-This step does not configure certificate-based application authentication, deliver
-business-record actions, or establish that a maker-owned connection executes as each end user.
+**Outcome:** a ServiceNow Power Platform user-login connection is created successfully
+and shows **Connected**. This does not validate API permissions, record access, or agent
+behavior, configure certificate-based application authentication, or establish that a
+maker-owned connection executes as each end user.
 
 ---
 
@@ -125,7 +126,7 @@ business-record actions, or establish that a maker-owned connection executes as 
 | Path | Design constraint before implementation |
 | --- | --- |
 | Knowledge connector | Configure the ingestion identity and source-to-Entra permission mapping separately. Evaluate knowledge-base and article user criteria, including script-based criteria; use the documented Advanced flow where scripts are present. Indexed content is not a live incident feed |
-| Power Platform connector | The [PDI OIDC configuration step](ServiceNow-DEV-INSTANCE-Entra-ID-SSO-OIDC-Runbook.md#7-configure-entra-id-oidc-authentication-support-with-servicenow) uses **Microsoft Entra ID User Login**. The connector's separate **Microsoft Entra ID OAuth using Certificate** option is app-token based, not delegated user access, and is not configured by this runbook. Neither is configured by the SAML enterprise application alone. Check existing Knowledge connector OIDC mappings before changing a provider |
+| Power Platform connector | The local [OIDC configuration runbook](ServiceNow-OIDC-Runbook.md) uses **Microsoft Entra ID User Login**. The connector's separate **Microsoft Entra ID OAuth using Certificate** option is app-token based, not delegated user access, and is not configured by that runbook. Neither is configured by the SAML enterprise application alone. Check existing Knowledge connector OIDC mappings before changing a provider |
 | Record creation | The connector reference documents that `CreateRecord` can ignore the full description. If complete initial content is required, validate a supported create-only alternative or record a blocker; do not silently add an `UpdateRecord` operation |
 | Custom tools | Fix the instance, tables, fields, query bounds, and permitted actions in backend policy. Do not expose a generic administrator API or accept model-selected identities |
 | Agent delegation | This initial pattern does not claim ServiceNow A2A support or copy Workday's agent registration procedure. Qualify any vendor-agent integration independently |
@@ -157,9 +158,10 @@ all business-record writes are outside this initial delivery.
    then [Knowledge Copilot connector configuration](ServiceNow-Copilot-Connector-Configuration-Runbook.md).
    The HR runbook includes demo-data setup for an isolated developer instance; adapt the
    corpus and permissions to the approved scope.
-3. For a PDI, complete the instance-readiness and SSO steps in the [combined SSO/OIDC runbook](ServiceNow-DEV-INSTANCE-Entra-ID-SSO-OIDC-Runbook.md).
-4. For PDI Power Platform connections, complete [Configure Entra ID OIDC authentication support with ServiceNow](ServiceNow-DEV-INSTANCE-Entra-ID-SSO-OIDC-Runbook.md#7-configure-entra-id-oidc-authentication-support-with-servicenow)
-   in the same runbook and check existing OIDC provider dependencies before configuring the connection.
+3. For browser SSO, follow the official [ServiceNow SSO tutorial](https://learn.microsoft.com/en-us/entra/identity/saas-apps/servicenow-tutorial)
+   and confirm the recovery and pilot acceptance requirements above.
+4. For Power Platform connections, follow the local [ServiceNow OIDC configuration runbook](ServiceNow-OIDC-Runbook.md)
+   and check existing OIDC provider dependencies before configuring the connection.
 5. Configure and validate each path independently; use the actual end-user identity for
    delegated operations and explicitly govern any application identity.
 
@@ -173,7 +175,7 @@ the working SSO configuration and diagnose the failing path rather than broadeni
 | --- | --- |
 | Browser SSO | Fresh SP-initiated login, correct instance and mapped user, assignment denial, expected source access limits, and working administrator recovery |
 | Knowledge connector | Separate ingestion and permission tests, including a restricted article and source permission changes |
-| Power Platform OIDC | Approved read through the actual consuming host, confirmed effective user/application identity, denied access to restricted data, and no regression of existing integrations |
+| Power Platform OIDC | Successful connection creation using Microsoft Entra ID User Login with **Connected** status; API permissions, record access, and agent behavior require separate validation |
 | Later action path | Approved operation with observed effective identity, a denied out-of-scope operation, and source-backed outcome verification |
 
 This folder contains manual configuration documentation. It does not configure a tenant,

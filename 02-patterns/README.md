@@ -93,7 +93,6 @@ The `02-patterns/` folder contains one subfolder per supported technical pattern
 │   └── Pilot-to-Scale-Validation-Gates-Runbook.md
 ├── ServiceNow-Integration/                                          ← Documentation Available
 │   ├── ServiceNow-Integration.md
-│   ├── ServiceNow-DEV-INSTANCE-Entra-ID-SSO-OIDC-Runbook.md
 │   ├── ServiceNow-OIDC-Runbook.md
 │   ├── ServiceNow-Developer-Tenant-Setup-Runbook.md
 │   ├── ServiceNow-HR-Plugin-Installation-Runbook.md
