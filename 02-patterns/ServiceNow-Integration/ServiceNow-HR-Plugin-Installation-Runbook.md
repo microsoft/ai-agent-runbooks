@@ -51,7 +51,7 @@ This runbook prepares the sample content. Authentication and ingestion are cover
 
 ## 2. Verify Knowledge Bases are Available
 
-After Human Resources Scoped App: Core is installed verify that HR knowledge bases are available
+After Human Resources Scoped App: Core is installed, verify that HR knowledge bases are available
 
 1. Click the **"All"** tab in the top navigation
    
@@ -61,7 +61,7 @@ After Human Resources Scoped App: Core is installed verify that HR knowledge bas
 
    ![Knowledge Bases selection screen](Images/024.png?v=0234a6217a04&refresh=20260921T184148Z)
 
-4. Confirm that the **four default knowledge bases**, including **IT**, and **three HR knowledge bases** are listed.
+4. Confirm that the **default knowledge bases**, including **IT**, and **HR knowledge bases** are listed.
 
    ![Knowledge Bases list showing four default bases and three HR bases](Images/025.png?v=4a40ad9d06c1&refresh=20260921T184148Z)
 
