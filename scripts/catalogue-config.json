@@ -168,6 +168,10 @@
     }
   },
   "patterns": {
+    "ServiceNow-Integration": {
+      "title": "ServiceNow Integration",
+      "theme": "Integration"
+    },
     "Workday-Integration": {
       "title": "Workday Integration",
       "icon": "🔐",
