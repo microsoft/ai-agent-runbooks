@@ -77,7 +77,31 @@ Each scenario folder is self-contained and follows a standardized structure so t
 │   ├── 2.Architecture.md
 │   ├── 3.Runbook.md
 │   └── 4.Sample-prompts.md
+├── 📂 Chief-of-Staff-D365-Sales-Cowork-Agent/   ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Chief-of-Staff-D365-Service-Cowork-Agent/ ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
 ├── 📂 Insights-Analyst-Cowork-Agent/      ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Insights-Analyst-D365-Sales-Cowork-Agent/   ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Insights-Analyst-D365-Service-Cowork-Agent/ ← ✅ Available
 │   ├── 📂 0.Resources/
 │   ├── 1.Overview.md
 │   ├── 2.Architecture.md
@@ -379,7 +403,11 @@ scenarios. Tenant enablement is shared delivery guidance, not an additional busi
 | [Case Specialist Cowork Agent](./Case-Specialist-Cowork-Agent/) | Service / Complex Cases | Case intake, knowledge-cited replies, diagnosis hypotheses, stalled-case outreach and escalation handoffs; PII controls and specialist-approved actions. | Microsoft 365 Copilot Cowork, SharePoint, OneDrive, Outlook, Teams | ✅ Available |
 | [Service Ops Leader Cowork Agent](./Service-Ops-Leader-Cowork-Agent/) | Service / Operations Leadership | SLA triage, service reviews, intervention trackers, customer-feedback themes and team-level coaching; fresh source/timezone checks and no individual agent scoring. | Microsoft 365 Copilot Cowork, Excel Online, SharePoint, Outlook, Teams, Power BI | ✅ Available |
 | [Chief-of-Staff-Cowork-Agent](./Chief-of-Staff-Cowork-Agent/) | Leadership Productivity / Executive Readiness | Five configured skills for weekly briefs, executive drafts, leadership packs and observable team-work digests; draft-first approvals, people safety and optional recurring preparation. | Microsoft 365 Copilot Cowork, Outlook, Teams, SharePoint, OneDrive | ✅ Available |
+| [Chief of Staff D365 Sales Cowork Agent](./Chief-of-Staff-D365-Sales-Cowork-Agent/1.Overview.md) | Sales Leadership / Executive Readiness | Seven configured skills on the Dynamics 365 Sales plugin: Monday leadership brief, deal briefs, approval-gated pipeline hygiene, lead re-engagement, segment patterns and review decks. | Microsoft 365 Copilot Cowork, Dynamics 365 Sales, Dataverse, Outlook, Teams, PowerPoint | ✅ Available |
+| [Chief of Staff D365 Service Cowork Agent](./Chief-of-Staff-D365-Service-Cowork-Agent/1.Overview.md) | Service Leadership / Executive Readiness | Seven configured skills on the Dynamics 365 Customer Service plugin: Monday leadership brief, escalation briefs, approval-gated queue hygiene, queue and knowledge-gap patterns and review decks. | Microsoft 365 Copilot Cowork, Dynamics 365 Customer Service, Dataverse, Outlook, Teams, PowerPoint | ✅ Available |
 | [Insights Analyst Cowork Agent](./Insights-Analyst-Cowork-Agent/) | Business Analytics / Recurring Reviews | Six configured skills: one router and five consolidated Sales, Finance, Retail, Manufacturing and Service reviews from approved sources; KPI reconciliation, RLS, Markdown and HTML outputs. | Microsoft 365 Copilot Cowork, Power BI, Microsoft Fabric, Excel Online | ✅ Available |
+| [Insights Analyst D365 Sales Cowork Agent](./Insights-Analyst-D365-Sales-Cowork-Agent/1.Overview.md) | Sales Analytics / Recurring Reviews | Seven skills for read-only weekly, monthly and quarterly Dynamics 365 Sales reviews from one metric dictionary, with an Excel and PowerPoint report pack. | Microsoft 365 Copilot Cowork, Dynamics 365 Sales, Dataverse, Excel, PowerPoint, SharePoint | ✅ Available |
+| [Insights Analyst D365 Service Cowork Agent](./Insights-Analyst-D365-Service-Cowork-Agent/1.Overview.md) | Service Analytics / Recurring Reviews | Seven skills for read-only weekly, monthly and quarterly Dynamics 365 Customer Service reviews from one metric dictionary, with an Excel and PowerPoint report pack. | Microsoft 365 Copilot Cowork, Dynamics 365 Customer Service, Dataverse, Excel, PowerPoint, SharePoint | ✅ Available |
 | [Calendar Request Approval Agent](./Calendar-Request-Approval-Agent/1.Overview.md) | Workforce Productivity / Approvals | Confirm calendar requests, enforce request-type authorization and approval policy, and publish to SharePoint and an explicitly authorized Outlook calendar. Includes production recovery guidance. | Microsoft Copilot Studio, Power Automate, SharePoint, Office 365 Outlook | ✅ Available |
 | [Country-Aware HR Knowledge Agent](./Country-Aware-HR-Knowledge-Agent/1.Overview.md) | HR Knowledge / Governed Retrieval | Country-scoped SharePoint knowledge with organization-wide and optional restricted lanes, custom ingestion, authenticated retrieval, ACL freshness, and permission-aware access. | Microsoft Copilot Studio, Microsoft Graph, Azure AI Search, Azure OpenAI, SharePoint | ✅ Available |
 | [Autonomous-Invoice-Orchestration-Ageny](./Autonomous-Invoice-Orchestration-Agent/) | Payment Approval Automation | Automates the payment request and approval process.| Microsoft Copilot Studios, Power Automate|✅ Available |

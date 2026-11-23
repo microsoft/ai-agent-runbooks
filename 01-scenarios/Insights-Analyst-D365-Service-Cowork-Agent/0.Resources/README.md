@@ -49,11 +49,13 @@ Their contents are unchanged.
 
 ## Package Notes and Prerequisites
 
-- **Companion references not included.** Several "Use instead" tables and descriptions hand off to
-  Chief of Staff Service skills (`service-leader-360`, `escalation-brief`, `knowledge-gap-pattern`,
-  `queue-pulse`, `service-review-deck`). Those packages are not part of this repository and differ
-  from the [Chief of Staff Cowork Agent](../../Chief-of-Staff-Cowork-Agent/1.Overview.md)
-  scenario. Treat the references as routing hints, not bundled assets.
+- **Companion skills.** Several "Use instead" tables and descriptions hand off to Chief of Staff
+  Service skills (`service-leader-360`, `escalation-brief`, `knowledge-gap-pattern`, `queue-pulse`,
+  `service-review-deck`). They are published as the
+  [Chief of Staff D365 Service Cowork Agent](../../Chief-of-Staff-D365-Service-Cowork-Agent/1.Overview.md),
+  not as part of the [Chief of Staff Cowork Agent](../../Chief-of-Staff-Cowork-Agent/1.Overview.md).
+  The handoffs apply only where that package is installed for the same users; otherwise treat them
+  as routing hints.
 - **Sibling reference.** `account-service-health` points to `key-account-health` in the Insights
   Analyst D365 Sales package, published as the
   [Insights Analyst D365 Sales Cowork Agent](../../Insights-Analyst-D365-Sales-Cowork-Agent/1.Overview.md).
@@ -65,12 +67,20 @@ Their contents are unchanged.
   website, privacy and terms URLs. Have the package owner replace them with approved organisation
   values in a working copy before organisational distribution. The URLs in the published ZIP have
   not been changed.
+- **Licence metadata.** Each `SKILL.md` declares `license: Proprietary` in its frontmatter. The
+  repository [LICENSE](../../../LICENSE) governs content published here; align the field in any
+  working copy prepared for distribution.
 - **Manifest version.** The manifest uses `devPreview`. Switch to 1.28 or 1.29 in a working copy
   only if the upload channel requires it, then retest.
 - **Data access.** The ZIPs do not enable the Service plugin, the Customer Service MCP
   configuration, the Dataverse MCP server, the tenant Work IQ setting, case audit history, the SLA
   calendar or the Fabric IQ plugin, and do not provision the report archive folder. Qualify these
-  as described in the [runbook](../3.Runbook.md).
+  with the [Cowork D365 Plugin Enablement](../../../02-patterns/Cowork-D365-Sales-Service-Plugin-Enablement/Cowork-D365-Sales-Service-Plugin-Enablement.md) pattern
+  and the [runbook](../3.Runbook.md).
+- **Filing approval.** The skill text lets a schedule owner pre-approve archive filing. Cowork
+  cannot restrict that pre-approval to the archive folder, so this scenario requires approval for
+  each filing; see [Archive filing approval](../3.Runbook.md#archive-filing-approval). The
+  archives are unchanged.
 - **Overlap.** The [Insights Analyst Cowork Agent](../../Insights-Analyst-Cowork-Agent/1.Overview.md)
   includes a `service-analytics` skill, and the Case Specialist and Service Ops Leader packs cover
   adjacent service workflows. The `backlog-trend-weekly` description includes the trigger phrase

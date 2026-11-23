@@ -47,21 +47,34 @@ contents are unchanged.
 
 ## Package Notes and Prerequisites
 
-- **Companion references not included.** Several "Use instead" tables and descriptions hand off to
-  Chief of Staff Sales skills (`sales-leader-360`, `deal-brief`, `pipeline-pulse`,
-  `segment-pattern`, `pipeline-review-deck`) and to one Chief of Staff Service skill
-  (`escalation-brief`). Those packages are not part of this repository and differ from the
-  [Chief of Staff Cowork Agent](../../Chief-of-Staff-Cowork-Agent/1.Overview.md) scenario. Treat
-  the references as routing hints, not bundled assets.
+- **Companion skills.** Several "Use instead" tables and descriptions hand off to Chief of Staff
+  Sales skills (`sales-leader-360`, `deal-brief`, `pipeline-pulse`, `segment-pattern`,
+  `pipeline-review-deck`) and to one Chief of Staff Service skill (`escalation-brief`). They are
+  published as the
+  [Chief of Staff D365 Sales Cowork Agent](../../Chief-of-Staff-D365-Sales-Cowork-Agent/1.Overview.md)
+  and the
+  [Chief of Staff D365 Service Cowork Agent](../../Chief-of-Staff-D365-Service-Cowork-Agent/1.Overview.md),
+  not as part of the [Chief of Staff Cowork Agent](../../Chief-of-Staff-Cowork-Agent/1.Overview.md).
+  The handoffs apply only where those packages are installed for the same users; otherwise treat
+  them as routing hints.
 - **Developer details.** The manifest names "Productivity Squad" as developer, with microsoft.com
   website, privacy and terms URLs. Have the package owner replace them with approved organisation
   values in a working copy before organisational distribution. The URLs in the published ZIP have
   not been changed.
+- **Licence metadata.** Each `SKILL.md` declares `license: Proprietary` in its frontmatter. The
+  repository [LICENSE](../../../LICENSE) governs content published here; align the field in any
+  working copy prepared for distribution.
 - **Manifest version.** The manifest uses `devPreview`. Switch to 1.28 or 1.29 in a working copy
   only if the upload channel requires it, then retest.
 - **Data access.** The ZIPs do not enable the Sales plugin, the Dataverse MCP server, the tenant
   Work IQ setting, opportunity audit history or the Fabric IQ plugin, and do not provision the
-  report archive folder. Qualify these as described in the [runbook](../3.Runbook.md).
+  report archive folder. Qualify these with the
+  [Cowork D365 Plugin Enablement](../../../02-patterns/Cowork-D365-Sales-Service-Plugin-Enablement/Cowork-D365-Sales-Service-Plugin-Enablement.md) pattern
+  and the [runbook](../3.Runbook.md).
+- **Filing approval.** The skill text lets a schedule owner pre-approve archive filing. Cowork
+  cannot restrict that pre-approval to the archive folder, so this scenario requires approval for
+  each filing; see [Archive filing approval](../3.Runbook.md#archive-filing-approval). The
+  archives are unchanged.
 - **Overlap.** The [Insights Analyst Cowork Agent](../../Insights-Analyst-Cowork-Agent/1.Overview.md)
   includes a `sales-analytics` skill, and the Number Owner and Quota Carrier packs cover adjacent
   sales workflows. Qualify routing with

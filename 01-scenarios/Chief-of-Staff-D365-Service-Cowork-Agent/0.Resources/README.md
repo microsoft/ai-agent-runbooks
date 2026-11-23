@@ -56,7 +56,7 @@ values were replaced with placeholders, and Microsoft Learn prerequisites review
 - **MCP configuration.** Microsoft Learn asks administrators to confirm that the Service app is
   assigned and that the required Customer Service MCP configuration is in place. The author's
   runbook enables the Dataverse MCP server on the environment. Record the configuration the tenant
-  uses during [Cowork D365 Plugin Enablement](../../../02-patterns/Cowork-D365-Plugin-Enablement/Cowork-D365-Plugin-Enablement.md).
+  uses during [Cowork D365 Plugin Enablement](../../../02-patterns/Cowork-D365-Sales-Service-Plugin-Enablement/Cowork-D365-Sales-Service-Plugin-Enablement.md).
 - **Related scenarios.** The
   [Insights Analyst D365 Service Cowork Agent](../../Insights-Analyst-D365-Service-Cowork-Agent/1.Overview.md)
   hands weekly-brief, escalation, queue hygiene, knowledge-gap and deck requests to these skills.
@@ -120,4 +120,4 @@ or delete this sentence.] Upload compatibility in other tenants, data access and
 acceptance have not been validated.
 
 See the [overview](../1.Overview.md), [runbook](../3.Runbook.md) and
-[plugin enablement pattern](../../../02-patterns/Cowork-D365-Plugin-Enablement/Cowork-D365-Plugin-Enablement.md).
+[plugin enablement pattern](../../../02-patterns/Cowork-D365-Sales-Service-Plugin-Enablement/Cowork-D365-Sales-Service-Plugin-Enablement.md).

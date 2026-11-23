@@ -109,7 +109,7 @@ boundary.
 | Security / compliance owner | Data scope, write posture and Works Council or data protection items where applicable |
 
 Keep customer configuration, environment names and test evidence in the customer's governed
-workspace. The [runbook evidence list](Cowork-D365-Plugin-Enablement-Runbook.md#evidence-artifacts)
+workspace. The [runbook evidence list](Cowork-D365-Sales-Service-Plugin-Enablement-Runbook.md#evidence-artifacts)
 identifies what to produce.
 
 ## How to Apply
@@ -132,15 +132,15 @@ identifies what to produce.
 7. **Verify, test and hand over:** verification checklist, PLG-001 to PLG-008 as applicable,
    success criteria and run-state owners.
 
-Follow the [13-step runbook](Cowork-D365-Plugin-Enablement-Runbook.md), including the
-[functional tests](Cowork-D365-Plugin-Enablement-Runbook.md#functional-tests-and-prompts).
+Follow the [13-step runbook](Cowork-D365-Sales-Service-Plugin-Enablement-Runbook.md), including the
+[functional tests](Cowork-D365-Sales-Service-Plugin-Enablement-Runbook.md#functional-tests-and-prompts).
 
 ## Boundaries That Must Hold
 
 - Record writes stay approval-gated. Every proposed update or send appears in Cowork's approval
   dialog, and pilot users never select **Always allow** or **Approve & don't ask again** for
-  Dataverse updates or sends. Only report-archive filing in the Insights Analyst scenarios may be
-  pre-approved.
+  Dataverse updates or sends. Insights Analyst report-archive filing is approved each time too,
+  because Cowork cannot restrict a pre-approval to the archive folder.
 - Scenario outputs report records (deals, cases, queues, accounts), never rankings or ratings of
   individual sellers or agents.
 - Each user selects and keeps an environment; scenario skills report it and stop on a mismatch.
@@ -186,7 +186,7 @@ Adapted from the user-provided *Dynamics 365 Plugin Enablement Runbook* for Copi
 Runbook*; in this repository, the [Cowork Enablement](../Cowork-Enablement/Cowork-Enablement.md)
 pattern fills that role. Microsoft Learn pages for the Sales and Customer Service plugins and the
 Dataverse MCP server were reviewed on November 20, 2026. No live-tenant validation is implied. See
-the [source interpretation notes](Cowork-D365-Plugin-Enablement-Runbook.md#source-basis-and-interpretation).
+the [source interpretation notes](Cowork-D365-Sales-Service-Plugin-Enablement-Runbook.md#source-basis-and-interpretation).
 
 - [Manage plugins for Copilot Cowork](https://learn.microsoft.com/en-us/copilot/cowork/cowork-manage-plugins)
 - [Available plugins for Copilot Cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-available-plugins)

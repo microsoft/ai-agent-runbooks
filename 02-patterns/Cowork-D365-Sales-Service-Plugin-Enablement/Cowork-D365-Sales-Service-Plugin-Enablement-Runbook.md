@@ -7,7 +7,7 @@ plugin module in scope, prove permissions, policies and approval-gated writes, t
 **Duration:** not fixed. Plan from the customer's approval lead times (Works Council, data
 protection, security roles), not from a template.
 
-Read the [Cowork D365 Plugin Enablement pattern](Cowork-D365-Plugin-Enablement.md) first. Apply
+Read the [Cowork D365 Plugin Enablement pattern](Cowork-D365-Sales-Service-Plugin-Enablement.md) first. Apply
 this procedure after [Cowork Enablement](../Cowork-Enablement/Cowork-Enablement-Runbook.md) and
 before the Dynamics 365 scenario runbooks; plugin enablement is not a separate business scenario.
 
@@ -297,7 +297,7 @@ environment.
 | [Service] Customer Service plugin availability | Scoped to the pilot group or tenant-wide, per the Agents > Tools decision |
 | [Service] Service record writes | Which proposed updates are allowed (Chief of Staff default: priority, follow-up by and queue; never close, resolve or reassign); approval posture confirmed |
 | [Service] Service environment selection | Approved environment display name, selection route and administrator default where available; production or sandbox policy |
-| [Either plugin] Approval dialog posture | Per-action approval during the pilot; no **Always allow** for Dataverse updates or sends; only Insights Analyst report-archive filing may be pre-approved |
+| [Either plugin] Approval dialog posture | Per-action approval during the pilot; no **Always allow** or **Approve & don't ask again** for Dataverse updates, sends or Insights Analyst report-archive filing |
 | [Either plugin] People safety | No per-seller or per-agent rankings or ratings in any scenario output |
 
 **Deliverable:** plugin policy record.

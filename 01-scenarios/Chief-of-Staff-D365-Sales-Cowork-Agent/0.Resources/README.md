@@ -80,7 +80,7 @@ were added.
 - **Data access.** The ZIPs do not enable the Sales plugin, the Dataverse MCP server or the tenant
   Dataverse setting, do not grant Dynamics 365 roles and do not provision schedules. Qualify these
   with the
-  [Cowork D365 Plugin Enablement](../../../02-patterns/Cowork-D365-Plugin-Enablement/Cowork-D365-Plugin-Enablement.md)
+  [Cowork D365 Plugin Enablement](../../../02-patterns/Cowork-D365-Sales-Service-Plugin-Enablement/Cowork-D365-Sales-Service-Plugin-Enablement.md)
   pattern and the [runbook](../3.Runbook.md).
 - **Candidate expansions.** The package README names `deal-signal-watch` and `meeting-to-crm` as
   future candidates. They are not included in either archive.
@@ -121,4 +121,4 @@ or delete this sentence.] Upload compatibility in other tenants, data access and
 acceptance have not been validated.
 
 See the [overview](../1.Overview.md), [runbook](../3.Runbook.md) and
-[plugin enablement pattern](../../../02-patterns/Cowork-D365-Plugin-Enablement/Cowork-D365-Plugin-Enablement.md).
+[plugin enablement pattern](../../../02-patterns/Cowork-D365-Sales-Service-Plugin-Enablement/Cowork-D365-Sales-Service-Plugin-Enablement.md).

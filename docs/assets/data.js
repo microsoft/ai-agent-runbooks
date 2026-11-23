@@ -237,6 +237,38 @@ const SCENARIOS = [
     "type": "Leadership Productivity / Executive Readiness"
   },
   {
+    "id": "Chief-of-Staff-D365-Sales-Cowork-Agent",
+    "title": "Chief of Staff D365 Sales Cowork Agent",
+    "icon": "🗓️",
+    "desc": "Seven configured skills on the Dynamics 365 Sales plugin: Monday leadership brief, deal briefs, approval-gated pipeline hygiene, lead re-engagement, segment patterns and review decks.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Dynamics 365 Sales",
+      "Dataverse",
+      "Outlook",
+      "Microsoft Teams",
+      "PowerPoint"
+    ],
+    "status": "Available",
+    "type": "Sales Leadership / Executive Readiness"
+  },
+  {
+    "id": "Chief-of-Staff-D365-Service-Cowork-Agent",
+    "title": "Chief of Staff D365 Service Cowork Agent",
+    "icon": "🗓️",
+    "desc": "Seven configured skills on the Dynamics 365 Customer Service plugin: Monday leadership brief, escalation briefs, approval-gated queue hygiene, queue and knowledge-gap patterns and review decks.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Dynamics 365 Customer Service",
+      "Dataverse",
+      "Outlook",
+      "Microsoft Teams",
+      "PowerPoint"
+    ],
+    "status": "Available",
+    "type": "Service Leadership / Executive Readiness"
+  },
+  {
     "id": "Insights-Analyst-Cowork-Agent",
     "title": "Insights Analyst Cowork Agent",
     "icon": "📊",
@@ -249,6 +281,38 @@ const SCENARIOS = [
     ],
     "status": "Available",
     "type": "Business Analytics / Recurring Reviews"
+  },
+  {
+    "id": "Insights-Analyst-D365-Sales-Cowork-Agent",
+    "title": "Insights Analyst D365 Sales Cowork Agent",
+    "icon": "📊",
+    "desc": "Seven skills for read-only weekly, monthly and quarterly Dynamics 365 Sales reviews from one metric dictionary, with an Excel and PowerPoint report pack.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Dynamics 365 Sales",
+      "Dataverse",
+      "Excel",
+      "PowerPoint",
+      "SharePoint"
+    ],
+    "status": "Available",
+    "type": "Sales Analytics / Recurring Reviews"
+  },
+  {
+    "id": "Insights-Analyst-D365-Service-Cowork-Agent",
+    "title": "Insights Analyst D365 Service Cowork Agent",
+    "icon": "📊",
+    "desc": "Seven skills for read-only weekly, monthly and quarterly Dynamics 365 Customer Service reviews from one metric dictionary, with an Excel and PowerPoint report pack.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Dynamics 365 Customer Service",
+      "Dataverse",
+      "Excel",
+      "PowerPoint",
+      "SharePoint"
+    ],
+    "status": "Available",
+    "type": "Service Analytics / Recurring Reviews"
   },
   {
     "id": "Autonomous-Invoice-Orchestration-Agent",
@@ -736,6 +800,23 @@ const PATTERNS = [
     ],
     "status": "Available",
     "file": "Cowork-Enablement/Cowork-Enablement.md",
+    "theme": "Delivery & Deployment"
+  },
+  {
+    "id": "Cowork-D365-Sales-Service-Plugin-Enablement",
+    "title": "Cowork D365 Plugin Enablement",
+    "icon": "🔌",
+    "desc": "Shared Dynamics 365 Sales and Customer Service plugin setup after Cowork Enablement: Dataverse setting, plugin and MCP availability, environment selection, approval-gated writes and PLG tests. Prerequisite for the four D365 Cowork scenarios.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Dynamics 365 Sales",
+      "Dynamics 365 Customer Service",
+      "Dataverse",
+      "Microsoft 365 admin center",
+      "Power Platform admin center"
+    ],
+    "status": "Available",
+    "file": "Cowork-D365-Sales-Service-Plugin-Enablement/Cowork-D365-Sales-Service-Plugin-Enablement.md",
     "theme": "Delivery & Deployment"
   },
   {
