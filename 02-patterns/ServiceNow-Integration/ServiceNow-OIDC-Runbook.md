@@ -90,25 +90,28 @@ Do not use a production administrator as the ordinary pilot account. Do not copy
    - User claim: **upn**
       > If ServiceNow User ID = Entra ID UserPrincipalName. If not then see more guidance in [troubleshooting section](#4-troubleshoot-without-broadening-access)
    - User field: **User ID**
-   - Enable JTI verification: **unselected**
+   - Enable JTI verification: **disabled**
+
+      > JTI claim verification has to be off because it makes ServiceNow accept each token for only one API call. Power Platform connector reuses the same Entra ID token for every call until it expires, so every call after the first would fail
 
       ![Microsoft Entra ID OAuth OIDC provider configuration with metadata URL, upn mapped to User ID, and JTI verification disabled](Images/snow-oidc-13.png)
 
-   > **Important**: Select Auth scope either use the available useraccount which grants access to all resources available for user. Consider creating custom scope and define access only to required resources needed for the solution(s) using provider 
+   - Auth scope: Select **useraccount**
    
-   ![ServiceNow Auth scope settings with useraccount selected and the Create auth scope action](Images/snow-oidc-14.png)
+      ![ServiceNow Auth scope settings with useraccount selected and the Create auth scope action](Images/snow-oidc-14.png)
 
-1. **Save** the provider
+5. **Save** the provider
    
-2. Create ServiceNow Power Platform connection for example in agent and configure connection like below
+6. Create ServiceNow Power Platform connection for example in agent and configure connection like below
    
    - Authentication Type: Microsoft Entra ID User Login
    - Resource URI: *Application ID (Client ID) of your Entra application you created earlier*
    - Instance Name: *Your ServiceNow instance name*
 
+
       ![ServiceNow connector connection form with Microsoft Entra ID User Login authentication, Resource URI, and Instance Name](Images/snow-oidc-15.png)
     
-3. Select **Sign in**, complete Microsoft Entra ID authentication with the intended user
+7. Select **Sign in**, complete Microsoft Entra ID authentication with the intended user
    account, and confirm that the ServiceNow Power Platform connection is created
    successfully and shows **Connected**. If creation fails, use the troubleshooting
    section below and retry after correcting the configuration.
