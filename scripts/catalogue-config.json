@@ -130,6 +130,10 @@
       "title": "Employee Self-Service Agent",
       "icon": "🧑‍💻"
     },
+    "Employee-Self-Service-Agent-Microsoft-Copilot-Harness": {
+      "title": "Employee Self-Service Agent with Microsoft Copilot Harness",
+      "icon": "🧑‍💻"
+    },
     "F&O-User-Onboarding-Agent": {
       "title": "F&O User Onboarding Agent",
       "icon": "🪪"
