@@ -4,16 +4,16 @@
 
 | File | Contents | Intended use |
 |---|---|---|
-| [Insights-Analyst-D365-Service-Cowork-Plugin.zip](Insights-Analyst-D365-Service-Cowork-Plugin.zip) | Cowork plugin package: root `manifest.json`, `color.png`, `outline.png`, `README.md` and `shared/metric-dictionary.md`, plus seven expanded skill folders under `skills/`, each with `SKILL.md`, `references/reference.md` and `references/metric-dictionary.md` (26 files). | Upload the complete ZIP through the supported Cowork plugin surface after package-owner review. |
-| [Insights-Analyst-D365-Service-Skills.zip](Insights-Analyst-D365-Service-Skills.zip) | Skills-only bundle: an `Insights-Analyst-d365-service/` wrapper with `README.md`, the master `metric-dictionary.md` and the same seven skill folders (23 files). No app manifest or icons. | Author testing through Upload skill or OneDrive; use the skill folders inside the wrapper. |
+| [Insights-Analyst-D365-Service-Cowork-Plugin.zip](Insights-Analyst-D365-Service-Cowork-Plugin.zip) | Cowork plugin package: root `manifest.json`, `color.png`, `outline.png`, `README.md`, `LICENSE` and `shared/metric-dictionary.md`, plus seven expanded skill folders under `skills/`, each with `SKILL.md`, `references/reference.md` and `references/metric-dictionary.md` (27 files). | Upload the complete ZIP through the supported Cowork plugin surface after package-owner review. |
+| [Insights-Analyst-D365-Service-Skills.zip](Insights-Analyst-D365-Service-Skills.zip) | Skills-only bundle: an `Insights-Analyst-d365-service/` wrapper with `README.md`, `LICENSE`, the master `metric-dictionary.md` and the same seven skill folders (24 files). No app manifest or icons. | Author testing through Upload skill or OneDrive; use the skill folders inside the wrapper. |
 
 | Archive | SHA-256 |
 |---|---|
-| `Insights-Analyst-D365-Service-Cowork-Plugin.zip` | `e8810ac4d6a3fa2598c1b6a97442f8c93f7ae4921b0bbb4fbcc4c3006233c073` |
-| `Insights-Analyst-D365-Service-Skills.zip` | `d03117c078a77f432bd21a5bb37df6a1ad0e85bed1ef59da232a7e3dff6b86ac` |
+| `Insights-Analyst-D365-Service-Cowork-Plugin.zip` | `da583e36dd838a580f98cbfeaba1448c5d58f1d75f12ac3abaa1e2b5a6450276` |
+| `Insights-Analyst-D365-Service-Skills.zip` | `fb274e38a9b0dbd1dd5700eee455cb70787eb6c78a1ae8866cd9a08ecc785961` |
 
-The plugin manifest declares package version `1.0.0`, manifest version `devPreview` and id
-`8767fed2-f414-4339-b54d-0f74437e4a12`. All seven skills declare version `1.0.0` and the service
+The plugin manifest declares package version `1.0.1`, manifest version `devPreview` and id
+`8767fed2-f414-4339-b54d-0f74437e4a12`. All seven skills declare version `1.0.1` and the service
 metric dictionary is version 1.0.0. The skills declare no verification flag. Package and skill
 versions are package metadata, not evidence of tenant approval or completed acceptance.
 
@@ -21,13 +21,13 @@ versions are package metadata, not evidence of tenant approval or completed acce
 
 | Declared skill name | Version | Function and outputs |
 |---|---|---|
-| `service-analytics-concierge` | `1.0.0` | Route to one skill and cadence; quote metric definitions; no computation |
-| `backlog-trend-weekly` | `1.0.0` | Weekly backlog and SLA KPIs, backlog bridge, ledgers and deltas with driving items |
-| `sla-attainment-monthly` | `1.0.0` | Attainment by KPI, queue, priority and channel, with breach drivers and at-risk counts |
-| `case-mix-quarterly` | `1.0.0` | Volume and rates by category, product and channel; incident-driven volume; patterns |
-| `account-service-health` | `1.0.0` | 0-100 service health score and band per named key account, with evidence |
-| `case-anomaly-watch` | `1.0.0` | Ledger of unusual case patterns in the look-back window |
-| `service-report-pack` | `1.0.0` | Excel workbook and PowerPoint deck from the latest report; optional archive filing |
+| `service-analytics-concierge` | `1.0.1` | Route to one skill and cadence; quote metric definitions; no computation |
+| `backlog-trend-weekly` | `1.0.1` | Weekly backlog and SLA KPIs, backlog bridge, ledgers and deltas with driving items |
+| `sla-attainment-monthly` | `1.0.1` | Attainment by KPI, queue, priority and channel, with breach drivers and at-risk counts |
+| `case-mix-quarterly` | `1.0.1` | Volume and rates by category, product and channel; incident-driven volume; patterns |
+| `account-service-health` | `1.0.1` | 0-100 service health score and band per named key account, with evidence |
+| `case-anomaly-watch` | `1.0.1` | Ledger of unusual case patterns in the look-back window |
+| `service-report-pack` | `1.0.1` | Excel workbook and PowerPoint deck from the latest report; optional archive filing |
 
 Folder names match the declared names. The seven skill folders (`SKILL.md` and both reference
 files) are byte-identical across the two archives, and the eight copies of the metric dictionary
@@ -43,9 +43,12 @@ file names. The author also aligned the manifest version to 1.0.0 to match the p
 documentation. Skill logic, skill names, metric definitions, skill versions and the manifest id
 were not changed.
 
-The archives were supplied as `Insights-Analyst-d365-service_Cowork_Plugin_v1.0.0.zip` and
-`Insights-Analyst-d365-service_v1.0.0.zip` and renamed on publication to match the scenario.
-Their contents are unchanged.
+Version 1.0.1 (November 2026, also before first publication) replaces the filing exception in the
+skills and the plugin README: every archive filing needs its own approval after the destination
+path and file name are shown, and a declined or unanswered filing leaves the report in the
+session Output folder. The skills also declare `license: MIT`, and both archives include the MIT
+licence notice as `LICENSE`. Package and skill versions moved to 1.0.1; skill names, metric
+definitions and the manifest id did not change.
 
 ## Package Notes and Prerequisites
 
@@ -67,9 +70,6 @@ Their contents are unchanged.
   website, privacy and terms URLs. Have the package owner replace them with approved organisation
   values in a working copy before organisational distribution. The URLs in the published ZIP have
   not been changed.
-- **Licence metadata.** Each `SKILL.md` declares `license: Proprietary` in its frontmatter. The
-  repository [LICENSE](../../../LICENSE) governs content published here; align the field in any
-  working copy prepared for distribution.
 - **Manifest version.** The manifest uses `devPreview`. Switch to 1.28 or 1.29 in a working copy
   only if the upload channel requires it, then retest.
 - **Data access.** The ZIPs do not enable the Service plugin, the Customer Service MCP
@@ -77,10 +77,6 @@ Their contents are unchanged.
   calendar or the Fabric IQ plugin, and do not provision the report archive folder. Qualify these
   with the [Cowork D365 Plugin Enablement](../../../02-patterns/Cowork-D365-Sales-Service-Plugin-Enablement/Cowork-D365-Sales-Service-Plugin-Enablement.md) pattern
   and the [runbook](../3.Runbook.md).
-- **Filing approval.** The skill text lets a schedule owner pre-approve archive filing. Cowork
-  cannot restrict that pre-approval to the archive folder, so this scenario requires approval for
-  each filing; see [Archive filing approval](../3.Runbook.md#archive-filing-approval). The
-  archives are unchanged.
 - **Overlap.** The [Insights Analyst Cowork Agent](../../Insights-Analyst-Cowork-Agent/1.Overview.md)
   includes a `service-analytics` skill, and the Case Specialist and Service Ops Leader packs cover
   adjacent service workflows. The `backlog-trend-weekly` description includes the trigger phrase
@@ -121,7 +117,7 @@ hosted agent runtime, grants source access or provisions schedules.
 ## Validation Status
 
 Archive integrity, file inventory, manifest metadata, declared skill names and the cross-archive
-identity of the skill files and metric dictionary copies were inspected locally on November 20,
+identity of the skill files and metric dictionary copies were inspected locally on November 24,
 2026. [Author testing: add the date, environment type and the RS test IDs executed with their
 results, or delete this sentence.] Upload compatibility in other tenants, data access and
 live-tenant acceptance have not been validated.

@@ -4,16 +4,16 @@
 
 | File | Contents | Intended use |
 |---|---|---|
-| [Insights-Analyst-D365-Sales-Cowork-Plugin.zip](Insights-Analyst-D365-Sales-Cowork-Plugin.zip) | Cowork plugin package: root `manifest.json`, `color.png`, `outline.png`, `README.md` and `shared/metric-dictionary.md`, plus seven expanded skill folders under `skills/`, each with `SKILL.md`, `references/reference.md` and `references/metric-dictionary.md` (26 files). | Upload the complete ZIP through the supported Cowork plugin surface after package-owner review. |
-| [Insights-Analyst-D365-Sales-Skills.zip](Insights-Analyst-D365-Sales-Skills.zip) | Skills-only bundle: an `Insights-Analyst-d365-sales/` wrapper with `README.md`, the master `metric-dictionary.md` and the same seven skill folders (23 files). No app manifest or icons. | Author testing through Upload skill or OneDrive; use the skill folders inside the wrapper. |
+| [Insights-Analyst-D365-Sales-Cowork-Plugin.zip](Insights-Analyst-D365-Sales-Cowork-Plugin.zip) | Cowork plugin package: root `manifest.json`, `color.png`, `outline.png`, `README.md`, `LICENSE` and `shared/metric-dictionary.md`, plus seven expanded skill folders under `skills/`, each with `SKILL.md`, `references/reference.md` and `references/metric-dictionary.md` (27 files). | Upload the complete ZIP through the supported Cowork plugin surface after package-owner review. |
+| [Insights-Analyst-D365-Sales-Skills.zip](Insights-Analyst-D365-Sales-Skills.zip) | Skills-only bundle: an `Insights-Analyst-d365-sales/` wrapper with `README.md`, `LICENSE`, the master `metric-dictionary.md` and the same seven skill folders (24 files). No app manifest or icons. | Author testing through Upload skill or OneDrive; use the skill folders inside the wrapper. |
 
 | Archive | SHA-256 |
 |---|---|
-| `Insights-Analyst-D365-Sales-Cowork-Plugin.zip` | `6bdfc4f19a971aeeca187414b525a3f86f59c79412773054dd568608b7daadc3` |
-| `Insights-Analyst-D365-Sales-Skills.zip` | `98a5243cfdd9fd8621a5ccb4dd119709db996e0953ffdb07e75c5ed9eff1de70` |
+| `Insights-Analyst-D365-Sales-Cowork-Plugin.zip` | `9f0866c9c38d520bb16e98b215a82eab30ad9f4e9e7cb664b3bbedaf2f1e76a7` |
+| `Insights-Analyst-D365-Sales-Skills.zip` | `4715c5c6d50d2aa5c9663b5315b84c87ed62ce357508b9c037506cdecc1c752c` |
 
-The plugin manifest declares package version `1.0.0`, manifest version `devPreview` and id
-`8d045188-27a6-4073-a3c8-f17465a26467`. All seven skills declare version `1.0.0` and the metric
+The plugin manifest declares package version `1.0.1`, manifest version `devPreview` and id
+`8d045188-27a6-4073-a3c8-f17465a26467`. All seven skills declare version `1.0.1` and the metric
 dictionary is version 1.0.0. The skills declare no verification flag. Package and skill versions
 are package metadata, not evidence of tenant approval or completed acceptance.
 
@@ -21,13 +21,13 @@ are package metadata, not evidence of tenant approval or completed acceptance.
 
 | Declared skill name | Version | Function and outputs |
 |---|---|---|
-| `analytics-concierge` | `1.0.0` | Route to one skill and cadence; quote metric definitions; no computation |
-| `pipeline-trend-weekly` | `1.0.0` | Weekly KPIs, movement bridge, ledgers and deltas with driving deals |
-| `forecast-variance-monthly` | `1.0.0` | Commit at month start versus closed won, with four driver ledgers |
-| `win-loss-quarterly` | `1.0.0` | Win/loss by segment, product, territory and competitor; loss reasons; patterns |
-| `key-account-health` | `1.0.0` | 0-100 health score and band per named key account, with evidence |
-| `pipeline-anomaly-watch` | `1.0.0` | Ledger of unusual opportunity changes in the look-back window |
-| `analytics-report-pack` | `1.0.0` | Excel workbook and PowerPoint deck from the latest report; optional archive filing |
+| `analytics-concierge` | `1.0.1` | Route to one skill and cadence; quote metric definitions; no computation |
+| `pipeline-trend-weekly` | `1.0.1` | Weekly KPIs, movement bridge, ledgers and deltas with driving deals |
+| `forecast-variance-monthly` | `1.0.1` | Commit at month start versus closed won, with four driver ledgers |
+| `win-loss-quarterly` | `1.0.1` | Win/loss by segment, product, territory and competitor; loss reasons; patterns |
+| `key-account-health` | `1.0.1` | 0-100 health score and band per named key account, with evidence |
+| `pipeline-anomaly-watch` | `1.0.1` | Ledger of unusual opportunity changes in the look-back window |
+| `analytics-report-pack` | `1.0.1` | Excel workbook and PowerPoint deck from the latest report; optional archive filing |
 
 Folder names match the declared names. The seven skill folders (`SKILL.md` and both reference
 files) are byte-identical across the two archives, and the eight copies of the metric dictionary
@@ -41,9 +41,12 @@ changed the plugin display name and descriptions, the README titles, the package
 skill descriptions and one concierge reply, and the file names. Skill logic, skill names, metric
 definitions, versions and the manifest id were not changed.
 
-The archives were supplied as `Insights-Analyst-d365-sales_Cowork_Plugin_v1.0.0.zip` and
-`Insights-Analyst-d365-sales_v1.0.0.zip` and renamed on publication to match the scenario. Their
-contents are unchanged.
+Version 1.0.1 (November 2026, also before first publication) replaces the filing exception in the
+skills and the plugin README: every archive filing needs its own approval after the destination
+path and file name are shown, and a declined or unanswered filing leaves the report in the
+session Output folder. The skills also declare `license: MIT`, and both archives include the MIT
+licence notice as `LICENSE`. Package and skill versions moved to 1.0.1; skill names, metric
+definitions and the manifest id did not change.
 
 ## Package Notes and Prerequisites
 
@@ -61,9 +64,6 @@ contents are unchanged.
   website, privacy and terms URLs. Have the package owner replace them with approved organisation
   values in a working copy before organisational distribution. The URLs in the published ZIP have
   not been changed.
-- **Licence metadata.** Each `SKILL.md` declares `license: Proprietary` in its frontmatter. The
-  repository [LICENSE](../../../LICENSE) governs content published here; align the field in any
-  working copy prepared for distribution.
 - **Manifest version.** The manifest uses `devPreview`. Switch to 1.28 or 1.29 in a working copy
   only if the upload channel requires it, then retest.
 - **Data access.** The ZIPs do not enable the Sales plugin, the Dataverse MCP server, the tenant
@@ -71,10 +71,6 @@ contents are unchanged.
   report archive folder. Qualify these with the
   [Cowork D365 Plugin Enablement](../../../02-patterns/Cowork-D365-Sales-Service-Plugin-Enablement/Cowork-D365-Sales-Service-Plugin-Enablement.md) pattern
   and the [runbook](../3.Runbook.md).
-- **Filing approval.** The skill text lets a schedule owner pre-approve archive filing. Cowork
-  cannot restrict that pre-approval to the archive folder, so this scenario requires approval for
-  each filing; see [Archive filing approval](../3.Runbook.md#archive-filing-approval). The
-  archives are unchanged.
 - **Overlap.** The [Insights Analyst Cowork Agent](../../Insights-Analyst-Cowork-Agent/1.Overview.md)
   includes a `sales-analytics` skill, and the Number Owner and Quota Carrier packs cover adjacent
   sales workflows. Qualify routing with
@@ -113,7 +109,7 @@ hosted agent runtime, grants source access or provisions schedules.
 ## Validation Status
 
 Archive integrity, file inventory, manifest metadata, declared skill names and the cross-archive
-identity of the skill files and metric dictionary copies were inspected locally on November 20,
+identity of the skill files and metric dictionary copies were inspected locally on November 24,
 2026. [Author testing: add the date, environment type and the RA test IDs executed with their
 results, or delete this sentence.] Upload compatibility in other tenants, data access and
 live-tenant acceptance have not been validated.

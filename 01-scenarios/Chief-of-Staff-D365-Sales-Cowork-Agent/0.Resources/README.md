@@ -4,30 +4,30 @@
 
 | File | Contents | Intended use |
 |---|---|---|
-| [Chief-of-Staff-D365-Sales-Cowork-Plugin.zip](Chief-of-Staff-D365-Sales-Cowork-Plugin.zip) | Cowork plugin package: root `manifest.json`, `color.png` (192x192), `outline.png` (32x32) and `README.md`, plus seven expanded skill folders under `skills/`, each with `SKILL.md` and `references/reference.md` (18 files). | Upload the complete ZIP through the supported Cowork plugin surface after package-owner review. |
-| [Chief-of-Staff-D365-Sales-Skills.zip](Chief-of-Staff-D365-Sales-Skills.zip) | Skills-only bundle: a `Chief-of-staff-d365-sales/` wrapper with `README.md` and the same seven skill folders (15 files). No app manifest or icons. | Author testing through Upload skill or OneDrive; use the skill folders inside the wrapper. |
+| [Chief-of-Staff-D365-Sales-Cowork-Plugin.zip](Chief-of-Staff-D365-Sales-Cowork-Plugin.zip) | Cowork plugin package: root `manifest.json`, `color.png` (192x192), `outline.png` (32x32), `README.md` and `LICENSE`, plus seven expanded skill folders under `skills/`, each with `SKILL.md` and `references/reference.md` (19 files). | Upload the complete ZIP through the supported Cowork plugin surface after package-owner review. |
+| [Chief-of-Staff-D365-Sales-Skills.zip](Chief-of-Staff-D365-Sales-Skills.zip) | Skills-only bundle: a `Chief-of-staff-d365-sales/` wrapper with `README.md`, `LICENSE` and the same seven skill folders (16 files). No app manifest or icons. | Author testing through Upload skill or OneDrive; use the skill folders inside the wrapper. |
 
 | Archive | SHA-256 |
 |---|---|
-| `Chief-of-Staff-D365-Sales-Cowork-Plugin.zip` | `5b06303b366974abf9d8d945986b9d67a017cbdafe86165fd68917e99a9cfcc9` |
-| `Chief-of-Staff-D365-Sales-Skills.zip` | `8d6e3218a50ffc20e43a6bef9491fd187c7babbba32be39d73fc754d21d818ce` |
+| `Chief-of-Staff-D365-Sales-Cowork-Plugin.zip` | `00deef795d15f6bebb8077c11b6984fa1dad8c3d8f91e7d88ec44ed87c9a89cb` |
+| `Chief-of-Staff-D365-Sales-Skills.zip` | `18e93ba05ca48c4c6febd0f46412c86f94f3465e1911dafdacbc39284b68d346` |
 
-The plugin manifest declares the display name "Chief of Staff Sales", package version `1.1.0`,
+The plugin manifest declares the display name "Chief of Staff Sales", package version `1.1.1`,
 manifest version `devPreview` and id `753f12de-5098-4dd3-8c88-772267328f93`. All seven skills
-declare version `1.1.0`. The skills declare no verification flag. Package and skill versions are
+declare version `1.1.1`. The skills declare no verification flag. Package and skill versions are
 package metadata, not evidence of tenant approval or completed acceptance.
 
 ## Included Skills
 
 | Declared skill name | Version | Function and outputs | Dynamics 365 posture |
 |---|---|---|---|
-| `sales-concierge` | `1.1.0` | Route to one skill; name the built-in skill for plain asks | No access |
-| `sales-leader-360` | `1.1.0` | Weekly operating brief, dashboard, deal-risk lens and first moves | Read-only |
-| `deal-brief` | `1.1.0` | Executive one-page brief for one account, opportunity or meeting | Read-only |
-| `pipeline-pulse` | `1.1.0` | Hygiene ledgers and drafted fixes | Read; next step and close date only via approval |
-| `lead-reengagement` | `1.1.0` | Quiet-lead ledger, angles and outreach drafts | Read-only; sends via approval |
-| `segment-pattern` | `1.1.0` | Segment and territory patterns from deal facts | Read-only |
-| `pipeline-review-deck` | `1.1.0` | PowerPoint from a package brief | No new data |
+| `sales-concierge` | `1.1.1` | Route to one skill; name the built-in skill for plain asks | No access |
+| `sales-leader-360` | `1.1.1` | Weekly operating brief, dashboard, deal-risk lens and first moves | Read-only |
+| `deal-brief` | `1.1.1` | Executive one-page brief for one account, opportunity or meeting | Read-only |
+| `pipeline-pulse` | `1.1.1` | Hygiene ledgers and drafted fixes | Read; next step and close date only via approval |
+| `lead-reengagement` | `1.1.1` | Quiet-lead ledger, angles and outreach drafts | Read-only; sends via approval |
+| `segment-pattern` | `1.1.1` | Segment and territory patterns from deal facts | Read-only |
+| `pipeline-review-deck` | `1.1.1` | PowerPoint from a package brief | No new data |
 
 Folder names match the declared names, and the manifest lists the seven folders in its
 `agentSkills` array. The fourteen skill files (`SKILL.md` and `references/reference.md` per skill)
@@ -42,12 +42,13 @@ phrases, aligned environment handling and approval gates with documented Cowork 
 companion files to `references/`, removed manifest fields that the 1.28 schema rejects and added
 `lead-reengagement`, `segment-pattern` and `pipeline-review-deck`.
 
-The archives were supplied as `Chief-of-staff-d365-sales_Cowork_Plugin_v1.1.0.zip` and
-`Chief-of-staff-d365-sales_v1.1.0.zip` and renamed on publication to match the scenario. Their
-contents are unchanged. The scenario documents adapt the author's runbook: test IDs S-01 to S-12,
-definitions, the pilot boundary and the evaluation targets are retained, example parameter values
-were replaced with placeholders, and Microsoft Learn prerequisites reviewed on November 20, 2026
-were added.
+Version 1.1.1 (November 2026, before first publication) changes only the licence: the skills
+declare `license: MIT`, both archives include the MIT licence notice as `LICENSE`, and the README
+files record the new version. Skill instructions, skill names and the manifest id did not change.
+
+The scenario documents adapt the author's runbook: test IDs S-01 to S-12, definitions, the pilot
+boundary and the evaluation targets are retained, example parameter values were replaced with
+placeholders, and Microsoft Learn prerequisites reviewed on November 20, 2026 were added.
 
 ## Package Notes and Prerequisites
 
@@ -71,10 +72,8 @@ were added.
   before enabling overlapping packs for the same users.
 - **Developer details.** The manifest names "Productivity Squad" as developer, with microsoft.com
   website, privacy and terms URLs. Have the package owner replace them with approved organisation
-  values in a working copy before organisational distribution. The published ZIP is unchanged.
-- **Licence metadata.** Each `SKILL.md` declares `license: Proprietary` in its frontmatter. The
-  repository [LICENSE](../../../LICENSE) governs content published here; align the field in any
-  working copy prepared for distribution.
+  values in a working copy before organisational distribution. The URLs in the published ZIPs are
+  unchanged.
 - **Manifest version.** The manifest uses `devPreview`. Switch `manifestVersion` and `$schema` to
   1.28 or 1.29 in a working copy only if the upload channel requires it, then retest.
 - **Data access.** The ZIPs do not enable the Sales plugin, the Dataverse MCP server or the tenant
@@ -115,7 +114,7 @@ hosted agent runtime, grants source access, commits record updates or provisions
 ## Validation Status
 
 Archive integrity, file inventory, manifest metadata, declared skill names and versions and the
-cross-archive identity of the skill files were inspected locally on November 20, 2026.
+cross-archive identity of the skill files were inspected locally on November 24, 2026.
 [Author testing: add the date, environment type and the S test IDs executed with their results,
 or delete this sentence.] Upload compatibility in other tenants, data access and live-tenant
 acceptance have not been validated.

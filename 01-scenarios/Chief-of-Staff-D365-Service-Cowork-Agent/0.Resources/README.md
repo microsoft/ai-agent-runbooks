@@ -4,30 +4,30 @@
 
 | File | Contents | Intended use |
 |---|---|---|
-| [Chief-of-Staff-D365-Service-Cowork-Plugin.zip](Chief-of-Staff-D365-Service-Cowork-Plugin.zip) | Cowork plugin package: root `manifest.json`, `color.png` (192x192), `outline.png` (32x32) and `README.md`, plus seven expanded skill folders under `skills/`, each with `SKILL.md` and `references/reference.md` (18 files). | Upload the complete ZIP through the supported Cowork plugin surface after package-owner review. |
-| [Chief-of-Staff-D365-Service-Skills.zip](Chief-of-Staff-D365-Service-Skills.zip) | Skills-only bundle: a `Chief-of-staff-d365-service/` wrapper with `README.md` and the same seven skill folders (15 files). No app manifest or icons. | Author testing through Upload skill or OneDrive; use the skill folders inside the wrapper. |
+| [Chief-of-Staff-D365-Service-Cowork-Plugin.zip](Chief-of-Staff-D365-Service-Cowork-Plugin.zip) | Cowork plugin package: root `manifest.json`, `color.png` (192x192), `outline.png` (32x32), `README.md` and `LICENSE`, plus seven expanded skill folders under `skills/`, each with `SKILL.md` and `references/reference.md` (19 files). | Upload the complete ZIP through the supported Cowork plugin surface after package-owner review. |
+| [Chief-of-Staff-D365-Service-Skills.zip](Chief-of-Staff-D365-Service-Skills.zip) | Skills-only bundle: a `Chief-of-staff-d365-service/` wrapper with `README.md`, `LICENSE` and the same seven skill folders (16 files). No app manifest or icons. | Author testing through Upload skill or OneDrive; use the skill folders inside the wrapper. |
 
 | Archive | SHA-256 |
 |---|---|
-| `Chief-of-Staff-D365-Service-Cowork-Plugin.zip` | `97ed4eb33b3775e99a9696931207de44d8b600c835d6daea370b67565493377d` |
-| `Chief-of-Staff-D365-Service-Skills.zip` | `6abe044cf5ea709f2daf64d594bb583a9e11b7b291b9da162e30804b6cd0d439` |
+| `Chief-of-Staff-D365-Service-Cowork-Plugin.zip` | `877c0b50b267cc1e9d4a9d7b34571418b546974b4a5540152dc534856e8d1dec` |
+| `Chief-of-Staff-D365-Service-Skills.zip` | `2c53993cb62cdb7933ac1c36585a6f5c3f03977d77d34c3bf621deedcfe09866` |
 
-The plugin manifest declares the display name "Chief of Staff Service", package version `1.0.0`,
+The plugin manifest declares the display name "Chief of Staff Service", package version `1.0.1`,
 manifest version `devPreview` and id `e9dae3f6-efec-4009-ab00-f8456cf3e94e`. All seven skills
-declare version `1.0.0`. The skills declare no verification flag. Package and skill versions are
+declare version `1.0.1`. The skills declare no verification flag. Package and skill versions are
 package metadata, not evidence of tenant approval or completed acceptance.
 
 ## Included Skills
 
 | Declared skill name | Version | Function and outputs | Dynamics 365 posture |
 |---|---|---|---|
-| `service-concierge` | `1.0.0` | Route to one skill; name the built-in skill for one-case asks | No access |
-| `service-leader-360` | `1.0.0` | Weekly operating brief, backlog dashboard, risk lens and first moves | Read-only |
-| `escalation-brief` | `1.0.0` | Leadership brief on one escalation, incident or account | Read-only |
-| `queue-pulse` | `1.0.0` | Hygiene ledgers and drafted fixes | Read; priority, follow-up by and queue only via approval |
-| `queue-pattern` | `1.0.0` | Pattern by queue, product, channel, region or category from case facts | Read-only |
-| `knowledge-gap-pattern` | `1.0.0` | Recurring themes without knowledge coverage; draft outlines | Read-only; nothing published |
-| `service-review-deck` | `1.0.0` | PowerPoint from a package brief | No new data |
+| `service-concierge` | `1.0.1` | Route to one skill; name the built-in skill for one-case asks | No access |
+| `service-leader-360` | `1.0.1` | Weekly operating brief, backlog dashboard, risk lens and first moves | Read-only |
+| `escalation-brief` | `1.0.1` | Leadership brief on one escalation, incident or account | Read-only |
+| `queue-pulse` | `1.0.1` | Hygiene ledgers and drafted fixes | Read; priority, follow-up by and queue only via approval |
+| `queue-pattern` | `1.0.1` | Pattern by queue, product, channel, region or category from case facts | Read-only |
+| `knowledge-gap-pattern` | `1.0.1` | Recurring themes without knowledge coverage; draft outlines | Read-only; nothing published |
+| `service-review-deck` | `1.0.1` | PowerPoint from a package brief | No new data |
 
 Folder names match the declared names, and the manifest lists the seven folders in its
 `agentSkills` array. The fourteen skill files (`SKILL.md` and `references/reference.md` per skill)
@@ -39,12 +39,13 @@ The package was authored as "Chief of Staff Service" (package 1.0.0, October 202
 delivery runbook "Cowork Chief of Staff (Customer Service) Runbook", version 1.0. It is
 independent of the Chief of Staff Sales package; deploy either or both.
 
-The archives were supplied as `Chief-of-staff-d365-service_Cowork_Plugin_v1.0.0.zip` and
-`Chief-of-staff-d365-service_v1.0.0.zip` and renamed on publication to match the scenario. Their
-contents are unchanged. The scenario documents adapt the author's runbook: test IDs CS-01 to
-CS-12, definitions, the pilot boundary and the evaluation targets are retained, example parameter
-values were replaced with placeholders, and Microsoft Learn prerequisites reviewed on November 20,
-2026 were added.
+Version 1.0.1 (November 2026, before first publication) changes only the licence: the skills
+declare `license: MIT`, both archives include the MIT licence notice as `LICENSE`, and the README
+files record the new version. Skill instructions, skill names and the manifest id did not change.
+
+The scenario documents adapt the author's runbook: test IDs CS-01 to CS-12, definitions, the pilot
+boundary and the evaluation targets are retained, example parameter values were replaced with
+placeholders, and Microsoft Learn prerequisites reviewed on November 20, 2026 were added.
 
 ## Package Notes and Prerequisites
 
@@ -70,10 +71,8 @@ values were replaced with placeholders, and Microsoft Learn prerequisites review
   the CS-001 series in the Case Specialist scenario.
 - **Developer details.** The manifest names "Productivity Squad" as developer, with microsoft.com
   website, privacy and terms URLs. Have the package owner replace them with approved organisation
-  values in a working copy before organisational distribution. The published ZIP is unchanged.
-- **Licence metadata.** Each `SKILL.md` declares `license: Proprietary` in its frontmatter. The
-  repository [LICENSE](../../../LICENSE) governs content published here; align the field in any
-  working copy prepared for distribution.
+  values in a working copy before organisational distribution. The URLs in the published ZIPs are
+  unchanged.
 - **Manifest version.** The manifest uses `devPreview`. Switch `manifestVersion` and `$schema` to
   1.28 or 1.29 in a working copy only if the upload channel requires it, then retest.
 - **Data access.** The ZIPs do not enable the Service plugin, its MCP configuration or the tenant
@@ -114,7 +113,7 @@ provisions schedules.
 ## Validation Status
 
 Archive integrity, file inventory, manifest metadata, declared skill names and versions and the
-cross-archive identity of the skill files were inspected locally on November 20, 2026.
+cross-archive identity of the skill files were inspected locally on November 24, 2026.
 [Author testing: add the date, environment type and the CS test IDs executed with their results,
 or delete this sentence.] Upload compatibility in other tenants, data access and live-tenant
 acceptance have not been validated.
