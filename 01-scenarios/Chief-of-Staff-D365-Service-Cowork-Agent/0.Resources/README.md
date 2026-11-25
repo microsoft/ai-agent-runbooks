@@ -114,8 +114,7 @@ provisions schedules.
 
 Archive integrity, file inventory, manifest metadata, declared skill names and versions and the
 cross-archive identity of the skill files were inspected locally on November 24, 2026.
-[Author testing: add the date, environment type and the CS test IDs executed with their results,
-or delete this sentence.] Upload compatibility in other tenants, data access and live-tenant
+Upload compatibility in other tenants, data access and live-tenant
 acceptance have not been validated.
 
 See the [overview](../1.Overview.md), [runbook](../3.Runbook.md) and
