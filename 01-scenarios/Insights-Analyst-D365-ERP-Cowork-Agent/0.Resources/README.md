@@ -9,12 +9,12 @@
 
 | Archive | SHA-256 |
 |---|---|
-| `Insights-Analyst-D365-ERP-Cowork-Plugin.zip` | `71087ce3ee1a9b3ab233bd200c102a8fcffaf9b4d263e7730d470f6271457bac` |
-| `Insights-Analyst-D365-ERP-Skills.zip` | `19c903565573192911e431a007dbb5efafe80af4e26d41808c11598c49df0ae5` |
+| `Insights-Analyst-D365-ERP-Cowork-Plugin.zip` | `11b031496948e31c1607fa2210ca82a7ffd485e9456ed7ce5ab668a1ef92a13c` |
+| `Insights-Analyst-D365-ERP-Skills.zip` | `1cea81ae7b0b94a66ae0ac5bf8e32f114f510d0ae6a8d9f7c4f0c68b659a3d06` |
 
-The plugin manifest declares package version `1.1.2`, manifest version `devPreview` and id
+The plugin manifest declares package version `1.1.3`, manifest version `devPreview` and id
 `112929ad-f4ab-5798-837b-710e6f047396`, and Cowork shows the plugin as **Insights Analyst_D365 ERP**. All
-eleven skills declare version `1.1.2`, `license: MIT` and `verified: "false"`. Package and skill versions
+eleven skills declare version `1.1.3`, `license: MIT` and `verified: "false"`. Package and skill versions
 are package metadata, not evidence of tenant approval or completed acceptance.
 
 ## Included Skills
