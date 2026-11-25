@@ -115,9 +115,9 @@ hosted agent runtime, grants source access or provisions schedules.
 
 Archive integrity, file inventory, manifest metadata, declared skill names and versions, YAML
 front matter, `SKILL.md` sizes and the cross-archive identity of the skill files were checked
-locally on November 25, 2026, after the 2.0.1 changes. [Author testing: add the date, environment
-type and the CoS-V test IDs executed with their results, or delete this sentence.] Upload
-compatibility in other tenants, data access and live-tenant acceptance have not been validated.
+locally on November 25, 2026, after the 2.0.1 changes. Upload compatibility in other tenants,
+data access, live-tenant acceptance and author testing of the CoS-V scenarios have not been
+validated.
 
 See the [overview](../1.Overview.md), [runbook](../3.Runbook.md) and
 [plugin enablement pattern](../../../02-patterns/Cowork-D365-Finance-SCM-Plugin-Enablement/Cowork-D365-Finance-SCM-Plugin-Enablement.md).
