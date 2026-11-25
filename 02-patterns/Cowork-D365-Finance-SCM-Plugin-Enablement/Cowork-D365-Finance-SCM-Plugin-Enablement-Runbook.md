@@ -383,6 +383,12 @@ If any criterion fails, **do not continue to the scenario runbooks**. Remediate 
 
 ## Functional Tests and Prompts
 
+**Before running any test below, install the packages these tests depend on:** upload the
+**Chief of staff_D365 ERP** and **Insights Analyst_D365 ERP** skill packages in Cowork (Customize >
+Plugins > Upload plugin) and switch them on for the pilot users, per the "Scenario skill packages"
+prerequisite above and each scenario's own 0.Resources install guide. Confirm both packages appear
+switched on in the pilot user's Sources & Skills panel before starting PLG-001.
+
 These are acceptance-test starters, **not results validated in your tenant**. Run them as pilot
 users in a new Cowork session with approved legal entities and test records only. Every prompt is
 read-only; do not test writes in production. Record pass or fail, evidence and reviewer.

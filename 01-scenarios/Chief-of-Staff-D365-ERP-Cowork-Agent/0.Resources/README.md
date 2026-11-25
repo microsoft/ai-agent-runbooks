@@ -9,12 +9,12 @@
 
 | Archive | SHA-256 |
 |---|---|
-| `Chief-of-Staff-D365-ERP-Cowork-Plugin.zip` | `30003cbd248c456ff5924d69abb3bca69467c9ed87e0f1b424a848e3b555ab36` |
-| `Chief-of-Staff-D365-ERP-Skills.zip` | `049cef45ef206e77ce888b26a4ca81550a0ff607abfc2498850d017d3e6f9267` |
+| `Chief-of-Staff-D365-ERP-Cowork-Plugin.zip` | `d0b32fe49af2c162f39623530c5b50f13425ab7f927866b70730e211abb8c288` |
+| `Chief-of-Staff-D365-ERP-Skills.zip` | `8c14cbf2cbe93a22fa2a11e37c713c0d1068fac0ac7b6f811d3f3e2872d367f8` |
 
-The plugin manifest declares package version `2.0.1`, manifest version `devPreview` and id
+The plugin manifest declares package version `2.0.2`, manifest version `devPreview` and id
 `3642e18b-8c79-5936-a06b-88cdb97ab026`, and Cowork shows the plugin as **Chief of staff_D365 ERP**. All
-eleven skills declare version `2.0.1`, `license: MIT` and `verified: "false"`. Package and skill versions
+eleven skills declare version `2.0.2`, `license: MIT` and `verified: "false"`. Package and skill versions
 are package metadata, not evidence of tenant approval or completed acceptance.
 
 ## Included Skills
@@ -35,8 +35,8 @@ are package metadata, not evidence of tenant approval or completed acceptance.
 
 Folder names match the declared names. The eleven skill folders (`SKILL.md` and `reference.md`)
 are byte-identical across the two archives, and both archives carry the same `README.md` and
-`LICENSE`. Every `SKILL.md` is under Cowork's 20,000-character upload limit (largest: 19,615
-characters).
+`LICENSE`. Every `SKILL.md` stays under the package's 20,000-character recommended authoring target
+(largest: 19,909 characters); Cowork's actual platform limit is 1 MB per `.md` skill file.
 
 ## Provenance and Changes
 

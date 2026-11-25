@@ -9,12 +9,12 @@
 
 | Archive | SHA-256 |
 |---|---|
-| `Insights-Analyst-D365-ERP-Cowork-Plugin.zip` | `c8a54d08e83aa4bd903cf0667128e28f36b62d211ba7ab25c9c141ec94f48335` |
-| `Insights-Analyst-D365-ERP-Skills.zip` | `8de9c2224192bc3563879c800ef6f367188b3310d8a677fc6a51514e402620bd` |
+| `Insights-Analyst-D365-ERP-Cowork-Plugin.zip` | `71087ce3ee1a9b3ab233bd200c102a8fcffaf9b4d263e7730d470f6271457bac` |
+| `Insights-Analyst-D365-ERP-Skills.zip` | `19c903565573192911e431a007dbb5efafe80af4e26d41808c11598c49df0ae5` |
 
-The plugin manifest declares package version `1.1.1`, manifest version `devPreview` and id
+The plugin manifest declares package version `1.1.2`, manifest version `devPreview` and id
 `112929ad-f4ab-5798-837b-710e6f047396`, and Cowork shows the plugin as **Insights Analyst_D365 ERP**. All
-eleven skills declare version `1.1.1`, `license: MIT` and `verified: "false"`. Package and skill versions
+eleven skills declare version `1.1.2`, `license: MIT` and `verified: "false"`. Package and skill versions
 are package metadata, not evidence of tenant approval or completed acceptance.
 
 ## Included Skills
@@ -35,8 +35,8 @@ are package metadata, not evidence of tenant approval or completed acceptance.
 
 Folder names match the declared names. The eleven skill folders (`SKILL.md` and `reference.md`)
 are byte-identical across the two archives, and both archives carry the same `README.md` and
-`LICENSE`. Every `SKILL.md` is under Cowork's 20,000-character upload limit (largest: 18,830
-characters).
+`LICENSE`. Every `SKILL.md` stays under the package's 20,000-character recommended authoring target
+(largest: 19,146 characters); Cowork's actual platform limit is 1 MB per `.md` skill file.
 
 ## Provenance and Changes
 
