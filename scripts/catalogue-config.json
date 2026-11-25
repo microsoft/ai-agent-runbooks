@@ -58,8 +58,24 @@
       "title": "Chief of Staff Cowork Agent",
       "icon": "🗓️"
     },
+    "Chief-of-Staff-D365-Sales-Cowork-Agent": {
+      "title": "Chief of Staff D365 Sales Cowork Agent",
+      "icon": "🗓️"
+    },
+    "Chief-of-Staff-D365-Service-Cowork-Agent": {
+      "title": "Chief of Staff D365 Service Cowork Agent",
+      "icon": "🗓️"
+    },
     "Insights-Analyst-Cowork-Agent": {
       "title": "Insights Analyst Cowork Agent",
+      "icon": "📊"
+    },
+    "Insights-Analyst-D365-Sales-Cowork-Agent": {
+      "title": "Insights Analyst D365 Sales Cowork Agent",
+      "icon": "📊"
+    },
+    "Insights-Analyst-D365-Service-Cowork-Agent": {
+      "title": "Insights Analyst D365 Service Cowork Agent",
       "icon": "📊"
     },
     "Autonomous-Invoice-Orchestration-Agent": {
@@ -199,6 +215,11 @@
     "Cowork-Enablement": {
       "title": "Cowork Enablement",
       "icon": "🚀",
+      "theme": "Delivery & Deployment"
+    },
+    "Cowork-D365-Sales-Service-Plugin-Enablement": {
+      "title": "Cowork D365 Plugin Enablement",
+      "icon": "🔌",
       "theme": "Delivery & Deployment"
     },
     "Cowork-Spending-Policies-and-Cost-Governance": {
