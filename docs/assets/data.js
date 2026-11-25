@@ -527,6 +527,38 @@ const SCENARIOS = [
     "type": "Generates reports of inventory data (D365 F&O)"
   },
   {
+    "id": "Chief-of-Staff-D365-ERP-Cowork-Agent",
+    "title": "Chief of Staff D365 ERP Cowork Agent",
+    "icon": "🗓️",
+    "desc": "Eleven read-only skills on the Dynamics 365 ERP apps plugin: finance and SCM morning briefs, approval and decision queues, week-ahead calendars, a project watch-list, customer and supplier call briefs and order traces, with record numbers as plain text and per-send email approval.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Dynamics 365 Finance",
+      "Dynamics 365 Supply Chain Management",
+      "MCP Server",
+      "Outlook",
+      "Word"
+    ],
+    "status": "Available",
+    "type": "Finance and Supply Chain Leadership / Executive Readiness"
+  },
+  {
+    "id": "Insights-Analyst-D365-ERP-Cowork-Agent",
+    "title": "Insights Analyst D365 ERP Cowork Agent",
+    "icon": "📊",
+    "desc": "Eleven read-only skills for daily, weekly and monthly Dynamics 365 Finance and Supply Chain Management KPI reports computed from raw rows, with snapshot-based trends and HTML and Word outputs.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Dynamics 365 Finance",
+      "Dynamics 365 Supply Chain Management",
+      "MCP Server",
+      "Outlook",
+      "Word"
+    ],
+    "status": "Available",
+    "type": "Finance and Supply Chain Analytics / Recurring Reviews"
+  },
+  {
     "id": "Email-and-Mailbox-Triage-Agent",
     "title": "Email & Mailbox Triage Agent",
     "icon": "📬",
@@ -817,6 +849,23 @@ const PATTERNS = [
     ],
     "status": "Available",
     "file": "Cowork-D365-Sales-Service-Plugin-Enablement/Cowork-D365-Sales-Service-Plugin-Enablement.md",
+    "theme": "Delivery & Deployment"
+  },
+  {
+    "id": "Cowork-D365-Finance-SCM-Plugin-Enablement",
+    "title": "Cowork D365 Finance and SCM Plugin Enablement",
+    "icon": "🔌",
+    "desc": "Shared Dynamics 365 ERP apps plugin setup for Finance and Supply Chain Management after Cowork Enablement: Dataverse setting, environment version and type, ERP MCP server and Allowed MCP clients, user and role mapping, legal-entity trimming and PLG tests. Prerequisite for the two D365 ERP Cowork scenarios.",
+    "tech": [
+      "Microsoft 365 Copilot Cowork",
+      "Dynamics 365 Finance",
+      "Dynamics 365 Supply Chain Management",
+      "MCP Server",
+      "Microsoft 365 admin center",
+      "Power Platform admin center"
+    ],
+    "status": "Available",
+    "file": "Cowork-D365-Finance-SCM-Plugin-Enablement/Cowork-D365-Finance-SCM-Plugin-Enablement.md",
     "theme": "Delivery & Deployment"
   },
   {
