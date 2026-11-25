@@ -138,6 +138,14 @@
       "title": "ERP D365 Inventory Optimization Agent",
       "icon": "📈"
     },
+    "Chief-of-Staff-D365-ERP-Cowork-Agent": {
+      "title": "Chief of Staff D365 ERP Cowork Agent",
+      "icon": "🗓️"
+    },
+    "Insights-Analyst-D365-ERP-Cowork-Agent": {
+      "title": "Insights Analyst D365 ERP Cowork Agent",
+      "icon": "📊"
+    },
     "Email-and-Mailbox-Triage-Agent": {
       "title": "Email & Mailbox Triage Agent",
       "icon": "📬"
@@ -219,6 +227,11 @@
     },
     "Cowork-D365-Sales-Service-Plugin-Enablement": {
       "title": "Cowork D365 Plugin Enablement",
+      "icon": "🔌",
+      "theme": "Delivery & Deployment"
+    },
+    "Cowork-D365-Finance-SCM-Plugin-Enablement": {
+      "title": "Cowork D365 Finance and SCM Plugin Enablement",
       "icon": "🔌",
       "theme": "Delivery & Deployment"
     },

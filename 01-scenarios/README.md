@@ -233,6 +233,18 @@ Each scenario folder is self-contained and follows a standardized structure so t
 │   ├── 2.Architecture.md
 │   ├── 3.Runbook.md
 │   └── 4.Sample-prompts.md
+├── 📂 Chief-of-Staff-D365-ERP-Cowork-Agent/     ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
+├── 📂 Insights-Analyst-D365-ERP-Cowork-Agent/   ← ✅ Available
+│   ├── 📂 0.Resources/
+│   ├── 1.Overview.md
+│   ├── 2.Architecture.md
+│   ├── 3.Runbook.md
+│   └── 4.Sample-prompts.md
 ├── 📂 Employee-Self-Service-Agent/         ← ✅ Available
 │   ├── 📂 0.Resources/
 │   ├── 1.Overview.md
@@ -427,6 +439,8 @@ scenarios. Tenant enablement is shared delivery guidance, not an additional busi
 | [Dynamics-365-PO-Generation-Agent](./Dynamics-365-PO-Generation-Agent/) | System Administration (D365 F&O) | Autonomous agent that creates a purchase order autonomously or manually |Microsoft Copilot Studios, Dynamics 365 F&O | ✅ Available |
 | [Dynperf-Performance-Agent](./Dynperf-Performance-Agent) | Performance Diagnostics (D365) | AI-powered performance analysis agent that leverages DynamicsPerf data to help administrators diagnose performance issues, analyze SQL query statistics, identify bottlenecks, and provide actionable recommendations for optimizing Dynamics 365 environments. | Microsoft Copilot Studio, Dynamics 365, DynamicsPerf, Azure Application Insights | ✅ Available |
 | [ERP-D365-Inventory-Optimization-Agent](./ERP-D365-Inventory-Optimization-Agent/) | Generates reports of inventory data (D365 F&O) |Interactive agent that generates reports on Inventory from D365 F&O for inventory managers and other stakeholders to get current information, predictions, and other analytics around their inventory data |Microsoft Copilot Studios, Dynamics 365 F&O | ✅ Available |
+| [Chief of Staff D365 ERP Cowork Agent](./Chief-of-Staff-D365-ERP-Cowork-Agent/1.Overview.md) | Finance and Supply Chain Leadership / Executive Readiness | Eleven read-only skills on the Dynamics 365 ERP apps plugin: finance and SCM morning briefs, approval and decision queues, week-ahead calendars, a project watch-list, customer and supplier call briefs and order traces, with record numbers as plain text and per-send email approval. | Microsoft 365 Copilot Cowork, Dynamics 365 Finance, Dynamics 365 Supply Chain Management, Dynamics 365 ERP MCP Server, Outlook, Word | ✅ Available |
+| [Insights Analyst D365 ERP Cowork Agent](./Insights-Analyst-D365-ERP-Cowork-Agent/1.Overview.md) | Finance and Supply Chain Analytics / Recurring Reviews | Eleven read-only skills for daily, weekly and monthly Dynamics 365 Finance and Supply Chain Management KPI reports computed from raw rows, with snapshot-based trends and HTML and Word outputs. | Microsoft 365 Copilot Cowork, Dynamics 365 Finance, Dynamics 365 Supply Chain Management, Dynamics 365 ERP MCP Server, Outlook, Word | ✅ Available |
 | [Employee-Self-Service-Agent](./Employee-Self-Service-Agent/) | Employee Experience (HR + IT front door) | One conversational entry point in Microsoft 365 Copilot for HR and IT support, grounded on the HRIS, ITSM, and SharePoint. Covers the qualification, content architecture, and readiness work that make up most of the delivery effort. | Microsoft 365 Copilot, Copilot connectors (ServiceNow / Workday / SuccessFactors), SharePoint, Copilot Studio | ✅ Available |
 | [Employee Self-Service Agent with Microsoft Copilot Harness](./Employee-Self-Service-Agent-Microsoft-Copilot-Harness/1.Overview.md) | Employee Experience (HR + IT self-service) | SharePoint and ServiceNow knowledge plus nine starter skills: own HR-case and IT incident lists, HR-case and incident creation, Workday profile/Cost Center, existing home-phone update and standard time-off request. Live bindings unvalidated and OFF; not a deployed agent. | Microsoft Copilot Studio, Microsoft Copilot Harness, SharePoint, ServiceNow, Workday, MCP, Workflows | Authoring blueprint |
 | [IT-Service-Desk-Insights-Agent](./IT-Service-Desk-Insights-Agent/) | IT Service Management / Employee Support | Declarative agent grounded on ServiceNow knowledge and catalog content. Answers how-to and catalog questions and performs sentiment and theme analysis over ticket text, with permission-trimmed retrieval driven by ServiceNow user criteria. | Microsoft 365 Copilot, Agent Builder, ServiceNow Knowledge + Catalog Copilot connectors | ✅ Available |
