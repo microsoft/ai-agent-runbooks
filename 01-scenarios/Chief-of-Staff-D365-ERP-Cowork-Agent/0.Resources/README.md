@@ -21,17 +21,17 @@ are package metadata, not evidence of tenant approval or completed acceptance.
 
 | Declared skill name | Version | Function and outputs |
 |---|---|---|
-| `erp-concierge` | `2.0.1` | Route a goal to one brief and its trigger phrase; hand reports, KPIs and trends to `insights-analyst-concierge`; no data access |
-| `finance-morning-brief` | `2.0.1` | Daily finance attention list across payables, receivables, ledger, bank and fixed assets |
-| `finance-approvals-brief` | `2.0.1` | Finance items waiting in workflow, with age, amount and what clears each |
-| `customer-account-brief` | `2.0.1` | Customers needing attention; one-page call brief for one customer |
-| `project-portfolio-brief` | `2.0.1` | Weekly project watch-list ordered by exposure |
-| `finance-week-ahead-brief` | `2.0.1` | Dated finance week with carry-over |
-| `scm-morning-brief` | `2.0.1` | Daily cross-module supply chain attention list |
-| `procurement-decisions-brief` | `2.0.1` | Requisitions, purchase order changes, RFQs and quality orders awaiting a decision |
-| `operations-week-ahead-brief` | `2.0.1` | Dated operations week with carry-over lates |
-| `order-trace-brief` | `2.0.1` | Stuck orders; end-to-end trace of one order with the blocking step |
-| `supplier-brief` | `2.0.1` | Vendors needing attention; one-page call brief for one vendor |
+| `erp-concierge` | `2.0.2` | Route a goal to one brief and its trigger phrase; hand reports, KPIs and trends to `insights-analyst-concierge`; no data access |
+| `finance-morning-brief` | `2.0.2` | Daily finance attention list across payables, receivables, ledger, bank and fixed assets |
+| `finance-approvals-brief` | `2.0.2` | Finance items waiting in workflow, with age, amount and what clears each |
+| `customer-account-brief` | `2.0.2` | Customers needing attention; one-page call brief for one customer |
+| `project-portfolio-brief` | `2.0.2` | Weekly project watch-list ordered by exposure |
+| `finance-week-ahead-brief` | `2.0.2` | Dated finance week with carry-over |
+| `scm-morning-brief` | `2.0.2` | Daily cross-module supply chain attention list |
+| `procurement-decisions-brief` | `2.0.2` | Requisitions, purchase order changes, RFQs and quality orders awaiting a decision |
+| `operations-week-ahead-brief` | `2.0.2` | Dated operations week with carry-over lates |
+| `order-trace-brief` | `2.0.2` | Stuck orders; end-to-end trace of one order with the blocking step |
+| `supplier-brief` | `2.0.2` | Vendors needing attention; one-page call brief for one vendor |
 
 Folder names match the declared names. The eleven skill folders (`SKILL.md` and `reference.md`)
 are byte-identical across the two archives, and both archives carry the same `README.md` and

@@ -21,17 +21,17 @@ are package metadata, not evidence of tenant approval or completed acceptance.
 
 | Declared skill name | Version | Cadence | Function and outputs |
 |---|---|---|---|
-| `insights-analyst-concierge` | `1.1.1` | n/a | Route a goal to one report and cadence; hand briefs to `erp-concierge`; no data access |
-| `cash-liquidity-pulse` | `1.1.1` | Daily | Closing balances, net movement, 7/14-day inflows and outflows, unreconciled lines |
-| `warehouse-fulfillment-pulse` | `1.1.1` | Daily | Open warehouse work, pending shipments, backorders, transfers in transit, count variances |
-| `ar-aging-collections-pulse` | `1.1.1` | Weekly | Ageing buckets, DSO, top-10 overdue customers, credit-limit and dispute flags |
-| `ap-payment-readiness-pulse` | `1.1.1` | Weekly | AP ageing, DPO, payment-run readiness and match exceptions |
-| `inventory-health-pulse` | `1.1.1` | Weekly | On-hand value, turns, days of supply, stock-level exceptions, slow-moving and obsolete items |
-| `procurement-po-health-pulse` | `1.1.1` | Weekly | Open-PO health, late lines, requisition queue and price variance |
-| `production-planning-pulse` | `1.1.1` | Weekly | Production and master-planning status, late orders and shortages |
-| `pl-budget-variance-report` | `1.1.1` | Monthly | P&L, trial balance, budget versus actual and material variances with MoM and YoY |
-| `close-readiness-analytics` | `1.1.1` | Monthly | Period status by module, close blockers (unposted journals, pending invoices, unreconciled lines, depreciation) and the days-to-close trend |
-| `supplier-performance-report` | `1.1.1` | Monthly | OTIF, delay days, rejection, mismatch and lead-time variance per vendor; no composite score |
+| `insights-analyst-concierge` | `1.1.3` | n/a | Route a goal to one report and cadence; hand briefs to `erp-concierge`; no data access |
+| `cash-liquidity-pulse` | `1.1.3` | Daily | Closing balances, net movement, 7/14-day inflows and outflows, unreconciled lines |
+| `warehouse-fulfillment-pulse` | `1.1.3` | Daily | Open warehouse work, pending shipments, backorders, transfers in transit, count variances |
+| `ar-aging-collections-pulse` | `1.1.3` | Weekly | Ageing buckets, DSO, top-10 overdue customers, credit-limit and dispute flags |
+| `ap-payment-readiness-pulse` | `1.1.3` | Weekly | AP ageing, DPO, payment-run readiness and match exceptions |
+| `inventory-health-pulse` | `1.1.3` | Weekly | On-hand value, turns, days of supply, stock-level exceptions, slow-moving and obsolete items |
+| `procurement-po-health-pulse` | `1.1.3` | Weekly | Open-PO health, late lines, requisition queue and price variance |
+| `production-planning-pulse` | `1.1.3` | Weekly | Production and master-planning status, late orders and shortages |
+| `pl-budget-variance-report` | `1.1.3` | Monthly | P&L, trial balance, budget versus actual and material variances with MoM and YoY |
+| `close-readiness-analytics` | `1.1.3` | Monthly | Period status by module, close blockers (unposted journals, pending invoices, unreconciled lines, depreciation) and the days-to-close trend |
+| `supplier-performance-report` | `1.1.3` | Monthly | OTIF, delay days, rejection, mismatch and lead-time variance per vendor; no composite score |
 
 Folder names match the declared names. The eleven skill folders (`SKILL.md` and `reference.md`)
 are byte-identical across the two archives, and both archives carry the same `README.md` and
