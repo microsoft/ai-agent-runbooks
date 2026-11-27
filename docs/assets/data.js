@@ -636,13 +636,13 @@ const SCENARIOS = [
     "type": "Employee Self-Service (HR)"
   },
   {
-    "id": "HR-Onboarding-Agent-GHCP",
-    "title": "HR Onboarding Agent with GHCP Harness",
+    "id": "HR-Onboarding-Agent-Microsoft-Copilot-Harness",
+    "title": "HR Onboarding Agent with Microsoft Copilot Harness",
     "icon": "🧑‍💼",
     "desc": "Normal HR chat, onboarding plans and connected user-mailbox replies with two skills. Outlook sends the agent's HTML without per-message approval; development scope and limitations are documented.",
     "tech": [
       "Microsoft Copilot Studio",
-      "GitHub Copilot harness",
+      "Microsoft Copilot harness",
       "Workflows",
       "Outlook",
       "ServiceNow"

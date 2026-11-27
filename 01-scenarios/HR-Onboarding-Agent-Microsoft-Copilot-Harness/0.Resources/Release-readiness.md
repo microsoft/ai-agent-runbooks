@@ -8,7 +8,7 @@ Keep actual tenant IDs, contacts and results in an access-controlled deployment 
 
 | Gate | Owner | Required evidence / exit criterion |
 |---|---|---|
-| G1 | Tenant admin, delivery and cost owners | Suitable environment, GHCP authoring access, approved model/data policies and Copilot Credits or pay-as-you-go billing |
+| G1 | Tenant admin, delivery and cost owners | Suitable environment, Microsoft Copilot authoring access, approved model/data policies and Copilot Credits or pay-as-you-go billing |
 | G2 | HR content owner and ServiceNow admin | Approved articles by topic, audience and effective date; usable citations and known conflicts/gaps |
 | G3 | M365 identity and ServiceNow admins | Tested source permissions for permitted, denied and revoked users; an audience-safe email knowledge scope |
 | G4 | Delivery/test owner and HR reviewer | Normal chat, checklist and follow-up tests pass; policy claims and citations manually reviewed |

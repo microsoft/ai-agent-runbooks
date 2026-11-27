@@ -1,6 +1,6 @@
 # Employee HR runtime skills
 
-These two Markdown files provide reusable task instructions for **HR Onboarding Agent in Microsoft Copilot Studio's GitHub Copilot harness**. Import them into the same agent; they are not separate agents and are not installed into the repository coding assistant.
+These two Markdown files provide reusable task instructions for **HR Onboarding Agent in Microsoft Copilot Studio's Microsoft Copilot harness**. Import them into the same agent; they are not separate agents and are not installed into the repository coding assistant.
 
 ## Skills at a glance
 
@@ -9,7 +9,7 @@ These two Markdown files provide reusable task instructions for **HR Onboarding 
 | [hr-onboarding-checklist.md](hr-onboarding-checklist.md) | Search knowledge and return a phased, numbered onboarding plan in chat | Configured onboarding knowledge, supplied details and placeholders for unknown specifics |
 | [hr-email-reply.md](hr-email-reply.md) | HTML email body with a source table | ServiceNow article content already retrieved by the agent; this skill does not search ServiceNow |
 
-Download the [onboarding checklist](https://raw.githubusercontent.com/microsoft/ai-agent-runbooks/main/01-scenarios/HR-Onboarding-Agent-GHCP/0.Resources/Skills/hr-onboarding-checklist.md) or [email reply](https://raw.githubusercontent.com/microsoft/ai-agent-runbooks/main/01-scenarios/HR-Onboarding-Agent-GHCP/0.Resources/Skills/hr-email-reply.md) as raw Markdown. If the browser displays text, press **Ctrl+S** and keep the corresponding `.md` filename.
+Download the [onboarding checklist](https://raw.githubusercontent.com/microsoft/ai-agent-runbooks/main/01-scenarios/HR-Onboarding-Agent-Microsoft-Copilot-Harness/0.Resources/Skills/hr-onboarding-checklist.md) or [email reply](https://raw.githubusercontent.com/microsoft/ai-agent-runbooks/main/01-scenarios/HR-Onboarding-Agent-Microsoft-Copilot-Harness/0.Resources/Skills/hr-email-reply.md) as raw Markdown. If the browser displays text, press **Ctrl+S** and keep the corresponding `.md` filename.
 
 ## What a skill adds
 
