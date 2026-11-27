@@ -327,13 +327,13 @@ const SCENARIOS = [
     "type": "Payment Approval Automation"
   },
   {
-    "id": "Autonomous-Invoice-Orchestration-Agent-GHCP",
-    "title": "Autonomous Invoice Orchestration Agent with GHCP Harness",
+    "id": "Autonomous-Invoice-Orchestration-Agent-Microsoft-Copilot-Harness",
+    "title": "Autonomous Invoice Orchestration Agent with Microsoft Copilot Harness",
     "icon": "🧾",
     "desc": "Email-triggered PDF invoice extraction into Dataverse and a JSON review file, then approval or Finance review, using one skill and two Workflows flows. Implementation and tenant validation are required.",
     "tech": [
       "Microsoft Copilot Studio",
-      "GitHub Copilot harness",
+      "Microsoft Copilot harness",
       "Workflows",
       "Outlook",
       "SharePoint",

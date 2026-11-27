@@ -495,7 +495,7 @@ Repository walkthroughs for applying the decision:
 [HR standard](../../01-scenarios/HR-Onboarding-Agent/1.Overview.md),
 [HR GHCP](../../01-scenarios/HR-Onboarding-Agent-GHCP/1.Overview.md),
 [invoice standard](../../01-scenarios/Autonomous-Invoice-Orchestration-Agent/1.Overview.md),
-[invoice GHCP](../../01-scenarios/Autonomous-Invoice-Orchestration-Agent-GHCP/1.Overview.md),
+[invoice Microsoft Copilot](../../01-scenarios/Autonomous-Invoice-Orchestration-Agent-Microsoft-Copilot-Harness/1.Overview.md),
 and [CRM account planning with Cowork](../../01-scenarios/CRM-Account-Planning-Cowork-Agent/1.Overview.md).
 Their scopes and delivered assets differ; they are implementation references, not an A/B benchmark.
 
