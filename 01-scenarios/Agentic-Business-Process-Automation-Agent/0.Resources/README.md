@@ -25,7 +25,7 @@ and its package names can change.
 
 The [overview comparison](../1.Overview.md#additional-value-compared-with-the-invoice-scenarios)
 uses the existing [invoice overview](../../Autonomous-Invoice-Orchestration-Agent/1.Overview.md)
-and [GHCP invoice overview](../../Autonomous-Invoice-Orchestration-Agent-GHCP/1.Overview.md).
+and [Microsoft Copilot invoice overview](../../Autonomous-Invoice-Orchestration-Agent-Microsoft-Copilot-Harness/1.Overview.md).
 It does not infer a production capability from the mere presence of a solution package.
 
 ## Availability and Validation
