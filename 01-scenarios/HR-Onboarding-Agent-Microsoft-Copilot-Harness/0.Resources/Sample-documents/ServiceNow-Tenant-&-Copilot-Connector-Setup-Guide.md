@@ -389,7 +389,7 @@ Before continuing, confirm that the OIDC integration is **Active**, the client I
 
 3. Use the following prompts to verify the connector is working:
 
-> Restrict the test to the configured HR source and inspect citations and access. Do not treat a web-content switch as proof of grounding; GHCP has no general-knowledge toggle.
+> Restrict the test to the configured HR source and inspect citations and access. Do not treat a web-content switch as proof of grounding; Microsoft Copilot has no general-knowledge toggle.
 
 | Scenario | Prompt |
 |---|---|
